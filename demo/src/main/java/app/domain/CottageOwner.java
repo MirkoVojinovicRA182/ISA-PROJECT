@@ -3,30 +3,19 @@ package app.domain;
 import app.domain.enums.UserType;
 
 public class CottageOwner extends User{
-    private UserType userType;
     private String registrationExplanation;
 
     public CottageOwner() {
     }
 
-    public CottageOwner(Long id, String email, String password, String name, String lastName, String adress, String city, String country, String phoneNumber, UserType userType, String registrationExplanation) {
-        super(id, email, password, name, lastName, adress, city, country, phoneNumber);
-        this.userType = userType;
+    public CottageOwner(Long id, String email, String password, String name, String lastName, String address, String city, String country, String phoneNumber, UserType userType, String registrationExplanation) {
+        super(id, email, password, name, lastName, address, city, country, phoneNumber, userType);
         this.registrationExplanation = registrationExplanation;
     }
 
-    public CottageOwner(String email, String password, String name, String lastName, String adress, String city, String country, String phoneNumber, UserType userType, String registrationExplanation) {
-        super(email, password, name, lastName, adress, city, country, phoneNumber);
-        this.userType = userType;
+    public CottageOwner(String email, String password, String name, String lastName, String address, String city, String country, String phoneNumber, UserType userType, String registrationExplanation) {
+        super(email, password, name, lastName, address, city, country, phoneNumber, userType);
         this.registrationExplanation = registrationExplanation;
-    }
-
-    public UserType getUserType() {
-        return userType;
-    }
-
-    public void setUserType(UserType userType) {
-        this.userType = userType;
     }
 
     public String getRegistrationExplanation() {
