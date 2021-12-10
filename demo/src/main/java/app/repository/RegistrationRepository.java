@@ -45,7 +45,7 @@ public class RegistrationRepository {
         }
         else if(type.equals(UserType.Instructor)) {
             Instructor instructor = new Instructor(user.getEmail(), user.getPassword(), user.getName(),
-                    user.getLastName(), user.getAddress(), user.getCity(), user.getCountry(), user.getPhoneNumber(), user.getUserType());
+                    user.getLastName(), user.getAddress(), user.getCity(), user.getCountry(), user.getPhoneNumber(), user.getUserType(), new InstructorServiceProfile());
             instructors.add(instructor);
             return instructor;
         }

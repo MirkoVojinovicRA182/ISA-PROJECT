@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6__2_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/Instructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Instructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/RegistrationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/RegistrationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/ShipOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/ShipOwner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/enums/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/enums/UserType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/repository/RegistrationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/repository/RegistrationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1638987445600</updated>
       <workItem from="1638987450455" duration="1691000" />
-      <workItem from="1639132306460" duration="7643000" />
+      <workItem from="1639132306460" duration="11459000" />
     </task>
     <servers />
   </component>
