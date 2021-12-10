@@ -2,7 +2,7 @@ package app.domain.enums;
 
 public enum UserType {
     CottageOwner,
-    ShipsOwner,
+    ShipOwner,
     Instructor,
     Client,
     Administrator

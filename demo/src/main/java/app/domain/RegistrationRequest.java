@@ -7,14 +7,16 @@ import java.time.LocalDate;
 public class RegistrationRequest {
     private Long id;
     private User userToRegister;
+    private String registrationExplanation;
     private LocalDate requestDate;
 
     public RegistrationRequest() {
     }
 
-    public RegistrationRequest(Long id, User userToRegister, LocalDate requestDate) {
+    public RegistrationRequest(Long id, User userToRegister, String registrationExplanation, LocalDate requestDate) {
         this.id = id;
         this.userToRegister = userToRegister;
+        this.registrationExplanation = registrationExplanation;
         this.requestDate = requestDate;
     }
 
@@ -33,6 +35,10 @@ public class RegistrationRequest {
     public void setUserToRegister(User userToRegister) {
         this.userToRegister = userToRegister;
     }
+
+    public String getRegistrationExplanation() { return registrationExplanation; }
+
+    public void setRegistrationExplanation(String registrationExplanation) { this.registrationExplanation = registrationExplanation; }
 
     public LocalDate getRequestDate() {
         return requestDate;
