@@ -1,58 +1,60 @@
 package app.domain;
 
-import java.util.List;
+import javax.persistence.*;
+import java.util.Set;
 
+@Entity
 public class InstructorServiceProfile {
-    private Long id;
+
+    @Id
+    @SequenceGenerator(name = "instructorServiceIdSeqGen", sequenceName = "instructorServiceIdSeq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instructorServiceSeqGen")
+    private Integer id;
+
+    @Column(name = "name", unique = false, nullable = false)
     private String name;
+
+    @Column(name = "address", unique = false, nullable = false)
     private String address;
+
+    @Column(name = "promotionalDescription", unique = false, nullable = false)
     private String promotionalDescription;
+
+    @Column(name = "instructorBiography", unique = false, nullable = false)
     private String instructorBiography;
-    private List<String> images;
+
+    //private List<String> images;
+
+    @Column(name = "maxCountOfParticipants", unique = false, nullable = false)
     private int maxCountOfParticipants;
-    private List<FastFishingReservation> fastFishingReservations;
+
+    @OneToMany(mappedBy = "instructorServiceProfile", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<FastFishingReservation> fastFishingReservations;
+
+    @Column(name = "rulesOfConduct", unique = false, nullable = false)
     private String rulesOfConduct;
+
+    @Column(name = "defaultEquipment", unique = false, nullable = false)
     private String defaultEquipment;
+
+    @Column(name = "pricelist", unique = false, nullable = false)
     private String pricelist;
+
+    @Column(name = "termsOfUse", unique = false, nullable = false)
     private String termsOfUse;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "instructor_id")
+    private Instructor instructor;
 
     public InstructorServiceProfile() {
     }
 
-    public InstructorServiceProfile(Long id, String name, String address, String promotionalDescription, String instructorBiography, List<String> images, int maxCountOfParticipants, List<FastFishingReservation> fastFishingReservations, String rulesOfConduct, String defaultEquipment, String pricelist, String termsOfUse) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.promotionalDescription = promotionalDescription;
-        this.instructorBiography = instructorBiography;
-        this.images = images;
-        this.maxCountOfParticipants = maxCountOfParticipants;
-        this.fastFishingReservations = fastFishingReservations;
-        this.rulesOfConduct = rulesOfConduct;
-        this.defaultEquipment = defaultEquipment;
-        this.pricelist = pricelist;
-        this.termsOfUse = termsOfUse;
-    }
-
-    public InstructorServiceProfile(String name, String address, String promotionalDescription, String instructorBiography, List<String> images, int maxCountOfParticipants, List<FastFishingReservation> fastFishingReservations, String rulesOfConduct, String defaultEquipment, String pricelist, String termsOfUse) {
-        this.name = name;
-        this.address = address;
-        this.promotionalDescription = promotionalDescription;
-        this.instructorBiography = instructorBiography;
-        this.images = images;
-        this.maxCountOfParticipants = maxCountOfParticipants;
-        this.fastFishingReservations = fastFishingReservations;
-        this.rulesOfConduct = rulesOfConduct;
-        this.defaultEquipment = defaultEquipment;
-        this.pricelist = pricelist;
-        this.termsOfUse = termsOfUse;
-    }
-
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -88,13 +90,13 @@ public class InstructorServiceProfile {
         this.instructorBiography = instructorBiography;
     }
 
-    public List<String> getImages() {
+    /*public List<String> getImages() {
         return images;
     }
 
     public void setImages(List<String> images) {
         this.images = images;
-    }
+    }*/
 
     public int getMaxCountOfParticipants() {
         return maxCountOfParticipants;
@@ -104,11 +106,11 @@ public class InstructorServiceProfile {
         this.maxCountOfParticipants = maxCountOfParticipants;
     }
 
-    public List<FastFishingReservation> getFastFishingReservations() {
+    public Set<FastFishingReservation> getFastFishingReservations() {
         return fastFishingReservations;
     }
 
-    public void setFastFishingReservations(List<FastFishingReservation> fastFishingReservations) {
+    public void setFastFishingReservations(Set<FastFishingReservation> fastFishingReservations) {
         this.fastFishingReservations = fastFishingReservations;
     }
 
@@ -142,5 +144,13 @@ public class InstructorServiceProfile {
 
     public void setTermsOfUse(String termsOfUse) {
         this.termsOfUse = termsOfUse;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 }

@@ -6,7 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/DatabaseTestClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/FastFishingReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/FastFishingReservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/Instructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Instructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorServiceProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorServiceProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/RegistrationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/RegistrationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/ShipOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/ShipOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/repository/RegistrationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/utility/Utility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +38,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/demo/src/main/java/app/domain/User.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwner.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/demo/src/main/java/app/IsaProjectApplication.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -46,7 +56,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="PLAIN_TEXT" />
-    <property name="last_opened_file_path" value="D:/Mirko/FAKS/IV godina/Predmeti/1. semestar/Internet softverske arhitekture/Vežbe/Repozitorijum/isara2021vezbe-main/Vezbe04/jpa-example" />
+    <property name="last_opened_file_path" value="D:/Mirko/FAKS/IV godina/Predmeti/1. semestar/Internet softverske arhitekture/Vežbe/Repozitorijum/isara2021vezbe-main/Vezbe04/inheritance-example" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -71,6 +81,7 @@
       <workItem from="1638987450455" duration="1691000" />
       <workItem from="1639132306460" duration="11459000" />
       <workItem from="1639583762365" duration="3736000" />
+      <workItem from="1639862036055" duration="11925000" />
     </task>
     <servers />
   </component>

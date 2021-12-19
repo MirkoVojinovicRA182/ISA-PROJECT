@@ -8,7 +8,7 @@ import java.util.Properties;
 public class Utility {
 
     public static void sendMail(String email, String messageSubject, String messageBody){
-        String to = "pswtestmail@gmail.com";
+        /*String to = "pswtestmail@gmail.com";
         String from = "pswtestmail@gmail.com";
         String pass = "pswtestmail567";
         String host = "smtp.gmail.com";
@@ -18,7 +18,7 @@ public class Utility {
         properties.put("mail.smtp.host", host);
         properties.put("mail.smtp.user", from);
         properties.put("mail.smtp.password", pass);
-        properties.put("mail.smtp.port", "465");
+        properties.put("mail.smtp.port", "567");
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         properties.put("mail.debug", "true");
@@ -42,6 +42,6 @@ public class Utility {
             transport.close();
             System.out.println("Sent message successfully....");
         }
-        catch (MessagingException mex){ mex.printStackTrace(); }
+        catch (MessagingException mex){ mex.printStackTrace(); }*/
     }
 }

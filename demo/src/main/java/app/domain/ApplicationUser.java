@@ -1,23 +1,48 @@
 package app.domain;
 
-import app.domain.enums.UserType;
+//import app.domain.enums.UserType;
 
-public class User {
-    private Long id;
+import javax.persistence.*;
+
+
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public abstract class ApplicationUser {
+
+    @Id
+    @SequenceGenerator(name = "userIdSeqGen", sequenceName = "userIdSeq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userIdSeqGen")
+    private Integer id;
+
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
-    private String password;
-    private String name;
-    private String lastName;
-    private String address;
-    private String city;
-    private String country;
-    private String phoneNumber;
-    private UserType userType;
 
-    public User() {
+    @Column(name = "password", unique = true, nullable = false)
+    private String password;
+
+    @Column(name = "name", unique = false, nullable = false)
+    private String name;
+
+    @Column(name = "lastName", unique = false, nullable = false)
+    private String lastName;
+
+    @Column(name = "address", unique = false, nullable = false)
+    private String address;
+
+    @Column(name = "city", unique = false, nullable = false)
+    private String city;
+
+    @Column(name = "country", unique = false, nullable = false)
+    private String country;
+
+    @Column(name = "phoneNumber", unique = true, nullable = false)
+    private String phoneNumber;
+
+
+    public ApplicationUser() {
     }
 
-    public User(Long id, String email, String password, String name, String lastName, String address, String city, String country, String phoneNumber, UserType userType) {
+    public ApplicationUser(Integer id, String email, String password, String name, String lastName, String address, String city, String country, String phoneNumber) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -27,10 +52,9 @@ public class User {
         this.city = city;
         this.country = country;
         this.phoneNumber = phoneNumber;
-        this.userType = userType;
     }
 
-    public User(String email, String password, String name, String lastName, String address, String city, String country, String phoneNumber, UserType userType) {
+    public ApplicationUser(String email, String password, String name, String lastName, String address, String city, String country, String phoneNumber) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -39,14 +63,13 @@ public class User {
         this.city = city;
         this.country = country;
         this.phoneNumber = phoneNumber;
-        this.userType = userType;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -112,13 +135,5 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public UserType getUserType() {
-        return userType;
-    }
-
-    public void setUserType(UserType userType) {
-        this.userType = userType;
     }
 }

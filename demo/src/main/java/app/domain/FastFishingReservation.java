@@ -1,44 +1,43 @@
 package app.domain;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Entity
 public class FastFishingReservation {
-    private Long id;
+    @Id
+    @SequenceGenerator(name = "fastFishingReservationIdSeqGen", sequenceName = "fastFishingReservationIdSeq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fastFishingReservationSeqGen")
+    private Integer id;
+
+    @Column(name = "startTime", unique = false, nullable = false)
     private LocalDateTime startTime;
-    private String place;
+
+    @Column(name = "duration", unique = false, nullable = false)
     private double duration;
-    private int maxCountOfParticipants;
-    private List<String> additionalServices;
-    private double price;
+    //private List<String> additionalServices;
+    @Column(name = "startValidityTime", unique = false, nullable = false)
+    private LocalDateTime startValidityTime;
+
+    @Column(name = "endValidityTime", unique = false, nullable = false)
+    private LocalDateTime endValidityTime;
+
+    @Column(name = "discount", unique = false, nullable = false)
+    private double discount;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "instructorServiceProfile_id")
+    private InstructorServiceProfile instructorServiceProfile;
 
     public FastFishingReservation() {
     }
 
-    public FastFishingReservation(Long id, LocalDateTime startTime, String place, double duration, int maxCountOfParticipants, List<String> additionalServices, double price) {
-        this.id = id;
-        this.startTime = startTime;
-        this.place = place;
-        this.duration = duration;
-        this.maxCountOfParticipants = maxCountOfParticipants;
-        this.additionalServices = additionalServices;
-        this.price = price;
-    }
-
-    public FastFishingReservation(LocalDateTime startTime, String place, double duration, int maxCountOfParticipants, List<String> additionalServices, double price) {
-        this.startTime = startTime;
-        this.place = place;
-        this.duration = duration;
-        this.maxCountOfParticipants = maxCountOfParticipants;
-        this.additionalServices = additionalServices;
-        this.price = price;
-    }
-
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -50,14 +49,6 @@ public class FastFishingReservation {
         this.startTime = startTime;
     }
 
-    public String getPlace() {
-        return place;
-    }
-
-    public void setPlace(String place) {
-        this.place = place;
-    }
-
     public double getDuration() {
         return duration;
     }
@@ -66,27 +57,43 @@ public class FastFishingReservation {
         this.duration = duration;
     }
 
-    public int getMaxCountOfParticipants() {
-        return maxCountOfParticipants;
-    }
-
-    public void setMaxCountOfParticipants(int maxCountOfParticipants) {
-        this.maxCountOfParticipants = maxCountOfParticipants;
-    }
-
-    public List<String> getAdditionalServices() {
+    /*public List<String> getAdditionalServices() {
         return additionalServices;
     }
 
     public void setAdditionalServices(List<String> additionalServices) {
         this.additionalServices = additionalServices;
+    }*/
+
+    public LocalDateTime getStartValidityTime() {
+        return startValidityTime;
     }
 
-    public double getPrice() {
-        return price;
+    public void setStartValidityTime(LocalDateTime startValidityTime) {
+        this.startValidityTime = startValidityTime;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public LocalDateTime getEndValidityTime() {
+        return endValidityTime;
+    }
+
+    public void setEndValidityTime(LocalDateTime endValidityTime) {
+        this.endValidityTime = endValidityTime;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    public InstructorServiceProfile getInstructorServiceProfile() {
+        return instructorServiceProfile;
+    }
+
+    public void setInstructorServiceProfile(InstructorServiceProfile instructorServiceProfile) {
+        this.instructorServiceProfile = instructorServiceProfile;
     }
 }

@@ -1,7 +1,9 @@
 package app.controller;
 
 import app.domain.RegistrationRequest;
-import app.domain.User;
+import app.domain.ApplicationUser;
+import app.domain.enums.UserType;
+import app.dto.UserToRegisterDto;
 import app.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,16 +29,16 @@ public class RegistrationController {
 
     @RequestMapping("/createRegistrationRequest")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<RegistrationRequest> createGreeting(@RequestBody RegistrationRequest greeting) throws Exception {
-        RegistrationRequest savedRequest = registrationService.createRegistrationRequest(greeting);
+    public ResponseEntity<RegistrationRequest> createGreeting(@RequestBody RegistrationRequest registrationRequest) throws Exception {
+        RegistrationRequest savedRequest = registrationService.saveRegistrationRequest(registrationRequest);
         return new ResponseEntity<RegistrationRequest>(savedRequest, HttpStatus.CREATED);
     }
 
     @RequestMapping("/approveRegistration")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<User> approveRegistration(@RequestBody User newUser) throws Exception {
-        User savedUser = registrationService.approveRegistration(newUser);
-        return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
+    public ResponseEntity<ApplicationUser> approveRegistration(@RequestBody UserToRegisterDto dto) throws Exception {
+        ApplicationUser savedUser = registrationService.approveRegistration(dto);
+        return new ResponseEntity<ApplicationUser>(savedUser, HttpStatus.CREATED);
     }
 
     @RequestMapping("/ejectRegistration")

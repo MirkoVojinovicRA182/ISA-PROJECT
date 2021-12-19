@@ -1,44 +1,52 @@
 package app.service;
 
-import app.domain.RegistrationRequest;
-import app.domain.User;
-import app.repository.RegistrationRepository;
+import app.domain.*;
+import app.domain.enums.UserType;
+import app.dto.UserToRegisterDto;
+import app.repository.*;
 import app.utility.Utility;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
+import java.util.List;
 
 @Service
 public class RegistrationServiceImpl implements RegistrationService{
 
     @Autowired
-    private RegistrationRepository registrationRepository;
+    private RegistrationRequestRepository registrationRequestRepository;
+
+    @Autowired
+    private CottageOwnerRepository cottageOwnerRepository;
+
+    @Autowired
+    private ShipOwnerRepository shipOwnerRepository;
+
+    @Autowired
+    private InstructorRepository instructorRepository;
 
     @Override
-    public Collection<RegistrationRequest> findAll() {
-        return registrationRepository.findAll();
-    }
+    public RegistrationRequest saveRegistrationRequest(RegistrationRequest request) { return registrationRequestRepository.save(request); }
 
     @Override
-    public RegistrationRequest createRegistrationRequest(RegistrationRequest request) throws Exception {
-        if (request.getId() != null) {
-            throw new Exception("Id needs to be null.");
-        }
-        if(request.getUserToRegister() == null){
-            throw new Exception("User can't be null!");
-        }
-        return registrationRepository.createRegistrationRequest(request);
-    }
+    public List<RegistrationRequest> findAll() { return registrationRequestRepository.findAll(); }
 
     @Override
-    public User approveRegistration(User newUser) throws Exception {
-        if (newUser.getId() != null) {
-            throw new Exception("Id needs to be null.");
-        }
-        Utility.sendMail(newUser.getEmail(), "Approved", "Your registration request has been approved.");
+    public ApplicationUser approveRegistration(UserToRegisterDto dto) throws Exception {
+        Utility.sendMail(dto.getEmail(), "Approved", "Your registration request has been approved.");
 
-        return registrationRepository.registerUser(newUser);
+        if(dto.getUserType().equals(UserType.CottageOwner))
+            return cottageOwnerRepository.save(new CottageOwner(dto.getEmail(), dto.getPassword(),
+                    dto.getName(), dto.getLastName(), dto.getAddress(), dto.getCity(),
+                    dto.getCountry(), dto.getPhoneNumber()));
+        if(dto.getUserType().equals(UserType.ShipOwner))
+            return shipOwnerRepository.save(new ShipOwner(dto.getEmail(), dto.getPassword(), dto.getName(), dto.getLastName(),
+                    dto.getAddress(), dto.getCity(), dto.getCountry(), dto.getPhoneNumber()));
+        if(dto.getUserType().equals(UserType.Instructor))
+            return instructorRepository.save(new Instructor(dto.getEmail(), dto.getPassword(), dto.getName(), dto.getLastName(),
+                    dto.getAddress(), dto.getCity(), dto.getCountry(), dto.getPhoneNumber()));
+        return null;
     }
 
     @Override
