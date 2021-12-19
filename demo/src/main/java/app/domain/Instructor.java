@@ -13,7 +13,7 @@ import java.util.Set;
 public class Instructor extends ApplicationUser{
 
     @OneToMany(mappedBy = "instructor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<InstructorServiceProfile> services;
+    private Set<InstructorAdventure> services;
     public Instructor() {
     }
     public Instructor(String email, String password, String name, String lastName, String address, String city,
@@ -21,11 +21,11 @@ public class Instructor extends ApplicationUser{
         super(email, password, name, lastName, address, city, country, phoneNumber);
     }
 
-    public Set<InstructorServiceProfile> getServices() {
+    public Set<InstructorAdventure> getServices() {
         return services;
     }
 
-    public void setProfile(Set<InstructorServiceProfile> services) {
+    public void setProfile(Set<InstructorAdventure> services) {
         this.services = services;
     }
 }

@@ -2,13 +2,12 @@ package app.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
-public class FastFishingReservation {
+public class AdventureFastRegistration {
     @Id
-    @SequenceGenerator(name = "fastFishingReservationIdSeqGen", sequenceName = "fastFishingReservationIdSeq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fastFishingReservationSeqGen")
+    @SequenceGenerator(name = "adventureFastRegistrationIdSeqGen", sequenceName = "adventureFastRegistrationIdSeq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adventureFastRegistrationSeqGen")
     private Integer id;
 
     @Column(name = "startTime", unique = false, nullable = false)
@@ -27,10 +26,10 @@ public class FastFishingReservation {
     private double discount;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "instructorServiceProfile_id")
-    private InstructorServiceProfile instructorServiceProfile;
+    @JoinColumn(name = "instructorAdventure_id")
+    private InstructorAdventure instructorAdventure;
 
-    public FastFishingReservation() {
+    public AdventureFastRegistration() {
     }
 
     public Integer getId() {
@@ -89,11 +88,11 @@ public class FastFishingReservation {
         this.discount = discount;
     }
 
-    public InstructorServiceProfile getInstructorServiceProfile() {
-        return instructorServiceProfile;
+    public InstructorAdventure getInstructorServiceProfile() {
+        return instructorAdventure;
     }
 
-    public void setInstructorServiceProfile(InstructorServiceProfile instructorServiceProfile) {
-        this.instructorServiceProfile = instructorServiceProfile;
+    public void setInstructorAdventureProfile(InstructorAdventure instructorAdventure) {
+        this.instructorAdventure = instructorAdventure;
     }
 }

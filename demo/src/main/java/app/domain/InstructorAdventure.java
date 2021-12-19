@@ -4,11 +4,10 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class InstructorServiceProfile {
-
+public class InstructorAdventure {
     @Id
-    @SequenceGenerator(name = "instructorServiceIdSeqGen", sequenceName = "instructorServiceIdSeq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instructorServiceSeqGen")
+    @SequenceGenerator(name = "instructorAdventureIdSeqGen", sequenceName = "instructorAdventureIdSeq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instructorAdventureSeqGen")
     private Integer id;
 
     @Column(name = "name", unique = false, nullable = false)
@@ -28,9 +27,6 @@ public class InstructorServiceProfile {
     @Column(name = "maxCountOfParticipants", unique = false, nullable = false)
     private int maxCountOfParticipants;
 
-    @OneToMany(mappedBy = "instructorServiceProfile", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<FastFishingReservation> fastFishingReservations;
-
     @Column(name = "rulesOfConduct", unique = false, nullable = false)
     private String rulesOfConduct;
 
@@ -43,11 +39,14 @@ public class InstructorServiceProfile {
     @Column(name = "termsOfUse", unique = false, nullable = false)
     private String termsOfUse;
 
+    @OneToMany(mappedBy = "instructorAdventure", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<AdventureFastRegistration> adventureFastRegistrations;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
-    public InstructorServiceProfile() {
+    public InstructorAdventure() {
     }
 
     public Integer getId() {
@@ -106,12 +105,12 @@ public class InstructorServiceProfile {
         this.maxCountOfParticipants = maxCountOfParticipants;
     }
 
-    public Set<FastFishingReservation> getFastFishingReservations() {
-        return fastFishingReservations;
+    public Set<AdventureFastRegistration> getFastFishingReservations() {
+        return adventureFastRegistrations;
     }
 
-    public void setFastFishingReservations(Set<FastFishingReservation> fastFishingReservations) {
-        this.fastFishingReservations = fastFishingReservations;
+    public void setFastFishingReservations(Set<AdventureFastRegistration> adventureFastRegistrations) {
+        this.adventureFastRegistrations = adventureFastRegistrations;
     }
 
     public String getRulesOfConduct() {
