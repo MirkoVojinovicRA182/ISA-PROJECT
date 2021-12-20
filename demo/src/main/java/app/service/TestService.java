@@ -32,7 +32,7 @@ public class TestService {
         organRepository.save(organ);
     }
 
-    public Optional<Body> getBody() {
-        return bodyRepository.findById(1);
+    public Body getBody() {
+        return bodyRepository.findById(1).orElseGet(null);
     }
 }

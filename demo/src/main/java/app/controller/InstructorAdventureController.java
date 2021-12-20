@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import javax.websocket.server.PathParam;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -23,14 +25,14 @@ public class InstructorAdventureController {
 
     @RequestMapping("/createInstructorAdventure")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<InstructorAdventureDTO> createGreeting(@RequestBody InstructorAdventureDTO dto) throws Exception {
+    public ResponseEntity<InstructorAdventureDTO> createAdventure(@RequestBody InstructorAdventureDTO dto) throws Exception {
         instructorAdventureService.saveAdventure(dto);
         return new ResponseEntity<InstructorAdventureDTO>(dto, HttpStatus.CREATED);
     }
 
-    /*@RequestMapping("/getAdventures")
+    @RequestMapping("/getAdventures/{instructorId}")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<AdventureDTO>> createGreeting(@RequestBody Integer instructorId){
-
-    }*/
+    public ResponseEntity<List<InstructorAdventureDTO>> getAdventuresByInstructorId(@PathVariable Integer instructorId){
+        return new ResponseEntity<List<InstructorAdventureDTO>>(instructorAdventureService.getAdventuresByInstructorId(instructorId), HttpStatus.OK);
+    }
 }

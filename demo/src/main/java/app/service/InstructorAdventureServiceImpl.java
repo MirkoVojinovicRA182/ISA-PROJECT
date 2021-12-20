@@ -8,7 +8,10 @@ import app.repository.InstructorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class InstructorAdventureServiceImpl implements InstructorAdventureService{
@@ -21,7 +24,7 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
 
     @Override
     public void saveAdventure(InstructorAdventureDTO dto) {
-        InstructorAdventure adventure1 = new InstructorAdventure(
+        InstructorAdventure adventure = new InstructorAdventure(
                 dto.getName(),
                 dto.getAddress(),
                 dto.getPromotionalDescription(),
@@ -32,6 +35,15 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
                 dto.getPricelist(),
                 dto.getTermsOfUse(),
                 instructorRepository.getById(dto.getInstructorId()));
-        instructorAdventureRepository.save(adventure1);
+        instructorAdventureRepository.save(adventure);
+    }
+
+    @Override
+    public List<InstructorAdventureDTO> getAdventuresByInstructorId(Integer instructorId) {
+        Instructor instructor = instructorRepository.findById(instructorId).orElseGet(null);
+        List<InstructorAdventureDTO> adventures = new ArrayList<InstructorAdventureDTO>();
+        for(InstructorAdventure a: instructor.getAdventures())
+            adventures.add(new InstructorAdventureDTO(a));
+        return adventures;
     }
 }

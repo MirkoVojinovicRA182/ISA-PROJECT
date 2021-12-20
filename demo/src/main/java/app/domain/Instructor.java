@@ -13,7 +13,7 @@ import java.util.Set;
 @Entity
 public class Instructor extends ApplicationUser{
 
-    @OneToMany(mappedBy = "instructor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "instructor", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<InstructorAdventure> adventures = new HashSet<InstructorAdventure>();
     public Instructor() {
     }

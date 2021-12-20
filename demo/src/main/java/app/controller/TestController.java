@@ -37,7 +37,7 @@ public class TestController {
 
     @RequestMapping("/getBody")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Optional<Body>> getBody(){
-        return new ResponseEntity<Optional<Body>>(testService.getBody(), HttpStatus.OK);
+    public ResponseEntity<Body> getBody(){
+        return new ResponseEntity<Body>(testService.getBody(), HttpStatus.OK);
     }
 }

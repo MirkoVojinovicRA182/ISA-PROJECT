@@ -2,6 +2,7 @@ package app.dto;
 
 import app.domain.AdventureFastRegistration;
 import app.domain.Instructor;
+import app.domain.InstructorAdventure;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -19,6 +20,19 @@ public class InstructorAdventureDTO {
     private int instructorId;
 
     public InstructorAdventureDTO() {
+    }
+
+    public InstructorAdventureDTO(InstructorAdventure a) {
+        name = a.getName();
+        address = a.getAddress();
+        promotionalDescription = a.getPromotionalDescription();
+        instructorBiography = a.getInstructorBiography();
+        maxCountOfParticipants = a.getMaxCountOfParticipants();
+        rulesOfConduct = a.getRulesOfConduct();
+        defaultEquipment = a.getDefaultEquipment();
+        pricelist = a.getPricelist();
+        termsOfUse = a.getTermsOfUse();
+        instructorId = a.getInstructor().getId();
     }
 
     public String getName() {
