@@ -1,8 +1,5 @@
 package app.controller;
 
-import app.domain.Instructor;
-import app.domain.InstructorAdventure;
-import app.domain.RegistrationRequest;
 import app.dto.InstructorAdventureDTO;
 import app.service.InstructorAdventureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
-import javax.websocket.server.PathParam;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/instructorAdventure")
@@ -35,4 +29,11 @@ public class InstructorAdventureController {
     public ResponseEntity<List<InstructorAdventureDTO>> getAdventuresByInstructorId(@PathVariable Integer instructorId){
         return new ResponseEntity<List<InstructorAdventureDTO>>(instructorAdventureService.getAdventuresByInstructorId(instructorId), HttpStatus.OK);
     }
+
+    @DeleteMapping(value = "deleteAdventure/{adventureId}")
+    public ResponseEntity<Void> deleteAdventure(@PathVariable Integer adventureId){
+        instructorAdventureService.deleteAdventure(adventureId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

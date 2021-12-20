@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.domain.Body;
+import app.domain.ClassForDelete;
 import app.domain.Organ;
 import app.domain.RegistrationRequest;
 import app.dto.OrganDTO;
@@ -39,5 +40,18 @@ public class TestController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Body> getBody(){
         return new ResponseEntity<Body>(testService.getBody(), HttpStatus.OK);
+    }
+
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
+        testService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ClassForDelete> create(@RequestBody ClassForDelete classForDelete) throws Exception {
+        testService.save(classForDelete);
+        return new ResponseEntity<ClassForDelete>(classForDelete, HttpStatus.CREATED);
     }
 }

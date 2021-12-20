@@ -44,4 +44,12 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
             adventures.add(new InstructorAdventureDTO(a));
         return adventures;
     }
+
+    @Override
+    public void deleteAdventure(Integer adventureId) {
+        /*Instructor instructor = instructorRepository.findById(adventureId).orElseGet(null);
+        InstructorAdventure adventure = instructorAdventureRepository.findById(adventureId).orElseGet(null);
+        instructor.getAdventures().remove(adventure);*/
+        instructorAdventureRepository.deleteById(adventureId);
+    }
 }
