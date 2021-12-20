@@ -21,22 +21,17 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
 
     @Override
     public void saveAdventure(InstructorAdventureDTO dto) {
-        Instructor instructor = instructorRepository.getById(dto.getInstructorId());
-
-        InstructorAdventure adventure = new InstructorAdventure();
-        adventure.setName(dto.getName());
-        adventure.setAddress(dto.getAddress());
-        adventure.setPromotionalDescription(dto.getPromotionalDescription());
-        adventure.setInstructorBiography(dto.getInstructorBiography());
-        adventure.setMaxCountOfParticipants(dto.getMaxCountOfParticipants());
-        adventure.setRulesOfConduct(dto.getRulesOfConduct());
-        adventure.setDefaultEquipment(dto.getDefaultEquipment());
-        adventure.setPricelist(dto.getPricelist());
-        adventure.setTermsOfUse(dto.getTermsOfUse());
-        adventure.setInstructor(instructor);
-
-        //instructor.addAdventure(adventure);
-
-        instructorAdventureRepository.save(adventure);
+        InstructorAdventure adventure1 = new InstructorAdventure(
+                dto.getName(),
+                dto.getAddress(),
+                dto.getPromotionalDescription(),
+                dto.getInstructorBiography(),
+                dto.getMaxCountOfParticipants(),
+                dto.getRulesOfConduct(),
+                dto.getDefaultEquipment(),
+                dto.getPricelist(),
+                dto.getTermsOfUse(),
+                instructorRepository.getById(dto.getInstructorId()));
+        instructorAdventureRepository.save(adventure1);
     }
 }

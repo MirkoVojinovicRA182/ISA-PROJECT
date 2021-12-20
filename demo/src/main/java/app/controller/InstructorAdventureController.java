@@ -27,4 +27,10 @@ public class InstructorAdventureController {
         instructorAdventureService.saveAdventure(dto);
         return new ResponseEntity<InstructorAdventureDTO>(dto, HttpStatus.CREATED);
     }
+
+    /*@RequestMapping("/getAdventures")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<AdventureDTO>> createGreeting(@RequestBody Integer instructorId){
+
+    }*/
 }

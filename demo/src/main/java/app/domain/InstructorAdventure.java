@@ -53,6 +53,19 @@ public class InstructorAdventure {
     public InstructorAdventure() {
     }
 
+    public InstructorAdventure(String name, String address, String promotionalDescription, String instructorBiography, int maxCountOfParticipants, String rulesOfConduct, String defaultEquipment, String pricelist, String termsOfUse, Instructor instructor) {
+        this.name = name;
+        this.address = address;
+        this.promotionalDescription = promotionalDescription;
+        this.instructorBiography = instructorBiography;
+        this.maxCountOfParticipants = maxCountOfParticipants;
+        this.rulesOfConduct = rulesOfConduct;
+        this.defaultEquipment = defaultEquipment;
+        this.pricelist = pricelist;
+        this.termsOfUse = termsOfUse;
+        this.instructor = instructor;
+    }
+
     public Integer getId() {
         return id;
     }
