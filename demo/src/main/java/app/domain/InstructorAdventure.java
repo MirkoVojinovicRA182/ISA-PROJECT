@@ -43,9 +43,6 @@ public class InstructorAdventure {
     @Column(name = "termsOfUse", unique = false, nullable = false)
     private String termsOfUse;
 
-    @OneToMany(mappedBy = "instructorAdventure", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<AdventureFastRegistration> adventureFastRegistrations = new HashSet<AdventureFastRegistration>();
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
@@ -120,14 +117,6 @@ public class InstructorAdventure {
 
     public void setMaxCountOfParticipants(int maxCountOfParticipants) {
         this.maxCountOfParticipants = maxCountOfParticipants;
-    }
-
-    public Set<AdventureFastRegistration> getFastFishingReservations() {
-        return adventureFastRegistrations;
-    }
-
-    public void setFastFishingReservations(Set<AdventureFastRegistration> adventureFastRegistrations) {
-        this.adventureFastRegistrations = adventureFastRegistrations;
     }
 
     public String getRulesOfConduct() {

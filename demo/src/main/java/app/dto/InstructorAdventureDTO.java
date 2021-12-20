@@ -1,11 +1,6 @@
 package app.dto;
 
-import app.domain.AdventureFastRegistration;
-import app.domain.Instructor;
 import app.domain.InstructorAdventure;
-
-import javax.persistence.*;
-import java.util.Set;
 
 public class InstructorAdventureDTO {
     private String name;

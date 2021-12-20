@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/InstructorAdventureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/InstructorAdventureController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/Instructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Instructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/AdventureFastRegistration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorAdventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorAdventure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/InstructorAdventureDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/InstructorAdventureDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/InstructorAdventureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/InstructorAdventureService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/InstructorAdventureServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/InstructorAdventureServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/TestService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +74,8 @@
       <workItem from="1639583762365" duration="3736000" />
       <workItem from="1639862036055" duration="13989000" />
       <workItem from="1639926690994" duration="5259000" />
-      <workItem from="1639977141828" duration="14418000" />
+      <workItem from="1639977141828" duration="14715000" />
+      <workItem from="1640014735469" duration="2254000" />
     </task>
     <servers />
   </component>
