@@ -1,13 +1,17 @@
 package app.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 public class InstructorAdventure {
     @Id
     @SequenceGenerator(name = "instructorAdventureIdSeqGen", sequenceName = "instructorAdventureIdSeq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instructorAdventureSeqGen")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instructorAdventureIdSeqGen")
+
     private Integer id;
 
     @Column(name = "name", unique = false, nullable = false)
@@ -40,9 +44,9 @@ public class InstructorAdventure {
     private String termsOfUse;
 
     @OneToMany(mappedBy = "instructorAdventure", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<AdventureFastRegistration> adventureFastRegistrations;
+    private Set<AdventureFastRegistration> adventureFastRegistrations = new HashSet<AdventureFastRegistration>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 

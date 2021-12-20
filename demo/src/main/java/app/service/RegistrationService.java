@@ -12,6 +12,6 @@ public interface RegistrationService {
 
     List<RegistrationRequest> findAll();
     ApplicationUser approveRegistration(UserToRegisterDto dto) throws Exception;
-    public RegistrationRequest saveRegistrationRequest(RegistrationRequest request);
+    RegistrationRequest saveRegistrationRequest(RegistrationRequest request);
     void ejectRegistration(String email);
 }

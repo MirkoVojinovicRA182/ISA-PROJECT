@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class AdventureFastRegistration {
     @Id
     @SequenceGenerator(name = "adventureFastRegistrationIdSeqGen", sequenceName = "adventureFastRegistrationIdSeq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adventureFastRegistrationSeqGen")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adventureFastRegistrationIdSeqGen")
     private Integer id;
 
     @Column(name = "startTime", unique = false, nullable = false)
