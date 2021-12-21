@@ -1,13 +1,17 @@
 package app.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 public class InstructorAdventure {
     @Id
     @SequenceGenerator(name = "instructorAdventureIdSeqGen", sequenceName = "instructorAdventureIdSeq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instructorAdventureSeqGen")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instructorAdventureIdSeqGen")
+
     private Integer id;
 
     @Column(name = "name", unique = false, nullable = false)
@@ -39,14 +43,24 @@ public class InstructorAdventure {
     @Column(name = "termsOfUse", unique = false, nullable = false)
     private String termsOfUse;
 
-    @OneToMany(mappedBy = "instructorAdventure", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<AdventureFastRegistration> adventureFastRegistrations;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
     public InstructorAdventure() {
+    }
+
+    public InstructorAdventure(String name, String address, String promotionalDescription, String instructorBiography, int maxCountOfParticipants, String rulesOfConduct, String defaultEquipment, String pricelist, String termsOfUse, Instructor instructor) {
+        this.name = name;
+        this.address = address;
+        this.promotionalDescription = promotionalDescription;
+        this.instructorBiography = instructorBiography;
+        this.maxCountOfParticipants = maxCountOfParticipants;
+        this.rulesOfConduct = rulesOfConduct;
+        this.defaultEquipment = defaultEquipment;
+        this.pricelist = pricelist;
+        this.termsOfUse = termsOfUse;
+        this.instructor = instructor;
     }
 
     public Integer getId() {
@@ -103,14 +117,6 @@ public class InstructorAdventure {
 
     public void setMaxCountOfParticipants(int maxCountOfParticipants) {
         this.maxCountOfParticipants = maxCountOfParticipants;
-    }
-
-    public Set<AdventureFastRegistration> getFastFishingReservations() {
-        return adventureFastRegistrations;
-    }
-
-    public void setFastFishingReservations(Set<AdventureFastRegistration> adventureFastRegistrations) {
-        this.adventureFastRegistrations = adventureFastRegistrations;
     }
 
     public String getRulesOfConduct() {
