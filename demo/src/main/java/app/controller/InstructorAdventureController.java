@@ -36,4 +36,11 @@ public class InstructorAdventureController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @RequestMapping("/updateAdventure")
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<InstructorAdventureDTO> updateAdventure(@RequestBody InstructorAdventureDTO dto){
+        InstructorAdventureDTO instructorAdventureDTO = instructorAdventureService.updateAdventure(dto);
+        return new ResponseEntity<InstructorAdventureDTO>(instructorAdventureDTO, HttpStatus.OK);
+    }
+
 }

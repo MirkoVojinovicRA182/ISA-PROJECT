@@ -9,7 +9,9 @@ import java.util.Set;
 
 public interface InstructorAdventureService {
 
-    public void saveAdventure(InstructorAdventureDTO instructorAdventure);
-    public List<InstructorAdventureDTO> getAdventuresByInstructorId(Integer instructorId);
-    public void deleteAdventure(Integer adventureId);
+    void saveAdventure(InstructorAdventureDTO instructorAdventure);
+    List<InstructorAdventureDTO> getAdventuresByInstructorId(Integer instructorId);
+    void deleteAdventure(Integer adventureId);
+
+    InstructorAdventureDTO updateAdventure(InstructorAdventureDTO dto);
 }

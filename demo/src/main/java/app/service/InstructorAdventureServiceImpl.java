@@ -47,9 +47,14 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
 
     @Override
     public void deleteAdventure(Integer adventureId) {
-        /*Instructor instructor = instructorRepository.findById(adventureId).orElseGet(null);
-        InstructorAdventure adventure = instructorAdventureRepository.findById(adventureId).orElseGet(null);
-        instructor.getAdventures().remove(adventure);*/
         instructorAdventureRepository.deleteById(adventureId);
+    }
+
+    @Override
+    public InstructorAdventureDTO updateAdventure(InstructorAdventureDTO dto) {
+        InstructorAdventure adventure = instructorAdventureRepository.findById(dto.getId()).orElseGet(null);
+        adventure.update(dto);
+        instructorAdventureRepository.save(adventure);
+        return new InstructorAdventureDTO(adventure);
     }
 }

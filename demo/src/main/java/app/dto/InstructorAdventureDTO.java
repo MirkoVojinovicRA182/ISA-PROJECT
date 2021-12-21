@@ -3,6 +3,7 @@ package app.dto;
 import app.domain.InstructorAdventure;
 
 public class InstructorAdventureDTO {
+    private Integer id;
     private String name;
     private String address;
     private String promotionalDescription;
@@ -18,6 +19,7 @@ public class InstructorAdventureDTO {
     }
 
     public InstructorAdventureDTO(InstructorAdventure a) {
+        id = a.getId();
         name = a.getName();
         address = a.getAddress();
         promotionalDescription = a.getPromotionalDescription();
@@ -28,6 +30,22 @@ public class InstructorAdventureDTO {
         pricelist = a.getPricelist();
         termsOfUse = a.getTermsOfUse();
         instructorId = a.getInstructor().getId();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setMaxCountOfParticipants(Integer maxCountOfParticipants) {
+        this.maxCountOfParticipants = maxCountOfParticipants;
+    }
+
+    public void setInstructorId(int instructorId) {
+        this.instructorId = instructorId;
     }
 
     public String getName() {

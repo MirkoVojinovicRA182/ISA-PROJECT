@@ -1,5 +1,6 @@
 package app.domain;
 
+import app.dto.InstructorAdventureDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -158,4 +159,17 @@ public class InstructorAdventure {
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
     }
+
+    public void update(InstructorAdventureDTO dto) {
+        setName(dto.getName());
+        setAddress(dto.getAddress());
+        setPromotionalDescription(dto.getPromotionalDescription());
+        setInstructorBiography(dto.getInstructorBiography());
+        setMaxCountOfParticipants(dto.getMaxCountOfParticipants());
+        setRulesOfConduct(dto.getRulesOfConduct());
+        setDefaultEquipment(dto.getDefaultEquipment());
+        setPricelist(dto.getPricelist());
+        setTermsOfUse(dto.getTermsOfUse());
+    }
+
 }
