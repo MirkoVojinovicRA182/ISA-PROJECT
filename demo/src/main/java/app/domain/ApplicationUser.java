@@ -2,6 +2,8 @@ package app.domain;
 
 //import app.domain.enums.UserType;
 
+import app.dto.UserProfileDTO;
+
 import javax.persistence.*;
 
 
@@ -135,5 +137,14 @@ public abstract class ApplicationUser {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public void updatePersonalInfo(UserProfileDTO dto){
+        setName(dto.getName());
+        setLastName(dto.getLastName());
+        setAddress(dto.getAddress());
+        setCity(dto.getCity());
+        setCountry(dto.getCountry());
+        setPhoneNumber(dto.getPhoneNumber());
     }
 }
