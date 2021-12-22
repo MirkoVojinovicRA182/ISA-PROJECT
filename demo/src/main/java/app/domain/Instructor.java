@@ -15,6 +15,10 @@ public class Instructor extends ApplicationUser{
 
     @OneToMany(mappedBy = "instructor", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<InstructorAdventure> adventures = new HashSet<InstructorAdventure>();
+
+    @OneToMany(mappedBy = "instructor", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<InstructorBusyness> instructorBusynesses = new HashSet<InstructorBusyness>();
+
     public Instructor() {
     }
     public Instructor(String email, String password, String name, String lastName, String address, String city,
@@ -25,8 +29,14 @@ public class Instructor extends ApplicationUser{
     public Set<InstructorAdventure> getAdventures() {
         return adventures;
     }
-
     public void setAdventures(Set<InstructorAdventure> adventures) {
         this.adventures = adventures;
+    }
+
+    public Set<InstructorBusyness> getInstructorBusynesses() {
+        return instructorBusynesses;
+    }
+    public void setInstructorBusynesses(Set<InstructorBusyness> instructorBusynesses) {
+        this.instructorBusynesses = instructorBusynesses;
     }
 }
