@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.dto.InstructorAdventureDTO;
+import app.dto.UserPasswordDTO;
 import app.dto.UserProfileDTO;
 import app.service.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,15 @@ public class UserProfileController {
     private UserProfileService userProfileService;
 
 
-    @RequestMapping("/updateUserProfile")
+    @RequestMapping("/updatePersonalInfo")
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserProfileDTO> updateUserProfile(@RequestBody UserProfileDTO dto){
-        return new ResponseEntity<UserProfileDTO>(userProfileService.updateUserProfile(dto), HttpStatus.OK);
+    public ResponseEntity<UserProfileDTO> updatePersonalInfo(@RequestBody UserProfileDTO dto){
+        return new ResponseEntity<UserProfileDTO>(userProfileService.updatePersonalInfo(dto), HttpStatus.OK);
+    }
+
+    @RequestMapping("/updatePassword")
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserProfileDTO> updatePassword(@RequestBody UserPasswordDTO userPasswordDTO){
+        return new ResponseEntity<UserProfileDTO>(userProfileService.updatePassword(userPasswordDTO), HttpStatus.OK);
     }
 }

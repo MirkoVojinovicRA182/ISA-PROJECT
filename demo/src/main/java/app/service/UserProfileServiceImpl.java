@@ -1,8 +1,10 @@
 package app.service;
 
+import app.domain.ApplicationUser;
 import app.domain.CottageOwner;
 import app.domain.Instructor;
 import app.domain.enums.UserType;
+import app.dto.UserPasswordDTO;
 import app.dto.UserProfileDTO;
 import app.repository.CottageOwnerRepository;
 import app.repository.InstructorRepository;
@@ -23,11 +25,24 @@ public class UserProfileServiceImpl implements UserProfileService{
     private ShipOwnerRepository shipOwnerRepository;
 
     @Override
-    public UserProfileDTO updateUserProfile(UserProfileDTO dto) {
+    public UserProfileDTO updatePersonalInfo(UserProfileDTO dto) {
         if(dto.getUserType().equals(UserType.Instructor)){
             Instructor instructor = instructorRepository.findById(dto.getUserId()).orElseGet(null);
             instructor.updatePersonalInfo(dto);
             instructorRepository.save(instructor);
+        }
+
+        return dto;
+    }
+
+    @Override
+    public UserProfileDTO updatePassword(UserPasswordDTO userPasswordDTO) {
+        UserProfileDTO dto = new UserProfileDTO();
+        if(userPasswordDTO.getUserType().equals(UserType.Instructor)){
+            Instructor instructor = instructorRepository.findById(userPasswordDTO.getUserId()).orElseGet(null);
+            instructor.setPassword(userPasswordDTO.getNewPassword());
+            instructorRepository.save(instructor);
+            dto = new UserProfileDTO((ApplicationUser)instructor);
         }
 
         return dto;

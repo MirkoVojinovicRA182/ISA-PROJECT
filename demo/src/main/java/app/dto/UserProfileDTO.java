@@ -1,5 +1,6 @@
 package app.dto;
 
+import app.domain.ApplicationUser;
 import app.domain.enums.UserType;
 
 public class UserProfileDTO {
@@ -16,14 +17,13 @@ public class UserProfileDTO {
     public UserProfileDTO() {
     }
 
-    public UserProfileDTO(String name, String lastName, String address, String city, String country, String phoneNumber, UserType userType) {
-        this.name = name;
-        this.lastName = lastName;
-        this.address = address;
-        this.city = city;
-        this.country = country;
-        this.phoneNumber = phoneNumber;
-        this.userType = userType;
+    public UserProfileDTO(ApplicationUser applicationUser) {
+        name = applicationUser.getName();
+        lastName = applicationUser.getLastName();
+        address = applicationUser.getAddress();
+        city = applicationUser.getCity();
+        country = applicationUser.getCountry();
+        phoneNumber = applicationUser.getPhoneNumber();
     }
 
     public Integer getUserId() {

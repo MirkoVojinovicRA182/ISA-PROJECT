@@ -1,7 +1,10 @@
 package app.service;
 
+import app.dto.UserPasswordDTO;
 import app.dto.UserProfileDTO;
 
 public interface UserProfileService {
-    UserProfileDTO updateUserProfile(UserProfileDTO dto);
+    UserProfileDTO updatePersonalInfo(UserProfileDTO dto);
+
+    UserProfileDTO updatePassword(UserPasswordDTO userPasswordDTO);
 }
