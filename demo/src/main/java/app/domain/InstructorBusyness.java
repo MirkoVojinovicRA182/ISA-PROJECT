@@ -10,10 +10,10 @@ public class InstructorBusyness {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instructorBusynessIdSeqGen")
     private Integer id;
 
-    @Column(name = "startInterval", unique = true, nullable = false)
+    @Column(name = "startInterval", unique = false, nullable = false)
     private LocalDateTime startInterval;
 
-    @Column(name = "endInterval", unique = true, nullable = false)
+    @Column(name = "endInterval", unique = false, nullable = false)
     private LocalDateTime endInterval;
 
     @ManyToOne()

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,4 +27,15 @@ public class InstructorBusynessServiceImpl implements InstructorBusynessService{
         instructorBusynessRepository.save(new InstructorBusyness(interval.getStartInterval(), interval.getEndInterval(), instructor));
         return interval;
     }
+
+    @Override
+    public List<InstructorBusynessDTO> getInstructorBusynessIntervals(Integer instructorId) {
+        List<InstructorBusyness> instructorBusynessesIntervals = instructorBusynessRepository.findByInstructorId(instructorId);
+        List<InstructorBusynessDTO> dtos = new ArrayList<InstructorBusynessDTO>();
+        for(InstructorBusyness instructorBusyness: instructorBusynessesIntervals)
+            dtos.add(new InstructorBusynessDTO(instructorBusyness));
+        return dtos;
+    }
+
+
 }

@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface InstructorBusynessService {
     InstructorBusynessDTO addBusynessInterval(InstructorBusynessDTO interval);
+
+    List<InstructorBusynessDTO> getInstructorBusynessIntervals(Integer instructorId);
 }

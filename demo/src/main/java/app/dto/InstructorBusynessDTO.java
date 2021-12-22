@@ -1,5 +1,7 @@
 package app.dto;
 
+import app.domain.InstructorBusyness;
+
 import java.time.LocalDateTime;
 
 public class InstructorBusynessDTO {
@@ -9,6 +11,13 @@ public class InstructorBusynessDTO {
     private Integer instructorId;
 
     public InstructorBusynessDTO() {
+    }
+
+    public InstructorBusynessDTO(InstructorBusyness instructorBusyness){
+        id = instructorBusyness.getId();
+        startInterval = instructorBusyness.getStartInterval();
+        endInterval = instructorBusyness.getEndInterval();
+        instructorId = instructorBusyness.getInstructor().getId();
     }
 
     public Integer getId() {
