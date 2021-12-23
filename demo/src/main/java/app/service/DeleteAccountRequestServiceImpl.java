@@ -6,6 +6,7 @@ import app.domain.Instructor;
 import app.dto.DeleteAccountRequestDTO;
 import app.repository.DeleteAccountRequestRepository;
 import app.repository.InstructorRepository;
+import app.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,9 +45,19 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
     public void deleteAccount(DeleteAccountRequestDTO dto) {
         DeleteAccountRequest request = deleteAccountRequestRepository.findById(dto.getId()).orElseGet(null);
         deleteAccountRequestRepository.delete(request);
-        
+
         for (Instructor instructor : instructorRepository.findAll())
             if (instructor.getId().equals(dto.getUserId()))
                 instructorRepository.delete(instructor);
+
+        Utility.sendMail("mail", "Odobreno", "Vaš nalog je uspešno obrisan.");
+    }
+
+    @Override
+    public void ejectDeleteRequest(Integer requestId) {
+        DeleteAccountRequest request = deleteAccountRequestRepository.findById(requestId).orElseGet(null);
+        deleteAccountRequestRepository.delete(request);
+
+        Utility.sendMail("mail", "Odbijeno", "Vaš razlog za brisanje naloga nije dovoljan.");
     }
 }

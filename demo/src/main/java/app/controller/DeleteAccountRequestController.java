@@ -37,6 +37,13 @@ public class DeleteAccountRequestController {
     @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> deleteAccount(@RequestBody DeleteAccountRequestDTO dto){
         deleteAccountRequestService.deleteAccount(dto);
-        return new ResponseEntity<String>("Obrisan", HttpStatus.OK);
+        return new ResponseEntity<String>("Obrisani nalog korisnika i zahtev.", HttpStatus.OK);
+    }
+
+    @RequestMapping("/ejectDeleteRequest/{requestId}")
+    @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> ejectDeleteRequest(@PathVariable Integer requestId){
+        deleteAccountRequestService.ejectDeleteRequest(requestId);
+        return new ResponseEntity<String>("Obrisan zahtev.", HttpStatus.OK);
     }
 }
