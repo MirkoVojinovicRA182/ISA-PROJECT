@@ -1,14 +1,19 @@
 package app.dto;
 
 
+import app.domain.DeleteAccountRequest;
 import app.domain.enums.UserType;
 
 public class DeleteAccountRequestDTO {
     private String deleteReason;
     private Integer userId;
-    private UserType userType;
 
     public DeleteAccountRequestDTO() {
+    }
+
+    public DeleteAccountRequestDTO(DeleteAccountRequest account) {
+        deleteReason = account.getDeleteReason();
+        userId = account.getUser().getId();
     }
 
     public String getDeleteReason() {
@@ -25,13 +30,5 @@ public class DeleteAccountRequestDTO {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }
-
-    public UserType getUserType() {
-        return userType;
-    }
-
-    public void setUserType(UserType userType) {
-        this.userType = userType;
     }
 }

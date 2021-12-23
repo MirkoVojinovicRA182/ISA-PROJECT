@@ -10,6 +10,9 @@ import app.repository.InstructorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestService{
 
@@ -21,10 +24,20 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
 
     @Override
     public void createRequest(DeleteAccountRequestDTO dto) {
-        UserType userType = dto.getUserType();
         ApplicationUser userForDelete = new Instructor();
-        if(userType.equals(UserType.Instructor))
-            userForDelete = instructorRepository.findById(dto.getUserId()).orElseGet(null);
+
+        for(Instructor instructor: instructorRepository.findAll())
+            if(instructor.getId().equals(dto.getUserId()))
+                userForDelete = instructorRepository.findById(dto.getUserId()).orElseGet(null);
+
         deleteAccountRequestRepository.save(new DeleteAccountRequest(dto.getDeleteReason(), userForDelete));
+    }
+
+    @Override
+    public List<DeleteAccountRequestDTO> getRequests() {
+        List<DeleteAccountRequestDTO> deleteAccountRequests = new ArrayList<DeleteAccountRequestDTO>();
+        for(DeleteAccountRequest account: deleteAccountRequestRepository.findAll())
+            deleteAccountRequests.add(new DeleteAccountRequestDTO(account));
+        return deleteAccountRequests;
     }
 }
