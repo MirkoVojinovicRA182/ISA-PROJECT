@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/deleteAccount")
+@RequestMapping("/api/deleteAccountRequest")
 public class DeleteAccountRequestController {
 
     @Autowired
@@ -31,5 +31,12 @@ public class DeleteAccountRequestController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<DeleteAccountRequestDTO>> getRequests(){
         return new ResponseEntity<List<DeleteAccountRequestDTO>>(deleteAccountRequestService.getRequests(), HttpStatus.OK);
+    }
+
+    @RequestMapping("/deleteAccount")
+    @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> deleteAccount(@RequestBody DeleteAccountRequestDTO dto){
+        deleteAccountRequestService.deleteAccount(dto);
+        return new ResponseEntity<String>("Obrisan", HttpStatus.OK);
     }
 }

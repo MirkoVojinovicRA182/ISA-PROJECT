@@ -3,7 +3,6 @@ package app.service;
 import app.domain.ApplicationUser;
 import app.domain.DeleteAccountRequest;
 import app.domain.Instructor;
-import app.domain.enums.UserType;
 import app.dto.DeleteAccountRequestDTO;
 import app.repository.DeleteAccountRequestRepository;
 import app.repository.InstructorRepository;
@@ -39,5 +38,15 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
         for(DeleteAccountRequest account: deleteAccountRequestRepository.findAll())
             deleteAccountRequests.add(new DeleteAccountRequestDTO(account));
         return deleteAccountRequests;
+    }
+
+    @Override
+    public void deleteAccount(DeleteAccountRequestDTO dto) {
+        DeleteAccountRequest request = deleteAccountRequestRepository.findById(dto.getId()).orElseGet(null);
+        deleteAccountRequestRepository.delete(request);
+        
+        for (Instructor instructor : instructorRepository.findAll())
+            if (instructor.getId().equals(dto.getUserId()))
+                instructorRepository.delete(instructor);
     }
 }
