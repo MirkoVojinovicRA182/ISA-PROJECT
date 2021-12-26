@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/EntityServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/LoginServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +84,7 @@
       <workItem from="1640024468815" duration="579000" />
       <workItem from="1640105354222" duration="4888000" />
       <workItem from="1640194135700" duration="3614000" />
-      <workItem from="1640517918174" duration="325000" />
+      <workItem from="1640517918174" duration="1404000" />
     </task>
     <servers />
   </component>
