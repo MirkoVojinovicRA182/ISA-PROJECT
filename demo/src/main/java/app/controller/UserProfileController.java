@@ -8,12 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/userProfile")
 public class UserProfileController {
 
@@ -22,7 +20,7 @@ public class UserProfileController {
 
 
     @RequestMapping("/updatePersonalInfo")
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserProfileDTO> updatePersonalInfo(@RequestBody UserProfileDTO dto){
         return new ResponseEntity<UserProfileDTO>(userProfileService.updatePersonalInfo(dto), HttpStatus.OK);
     }
@@ -32,4 +30,6 @@ public class UserProfileController {
     public ResponseEntity<UserProfileDTO> updatePassword(@RequestBody UserPasswordDTO userPasswordDTO){
         return new ResponseEntity<UserProfileDTO>(userProfileService.updatePassword(userPasswordDTO), HttpStatus.OK);
     }
+
+
 }

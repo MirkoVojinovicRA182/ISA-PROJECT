@@ -36,4 +36,12 @@ public class EntityServiceImpl implements EntityService{
             adventureDTOS.add(new InstructorAdventureDTO(adventure));
         return adventureDTOS;
     }
+
+    @Override
+    public UserProfileDTO getInstructorById(Integer id) {
+        Instructor instructor = instructorRepository.findById(id).orElseGet(null);
+        if(instructor != null)
+            return new UserProfileDTO(instructor);
+        return null;
+    }
 }

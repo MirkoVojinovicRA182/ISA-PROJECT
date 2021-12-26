@@ -18,6 +18,7 @@ public class UserProfileDTO {
     }
 
     public UserProfileDTO(ApplicationUser applicationUser) {
+        userId = applicationUser.getId();
         name = applicationUser.getName();
         lastName = applicationUser.getLastName();
         address = applicationUser.getAddress();
