@@ -26,6 +26,9 @@ public class RegistrationServiceImpl implements RegistrationService{
     @Autowired
     private InstructorRepository instructorRepository;
 
+    @Autowired
+    private AdministratorRepository administratorRepository;
+
     @Override
     public RegistrationRequest saveRegistrationRequest(RegistrationRequest request) { return registrationRequestRepository.save(request); }
 
@@ -52,5 +55,12 @@ public class RegistrationServiceImpl implements RegistrationService{
     @Override
     public void ejectRegistration(String email) {
         Utility.sendMail(email, "Eject", "Your registration request has been denied.");
+    }
+
+    @Override
+    public Administrator registerAdmin(UserToRegisterDto dto) {
+        return administratorRepository.save(new Administrator(dto.getEmail(), dto.getPassword(),
+                dto.getName(), dto.getLastName(), dto.getAddress(), dto.getCity(),
+                dto.getCountry(), dto.getPhoneNumber()));
     }
 }

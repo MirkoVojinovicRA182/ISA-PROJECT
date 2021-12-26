@@ -1,5 +1,6 @@
 package app.service;
 
+import app.domain.Administrator;
 import app.domain.RegistrationRequest;
 import app.domain.ApplicationUser;
 import app.domain.enums.UserType;
@@ -14,4 +15,5 @@ public interface RegistrationService {
     ApplicationUser approveRegistration(UserToRegisterDto dto) throws Exception;
     RegistrationRequest saveRegistrationRequest(RegistrationRequest request);
     void ejectRegistration(String email);
+    Administrator registerAdmin(UserToRegisterDto dto);
 }

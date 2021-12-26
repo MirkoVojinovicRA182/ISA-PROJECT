@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.domain.Administrator;
 import app.domain.RegistrationRequest;
 import app.domain.ApplicationUser;
 import app.domain.enums.UserType;
@@ -46,5 +47,12 @@ public class RegistrationController {
     public ResponseEntity<String> ejectRegistration(String email) {
         registrationService.ejectRegistration(email);
         return new ResponseEntity<String>("Mail is sent!", HttpStatus.OK);
+    }
+
+    @RequestMapping("/registerAdmin")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Administrator> registerAdmin(@RequestBody UserToRegisterDto dto) throws Exception {
+        Administrator savedAdmin = registrationService.registerAdmin(dto);
+        return new ResponseEntity<Administrator>(savedAdmin, HttpStatus.CREATED);
     }
 }
