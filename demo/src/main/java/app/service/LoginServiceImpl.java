@@ -1,10 +1,8 @@
 package app.service;
 
-import app.domain.ApplicationUser;
-import app.domain.CottageOwner;
-import app.domain.Instructor;
-import app.domain.ShipOwner;
+import app.domain.*;
 import app.dto.LoginDTO;
+import app.repository.ClientRepository;
 import app.repository.CottageOwnerRepository;
 import app.repository.InstructorRepository;
 import app.repository.ShipOwnerRepository;
@@ -23,6 +21,9 @@ public class LoginServiceImpl implements LoginService{
     @Autowired
     private InstructorRepository instructorRepository;
 
+    @Autowired
+    private ClientRepository clientRepository;
+
 
     @Override
     public ApplicationUser getUser(LoginDTO dto) {
@@ -39,6 +40,11 @@ public class LoginServiceImpl implements LoginService{
         for(Instructor i: instructorRepository.findAll()){
             if(i.getEmail().equals(dto.getUsername()) && i.getPassword().equals(dto.getPassword()))
                 return i;
+        }
+
+        for(Client c: clientRepository.findAll()){
+            if(c.getEmail().equals(dto.getUsername()) && c.getPassword().equals(dto.getPassword()) && c.isEnabled())
+                return c;
         }
 
         return null;
