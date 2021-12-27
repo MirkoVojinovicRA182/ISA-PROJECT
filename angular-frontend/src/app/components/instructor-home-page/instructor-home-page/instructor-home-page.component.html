@@ -22,7 +22,20 @@
       </div>
     </div>
     <div class="container">
-      <app-instructor-profile-info></app-instructor-profile-info>
+        <div *ngIf="lessonsClicked">
+            Lessons
+        </div>
+        <div *ngIf="reservationsClicked">
+            Reservations
+        </div>
+        <div *ngIf="calendarClicked">
+            Calendar
+        </div>
+      <app-instructor-profile-info *ngIf="profileClicked" [loggedInstructor] = "instructor"></app-instructor-profile-info>
+      <app-instructor-settings *ngIf="settingsClicked" [loggedInstructor] = "instructor"></app-instructor-settings>
+      <div *ngIf="logoutClicked"> 
+          Logout
+      </div>
     </div>
   </div>
         <div class="sidebar">
@@ -33,37 +46,37 @@
             </div>
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="#" (click) = "showLessons()">
                         <span class="icon"><i class="fas fa-fish"></i></span>
                         <span class="item">Fishing lessons</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" (click) = "showReservations()">
                         <span class="icon"><i class="fas fa-plus"></i></span>
                         <span class="item">Reservations</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" (click) = "showCalendar()">
                         <span class="icon"><i class="fas fa-calendar"></i></span>
                         <span class="item">Calendar</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" (click) = "showProfile()">
                         <span class="icon"><i class="fas fa-user-circle"></i></span>
                         <span class="item">Profile</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" (click) = "showSettings()">
                         <span class="icon"><i class="fas fa-cog"></i></span>
                         <span class="item">Settings</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" (click) = "showLogout()">
                         <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                         <span class="item">Log out</span>
                     </a>

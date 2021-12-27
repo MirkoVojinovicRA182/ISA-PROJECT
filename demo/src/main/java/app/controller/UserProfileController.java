@@ -20,7 +20,7 @@ public class UserProfileController {
 
 
     @RequestMapping("/updatePersonalInfo")
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserProfileDTO> updatePersonalInfo(@RequestBody UserProfileDTO dto){
         return new ResponseEntity<UserProfileDTO>(userProfileService.updatePersonalInfo(dto), HttpStatus.OK);
     }

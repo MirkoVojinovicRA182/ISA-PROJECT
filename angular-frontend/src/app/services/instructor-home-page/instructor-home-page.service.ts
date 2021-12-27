@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { serverPort } from '../app.consts';
-import { Instructor } from '../model/instructor';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { serverPort } from 'src/app/app.consts';
+import { Instructor } from 'src/app/model/instructor';
 
 @Injectable({
   providedIn: 'root'
 })
-export class InstructorProfileInfoService {
+export class InstructorHomePageService {
 
   private _url = serverPort;
 
@@ -18,6 +18,6 @@ export class InstructorProfileInfoService {
   }
 
   public changeProfileInfo(instructor: Instructor): Observable<Instructor> {
-    return this.http.post<Instructor>(this._url + 'userProfile/updatePersonalInfo/', instructor);
+    return this.http.post<Instructor>(this._url + 'userProfile/updatePersonalInfo/', instructor,);
   }
 }

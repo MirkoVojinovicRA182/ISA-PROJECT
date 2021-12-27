@@ -8,12 +8,14 @@ import { InstructorProfileInfoComponent } from './components/instructor-profile/
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { InstructorSettingsComponent } from './components/instructor-settings/instructor-settings/instructor-settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InstructorHomePageComponent,
-    InstructorProfileInfoComponent
+    InstructorProfileInfoComponent,
+    InstructorSettingsComponent
   ],
   imports: [
     BrowserModule,

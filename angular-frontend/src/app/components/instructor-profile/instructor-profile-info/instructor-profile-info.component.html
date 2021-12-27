@@ -1,21 +1,21 @@
 <div>
     <label for="fname">First name:</label><br>
-    <input type="text" name="name" [(ngModel)]="instructor.name" [disabled] = "inputDisabled"><br>
+    <input type="text" name="name" [(ngModel)]="loggedInstructor.name" [disabled] = "inputDisabled"><br>
 
     <label for="lname">Last name:</label><br>
-    <input type="text" name="lastName" [(ngModel)]="instructor.lastName" [disabled] = "inputDisabled"><br>
+    <input type="text" name="lastName" [(ngModel)]="loggedInstructor.lastName" [disabled] = "inputDisabled"><br>
 
     <label for="lname">Address:</label><br>
-    <input type="text" name="address" [(ngModel)]="instructor.address" [disabled] = "inputDisabled"><br>
+    <input type="text" name="address" [(ngModel)]="loggedInstructor.address" [disabled] = "inputDisabled"><br>
 
     <label for="lname">City:</label><br>
-    <input type="text" name="city" [(ngModel)]="instructor.city" [disabled] = "inputDisabled"><br>
+    <input type="text" name="city" [(ngModel)]="loggedInstructor.city" [disabled] = "inputDisabled"><br>
 
     <label for="lname">Country:</label><br>
-    <input type="text" name="country" [(ngModel)]="instructor.country" [disabled] = "inputDisabled"><br>
+    <input type="text" name="country" [(ngModel)]="loggedInstructor.country" [disabled] = "inputDisabled"><br>
 
     <label for="lname">Phone number:</label><br>
-    <input type="text" name="phoneNumber" [(ngModel)]="instructor.phoneNumber" [disabled] = "inputDisabled"><br>
+    <input type="text" name="phoneNumber" [(ngModel)]="loggedInstructor.phoneNumber" [disabled] = "inputDisabled"><br>
 
     <button *ngIf = "inputDisabled" (click)="inputDisabled = false">Change informations</button>
     <button *ngIf = "!inputDisabled" (click)="saveChanges()">Save changes</button>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Instructor } from '../../../model/instructor';
-import { InstructorProfileInfoService } from '../../../services/instructor-profile-info.service';
+import { InstructorProfileInfoService } from '../../../services/instructor-profile/instructor-profile-info.service';
 
 @Component({
   selector: 'app-instructor-profile-info',
@@ -8,24 +8,17 @@ import { InstructorProfileInfoService } from '../../../services/instructor-profi
   styleUrls: ['./instructor-profile-info.component.css']
 })
 export class InstructorProfileInfoComponent implements OnInit {
-  instructor: Instructor = new Instructor();
+  @Input() loggedInstructor: Instructor = new Instructor();
   inputDisabled: boolean = true;
 
   constructor(private _instructorProfileInfoService:InstructorProfileInfoService) { }
 
   ngOnInit(): void {
-    this.getProfileInfo();
-  }
-
-  getProfileInfo():void {
-    this._instructorProfileInfoService.getProfileInfo(1).subscribe(data => {
-      this.instructor = data;
-    });
   }
 
   changeProfileInfo(): void {
-    this.instructor.userType = "Instructor";
-    this._instructorProfileInfoService.changeProfileInfo(this.instructor).subscribe(() => {});
+    this.loggedInstructor.userType = "Instructor";
+    this._instructorProfileInfoService.changeProfileInfo(this.loggedInstructor).subscribe(() => {});
   }
 
   saveChanges(): void {

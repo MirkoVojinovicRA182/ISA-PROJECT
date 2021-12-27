@@ -2,6 +2,8 @@ export class Instructor {
     userId: number = -1;
     name: string = "";
     lastName: string = "";
+    email: string = "";
+    password: string = "";
     address: string = "";
     city: string = "";
     country: string = "";
