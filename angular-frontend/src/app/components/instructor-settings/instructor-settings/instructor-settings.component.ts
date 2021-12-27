@@ -14,6 +14,7 @@ export class InstructorSettingsComponent implements OnInit {
   @Input() loggedInstructor: Instructor = new Instructor();
   oldPassword: string = "";
   newPassword: string = "";
+  accountDeleteReason: string = "";
 
   constructor(private _instructorSettingsService: InstructorSettingsService) { }
 
@@ -23,7 +24,7 @@ export class InstructorSettingsComponent implements OnInit {
   changePasword(): void{
     if(this.loggedInstructor.password == this.oldPassword)
     {
-      alert('Uspešno ste izmenili šifru. Nova: ' + this.newPassword);
+      alert('Success. New password: ' + this.newPassword);
       this._instructorSettingsService.changePassword(
         {
           "userId": this.loggedInstructor.userId,
@@ -32,7 +33,15 @@ export class InstructorSettingsComponent implements OnInit {
         }).subscribe();
     }
     else
-      alert('Niste dobro uneli trenutnu šifru!');
+      alert('Wrong current password!');
+  }
+
+  deleteAccount(): void{
+      this._instructorSettingsService.deleteAccount({
+        "deleteReason": this.accountDeleteReason,
+        "userId": this.loggedInstructor.userId
+      }).subscribe();
+      alert('Your request for deleting account is now in proccess. Check your mail tomorow for more informations.')
   }
 
 }
