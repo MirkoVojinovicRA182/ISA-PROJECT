@@ -3,6 +3,7 @@ package app.service;
 import app.domain.*;
 import app.dto.LoginDTO;
 import app.repository.AdministratorRepository;
+import app.repository.ClientRepository;
 import app.repository.CottageOwnerRepository;
 import app.repository.InstructorRepository;
 import app.repository.ShipOwnerRepository;
@@ -23,6 +24,7 @@ public class LoginServiceImpl implements LoginService{
 
     @Autowired
     private AdministratorRepository administratorRepository;
+    private ClientRepository clientRepository;
 
 
     @Override
@@ -45,6 +47,11 @@ public class LoginServiceImpl implements LoginService{
         for(Administrator a: administratorRepository.findAll()){
             if(a.getEmail().equals(dto.getUsername()) && a.getPassword().equals(dto.getPassword()))
                 return a;
+        }
+        
+        for(Client c: clientRepository.findAll()){
+            if(c.getEmail().equals(dto.getUsername()) && c.getPassword().equals(dto.getPassword()) && c.isEnabled())
+                return c;
         }
 
         return null;
