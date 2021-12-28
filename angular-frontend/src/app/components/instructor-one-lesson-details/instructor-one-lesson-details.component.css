@@ -1,0 +1,16 @@
+table td{
+    padding: 10px;
+    color: black;
+    width: 200px;
+    align-content: center;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.input{
+    background-color: black;
+}

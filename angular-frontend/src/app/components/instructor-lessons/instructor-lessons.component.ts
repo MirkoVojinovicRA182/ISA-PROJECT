@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Instructor } from 'src/app/model/instructor';
 import { InstructorLessonsService } from 'src/app/services/instructor-lessons/instructor-lessons.service';
+import { InstructorLesson } from 'src/app/model/instructor-lesson';
+
 
 @Component({
   selector: 'app-instructor-lessons',
@@ -10,7 +13,7 @@ import { InstructorLessonsService } from 'src/app/services/instructor-lessons/in
 export class InstructorLessonsComponent implements OnInit, OnChanges {
 
   @Input() loggedInstructor: Instructor = new Instructor();
-  lessons: any
+  lessons: InstructorLesson[] = [];
 
   constructor(private _instructorLessonsService: InstructorLessonsService) { }
 
@@ -19,7 +22,6 @@ export class InstructorLessonsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    //this.getInstructorAdventures();
   }
 
   getInstructorAdventures(): void{
@@ -28,8 +30,12 @@ export class InstructorLessonsComponent implements OnInit, OnChanges {
     ;
   }
 
-  onDeleteButtonClicked(lessonId: string): void{
+  onDeleteButtonClicked(lessonId: number): void{
     this._instructorLessonsService.deleteLesson(lessonId).subscribe(() => this.getInstructorAdventures());
+  }
+
+  onLessonModifed(modifedLesson: InstructorLesson): void{
+    this._instructorLessonsService.modifyLesson(modifedLesson).subscribe(() => this.getInstructorAdventures());
   }
 
 }

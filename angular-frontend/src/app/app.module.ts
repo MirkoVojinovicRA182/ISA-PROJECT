@@ -14,6 +14,11 @@ import { InstructorLessonsComponent } from './components/instructor-lessons/inst
 import { InstructorOneLessonComponent } from './components/instructor-one-lesson/instructor-one-lesson.component';
 import { InstructorOneLessonDetailsComponent } from './components/instructor-one-lesson-details/instructor-one-lesson-details.component';
 
+
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +35,11 @@ import { InstructorOneLessonDetailsComponent } from './components/instructor-one
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
+    MatDialogModule,
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

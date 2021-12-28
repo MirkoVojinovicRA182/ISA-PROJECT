@@ -14,6 +14,6 @@ export class InstructorProfileInfoService {
   constructor(private _http: HttpClient) { }
 
   public changeProfileInfo(instructor: Instructor): Observable<Instructor> {
-    return this._http.post<Instructor>(this._url + 'userProfile/updatePersonalInfo/', instructor,);
+    return this._http.post<Instructor>(this._url + 'userProfile/updatePersonalInfo/', instructor);
   }
 }

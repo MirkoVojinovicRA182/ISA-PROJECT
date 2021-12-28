@@ -1,5 +1,8 @@
+import { ChangeDetectionStrategy } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
+import { InstructorLesson } from 'src/app/model/instructor-lesson';
+import { InstructorOneLessonDetailsComponent } from '../instructor-one-lesson-details/instructor-one-lesson-details.component';
 
 @Component({
   selector: 'app-instructor-one-lesson',
@@ -8,8 +11,12 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 })
 export class InstructorOneLessonComponent implements OnInit {
 
-  @Input() lesson: any
-  @Output() deleteButtonClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Input() lesson!: InstructorLesson
+  tempLesson!: InstructorLesson
+  @Output() deleteButtonClicked: EventEmitter<number> = new EventEmitter<number>();
+  @Output() lessonModifed: EventEmitter<any> = new EventEmitter<string>();
+
+  isDisabled: boolean = true;
 
   constructor(public detailsDialog: MatDialog) { }
 
@@ -21,7 +28,32 @@ export class InstructorOneLessonComponent implements OnInit {
   }
 
   seeDetailsDialog(){
+    this.tempLesson = new InstructorLesson(this.lesson);
+    const dialogRef = this.detailsDialog.open(InstructorOneLessonDetailsComponent, {
+      data: this.tempLesson,
+      panelClass: 'backdropBackground',
+      disableClose: true
+    });
 
+    dialogRef.afterClosed().subscribe(modifedLesson => {
+      if(modifedLesson != undefined && this.lessonIsModifed())
+        this.lessonModifed.emit(modifedLesson);
+    });
   }
+
+  lessonIsModifed(): boolean{
+    return  this.tempLesson.id != this.lesson.id ||
+            this.tempLesson.name != this.lesson.name ||
+            this.tempLesson.address != this.lesson.address ||
+            this.tempLesson.promotionalDescription != this.lesson.promotionalDescription ||
+            this.tempLesson.instructorBiography != this.lesson.instructorBiography ||
+            this.tempLesson.maxCountOfParticipants != this.lesson.maxCountOfParticipants ||
+            this.tempLesson.rulesOfConduct != this.lesson.rulesOfConduct ||
+            this.tempLesson.defaultEquipment != this.lesson.defaultEquipment ||
+            this.tempLesson.pricelist != this.lesson.pricelist ||
+            this.tempLesson.termsOfUse != this.lesson.termsOfUse;
+  }
+
+
 
 }

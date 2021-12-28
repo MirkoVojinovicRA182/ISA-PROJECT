@@ -3,7 +3,8 @@
     <div class="grid-item" *ngFor="let l of lessons">
 
       <app-instructor-one-lesson [lesson] = l
-                                 (deleteButtonClicked)='onDeleteButtonClicked($event)'>
+                                 (deleteButtonClicked)='onDeleteButtonClicked($event)'
+                                 (lessonModifed)='onLessonModifed($event)'>
 
       </app-instructor-one-lesson>
 
