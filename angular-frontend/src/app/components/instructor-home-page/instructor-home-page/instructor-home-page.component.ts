@@ -12,6 +12,7 @@ export class InstructorHomePageComponent implements OnInit {
   lessonsClicked: boolean = true;
   reservationsClicked: boolean = false;
   calendarClicked: boolean = false;
+  reportClicked: boolean = false;
   profileClicked: boolean = false;
   settingsClicked: boolean = false;
   logoutClicked: boolean = false;
@@ -34,6 +35,7 @@ export class InstructorHomePageComponent implements OnInit {
     this.lessonsClicked = true;
     this.reservationsClicked = false;
     this.calendarClicked = false;
+    this.reportClicked = false;
     this.profileClicked = false;
     this.settingsClicked = false;
     this.logoutClicked = false;
@@ -43,6 +45,7 @@ export class InstructorHomePageComponent implements OnInit {
     this.lessonsClicked = false;
     this.reservationsClicked = true;
     this.calendarClicked = false;
+    this.reportClicked = false;
     this.profileClicked = false;
     this.settingsClicked = false;
     this.logoutClicked = false;
@@ -52,6 +55,17 @@ export class InstructorHomePageComponent implements OnInit {
     this.lessonsClicked = false;
     this.reservationsClicked = false;
     this.calendarClicked = true;
+    this.reportClicked = false;
+    this.profileClicked = false;
+    this.settingsClicked = false;
+    this.logoutClicked = false;
+  }
+
+  showReports(): void{
+    this.lessonsClicked = false;
+    this.reservationsClicked = false;
+    this.calendarClicked = false;
+    this.reportClicked = true;
     this.profileClicked = false;
     this.settingsClicked = false;
     this.logoutClicked = false;
@@ -61,6 +75,7 @@ export class InstructorHomePageComponent implements OnInit {
     this.lessonsClicked = false;
     this.reservationsClicked = false;
     this.calendarClicked = false;
+    this.reportClicked = false;
     this.profileClicked = true;
     this.settingsClicked = false;
     this.logoutClicked = false;
@@ -70,6 +85,7 @@ export class InstructorHomePageComponent implements OnInit {
     this.lessonsClicked = false;
     this.reservationsClicked = false;
     this.calendarClicked = false;
+    this.reportClicked = false;
     this.profileClicked = false;
     this.settingsClicked = true;
     this.logoutClicked = false;
@@ -79,6 +95,7 @@ export class InstructorHomePageComponent implements OnInit {
     this.lessonsClicked = false;
     this.reservationsClicked = false;
     this.calendarClicked = false;
+    this.reportClicked = false;
     this.profileClicked = false;
     this.settingsClicked = false;
     this.logoutClicked = true;

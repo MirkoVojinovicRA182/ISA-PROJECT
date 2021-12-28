@@ -22,14 +22,13 @@
       </div>
     </div>
     <div class="container">
-        <div *ngIf="lessonsClicked">
-            Lessons
-        </div>
+        <app-instructor-lessons *ngIf="lessonsClicked" [loggedInstructor] = "instructor"></app-instructor-lessons> 
         <div *ngIf="reservationsClicked">
             Reservations
         </div>
-        <div *ngIf="calendarClicked">
-            Calendar
+        <app-instructor-calendar *ngIf="calendarClicked"></app-instructor-calendar>
+        <div *ngIf="reportClicked">
+            Reports
         </div>
       <app-instructor-profile-info *ngIf="profileClicked" [loggedInstructor] = "instructor"></app-instructor-profile-info>
       <app-instructor-settings *ngIf="settingsClicked" [loggedInstructor] = "instructor"></app-instructor-settings>
@@ -61,6 +60,12 @@
                     <a href="#" (click) = "showCalendar()">
                         <span class="icon"><i class="fas fa-calendar"></i></span>
                         <span class="item">Calendar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" (click) = "showReports()">
+                        <span class="icon"><i class="fas fa-chart-bar"></i></span>
+                        <span class="item">Reports</span>
                     </a>
                 </li>
                 <li>

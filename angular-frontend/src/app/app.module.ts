@@ -9,13 +9,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InstructorSettingsComponent } from './components/instructor-settings/instructor-settings/instructor-settings.component';
+import { InstructorCalendarComponent } from './components/instructor-calendar/instructor-calendar.component';
+import { InstructorLessonsComponent } from './components/instructor-lessons/instructor-lessons.component';
+import { InstructorOneLessonComponent } from './components/instructor-one-lesson/instructor-one-lesson.component';
+import { InstructorOneLessonDetailsComponent } from './components/instructor-one-lesson-details/instructor-one-lesson-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InstructorHomePageComponent,
     InstructorProfileInfoComponent,
-    InstructorSettingsComponent
+    InstructorSettingsComponent,
+    InstructorCalendarComponent,
+    InstructorLessonsComponent,
+    InstructorOneLessonComponent,
+    InstructorOneLessonDetailsComponent,
   ],
   imports: [
     BrowserModule,

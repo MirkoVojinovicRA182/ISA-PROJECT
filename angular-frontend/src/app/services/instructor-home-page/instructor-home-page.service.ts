@@ -11,13 +11,13 @@ export class InstructorHomePageService {
 
   private _url = serverPort;
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   public getProfileInfo(instructorId: number): Observable<Instructor> {
-    return this.http.get<Instructor>(this._url + 'entity/getInstructor/' + instructorId);
+    return this._http.get<Instructor>(this._url + 'entity/getInstructor/' + instructorId);
   }
 
   public changeProfileInfo(instructor: Instructor): Observable<Instructor> {
-    return this.http.post<Instructor>(this._url + 'userProfile/updatePersonalInfo/', instructor,);
+    return this._http.post<Instructor>(this._url + 'userProfile/updatePersonalInfo/', instructor,);
   }
 }
