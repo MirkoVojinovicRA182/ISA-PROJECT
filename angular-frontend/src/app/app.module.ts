@@ -18,6 +18,7 @@ import { InstructorOneLessonDetailsComponent } from './components/instructor-one
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
+import { InstructorAddLessonComponent } from './components/instructor-add-lesson/instructor-add-lesson.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {MatButtonModule} from '@angular/material/button';
     InstructorLessonsComponent,
     InstructorOneLessonComponent,
     InstructorOneLessonDetailsComponent,
+    InstructorAddLessonComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { Instructor } from 'src/app/model/instructor';
 import { InstructorLessonsService } from 'src/app/services/instructor-lessons/instructor-lessons.service';
 import { InstructorLesson } from 'src/app/model/instructor-lesson';
+import { MatDialog } from '@angular/material/dialog';
+import { InstructorAddLessonComponent } from '../instructor-add-lesson/instructor-add-lesson.component';
 
 
 @Component({
@@ -15,7 +17,8 @@ export class InstructorLessonsComponent implements OnInit, OnChanges {
   @Input() loggedInstructor: Instructor = new Instructor();
   lessons: InstructorLesson[] = [];
 
-  constructor(private _instructorLessonsService: InstructorLessonsService) { }
+  constructor(private _instructorLessonsService: InstructorLessonsService,
+              public detailsDialog: MatDialog) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.getInstructorAdventures();
@@ -36,6 +39,19 @@ export class InstructorLessonsComponent implements OnInit, OnChanges {
 
   onLessonModifed(modifedLesson: InstructorLesson): void{
     this._instructorLessonsService.modifyLesson(modifedLesson).subscribe(() => this.getInstructorAdventures());
+  }
+
+  showAddLessonDialog(): void{
+    const dialogRef = this.detailsDialog.open(InstructorAddLessonComponent, {
+      data: new InstructorLesson(),
+      panelClass: 'backdropBackground',
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(newLesson => {
+      newLesson.instructorId = this.loggedInstructor.userId;
+      this._instructorLessonsService.addLesson(newLesson).subscribe(() => this.getInstructorAdventures());
+    });
   }
 
 }

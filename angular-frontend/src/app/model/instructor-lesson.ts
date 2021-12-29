@@ -12,16 +12,6 @@ export class InstructorLesson{
     termsOfUse: string = "";
 
 
-    constructor(lesson: InstructorLesson){
-        this.id = lesson.id;
-        this.name = lesson.name;
-        this.address = lesson.address;
-        this.promotionalDescription = lesson.promotionalDescription;
-        this.instructorBiography = lesson.instructorBiography;
-        this.maxCountOfParticipants = lesson.maxCountOfParticipants;
-        this.rulesOfConduct = lesson.rulesOfConduct;
-        this.defaultEquipment = lesson.defaultEquipment;
-        this.pricelist = lesson.pricelist;
-        this.termsOfUse = lesson.termsOfUse;
+    constructor(){
     }
 }

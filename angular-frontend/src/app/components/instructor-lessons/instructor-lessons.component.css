@@ -12,3 +12,14 @@
     font-size: 20px;
     text-align: center;
   }
+
+  h1 {
+      color: rgb(71, 127, 173);
+      font-family: 'Raleway', sans-serif;
+      font-size: 62px;
+      font-weight: 250;
+      line-height: 72px;
+      margin: 0 0 24px;
+      text-align: center;
+      text-transform: uppercase;
+}

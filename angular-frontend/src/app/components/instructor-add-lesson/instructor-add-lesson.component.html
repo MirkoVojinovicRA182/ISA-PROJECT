@@ -1,0 +1,63 @@
+<div>
+    <table>
+        <tr>
+            <td>Name: </td>
+            <td>
+                <input type="text" tabindex="-1" [(ngModel)] = "data.name">
+            </td>
+        </tr>
+        <tr>
+            <td>Address: </td>
+            <td>
+                <input type="text" tabindex="-1" [(ngModel)] = "data.address">
+            </td>
+        </tr>
+        <tr>
+            <td>Promotional description: </td>
+            <td>
+                <input type="text" tabindex="-1" [(ngModel)] = "data.promotionalDescription">
+            </td>
+        </tr>
+        <tr>
+            <td>Instructor biography: </td>
+            <td>
+                <input type="text" tabindex="-1" [(ngModel)] = "data.instructorBiography">
+            </td>
+        </tr>
+        <tr>
+            <td>Max count of participants: </td>
+            <td>
+                <input type="text" tabindex="-1" [(ngModel)] = "data.maxCountOfParticipants">
+            </td>
+        </tr>
+        <tr>
+            <td>Rules of conduct: </td>
+            <td>
+                <input type="text" tabindex="-1" [(ngModel)] = "data.rulesOfConduct">
+            </td>
+        </tr>
+        <tr>
+            <td>Default equipment: </td>
+            <td>
+                <input type="text" tabindex="-1" [(ngModel)] = "data.defaultEquipment">
+            </td>
+        </tr>
+        <tr>
+            <td>Price list: </td>
+            <td>
+                <input type="text" tabindex="-1" [(ngModel)] = "data.pricelist">
+            </td>
+        </tr>
+        <tr>
+            <td>Terms of use: </td>
+            <td>
+                <input type="text" tabindex="-1" [(ngModel)] = "data.termsOfUse">
+            </td>
+        </tr>
+    </table>
+    <div>
+        <button tabindex="-1" [mat-dialog-close]="data" class="myButton" style="margin-left: 20%; margin-top: 10px;" mat-raised-button>Add</button>
+        <button tabindex="-1" (click) = "onCloseClick()" class="myButton" style="margin-left: 20%; margin-top: 10px;" mat-raised-button>Close</button>
+    </div>
+
+</div>

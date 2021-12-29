@@ -12,7 +12,6 @@ import { InstructorOneLessonDetailsComponent } from '../instructor-one-lesson-de
 export class InstructorOneLessonComponent implements OnInit {
 
   @Input() lesson!: InstructorLesson
-  tempLesson!: InstructorLesson
   @Output() deleteButtonClicked: EventEmitter<number> = new EventEmitter<number>();
   @Output() lessonModifed: EventEmitter<any> = new EventEmitter<string>();
 
@@ -28,30 +27,47 @@ export class InstructorOneLessonComponent implements OnInit {
   }
 
   seeDetailsDialog(){
-    this.tempLesson = new InstructorLesson(this.lesson);
+    let tempLesson = this.createTempLesson(); 
     const dialogRef = this.detailsDialog.open(InstructorOneLessonDetailsComponent, {
-      data: this.tempLesson,
+      data: tempLesson,
       panelClass: 'backdropBackground',
       disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(modifedLesson => {
-      if(modifedLesson != undefined && this.lessonIsModifed())
+      if(modifedLesson != undefined && this.lessonIsModifed(tempLesson))
         this.lessonModifed.emit(modifedLesson);
     });
   }
 
-  lessonIsModifed(): boolean{
-    return  this.tempLesson.id != this.lesson.id ||
-            this.tempLesson.name != this.lesson.name ||
-            this.tempLesson.address != this.lesson.address ||
-            this.tempLesson.promotionalDescription != this.lesson.promotionalDescription ||
-            this.tempLesson.instructorBiography != this.lesson.instructorBiography ||
-            this.tempLesson.maxCountOfParticipants != this.lesson.maxCountOfParticipants ||
-            this.tempLesson.rulesOfConduct != this.lesson.rulesOfConduct ||
-            this.tempLesson.defaultEquipment != this.lesson.defaultEquipment ||
-            this.tempLesson.pricelist != this.lesson.pricelist ||
-            this.tempLesson.termsOfUse != this.lesson.termsOfUse;
+  lessonIsModifed(tempLesson: InstructorLesson): boolean{
+    return  tempLesson.id != this.lesson.id ||
+            tempLesson.name != this.lesson.name ||
+            tempLesson.address != this.lesson.address ||
+            tempLesson.promotionalDescription != this.lesson.promotionalDescription ||
+            tempLesson.instructorBiography != this.lesson.instructorBiography ||
+            tempLesson.maxCountOfParticipants != this.lesson.maxCountOfParticipants ||
+            tempLesson.rulesOfConduct != this.lesson.rulesOfConduct ||
+            tempLesson.defaultEquipment != this.lesson.defaultEquipment ||
+            tempLesson.pricelist != this.lesson.pricelist ||
+            tempLesson.termsOfUse != this.lesson.termsOfUse;
+  }
+
+  createTempLesson(): InstructorLesson{
+    let tempLesson = new InstructorLesson();
+
+    tempLesson.id = this.lesson.id;
+    tempLesson.name = this.lesson.name;
+    tempLesson.address = this.lesson.address;
+    tempLesson.promotionalDescription = this.lesson.promotionalDescription;
+    tempLesson.instructorBiography = this.lesson.instructorBiography;
+    tempLesson.maxCountOfParticipants = this.lesson.maxCountOfParticipants;
+    tempLesson.rulesOfConduct = this.lesson.rulesOfConduct;
+    tempLesson.defaultEquipment = this.lesson.defaultEquipment;
+    tempLesson.pricelist = this.lesson.pricelist;
+    tempLesson.termsOfUse = this.lesson.termsOfUse;
+
+    return tempLesson;
   }
 
 

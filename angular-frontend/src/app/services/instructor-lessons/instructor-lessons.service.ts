@@ -24,4 +24,8 @@ export class InstructorLessonsService {
   modifyLesson(modifedLesson: InstructorLesson): any {
     return this._http.post<InstructorLesson>(this._url + 'instructorAdventure/updateAdventure/', modifedLesson);
   }
+
+  addLesson(newLesson: any) {
+    return this._http.post<InstructorLesson>(this._url + 'instructorAdventure/createInstructorAdventure/', newLesson);
+  }
 }
