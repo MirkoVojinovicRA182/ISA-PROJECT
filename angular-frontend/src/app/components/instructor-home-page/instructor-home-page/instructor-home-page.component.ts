@@ -9,7 +9,7 @@ import { InstructorHomePageService } from 'src/app/services/instructor-home-page
 })
 export class InstructorHomePageComponent implements OnInit {
 
-  lessonsClicked: boolean = true;
+  lessonsClicked: boolean = false;
   reservationsClicked: boolean = false;
   calendarClicked: boolean = false;
   reportClicked: boolean = false;

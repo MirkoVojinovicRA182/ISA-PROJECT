@@ -12,19 +12,19 @@ import { InstructorAddLessonComponent } from '../instructor-add-lesson/instructo
   templateUrl: './instructor-lessons.component.html',
   styleUrls: ['./instructor-lessons.component.css']
 })
-export class InstructorLessonsComponent implements OnInit, OnChanges {
+export class InstructorLessonsComponent implements OnInit {
 
   @Input() loggedInstructor: Instructor = new Instructor();
   lessons: InstructorLesson[] = [];
+  searchValue: string = ""
+  foundedLessons: InstructorLesson[] = [];
 
   constructor(private _instructorLessonsService: InstructorLessonsService,
               public detailsDialog: MatDialog) { }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.getInstructorAdventures();
-  }
 
   ngOnInit(): void {
+      this.getInstructorAdventures();
   }
 
   getInstructorAdventures(): void{
@@ -51,6 +51,22 @@ export class InstructorLessonsComponent implements OnInit, OnChanges {
     dialogRef.afterClosed().subscribe(newLesson => {
       newLesson.instructorId = this.loggedInstructor.userId;
       this._instructorLessonsService.addLesson(newLesson).subscribe(() => this.getInstructorAdventures());
+    });
+  }
+
+  findLesson(){
+    this._instructorLessonsService.getInstructorAdventures(this.loggedInstructor.userId).subscribe(data =>
+    {
+      
+      this.lessons = data
+      this.foundedLessons = [];
+
+      for(let lesson of this.lessons)
+        if(lesson.name.includes(this.searchValue))
+          this.foundedLessons.push(lesson);
+
+      this.lessons = this.foundedLessons;
+      
     });
   }
 
