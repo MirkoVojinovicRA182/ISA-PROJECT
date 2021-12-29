@@ -1,0 +1,30 @@
+<div>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Type of user</th>
+                <th>Registration explanation</th>
+                <th>Approve</th>
+                <th>Eject</th>
+            </tr>
+        </thead>
+        <tbody *ngFor = "let request of requests">
+            <tr>
+                <td>{{request.requestDate}}</td>
+                <td>{{request.name}}</td>
+                <td>{{request.lastName}}</td>
+                <td>{{request.userType}}</td>
+                <td>{{request.registrationExplanation}}</td>
+                <td>
+                    <i style="margin-left: 40%;" class="fas fa-user-plus" (click) = "approveRegistration(request)"></i>
+                </td>
+                <td>
+                    <i style="margin-left: 20%;" class="fas fa-user-minus" (click) = "ejectRegistration(request)"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

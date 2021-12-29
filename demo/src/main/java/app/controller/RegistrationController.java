@@ -44,16 +44,16 @@ public class RegistrationController {
 
     @RequestMapping("/approveRegistration")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ApplicationUser> approveRegistration(@RequestBody UserToRegisterDto dto) throws Exception {
-        ApplicationUser savedUser = registrationService.approveRegistration(dto);
+    public ResponseEntity<ApplicationUser> approveRegistration(@RequestBody RegistrationRequest registrationRequest) throws Exception {
+        ApplicationUser savedUser = registrationService.approveRegistration(registrationRequest);
         return new ResponseEntity<ApplicationUser>(savedUser, HttpStatus.CREATED);
     }
 
     @RequestMapping("/ejectRegistration")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> ejectRegistration(String email) {
-        registrationService.ejectRegistration(email);
-        return new ResponseEntity<String>("Mail is sent!", HttpStatus.OK);
+    public ResponseEntity<Void> ejectRegistration(@RequestBody RegistrationRequest registrationRequest) {
+        registrationService.ejectRegistration(registrationRequest);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     @RequestMapping("/registerAdmin")

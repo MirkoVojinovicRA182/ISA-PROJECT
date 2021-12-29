@@ -20,6 +20,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { InstructorAddLessonComponent } from './components/instructor-add-lesson/instructor-add-lesson.component';
 import { AdministratorHomePageComponent } from './components/administrator-home-page/administrator-home-page.component';
+import { AdministratorRegistrationRequestsComponent } from './components/administrator-registration-requests/administrator-registration-requests.component';
+import { AdministratorRegisterAdministratorComponent } from './components/administrator-register-administrator/administrator-register-administrator.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { AdministratorHomePageComponent } from './components/administrator-home-
     InstructorOneLessonDetailsComponent,
     InstructorAddLessonComponent,
     AdministratorHomePageComponent,
+    AdministratorRegistrationRequestsComponent,
+    AdministratorRegisterAdministratorComponent,
   ],
   imports: [
     BrowserModule,

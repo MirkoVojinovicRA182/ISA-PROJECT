@@ -7,7 +7,6 @@ import app.dto.UserToRegisterDto;
 import app.repository.*;
 import app.utility.Utility;
 import net.bytebuddy.utility.RandomString;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -49,19 +48,22 @@ public class RegistrationServiceImpl implements RegistrationService{
     public List<RegistrationRequest> findAll() { return registrationRequestRepository.findAll(); }
 
     @Override
-    public ApplicationUser approveRegistration(UserToRegisterDto dto) throws Exception {
-        Utility.sendMail(dto.getEmail(), "Approved", "Your registration request has been approved.");
+    public ApplicationUser approveRegistration(RegistrationRequest registrationRequest) throws Exception {
+        Utility.sendMail(registrationRequest.getEmail(), "Approved", "Your registration request has been approved.");
 
-        if(dto.getUserType().equals(UserType.CottageOwner))
-            return cottageOwnerRepository.save(new CottageOwner(dto.getEmail(), dto.getPassword(),
-                    dto.getName(), dto.getLastName(), dto.getAddress(), dto.getCity(),
-                    dto.getCountry(), dto.getPhoneNumber()));
-        if(dto.getUserType().equals(UserType.ShipOwner))
-            return shipOwnerRepository.save(new ShipOwner(dto.getEmail(), dto.getPassword(), dto.getName(), dto.getLastName(),
-                    dto.getAddress(), dto.getCity(), dto.getCountry(), dto.getPhoneNumber()));
-        if(dto.getUserType().equals(UserType.Instructor))
-            return instructorRepository.save(new Instructor(dto.getEmail(), dto.getPassword(), dto.getName(), dto.getLastName(),
-                    dto.getAddress(), dto.getCity(), dto.getCountry(), dto.getPhoneNumber()));
+        registrationRequestRepository.deleteById(registrationRequest.getId());
+
+        if(registrationRequest.getUserType().equals(UserType.CottageOwner))
+            return cottageOwnerRepository.save(new CottageOwner(registrationRequest.getEmail(), registrationRequest.getPassword(),
+                    registrationRequest.getName(), registrationRequest.getLastName(), registrationRequest.getAddress(), registrationRequest.getCity(),
+                    registrationRequest.getCountry(), registrationRequest.getPhoneNumber()));
+        if(registrationRequest.getUserType().equals(UserType.ShipOwner))
+            return shipOwnerRepository.save(new ShipOwner(registrationRequest.getEmail(), registrationRequest.getPassword(), registrationRequest.getName(), registrationRequest.getLastName(),
+                    registrationRequest.getAddress(), registrationRequest.getCity(), registrationRequest.getCountry(), registrationRequest.getPhoneNumber()));
+        if(registrationRequest.getUserType().equals(UserType.Instructor))
+            return instructorRepository.save(new Instructor(registrationRequest.getEmail(), registrationRequest.getPassword(), registrationRequest.getName(), registrationRequest.getLastName(),
+                    registrationRequest.getAddress(), registrationRequest.getCity(), registrationRequest.getCountry(), registrationRequest.getPhoneNumber()));
+
         return null;
     }
 
@@ -78,8 +80,10 @@ public class RegistrationServiceImpl implements RegistrationService{
     }
 
     @Override
-    public void ejectRegistration(String email) {
-        Utility.sendMail(email, "Eject", "Your registration request has been denied.");
+    public void ejectRegistration(RegistrationRequest registrationRequest) {
+        Utility.sendMail(registrationRequest.getEmail(), "Eject", "Your registration request has been denied.");
+
+        registrationRequestRepository.deleteById(registrationRequest.getId());
     }
 
     @Override
