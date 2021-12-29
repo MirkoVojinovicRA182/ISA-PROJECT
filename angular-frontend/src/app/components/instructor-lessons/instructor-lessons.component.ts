@@ -62,7 +62,7 @@ export class InstructorLessonsComponent implements OnInit {
       this.foundedLessons = [];
 
       for(let lesson of this.lessons)
-        if(lesson.name.includes(this.searchValue))
+        if(lesson.name.toLocaleLowerCase().includes(this.searchValue.toLocaleLowerCase()))
           this.foundedLessons.push(lesson);
 
       this.lessons = this.foundedLessons;
