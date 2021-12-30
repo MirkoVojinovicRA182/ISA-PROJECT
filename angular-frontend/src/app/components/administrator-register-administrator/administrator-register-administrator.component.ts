@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Administrator } from 'src/app/model/administrator';
+import { UserRegistrationService } from 'src/app/services/user-registration/user-registration.service';
 
 @Component({
   selector: 'app-administrator-register-administrator',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministratorRegisterAdministratorComponent implements OnInit {
 
-  constructor() { }
+  newAdmin: Administrator = new Administrator();
+
+  constructor(private userRegistrationService: UserRegistrationService) { }
 
   ngOnInit(): void {
+  }
+
+  registerAdmin(){
+    this.userRegistrationService.registerAdmin(this.newAdmin).subscribe(() =>
+    {
+       alert('Admin uspešno registrovan!');
+    });
   }
 
 }

@@ -26,7 +26,7 @@ export class InstructorHomePageComponent implements OnInit {
   }
 
   getInstructor():void {
-    this._instructorHomePageService.getProfileInfo(1).subscribe(data => {
+    this._instructorHomePageService.getProfileInfo(2).subscribe(data => {
       this.instructor = data;
     });
   }

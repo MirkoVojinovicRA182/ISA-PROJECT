@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { serverPort } from 'src/app/app.consts';
+import { Administrator } from 'src/app/model/administrator';
 import { RegistrationRequest } from 'src/app/model/registration-request';
 
 @Injectable({
@@ -23,5 +24,9 @@ export class UserRegistrationService {
 
   ejectRegistration(request: RegistrationRequest) {
     return this._http.post<RegistrationRequest>(this._url + 'registration/ejectRegistration/', request);
+  }
+
+  registerAdmin(newAdmin: Administrator){
+    return this._http.post<Administrator>(this._url + 'registration/registerAdmin/', newAdmin);
   }
 }

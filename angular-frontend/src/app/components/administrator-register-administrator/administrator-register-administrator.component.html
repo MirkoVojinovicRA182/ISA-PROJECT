@@ -1,1 +1,61 @@
-<p>administrator-register-administrator works!</p>
+<div class="content">
+    <table>
+        <tr>
+            <td>First name: </td>
+            <td>
+                <input type="text" tabindex="-1" style="font-size: 20px; border: 0" [(ngModel)] = "newAdmin.name">
+            </td>
+        </tr>
+        <tr>
+            <td>Last name: </td>
+            <td>
+                <input type="text" tabindex="-1" style="font-size: 20px; border: 0;" [(ngModel)] = "newAdmin.lastName">
+            </td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td>
+                <input type="text" tabindex="-1" style="font-size: 20px; border: 0" [(ngModel)] = "newAdmin.email">
+            </td>
+        </tr>
+        <tr>
+            <td>Password: </td>
+            <td>
+                <input type="text" tabindex="-1" style="font-size: 20px; border: 0;" [(ngModel)] = "newAdmin.password">
+            </td>
+        </tr>
+        <tr>
+            <td>Address: </td>
+            <td>
+                <input type="text" tabindex="-1" style="font-size: 20px; border: 0" [(ngModel)] = "newAdmin.address">
+            </td>
+        </tr>
+        <tr>
+            <td>City: </td>
+            <td>
+                <input type="text" tabindex="-1" style="font-size: 20px; border: 0;" [(ngModel)] = "newAdmin.city">
+            </td>
+        </tr>
+        <tr>
+            <td>Country: </td>
+            <td>
+                <input type="text" tabindex="-1" style="font-size: 20px; border: 0" [(ngModel)] = "newAdmin.country">
+            </td>
+        </tr>
+        <tr>
+            <td>Phone number: </td>
+            <td>
+                <input type="text" tabindex="-1" style="font-size: 20px; border: 0;" [(ngModel)] = "newAdmin.phoneNumber">
+            </td>
+        </tr>
+    </table>
+    <div>
+        <button
+            tabindex="-1"
+            class="adminButton"
+            style="margin-top: 20px; margin-left: 30%;"
+            mat-raised-button
+            (click) = 'registerAdmin()'>Register</button>
+    </div>
+
+</div>
