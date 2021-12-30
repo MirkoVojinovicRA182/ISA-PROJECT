@@ -1,0 +1,27 @@
+<div>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Username</th>
+                <th>User type</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody *ngFor = "let user of users">
+            <tr>
+                <td>{{user.name}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.userType}}</td>
+                <td>
+                    <i
+                     style="margin-left: 20%;"
+                    class="fas fa-user-minus"
+                    (click) = "deleteUser(user)"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

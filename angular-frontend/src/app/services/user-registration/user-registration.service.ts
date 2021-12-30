@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { serverPort } from 'src/app/app.consts';
 import { Administrator } from 'src/app/model/administrator';
 import { RegistrationRequest } from 'src/app/model/registration-request';
+import { User } from 'src/app/model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,13 @@ export class UserRegistrationService {
 
   registerAdmin(newAdmin: Administrator){
     return this._http.post<Administrator>(this._url + 'registration/registerAdmin/', newAdmin);
+  }
+
+  getUsers(){
+    return this._http.get<User[]>(this._url + 'users/getUsers/'); 
+  }
+
+  deleteUser(user: User){
+    return this._http.delete(this._url + 'users/deleteUser?userId=' + user.userId + '&userType=' + user.userType);
   }
 }

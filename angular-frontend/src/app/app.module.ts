@@ -22,6 +22,7 @@ import { InstructorAddLessonComponent } from './components/instructor-add-lesson
 import { AdministratorHomePageComponent } from './components/administrator-home-page/administrator-home-page.component';
 import { AdministratorRegistrationRequestsComponent } from './components/administrator-registration-requests/administrator-registration-requests.component';
 import { AdministratorRegisterAdministratorComponent } from './components/administrator-register-administrator/administrator-register-administrator.component';
+import { AdministratorUsersViewComponent } from './components/administrator-users-view/administrator-users-view.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AdministratorRegisterAdministratorComponent } from './components/admini
     AdministratorHomePageComponent,
     AdministratorRegistrationRequestsComponent,
     AdministratorRegisterAdministratorComponent,
+    AdministratorUsersViewComponent,
   ],
   imports: [
     BrowserModule,
