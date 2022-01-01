@@ -12,4 +12,6 @@ public interface EntityService {
     List<InstructorAdventureDTO> getAllInstructorAdventures();
 
     UserProfileDTO getInstructorById(Integer id);
+
+    UserProfileDTO getAdministratorById(Integer id);
 }

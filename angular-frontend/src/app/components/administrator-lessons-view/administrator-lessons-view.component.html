@@ -1,0 +1,24 @@
+<div>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Promotional description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody *ngFor = "let lesson of lessons">
+            <tr>
+                <td>{{lesson.name}}</td>
+                <td>{{lesson.address}}</td>
+                <td>{{lesson.promotionalDescription}}</td>
+                <td style="width: 50px;">
+                    <i
+                    class="fas fa-user-minus"
+                    (click) = "deleteLesson(lesson)"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

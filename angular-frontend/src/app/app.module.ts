@@ -23,6 +23,7 @@ import { AdministratorHomePageComponent } from './components/administrator-home-
 import { AdministratorRegistrationRequestsComponent } from './components/administrator-registration-requests/administrator-registration-requests.component';
 import { AdministratorRegisterAdministratorComponent } from './components/administrator-register-administrator/administrator-register-administrator.component';
 import { AdministratorUsersViewComponent } from './components/administrator-users-view/administrator-users-view.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AdministratorUsersViewComponent } from './components/administrator-user
     AdministratorRegistrationRequestsComponent,
     AdministratorRegisterAdministratorComponent,
     AdministratorUsersViewComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,6 @@
     margin: 25px 0;
     font-size: 15px;
     font-family: sans-serif;
-    width: 1000px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     margin-left: 10%;
 }
@@ -16,7 +15,9 @@
 
 .styled-table th,
 .styled-table td {
-    padding: 5px 5spx;
+    padding: 5px 5px;
+    text-align: center;
+    width: 250px;
 }
 
 .styled-table tbody tr {
@@ -37,6 +38,5 @@
 }
 
 i {
-    width: 50px;
      cursor: pointer;
 }

@@ -1,11 +1,13 @@
 package app.service;
 
+import app.domain.Administrator;
 import app.domain.ApplicationUser;
 import app.domain.CottageOwner;
 import app.domain.Instructor;
 import app.domain.enums.UserType;
 import app.dto.UserPasswordDTO;
 import app.dto.UserProfileDTO;
+import app.repository.AdministratorRepository;
 import app.repository.CottageOwnerRepository;
 import app.repository.InstructorRepository;
 import app.repository.ShipOwnerRepository;
@@ -19,6 +21,9 @@ public class UserProfileServiceImpl implements UserProfileService{
     private InstructorRepository instructorRepository;
 
     @Autowired
+    private AdministratorRepository administratorRepository;
+
+    @Autowired
     private CottageOwnerRepository cottageOwnerRepository;
 
     @Autowired
@@ -30,6 +35,12 @@ public class UserProfileServiceImpl implements UserProfileService{
             Instructor instructor = instructorRepository.findById(dto.getUserId()).orElseGet(null);
             instructor.updatePersonalInfo(dto);
             instructorRepository.save(instructor);
+        }
+
+        if(dto.getUserType().equals(UserType.Administrator)){
+            Administrator administrator = administratorRepository.findById(dto.getUserId()).orElseGet(null);
+            administrator.updatePersonalInfo(dto);
+            administratorRepository.save(administrator);
         }
 
         return dto;

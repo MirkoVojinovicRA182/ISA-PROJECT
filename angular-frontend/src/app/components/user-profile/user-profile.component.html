@@ -1,0 +1,58 @@
+<div class="content">
+    <table>
+        <tr>
+            <td>First name: </td>
+            <td>
+                <input type="text" [disabled] = "inputsDisabled" [(ngModel)] = 'loggedUser.name'>
+            </td>
+        </tr>
+        <tr>
+            <td>Last name: </td>
+            <td>
+                <input type="text" [disabled] = "inputsDisabled" [(ngModel)] = 'loggedUser.lastName'>
+            </td>
+        </tr>
+        <tr>
+            <td>Address: </td>
+            <td>
+                <input type="text" [disabled] = "inputsDisabled" [(ngModel)] = 'loggedUser.address'>
+            </td>
+        </tr>
+        <tr>
+            <td>City: </td>
+            <td>
+                <input type="text" [disabled] = "inputsDisabled" [(ngModel)] = 'loggedUser.city'>
+            </td>
+        </tr>
+        <tr>
+            <td>Country: </td>
+            <td>
+                <input type="text" [disabled] = "inputsDisabled" [(ngModel)] = 'loggedUser.country'>
+            </td>
+        </tr>
+        <tr>
+            <td>Phone number: </td>
+            <td>
+                <input type="text" [disabled] = "inputsDisabled" [(ngModel)] = 'loggedUser.phoneNumber'>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <button
+            *ngIf = "inputsDisabled"
+            tabindex="-1"
+            class="adminButton"
+            style="margin-top: 20px; margin-left: 30%;"
+            mat-raised-button
+            (click) = "inputsDisabled = false">Change</button>
+
+        <button
+            *ngIf = "!inputsDisabled"
+            tabindex="-1"
+            class="adminButton"
+            style="margin-top: 20px; margin-left: 30%;"
+            mat-raised-button
+            (click) = "changeProfile()">Save</button>
+    </div>
+
+</div>

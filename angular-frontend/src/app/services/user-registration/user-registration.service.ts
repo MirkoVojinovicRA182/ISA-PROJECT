@@ -38,4 +38,5 @@ export class UserRegistrationService {
   deleteUser(user: User){
     return this._http.delete(this._url + 'users/deleteUser?userId=' + user.userId + '&userType=' + user.userType);
   }
+
 }

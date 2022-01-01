@@ -6,9 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-home-page/administrator-home-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-home-page/administrator-home-page.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-home-page/administrator-home-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-home-page/administrator-home-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-register-administrator/administrator-register-administrator.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-register-administrator/administrator-register-administrator.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-registration-requests/administrator-registration-requests.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-registration-requests/administrator-registration-requests.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-home-page/instructor-home-page/instructor-home-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-home-page/instructor-home-page/instructor-home-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/services/instructor-lessons/instructor-lessons.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/services/instructor-lessons/instructor-lessons.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/services/user-registration/user-registration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/services/user-registration/user-registration.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/EntityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/EntityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/EntityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/EntityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/EntityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/EntityServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/UserProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/UserProfileServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

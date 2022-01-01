@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="container">
-        <app-administrator-users-view></app-administrator-users-view>
+        <router-outlet></router-outlet>
     </div>
   </div>
         <div class="sidebar" >
@@ -30,25 +30,25 @@
             </div>
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="#" [routerLink] = "['/registrationRequests']">
                         <span class="icon"><i class="fas fa-table"></i></span>
                         <span class="item">Registration requests</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" [routerLink] = "['/adminRegistration']">
                         <span class="icon"><i class="fas fa-plus-circle"></i></span>
                         <span class="item">Admin registration</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" [routerLink] = "['/users']">
                         <span class="icon"><i class="fas fa-users"></i></span>
                         <span class="item">Users</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" [routerLink] = "['/lessons']">
                         <span class="icon"><i class="fas fa-fish"></i></span>
                         <span class="item">Fishing lessons</span>
                     </a>
@@ -66,9 +66,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" [routerLink] = "['/profile']">
                         <span class="icon"><i class="fas fa-user-circle"></i></span>
                         <span class="item">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-dollar-sign"></i></span>
+                        <span class="item">Finance</span>
                     </a>
                 </li>
                 <li>

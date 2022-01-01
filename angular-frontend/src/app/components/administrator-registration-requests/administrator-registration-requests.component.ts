@@ -3,7 +3,6 @@ import { RegistrationRequest } from 'src/app/model/registration-request';
 import { UserRegistrationService } from 'src/app/services/user-registration/user-registration.service';
 
 @Component({
-  selector: 'app-administrator-registration-requests',
   templateUrl: './administrator-registration-requests.component.html',
   styleUrls: ['./administrator-registration-requests.component.css']
 })

@@ -31,9 +31,15 @@ public class EntityController {
         return new ResponseEntity<UserProfileDTO>(entityService.getInstructorById(id), HttpStatus.OK);
     }
 
-    @RequestMapping("/getAllInstructorAdventures")
+    @RequestMapping("/getAdministrator/{id}")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserProfileDTO> getAdministrator(@PathVariable Integer id){
+        return new ResponseEntity<UserProfileDTO>(entityService.getAdministratorById(id), HttpStatus.OK);
+    }
+
+    @RequestMapping("/getAllAdventures")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<InstructorAdventureDTO>> getAllInstructorAdventures(){
-        return new ResponseEntity<List<InstructorAdventureDTO>>(entityService.getAllInstructorAdventures(), HttpStatus.FOUND);
+        return new ResponseEntity<List<InstructorAdventureDTO>>(entityService.getAllInstructorAdventures(), HttpStatus.OK);
     }
 }
