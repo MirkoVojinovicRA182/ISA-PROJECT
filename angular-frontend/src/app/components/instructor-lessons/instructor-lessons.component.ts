@@ -18,6 +18,7 @@ export class InstructorLessonsComponent implements OnInit {
   lessons: InstructorLesson[] = [];
   searchValue: string = ""
   foundedLessons: InstructorLesson[] = [];
+  instructorId: number = 2;
 
   constructor(private _instructorLessonsService: InstructorLessonsService,
               public detailsDialog: MatDialog) { }
@@ -28,7 +29,7 @@ export class InstructorLessonsComponent implements OnInit {
   }
 
   getInstructorAdventures(): void{
-    this._instructorLessonsService.getInstructorAdventures(this.loggedInstructor.userId)
+    this._instructorLessonsService.getInstructorAdventures(this.instructorId)
     .subscribe(data => { this.lessons = data});
     ;
   }
@@ -49,13 +50,13 @@ export class InstructorLessonsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(newLesson => {
-      newLesson.instructorId = this.loggedInstructor.userId;
+      newLesson.instructorId = this.instructorId;
       this._instructorLessonsService.addLesson(newLesson).subscribe(() => this.getInstructorAdventures());
     });
   }
 
   findLesson(){
-    this._instructorLessonsService.getInstructorAdventures(this.loggedInstructor.userId).subscribe(data =>
+    this._instructorLessonsService.getInstructorAdventures(this.instructorId).subscribe(data =>
     {
       
       this.lessons = data

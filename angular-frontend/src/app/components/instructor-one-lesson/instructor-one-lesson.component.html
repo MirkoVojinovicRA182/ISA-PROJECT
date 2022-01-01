@@ -1,8 +1,33 @@
-<div>
-    <p>{{lesson.name}}</p>
-    <p style="font-size: 15px;">{{lesson.promotionalDescription}}</p>
+<div class="lesson">
+    <h1>{{lesson.name}}</h1>
+    <hr> 
+    <table>
+        <tr>
+            <td>
+                <i class="fas fa-map-marker-alt"></i>
+            </td>
+            <td>
+                {{lesson.address}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <i class="fas fa-users"></i>
+            </td>
+            <td>
+                {{lesson.maxCountOfParticipants}}
+            </td>
+        </tr>
+    </table>
+    
 
-    <button style="margin-right: 10px;" (click) = 'onDeleteButtonClick()'>Delete</button>
-    <button style="margin-left: 10px;" (click) = 'seeDetailsDialog()'>See details</button>
+    <i
+        class="fas fa-info"
+        style="margin-left: 1%;"
+        (click) = 'seeDetailsDialog()'></i>
 
+    <i 
+        class="fas fa-trash"
+        style="margin-left: 80%;"
+        (click) = 'onDeleteButtonClick()'></i>
 </div>
