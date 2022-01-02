@@ -2,11 +2,15 @@ package app.domain;
 
 import app.domain.enums.UserType;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class CottageOwner extends ApplicationUser{
+
+    @OneToMany(mappedBy = "cottageOwner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<Cottage> cottages = new HashSet<Cottage>();
 
     public CottageOwner() {
     }
@@ -22,4 +26,11 @@ public class CottageOwner extends ApplicationUser{
 
     }
 
+    public Set<Cottage> getCottages() {
+        return cottages;
+    }
+
+    public void setCottages(Set<Cottage> cottages) {
+        this.cottages = cottages;
+    }
 }
