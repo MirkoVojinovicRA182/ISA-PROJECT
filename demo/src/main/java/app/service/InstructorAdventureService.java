@@ -21,4 +21,6 @@ public interface InstructorAdventureService {
     List<AdventureAdditionalServiceDTO> getAdditionalServices(Integer aventureId);
 
     void saveAdditionalService(AdventureAdditionalServiceDTO dto);
+
+    void deleteAdditionalService(Integer id);
 }

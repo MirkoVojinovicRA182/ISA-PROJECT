@@ -16,6 +16,8 @@ export class MyTestComponent implements OnInit {
 
   lesson: InstructorLesson = new InstructorLesson();
   additionalServices: AdventureAdditionalService[] = [];
+  foundedAdditionalServices: AdventureAdditionalService[] = [];
+  searchValue: string = "";
   newAdditionalService: AdventureAdditionalService = new AdventureAdditionalService();
 
   constructor(private route: ActivatedRoute,
@@ -55,6 +57,26 @@ export class MyTestComponent implements OnInit {
       newAdditionalService.adventureId = this.lesson.id;
       this.instructorLessonService.addAdditionalService(newAdditionalService).subscribe(() => this.getLesson(this.lesson.id));
     });
+  }
+
+  deleteAdditionalService(additionalServiceId: number){
+    this.instructorLessonService.deleteAdditionalService(additionalServiceId).subscribe(() => this.getLesson(this.lesson.id));
+  }
+
+  findServices(){
+    this.instructorLessonService.getAdditionalServices(this.lesson.id).subscribe(
+      services =>
+      {
+         this.additionalServices = services
+         this.foundedAdditionalServices = [];
+
+         for(let service of this.additionalServices)
+          if(service.name.toLocaleLowerCase().includes(this.searchValue.toLocaleLowerCase()))
+            this.foundedAdditionalServices.push(service);
+
+         this.additionalServices = this.foundedAdditionalServices;
+      }
+    );
   }
 
 }

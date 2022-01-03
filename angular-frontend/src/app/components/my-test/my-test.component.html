@@ -87,7 +87,13 @@
         style="font-size: medium;"
         ></i>
 
-        <input type="text" style="margin-left: 10px;">
+        <input
+            type="text"
+            style="margin-left: 10px;"
+            (keyup) = 'findServices()'
+            [(ngModel)] = 'searchValue'>
+
+
         <i
         class="fas fa-plus"
         style="font-size: medium;
@@ -110,7 +116,7 @@
                 <tr>
                     <td>{{service.name}}</td>
                     <td>{{service.price}} <i class="fas fa-euro-sign"></i></td>
-                    <td><i class="fas fa-trash" style="cursor: pointer;"></i></td>
+                    <td><i class="fas fa-trash" style="cursor: pointer;" (click) = 'deleteAdditionalService(service.id)'></i></td>
                 </tr>
             </tbody>
         </table>
@@ -172,27 +178,143 @@
     </div>
 </div>
 
-<div class="item4">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
-    <img src="assets/fishing.jpg">
+<div class="slider">
+    <table>
+        <tr>
+            <td>
+                <div class="image-container">
+                    <img src="assets/fishing.jpg" class="image">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="Delete image">
+                          <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </td>
     
+            <td>
+                <div class="image-container">
+                    <img src="assets/fishing.jpg" class="image">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="Delete image">
+                          <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </td>
+    
+            <td>
+                <div class="image-container">
+                    <img src="assets/fishing.jpg" class="image">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="Delete image">
+                          <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </td>
+    
+            <td>
+                <div class="image-container">
+                    <img src="assets/fishing.jpg" class="image">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="Delete image">
+                          <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </td>
+    
+            <td>
+                <div class="image-container">
+                    <img src="assets/fishing.jpg" class="image">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="Delete image">
+                          <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </td>
+    
+            <td>
+                <div class="image-container">
+                    <img src="assets/fishing.jpg" class="image">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="Delete image">
+                          <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </td>
+    
+            <td>
+                <div class="image-container">
+                    <img src="assets/fishing.jpg" class="image">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="Delete image">
+                          <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </td>
+    
+            <td>
+                <div class="image-container">
+                    <img src="assets/fishing.jpg" class="image">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="Delete image">
+                          <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </td>
+    
+            <td>
+                <div class="image-container">
+                    <img src="assets/fishing.jpg" class="image">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="Delete image">
+                          <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </td>
+    
+            <td>
+                <div class="image-container">
+                    <img src="assets/fishing.jpg" class="image">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="Delete image">
+                          <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </td>
+    
+            <td>
+                <div class="image-container">
+                    <img src="assets/fishing.jpg" class="image">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="Delete image">
+                          <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </td>
+    
+            <td>
+                <div class="image-container">
+                    <img src="assets/fishing.jpg" class="image">
+                    <div class="overlay">
+                        <a href="#" class="icon" title="Delete image">
+                          <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+    </table>
 </div>
+
 

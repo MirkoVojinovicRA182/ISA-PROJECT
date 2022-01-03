@@ -92,4 +92,9 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
                 dto.getPrice(),
                 instructorAdventureRepository.getById(dto.getAdventureId())));
     }
+
+    @Override
+    public void deleteAdditionalService(Integer id) {
+        additionalServiceRepository.deleteById(id);
+    }
 }

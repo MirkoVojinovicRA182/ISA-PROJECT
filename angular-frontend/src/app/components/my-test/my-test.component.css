@@ -93,11 +93,55 @@ h2 {
     color: rgb(5, 68, 104);
 }
 
-img{
-    width: 200px;
-    height: 200px;
-    border-radius: 20%;
-    margin: 10px;
+.image-container {
+    position: relative;
+    width: 380px;
+}
+
+.slider {
+    margin-top: 100px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    overflow-x: auto;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: gray;
+}
+
+.image-container:hover .overlay {
+    opacity: 70%;
+}
+
+.icon {
+    color: white;
+    font-size: 70px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.fa-user:hover {
+    color: #eee;
 }
 
 

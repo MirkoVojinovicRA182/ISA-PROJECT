@@ -10,7 +10,6 @@ import { InstructorLesson } from 'src/app/model/instructor-lesson';
   providedIn: 'root'
 })
 export class InstructorLessonsService {
-
   private _url = serverPort;
 
   constructor(private _http: HttpClient) { }
@@ -26,6 +25,11 @@ export class InstructorLessonsService {
   deleteLesson(lessonId: number): any {
     return this._http.delete(this._url + 'instructorAdventure/deleteAdventure/' + lessonId);
   }
+
+  deleteAdditionalService(additionalServiceId: number) {
+    return this._http.delete(this._url + 'instructorAdventure/deleteAdditionalService/' + additionalServiceId);
+  }
+
 
   modifyLesson(modifedLesson: InstructorLesson): any {
     return this._http.post<InstructorLesson>(this._url + 'instructorAdventure/updateAdventure/', modifedLesson);
