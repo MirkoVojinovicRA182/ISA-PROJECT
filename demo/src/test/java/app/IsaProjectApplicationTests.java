@@ -8,6 +8,7 @@ class IsaProjectApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

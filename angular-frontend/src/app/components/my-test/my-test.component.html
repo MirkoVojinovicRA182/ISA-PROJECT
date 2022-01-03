@@ -1,0 +1,198 @@
+<i
+ class="fas fa-arrow-left"
+ style="font-size: 30px;
+        cursor: pointer;
+        margin-bottom: 30px;"
+ [routerLink] = "['/instructorLessons']"
+ ></i>
+
+<div class="grid-container">
+    <div class="item1">
+
+        <h2>Informations</h2>
+
+        <table *ngIf = "lesson">
+            <tr>
+                <td>Name: </td>
+                <td>
+                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.name">
+                </td>
+            </tr>
+            <tr>
+                <td>Address: </td>
+                <td>
+                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.address">
+                </td>
+            </tr>
+            <tr>
+                <td>Promotional description: </td>
+                <td>
+                    <textarea tabindex="-1" [(ngModel)] = "lesson.promotionalDescription"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Instructor biography: </td>
+                <td>
+                    <textarea [(ngModel)] = "lesson.instructorBiography"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Max count of participants: </td>
+                <td>
+                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.maxCountOfParticipants">
+                </td>
+            </tr>
+            <tr>
+                <td>Rules of conduct: </td>
+                <td>
+                    <textarea type="text" tabindex="-1" [(ngModel)] = "lesson.rulesOfConduct"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Default equipment: </td>
+                <td>
+                    <textarea type="text" tabindex="-1" [(ngModel)] = "lesson.defaultEquipment"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Price list: </td>
+                <td>
+                    <textarea type="text" tabindex="-1" [(ngModel)] = "lesson.pricelist"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Terms of use: </td>
+                <td>
+                    <textarea type="text" tabindex="-1" [(ngModel)] = "lesson.termsOfUse"></textarea>
+                </td>
+            </tr>
+        </table>
+
+        <button 
+        mat-raised-button
+        class="myButton"
+        (click) = 'modifyLesson()'
+        style="margin-left: 30%;"
+        >Update</button>
+
+    </div>
+
+
+    <div class="item2">
+
+        <h2>Additional services</h2>
+
+        <i
+        class="fas fa-search"
+        style="font-size: medium;"
+        ></i>
+
+        <input type="text" style="margin-left: 10px;">
+        <i
+        class="fas fa-plus"
+        style="font-size: medium;
+               margin-left: 10%;
+               cursor: pointer;"
+        (click) = 'addAdditionalService()'
+        ></i>
+
+        <hr>
+    
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody *ngFor = "let service of additionalServices; let index = index" [ngClass]="{'evenRow': 0 !== index % 2}">
+                <tr>
+                    <td>{{service.name}}</td>
+                    <td>{{service.price}} <i class="fas fa-euro-sign"></i></td>
+                    <td><i class="fas fa-trash" style="cursor: pointer;"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    
+    </div>
+
+
+    <div class="item3">
+        <h2>Fast reservations</h2>
+        <i
+        class="fas fa-search"
+        style="font-size: medium;"
+        ></i>
+
+        <input type="text" style="margin-left: 10px;">
+        <i
+        class="fas fa-plus"
+        style="font-size: medium;
+               margin-left: 10%;"
+        ></i>
+
+        <hr>
+    
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Date and time</th>
+                    <th>Location</th>
+                    <th>Duration</th>
+                    <th>Max people</th>
+                    <th>Additional services</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2022-01-21</td>
+                    <td>Kanal DTD</td>
+                    <td>2 days</td>
+                    <td>15</td>
+                    <td>
+                        <p>* čamac</p>
+                        <p>* roštilj</p>
+                    </td>
+                    <td>100 <i class="fas fa-euro-sign"></i></td>
+                </tr>
+                <tr>
+                    <td>2022-03-22</td>
+                    <td>Kanal DTD</td>
+                    <td>10 days</td>
+                    <td>10</td>
+                    <td>
+                        <p>* roštilj</p>
+                    </td>
+                    <td>500 <i class="fas fa-euro-sign"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="item4">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    <img src="assets/fishing.jpg">
+    
+</div>
+

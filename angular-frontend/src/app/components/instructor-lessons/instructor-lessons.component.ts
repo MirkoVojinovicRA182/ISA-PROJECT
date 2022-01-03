@@ -18,7 +18,7 @@ export class InstructorLessonsComponent implements OnInit {
   lessons: InstructorLesson[] = [];
   searchValue: string = ""
   foundedLessons: InstructorLesson[] = [];
-  instructorId: number = 2;
+  instructorId: number = 1;
 
   constructor(private _instructorLessonsService: InstructorLessonsService,
               public detailsDialog: MatDialog) { }

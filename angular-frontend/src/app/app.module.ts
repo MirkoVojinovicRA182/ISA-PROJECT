@@ -24,6 +24,8 @@ import { AdministratorRegistrationRequestsComponent } from './components/adminis
 import { AdministratorRegisterAdministratorComponent } from './components/administrator-register-administrator/administrator-register-administrator.component';
 import { AdministratorUsersViewComponent } from './components/administrator-users-view/administrator-users-view.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { MyTestComponent } from './components/my-test/my-test.component';
+import { InstructorAdditionalServiceDialogComponent } from './components/instructor-additional-service-dialog/instructor-additional-service-dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     AdministratorRegisterAdministratorComponent,
     AdministratorUsersViewComponent,
     UserProfileComponent,
+    MyTestComponent,
+    InstructorAdditionalServiceDialogComponent,
   ],
   imports: [
     BrowserModule,

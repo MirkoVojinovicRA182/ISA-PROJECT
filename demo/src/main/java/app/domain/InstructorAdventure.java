@@ -48,6 +48,9 @@ public class InstructorAdventure {
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
+    @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<AdventureAdditionalService> additionalServices;
+
     public InstructorAdventure() {
     }
 
@@ -158,6 +161,14 @@ public class InstructorAdventure {
 
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
+    }
+
+    public Set<AdventureAdditionalService> getAdditionalServices() {
+        return additionalServices;
+    }
+
+    public void setAdditionalServices(Set<AdventureAdditionalService> additionalServices) {
+        this.additionalServices = additionalServices;
     }
 
     public void update(InstructorAdventureDTO dto) {

@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.dto.AdventureAdditionalServiceDTO;
 import app.dto.InstructorAdventureDTO;
 import app.service.InstructorAdventureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +21,28 @@ public class InstructorAdventureController {
 
     @RequestMapping("/createInstructorAdventure")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<InstructorAdventureDTO> createAdventure(@RequestBody InstructorAdventureDTO dto) throws Exception {
+    public ResponseEntity<InstructorAdventureDTO> createAdventure(@RequestBody InstructorAdventureDTO dto){
         instructorAdventureService.saveAdventure(dto);
         return new ResponseEntity<InstructorAdventureDTO>(dto, HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/createAdditionalService")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AdventureAdditionalServiceDTO> createAdditionalService(@RequestBody AdventureAdditionalServiceDTO dto){
+        instructorAdventureService.saveAdditionalService(dto);
+        return new ResponseEntity<AdventureAdditionalServiceDTO>(dto, HttpStatus.CREATED);
     }
 
     @RequestMapping("/getAdventures/{instructorId}")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<InstructorAdventureDTO>> getAdventuresByInstructorId(@PathVariable Integer instructorId){
         return new ResponseEntity<List<InstructorAdventureDTO>>(instructorAdventureService.getAdventuresByInstructorId(instructorId), HttpStatus.OK);
+    }
+
+    @RequestMapping("/getAdditionalServices/{adventureId}")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<AdventureAdditionalServiceDTO>> getAdditionalServices(@PathVariable Integer adventureId){
+        return new ResponseEntity<List<AdventureAdditionalServiceDTO>>(instructorAdventureService.getAdditionalServices(adventureId), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "deleteAdventure/{adventureId}")
@@ -44,4 +58,9 @@ public class InstructorAdventureController {
         return new ResponseEntity<InstructorAdventureDTO>(instructorAdventureDTO, HttpStatus.OK);
     }
 
+    @RequestMapping("/getAdventureById/{id}")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<InstructorAdventureDTO> getAdventureById(@PathVariable Integer id) {
+        return new ResponseEntity<InstructorAdventureDTO>(instructorAdventureService.getAdventureById(id), HttpStatus.OK);
+    }
 }

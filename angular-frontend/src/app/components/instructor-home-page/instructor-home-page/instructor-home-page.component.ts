@@ -19,6 +19,8 @@ export class InstructorHomePageComponent implements OnInit {
 
   instructor: Instructor = new Instructor();
 
+  instructorId: number = 1;
+
   constructor(private _instructorHomePageService: InstructorHomePageService) { }
 
   ngOnInit(): void {
@@ -26,7 +28,7 @@ export class InstructorHomePageComponent implements OnInit {
   }
 
   getInstructor():void {
-    this._instructorHomePageService.getProfileInfo(2).subscribe(data => {
+    this._instructorHomePageService.getProfileInfo(this.instructorId).subscribe(data => {
       this.instructor = data;
     });
   }

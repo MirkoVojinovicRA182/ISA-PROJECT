@@ -1,8 +1,11 @@
 package app.service;
 
+import app.domain.AdventureAdditionalService;
 import app.domain.Instructor;
 import app.domain.InstructorAdventure;
+import app.dto.AdventureAdditionalServiceDTO;
 import app.dto.InstructorAdventureDTO;
+import app.repository.AdventureAdditionalServiceRepository;
 import app.repository.InstructorAdventureRepository;
 import app.repository.InstructorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,9 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
 
     @Autowired
     private InstructorRepository instructorRepository;
+
+    @Autowired
+    private AdventureAdditionalServiceRepository additionalServiceRepository;
 
     @Override
     public void saveAdventure(InstructorAdventureDTO dto) {
@@ -56,5 +62,34 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
         adventure.update(dto);
         instructorAdventureRepository.save(adventure);
         return new InstructorAdventureDTO(adventure);
+    }
+
+    @Override
+    public InstructorAdventureDTO getAdventureById(Integer id) {
+        InstructorAdventure adventure = instructorAdventureRepository.findById(id).orElseGet(null);
+        if(adventure != null)
+            return new InstructorAdventureDTO(adventure);
+        return null;
+    }
+
+    @Override
+    public List<AdventureAdditionalServiceDTO> getAdditionalServices(Integer aventureId) {
+        InstructorAdventure adventure = instructorAdventureRepository.findById(aventureId).orElseGet(null);
+
+        List<AdventureAdditionalServiceDTO> additionalServiceDTOS = new ArrayList<AdventureAdditionalServiceDTO>();
+        if(adventure != null){
+            for(AdventureAdditionalService additionalService: adventure.getAdditionalServices())
+                additionalServiceDTOS.add(new AdventureAdditionalServiceDTO(additionalService));
+        }
+
+        return additionalServiceDTOS;
+    }
+
+    @Override
+    public void saveAdditionalService(AdventureAdditionalServiceDTO dto) {
+        additionalServiceRepository.save(new AdventureAdditionalService(
+                dto.getName(),
+                dto.getPrice(),
+                instructorAdventureRepository.getById(dto.getAdventureId())));
     }
 }

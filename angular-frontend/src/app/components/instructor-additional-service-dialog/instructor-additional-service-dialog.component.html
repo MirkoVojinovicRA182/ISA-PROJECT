@@ -1,0 +1,28 @@
+<div>
+
+    <table>
+        <tr>
+            <td><label>Name:</label></td>
+            <td><input type="text" [(ngModel)] = 'additionalService.name'></td>
+        </tr>
+        <tr>
+            <td><label>Price:</label></td>
+            <td><input type="number" min="1" [(ngModel)] = 'additionalService.price'></td>
+        </tr>
+    </table>
+
+    <button 
+    mat-raised-button
+    class="myButton"
+    style="margin-left: 10%; margin-top: 20px;"
+    [mat-dialog-close]="additionalService"
+    >Add</button>
+
+    <button 
+    mat-raised-button
+    class="myButton"
+    style="margin-left: 12%; margin-top: 20px;"
+    (click) = 'closeDialog()'
+    >Close</button>
+
+</div>

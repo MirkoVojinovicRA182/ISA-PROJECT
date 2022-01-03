@@ -2,6 +2,7 @@ package app.service;
 
 import app.domain.Instructor;
 import app.domain.InstructorAdventure;
+import app.dto.AdventureAdditionalServiceDTO;
 import app.dto.InstructorAdventureDTO;
 
 import java.util.List;
@@ -14,4 +15,10 @@ public interface InstructorAdventureService {
     void deleteAdventure(Integer adventureId);
 
     InstructorAdventureDTO updateAdventure(InstructorAdventureDTO dto);
+
+    InstructorAdventureDTO getAdventureById(Integer id);
+
+    List<AdventureAdditionalServiceDTO> getAdditionalServices(Integer aventureId);
+
+    void saveAdditionalService(AdventureAdditionalServiceDTO dto);
 }
