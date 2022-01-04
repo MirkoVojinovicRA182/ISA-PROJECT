@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdventureAdditionalService } from 'src/app/model/adventure-additional-service';
-import { Instructor } from 'src/app/model/instructor';
 import { InstructorLesson } from 'src/app/model/instructor-lesson';
 import { InstructorLessonsService } from 'src/app/services/instructor-lessons/instructor-lessons.service';
 import { InstructorAdditionalServiceDialogComponent } from '../instructor-additional-service-dialog/instructor-additional-service-dialog.component';
+import { Image } from 'src/app/model/image';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-my-test',
@@ -15,10 +16,18 @@ import { InstructorAdditionalServiceDialogComponent } from '../instructor-additi
 export class MyTestComponent implements OnInit {
 
   lesson: InstructorLesson = new InstructorLesson();
+
   additionalServices: AdventureAdditionalService[] = [];
+
+  images: Image[] = [];
+
   foundedAdditionalServices: AdventureAdditionalService[] = [];
+
   searchValue: string = "";
+
   newAdditionalService: AdventureAdditionalService = new AdventureAdditionalService();
+
+  uploadImage: File | undefined;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -36,10 +45,23 @@ export class MyTestComponent implements OnInit {
       lesson => 
       {
         this.lesson = lesson;
-        this.instructorLessonService.getAdditionalServices(id).subscribe(
-          services => this.additionalServices = services
-        );
+
+        this.getAdditionalServices(id);
+
+        this.getImages(id);
       }
+    );
+  }
+
+  getAdditionalServices(id: number){
+    this.instructorLessonService.getAdditionalServices(id).subscribe(
+      services => this.additionalServices = services
+    );
+  }
+
+  getImages(id: number){
+    this.instructorLessonService.getImages(id).subscribe(
+      images => this.images = images
     );
   }
 
@@ -77,6 +99,28 @@ export class MyTestComponent implements OnInit {
          this.additionalServices = this.foundedAdditionalServices;
       }
     );
+  }
+
+  deleteImage(image: Image){
+    const index = this.images.indexOf(image, 0);
+    if (index > -1) {
+      this.images.splice(index, 1);
+    }
+    
+
+    this.instructorLessonService.deleteImage(image.id).subscribe();
+  }
+
+  onImageUpload(event: any){
+    this.uploadImage = event.target.files[0];
+
+    if(this.uploadImage != null){
+      let image = new Image();
+      image.url = this.uploadImage.name;
+      image.adventureId = this.lesson.id;
+      this.instructorLessonService.addImage(image).subscribe(() => this.images.push(image),
+      () => alert('Image allready exists!'));
+    }
   }
 
 }

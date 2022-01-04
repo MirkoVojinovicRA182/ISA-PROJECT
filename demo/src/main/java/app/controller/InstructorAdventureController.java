@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.dto.AdventureAdditionalServiceDTO;
+import app.dto.ImageDTO;
 import app.dto.InstructorAdventureDTO;
 import app.service.InstructorAdventureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,13 @@ public class InstructorAdventureController {
         return new ResponseEntity<AdventureAdditionalServiceDTO>(dto, HttpStatus.CREATED);
     }
 
+    @RequestMapping("/addImage")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ImageDTO> addImage(@RequestBody ImageDTO dto){
+        instructorAdventureService.addImage(dto);
+        return new ResponseEntity<ImageDTO>(dto, HttpStatus.CREATED);
+    }
+
     @RequestMapping("/getAdventures/{instructorId}")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<InstructorAdventureDTO>> getAdventuresByInstructorId(@PathVariable Integer instructorId){
@@ -45,6 +53,12 @@ public class InstructorAdventureController {
         return new ResponseEntity<List<AdventureAdditionalServiceDTO>>(instructorAdventureService.getAdditionalServices(adventureId), HttpStatus.OK);
     }
 
+    @RequestMapping("/getImages/{adventureId}")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ImageDTO>> getImages(@PathVariable Integer adventureId){
+        return new ResponseEntity<List<ImageDTO>>(instructorAdventureService.getImages(adventureId), HttpStatus.OK);
+    }
+
     @DeleteMapping(value = "deleteAdventure/{adventureId}")
     public ResponseEntity<Void> deleteAdventure(@PathVariable Integer adventureId){
         instructorAdventureService.deleteAdventure(adventureId);
@@ -54,6 +68,12 @@ public class InstructorAdventureController {
     @DeleteMapping(value = "deleteAdditionalService/{id}")
     public ResponseEntity<Void> deleteAdditionalService(@PathVariable Integer id){
         instructorAdventureService.deleteAdditionalService(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "deleteImage/{id}")
+    public ResponseEntity<Void> deleteImage(@PathVariable Integer id){
+        instructorAdventureService.deleteImage(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

@@ -178,143 +178,39 @@
     </div>
 </div>
 
-<div class="slider">
-    <table>
-        <tr>
-            <td>
-                <div class="image-container">
-                    <img src="assets/fishing.jpg" class="image">
-                    <div class="overlay">
-                        <a href="#" class="icon" title="Delete image">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </td>
-    
-            <td>
-                <div class="image-container">
-                    <img src="assets/fishing.jpg" class="image">
-                    <div class="overlay">
-                        <a href="#" class="icon" title="Delete image">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </td>
-    
-            <td>
-                <div class="image-container">
-                    <img src="assets/fishing.jpg" class="image">
-                    <div class="overlay">
-                        <a href="#" class="icon" title="Delete image">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </td>
-    
-            <td>
-                <div class="image-container">
-                    <img src="assets/fishing.jpg" class="image">
-                    <div class="overlay">
-                        <a href="#" class="icon" title="Delete image">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </td>
-    
-            <td>
-                <div class="image-container">
-                    <img src="assets/fishing.jpg" class="image">
-                    <div class="overlay">
-                        <a href="#" class="icon" title="Delete image">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </td>
-    
-            <td>
-                <div class="image-container">
-                    <img src="assets/fishing.jpg" class="image">
-                    <div class="overlay">
-                        <a href="#" class="icon" title="Delete image">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </td>
-    
-            <td>
-                <div class="image-container">
-                    <img src="assets/fishing.jpg" class="image">
-                    <div class="overlay">
-                        <a href="#" class="icon" title="Delete image">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </td>
-    
-            <td>
-                <div class="image-container">
-                    <img src="assets/fishing.jpg" class="image">
-                    <div class="overlay">
-                        <a href="#" class="icon" title="Delete image">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </td>
-    
-            <td>
-                <div class="image-container">
-                    <img src="assets/fishing.jpg" class="image">
-                    <div class="overlay">
-                        <a href="#" class="icon" title="Delete image">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </td>
-    
-            <td>
-                <div class="image-container">
-                    <img src="assets/fishing.jpg" class="image">
-                    <div class="overlay">
-                        <a href="#" class="icon" title="Delete image">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </td>
-    
-            <td>
-                <div class="image-container">
-                    <img src="assets/fishing.jpg" class="image">
-                    <div class="overlay">
-                        <a href="#" class="icon" title="Delete image">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </td>
-    
-            <td>
-                <div class="image-container">
-                    <img src="assets/fishing.jpg" class="image">
-                    <div class="overlay">
-                        <a href="#" class="icon" title="Delete image">
-                          <i class="fas fa-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </td>
 
-        </tr>
-    </table>
+<div class="images">
+    <h2 style="display: inline;">Images</h2>
+    <div class="addImage" style="float: right;">
+        <label><i>add image</i></label>
+        <label class="fas fa-upload" style="margin-left: 20px; font-size: 20px; cursor: pointer;">
+            <input type="file" (change)="onImageUpload($event)">
+        </label>
+    </div>
+    <div class="slider">
+        <table>
+            <tbody>
+                <tr>
+                    <td *ngFor = "let image of images;">
+                        <div class="image-container">
+                            <img src='assets/{{image.url}}' class="image">
+                            <div class="overlay">
+                                <a 
+                                (click) = 'deleteImage(image)'
+                                class="icon"
+                                title="Delete image"
+                                >
+                                  <i
+                                   class="fas fa-trash"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
 
 

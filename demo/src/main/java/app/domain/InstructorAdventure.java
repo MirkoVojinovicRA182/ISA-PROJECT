@@ -27,8 +27,6 @@ public class InstructorAdventure {
     @Column(name = "instructorBiography", unique = false, nullable = false)
     private String instructorBiography;
 
-    //private List<String> images;
-
     @Column(name = "maxCountOfParticipants", unique = false, nullable = false)
     private int maxCountOfParticipants;
 
@@ -50,6 +48,9 @@ public class InstructorAdventure {
 
     @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<AdventureAdditionalService> additionalServices;
+
+    @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<Image> images;
 
     public InstructorAdventure() {
     }
@@ -107,14 +108,6 @@ public class InstructorAdventure {
         this.instructorBiography = instructorBiography;
     }
 
-    /*public List<String> getImages() {
-        return images;
-    }
-
-    public void setImages(List<String> images) {
-        this.images = images;
-    }*/
-
     public int getMaxCountOfParticipants() {
         return maxCountOfParticipants;
     }
@@ -169,6 +162,14 @@ public class InstructorAdventure {
 
     public void setAdditionalServices(Set<AdventureAdditionalService> additionalServices) {
         this.additionalServices = additionalServices;
+    }
+
+    public Set<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<Image> images) {
+        this.images = images;
     }
 
     public void update(InstructorAdventureDTO dto) {

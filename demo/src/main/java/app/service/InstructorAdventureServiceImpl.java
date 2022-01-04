@@ -1,11 +1,14 @@
 package app.service;
 
 import app.domain.AdventureAdditionalService;
+import app.domain.Image;
 import app.domain.Instructor;
 import app.domain.InstructorAdventure;
 import app.dto.AdventureAdditionalServiceDTO;
+import app.dto.ImageDTO;
 import app.dto.InstructorAdventureDTO;
 import app.repository.AdventureAdditionalServiceRepository;
+import app.repository.ImageRepository;
 import app.repository.InstructorAdventureRepository;
 import app.repository.InstructorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,9 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
 
     @Autowired
     private AdventureAdditionalServiceRepository additionalServiceRepository;
+
+    @Autowired
+    private ImageRepository imageRepository;
 
     @Override
     public void saveAdventure(InstructorAdventureDTO dto) {
@@ -97,4 +103,29 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
     public void deleteAdditionalService(Integer id) {
         additionalServiceRepository.deleteById(id);
     }
+
+    @Override
+    public List<ImageDTO> getImages(Integer adventureId) {
+        List<ImageDTO> images = new ArrayList<ImageDTO>();
+        InstructorAdventure adventure = instructorAdventureRepository.findById(adventureId).orElseGet(null);
+        if(adventure != null)
+            for(Image image : adventure.getImages())
+                images.add(new ImageDTO(image));
+
+        return images;
+    }
+
+    @Override
+    public void deleteImage(Integer id) {
+        imageRepository.deleteById(id);
+    }
+
+    @Override
+    public void addImage(ImageDTO dto) {
+        InstructorAdventure adventure = instructorAdventureRepository.getById(dto.getAdventureId());
+
+        imageRepository.save(new Image(dto.getUrl(), adventure));
+    }
+
+
 }

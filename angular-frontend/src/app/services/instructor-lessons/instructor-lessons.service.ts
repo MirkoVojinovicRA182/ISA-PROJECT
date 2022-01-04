@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { serverPort } from 'src/app/app.consts';
 import { AdventureAdditionalService } from 'src/app/model/adventure-additional-service';
-import { Instructor } from 'src/app/model/instructor';
+import { Image } from 'src/app/model/image';
 import { InstructorLesson } from 'src/app/model/instructor-lesson';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InstructorLessonsService {
+
   private _url = serverPort;
 
   constructor(private _http: HttpClient) { }
@@ -18,8 +19,12 @@ export class InstructorLessonsService {
     return this._http.get<any>(this._url + 'instructorAdventure/getAdventures/' + instructorId);
   }
 
-  getAdditionalServices(adventureId: number) {
+  getAdditionalServices(adventureId: number): Observable<AdventureAdditionalService[]> {
     return this._http.get<AdventureAdditionalService[]>(this._url + 'instructorAdventure/getAdditionalServices/' + adventureId);
+  }
+
+  getImages(adventureId: number): Observable<Image[]> {
+    return this._http.get<Image[]>(this._url + 'instructorAdventure/getImages/' + adventureId);
   }
 
   deleteLesson(lessonId: number): any {
@@ -30,6 +35,10 @@ export class InstructorLessonsService {
     return this._http.delete(this._url + 'instructorAdventure/deleteAdditionalService/' + additionalServiceId);
   }
 
+  deleteImage(imageId: number) {
+    return this._http.delete(this._url + 'instructorAdventure/deleteImage/' + imageId);
+  }
+
 
   modifyLesson(modifedLesson: InstructorLesson): any {
     return this._http.post<InstructorLesson>(this._url + 'instructorAdventure/updateAdventure/', modifedLesson);
@@ -37,6 +46,10 @@ export class InstructorLessonsService {
 
   addLesson(newLesson: any) {
     return this._http.post<InstructorLesson>(this._url + 'instructorAdventure/createInstructorAdventure/', newLesson);
+  }
+
+  addImage(image: Image): Observable<Image>{
+    return this._http.post<Image>(this._url + 'instructorAdventure/addImage', image);
   }
 
   getAllLessons(): Observable<InstructorLesson[]> {
