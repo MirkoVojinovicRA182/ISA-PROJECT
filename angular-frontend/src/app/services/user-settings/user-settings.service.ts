@@ -5,9 +5,9 @@ import { serverPort } from 'src/app/app.consts';
 @Injectable({
   providedIn: 'root'
 })
-export class InstructorSettingsService {
-
+export class UserSettingsService {
   private _url = serverPort;
+
   constructor(private http: HttpClient) { }
 
   public changePassword(userPasswordDTO: any){

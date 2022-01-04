@@ -5,9 +5,9 @@ import { AdministratorRegisterAdministratorComponent } from './components/admini
 import { AdministratorRegistrationRequestsComponent } from './components/administrator-registration-requests/administrator-registration-requests.component';
 import { AdministratorUsersViewComponent } from './components/administrator-users-view/administrator-users-view.component';
 import { InstructorLessonsComponent } from './components/instructor-lessons/instructor-lessons.component';
-import { InstructorSettingsComponent } from './components/instructor-settings/instructor-settings/instructor-settings.component';
 import { MyTestComponent } from './components/my-test/my-test.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 import { Instructor } from './model/instructor';
 
 const routes: Routes = [
@@ -21,11 +21,11 @@ const routes: Routes = [
 
   // INSTRUCTOR ROUTES
   { path: 'instructorLessons', component: InstructorLessonsComponent },
-  { path: 'instructorSettings', component: InstructorSettingsComponent },
   { path: 'instructorLessons/:id', component: MyTestComponent },
 
-  // PROFILE ROUTE
-  { path: 'profile', component: UserProfileComponent }
+  // PROFILE ROUTES
+  { path: 'profile', component: UserProfileComponent },
+  { path: 'settings', component: UserSettingsComponent },
 
 ];
 

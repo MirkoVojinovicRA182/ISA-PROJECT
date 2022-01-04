@@ -8,7 +8,6 @@ import { InstructorProfileInfoComponent } from './components/instructor-profile/
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { InstructorSettingsComponent } from './components/instructor-settings/instructor-settings/instructor-settings.component';
 import { InstructorCalendarComponent } from './components/instructor-calendar/instructor-calendar.component';
 import { InstructorLessonsComponent } from './components/instructor-lessons/instructor-lessons.component';
 import { InstructorOneLessonComponent } from './components/instructor-one-lesson/instructor-one-lesson.component';
@@ -26,13 +25,15 @@ import { AdministratorUsersViewComponent } from './components/administrator-user
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { MyTestComponent } from './components/my-test/my-test.component';
 import { InstructorAdditionalServiceDialogComponent } from './components/instructor-additional-service-dialog/instructor-additional-service-dialog.component';
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
+import { ChangePasswordDialogComponent } from './components/user-settings/change-password-dialog/change-password-dialog.component';
+import { DeleteAccountDialogComponent } from './components/user-settings/delete-account-dialog/delete-account-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InstructorHomePageComponent,
     InstructorProfileInfoComponent,
-    InstructorSettingsComponent,
     InstructorCalendarComponent,
     InstructorLessonsComponent,
     InstructorOneLessonComponent,
@@ -45,6 +46,9 @@ import { InstructorAdditionalServiceDialogComponent } from './components/instruc
     UserProfileComponent,
     MyTestComponent,
     InstructorAdditionalServiceDialogComponent,
+    UserSettingsComponent,
+    ChangePasswordDialogComponent,
+    DeleteAccountDialogComponent,
   ],
   imports: [
     BrowserModule,

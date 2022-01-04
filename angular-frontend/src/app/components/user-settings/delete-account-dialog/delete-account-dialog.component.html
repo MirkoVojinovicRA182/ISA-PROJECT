@@ -1,0 +1,16 @@
+<div class="content">
+
+    <p>Why do you want to delete account?</p>
+
+    <hr>
+
+    <textarea [(ngModel)] = 'deleteReason'></textarea><br>
+
+    <button 
+    mat-raised-button
+    style=" background-color: rgb(248, 133, 133);
+            margin-top: 30px;
+            width: 100px;
+            margin-left: 40%;"
+    [mat-dialog-close]="deleteReason">Send</button>
+</div>

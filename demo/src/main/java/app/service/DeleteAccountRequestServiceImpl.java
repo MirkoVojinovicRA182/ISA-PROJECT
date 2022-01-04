@@ -1,9 +1,11 @@
 package app.service;
 
+import app.domain.Administrator;
 import app.domain.ApplicationUser;
 import app.domain.DeleteAccountRequest;
 import app.domain.Instructor;
 import app.dto.DeleteAccountRequestDTO;
+import app.repository.AdministratorRepository;
 import app.repository.DeleteAccountRequestRepository;
 import app.repository.InstructorRepository;
 import app.utility.Utility;
@@ -22,6 +24,9 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
     @Autowired
     private InstructorRepository instructorRepository;
 
+    @Autowired
+    private AdministratorRepository administratorRepository;
+
     @Override
     public void createRequest(DeleteAccountRequestDTO dto) {
         ApplicationUser userForDelete = new Instructor();
@@ -29,6 +34,10 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
         for(Instructor instructor: instructorRepository.findAll())
             if(instructor.getId().equals(dto.getUserId()))
                 userForDelete = instructorRepository.findById(dto.getUserId()).orElseGet(null);
+
+        for(Administrator administrator: administratorRepository.findAll())
+            if(administrator.getId().equals(dto.getUserId()))
+                userForDelete = administratorRepository.findById(dto.getUserId()).orElseGet(null);
 
         deleteAccountRequestRepository.save(new DeleteAccountRequest(dto.getDeleteReason(), userForDelete));
     }

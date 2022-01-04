@@ -56,6 +56,13 @@ public class UserProfileServiceImpl implements UserProfileService{
             dto = new UserProfileDTO((ApplicationUser)instructor);
         }
 
+        if(userPasswordDTO.getUserType().equals(UserType.Administrator)){
+            Administrator administrator = administratorRepository.findById(userPasswordDTO.getUserId()).orElseGet(null);
+            administrator.setPassword(userPasswordDTO.getNewPassword());
+            administratorRepository.save(administrator);
+            dto = new UserProfileDTO((ApplicationUser)administrator);
+        }
+
         return dto;
     }
 }
