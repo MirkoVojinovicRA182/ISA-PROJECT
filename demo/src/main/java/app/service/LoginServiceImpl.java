@@ -24,6 +24,8 @@ public class LoginServiceImpl implements LoginService{
 
     @Autowired
     private AdministratorRepository administratorRepository;
+
+    @Autowired
     private ClientRepository clientRepository;
 
 
