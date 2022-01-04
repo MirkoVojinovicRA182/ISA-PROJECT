@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   getLoggedUser(){
-    this.userRegistrationService.getAdminProfileInfo(1).subscribe(loggedUser => this.loggedUser = loggedUser);
+    this.userRegistrationService.getAdminProfileInfo(2).subscribe(loggedUser => this.loggedUser = loggedUser);
   }
   
   changeProfile(){

@@ -1,4 +1,7 @@
+
 <div class="content">
+    <h2><b>Profile informations</b></h2>
+    <hr style="margin-bottom: 70px;">
     <table>
         <tr>
             <td>First name: </td>
@@ -41,18 +44,17 @@
         <button
             *ngIf = "inputsDisabled"
             tabindex="-1"
-            class="adminButton"
-            style="margin-top: 20px; margin-left: 30%;"
+            class="userProfileButton"
+            style="margin-top: 30px; margin-left: 50%;"
             mat-raised-button
             (click) = "inputsDisabled = false">Change</button>
 
         <button
             *ngIf = "!inputsDisabled"
             tabindex="-1"
-            class="adminButton"
-            style="margin-top: 20px; margin-left: 30%;"
+            class="userProfileButton"
             mat-raised-button
+            style="margin-top: 30px; margin-left: 50%;"
             (click) = "changeProfile()">Save</button>
     </div>
-
 </div>

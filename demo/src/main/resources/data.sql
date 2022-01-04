@@ -8,6 +8,16 @@ insert into instructor (id, address, city, country, email, last_name, name, pass
                                                                                                             'mare123',
                                                                                                             '065-244-32-21');
 
+insert into administrator (id, address, city, country, email, name, last_name, password, phone_number) values (2,
+                                                                                                            'Vojvođanska 32',
+                                                                                                            'Obrovac',
+                                                                                                            'Republika Srbija',
+                                                                                                            'nikolaMitro@gmail.com',
+                                                                                                            'Nikola',
+                                                                                                            'Mitrović',
+                                                                                                            'mitar567',
+                                                                                                            '065-231-222-01');
+
 insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, pricelist, terms_of_use, instructor_id)
  values (1, 'Pecanje u Obrovcu', 'Kanal DTD', 'Uživajte na pecanju u Obrovcu', 'Trenutno nedostupna', 10, 'Pravila', 'Pecaljka/Ručak', 'Cenovnik', 'Uslovi otkaza rezervacije', 1);
 insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, pricelist, terms_of_use, instructor_id)
