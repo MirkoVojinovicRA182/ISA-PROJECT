@@ -21,6 +21,12 @@ public class Instructor extends ApplicationUser{
 
     public Instructor() {
     }
+
+    public Instructor(Integer id, String email, String password, String name, String lastName, String address, String city,
+                      String country, String phoneNumber) {
+        super(id, email, password, name, lastName, address, city, country, phoneNumber);
+    }
+
     public Instructor(String email, String password, String name, String lastName, String address, String city,
                       String country, String phoneNumber) {
         super(email, password, name, lastName, address, city, country, phoneNumber);

@@ -12,7 +12,6 @@ public class InstructorAdventure {
     @Id
     @SequenceGenerator(name = "instructorAdventureIdSeqGen", sequenceName = "instructorAdventureIdSeq", initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instructorAdventureIdSeqGen")
-
     private Integer id;
 
     @Column(name = "name", unique = false, nullable = false)
@@ -52,7 +51,22 @@ public class InstructorAdventure {
     @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Image> images;
 
-    public InstructorAdventure() {
+    public InstructorAdventure() {}
+
+    public InstructorAdventure(Integer id, String name, String address, String promotionalDescription, String instructorBiography,
+                               int maxCountOfParticipants, String rulesOfConduct, String defaultEquipment, String pricelist,
+                               String termsOfUse, Instructor instructor) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.promotionalDescription = promotionalDescription;
+        this.instructorBiography = instructorBiography;
+        this.maxCountOfParticipants = maxCountOfParticipants;
+        this.rulesOfConduct = rulesOfConduct;
+        this.defaultEquipment = defaultEquipment;
+        this.pricelist = pricelist;
+        this.termsOfUse = termsOfUse;
+        this.instructor = instructor;
     }
 
     public InstructorAdventure(String name, String address, String promotionalDescription, String instructorBiography, int maxCountOfParticipants, String rulesOfConduct, String defaultEquipment, String pricelist, String termsOfUse, Instructor instructor) {
