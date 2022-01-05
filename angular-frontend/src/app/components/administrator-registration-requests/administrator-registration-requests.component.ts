@@ -30,22 +30,6 @@ export class AdministratorRegistrationRequestsComponent implements OnInit {
   }
 
   findRequest(){
-    /*
-    this.instructorLessonService.getAdditionalServices(this.lesson.id).subscribe(
-      services =>
-      {
-         this.additionalServices = services
-         this.foundedAdditionalServices = [];
-
-         for(let service of this.additionalServices)
-          if(service.name.toLocaleLowerCase().includes(this.searchValue.toLocaleLowerCase()))
-            this.foundedAdditionalServices.push(service);
-
-         this.additionalServices = this.foundedAdditionalServices;
-      }
-    );
-    */
-
     this.userRegistrationService.getRegistrationRequests().subscribe(
       requests =>
       {

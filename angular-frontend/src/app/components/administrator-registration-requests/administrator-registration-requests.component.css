@@ -4,11 +4,12 @@
     font-size: 15px;
     font-family: sans-serif;
     margin-top: 50px;
+    width: 1000px;
 }
 
 
 th{
-    width: 300px;
+    width: 250px;
 }
 
 tr{
@@ -26,7 +27,6 @@ tr{
 
 i {
     width: 50px;
-    cursor: pointer;
 }
 
 .evenRow{

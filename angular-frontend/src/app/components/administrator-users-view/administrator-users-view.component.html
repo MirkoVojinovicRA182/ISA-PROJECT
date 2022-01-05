@@ -1,23 +1,32 @@
-<div>
+<h1 style="text-align: center;">Users</h1>
+<hr style="margin-bottom: 70px;">
+
+<div style="margin-left: 8%;">
+    <input
+    type="text"
+    style="font-size: large; margin-right: 10px; width: 970px;"
+    placeholder="Search by full name..."
+    (keyup) = 'findUser()'
+    [(ngModel)] = 'searchValue'>
+
+    <i class="fas fa-search" style="font-size: large; display: inline;"></i>
+
     <table class="styled-table">
         <thead>
             <tr>
-                <th>First name</th>
-                <th>Last name</th>
+                <th>Full name</th>
                 <th>Username</th>
                 <th>User type</th>
-                <th></th>
             </tr>
         </thead>
-        <tbody *ngFor = "let user of users">
+        <tbody *ngFor = "let user of users; let index = index;" [ngClass]="{'evenRow': 0 !== index % 2}">
             <tr>
-                <td>{{user.name}}</td>
-                <td>{{user.lastName}}</td>
+                <td>{{user.name}} {{user.lastName}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.userType}}</td>
                 <td>
                     <i
-                     style="margin-left: 20%;"
+                     style="margin-left: 20%; cursor: pointer;"
                     class="fas fa-user-minus"
                     (click) = "deleteUser(user)"></i>
                 </td>
