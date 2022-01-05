@@ -9,6 +9,7 @@ import { UserRegistrationService } from 'src/app/services/user-registration/user
 export class AdministratorRegistrationRequestsComponent implements OnInit {
 
   requests: RegistrationRequest[] = [];
+  searchValue: string = "";
 
   constructor(private userRegistrationService: UserRegistrationService) { }
 
@@ -26,6 +27,40 @@ export class AdministratorRegistrationRequestsComponent implements OnInit {
 
   approveRegistration(request: RegistrationRequest){
     this.userRegistrationService.approveRegistration(request).subscribe(() => this.getRegistrationRequests());
+  }
+
+  findRequest(){
+    /*
+    this.instructorLessonService.getAdditionalServices(this.lesson.id).subscribe(
+      services =>
+      {
+         this.additionalServices = services
+         this.foundedAdditionalServices = [];
+
+         for(let service of this.additionalServices)
+          if(service.name.toLocaleLowerCase().includes(this.searchValue.toLocaleLowerCase()))
+            this.foundedAdditionalServices.push(service);
+
+         this.additionalServices = this.foundedAdditionalServices;
+      }
+    );
+    */
+
+    this.userRegistrationService.getRegistrationRequests().subscribe(
+      requests =>
+      {
+        this.requests = requests;
+        let foundedRequests = [];
+
+        for(let req of this.requests){
+          let requestFullName = req.name + ' ' + req.lastName;
+          if(requestFullName.toLocaleLowerCase().includes(this.searchValue.toLocaleLowerCase()))
+            foundedRequests.push(req);
+        }
+        
+        this.requests = foundedRequests;
+      }
+    );
   }
 
 }

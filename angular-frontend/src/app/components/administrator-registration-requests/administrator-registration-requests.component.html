@@ -1,21 +1,27 @@
-<div>
+<div style="margin-left: 10%;">
+
+    <input
+    type="text"
+    style="font-size: large; margin-right: 30px; width: 950px;"
+    placeholder="Search by full name..."
+    (keyup) = 'findRequest()'
+    [(ngModel)] = 'searchValue'>
+
+    <i class="fas fa-search" style="font-size: large; display: inline;"></i>
+    
     <table class="styled-table">
         <thead>
             <tr>
                 <th>Date</th>
-                <th>First name</th>
-                <th>Last name</th>
+                <th>Full name</th>
                 <th>Type of user</th>
                 <th>Registration explanation</th>
-                <th>Approve</th>
-                <th>Eject</th>
             </tr>
         </thead>
-        <tbody *ngFor = "let request of requests">
+        <tbody *ngFor = "let request of requests let index = index" [ngClass]="{'evenRow': 0 !== index % 2}">
             <tr>
                 <td>{{request.requestDate}}</td>
-                <td>{{request.name}}</td>
-                <td>{{request.lastName}}</td>
+                <td>{{request.name}} {{request.lastName}}</td>
                 <td>{{request.userType}}</td>
                 <td>{{request.registrationExplanation}}</td>
                 <td>

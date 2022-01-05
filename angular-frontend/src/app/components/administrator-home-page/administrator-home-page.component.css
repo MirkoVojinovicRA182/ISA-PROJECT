@@ -14,7 +14,7 @@ body{
 }
 
 .wrapper .sidebar{
-  background: rgb(238, 143, 55);
+  background: rgb(167, 164, 164);
   position: fixed;
   top: 0;
   left: 0;
@@ -37,26 +37,27 @@ body{
 }
 
 .wrapper .sidebar .profile h3{
-  color: #ffffff;
+  color: #2c2c2c;
+  font-size: large;
   margin: 10px 0 5px;
 }
 
 .wrapper .sidebar .profile p{
-  color: rgb(206, 240, 253);
+  color: #2c2c2c;
   font-size: 14px;
 }
 
 .wrapper .sidebar ul li a{
   display: block;
   padding: 13px 30px;
-  border-bottom: 1px solid #684106;
-  color: rgb(241, 237, 237);
+  border-bottom: 1px solid #302f2f;
+  color: black;
   font-size: 16px;
   position: relative;
 }
 
 .wrapper .sidebar ul li a .icon{
-  color: #dee4ec;
+  color: #000000;
   width: 30px;
   display: inline-block;
 }
@@ -65,15 +66,15 @@ body{
 
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active{
-  color: #684106;
+  color: #000000;
 
-  background:white;
-  border-right: 2px solid #684106;
+  background:rgb(78, 78, 78);
+  border-right: 2px solid rgb(78, 78, 78);
 }
 
 .wrapper .sidebar ul li a:hover .icon,
 .wrapper .sidebar ul li a.active .icon{
-  color: #684106;
+  color: #000000;
 }
 
 .wrapper .sidebar ul li a:hover:before,
@@ -88,7 +89,7 @@ body{
 }
 
 .wrapper .section .top_navbar{
-  background: #684106;
+  background: #2c2c2c;
   height: 20px;
   display: flex;
   align-items: center;
@@ -98,11 +99,11 @@ body{
 
 .wrapper .section .top_navbar .hamburger a{
   font-size: 28px;
-  color: #f4fbff;
+  color: #222222;
 }
 
 .wrapper .section .top_navbar .hamburger a:hover{
-  color: #a2ecff;
+  color: #222222;
 }
 
  .wrapper .section .container{
