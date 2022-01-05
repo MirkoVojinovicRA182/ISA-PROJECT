@@ -29,7 +29,7 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
 
     @Override
     public void createRequest(DeleteAccountRequestDTO dto) {
-        ApplicationUser userForDelete = new Instructor();
+        ApplicationUser userForDelete = null;
 
         for(Instructor instructor: instructorRepository.findAll())
             if(instructor.getId().equals(dto.getUserId()))
@@ -39,7 +39,8 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
             if(administrator.getId().equals(dto.getUserId()))
                 userForDelete = administratorRepository.findById(dto.getUserId()).orElseGet(null);
 
-        deleteAccountRequestRepository.save(new DeleteAccountRequest(dto.getDeleteReason(), userForDelete, dto.getUserFullName(), dto.getUserType()));
+        if(userForDelete != null)
+            deleteAccountRequestRepository.save(new DeleteAccountRequest(dto.getDeleteReason(), userForDelete, dto.getUserFullName(), dto.getUserType()));
     }
 
     @Override

@@ -29,8 +29,20 @@ export class AdministratorDeleteAccountRequestsViewComponent implements OnInit {
   ejectRequest(requestId: number){
     this.service.ejectRequest(requestId).subscribe(() => this.getRequests());
   }
-  findRequest(){
 
+  findRequest(){
+    this.service.getRequests().subscribe(
+      requests =>
+      {
+        this.requests = requests;
+        let foundedRequests = [];
+
+        for(let req of this.requests)
+          if(req.userFullName.toLocaleLowerCase().includes(this.searchValue.toLocaleLowerCase()))
+            foundedRequests.push(req);
+        this.requests = foundedRequests;
+      }
+    );
   }
 
 }
