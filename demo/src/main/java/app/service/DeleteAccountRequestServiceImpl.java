@@ -39,7 +39,7 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
             if(administrator.getId().equals(dto.getUserId()))
                 userForDelete = administratorRepository.findById(dto.getUserId()).orElseGet(null);
 
-        deleteAccountRequestRepository.save(new DeleteAccountRequest(dto.getDeleteReason(), userForDelete));
+        deleteAccountRequestRepository.save(new DeleteAccountRequest(dto.getDeleteReason(), userForDelete, dto.getUserFullName(), dto.getUserType()));
     }
 
     @Override

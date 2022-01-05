@@ -29,6 +29,7 @@ import { ChangePasswordDialogComponent } from './components/user-settings/change
 import { DeleteAccountDialogComponent } from './components/user-settings/delete-account-dialog/delete-account-dialog.component';
 import { CommonModule } from '@angular/common';
 import { AdministratorLessonsViewComponent } from './components/administrator-lessons-view/administrator-lessons-view.component';
+import { AdministratorDeleteAccountRequestsViewComponent } from './components/administrator-delete-account-requests-view/administrator-delete-account-requests-view.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { AdministratorLessonsViewComponent } from './components/administrator-le
     UserSettingsComponent,
     ChangePasswordDialogComponent,
     DeleteAccountDialogComponent,
+    AdministratorDeleteAccountRequestsViewComponent,
   ],
   imports: [
     BrowserModule,

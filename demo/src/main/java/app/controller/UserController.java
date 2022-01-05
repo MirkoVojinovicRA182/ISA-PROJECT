@@ -27,7 +27,6 @@ public class UserController {
         return new ResponseEntity<Collection<UserProfileDTO>>(userService.getUsers(), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping(value = "/deleteUser")
     public ResponseEntity<Void> deleteUser(@RequestParam Integer userId, @RequestParam UserType userType){
         userService.deleteUser(userId, userType);

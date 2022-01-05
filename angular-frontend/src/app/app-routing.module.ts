@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdministratorDeleteAccountRequestsViewComponent } from './components/administrator-delete-account-requests-view/administrator-delete-account-requests-view.component';
 import { AdministratorLessonsViewComponent } from './components/administrator-lessons-view/administrator-lessons-view.component';
 import { AdministratorRegisterAdministratorComponent } from './components/administrator-register-administrator/administrator-register-administrator.component';
 import { AdministratorRegistrationRequestsComponent } from './components/administrator-registration-requests/administrator-registration-requests.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'adminRegistration', component: AdministratorRegisterAdministratorComponent },
   { path: 'users', component: AdministratorUsersViewComponent },
   { path: 'lessons', component: AdministratorLessonsViewComponent },
+  {path: 'deleteAcountRequests', component: AdministratorDeleteAccountRequestsViewComponent},
 
   // INSTRUCTOR ROUTES
   { path: 'instructorLessons', component: InstructorLessonsComponent },

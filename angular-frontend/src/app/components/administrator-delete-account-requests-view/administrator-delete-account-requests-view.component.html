@@ -1,0 +1,44 @@
+<h1 style="text-align: center;">Delete account requests</h1>
+<hr style="margin-bottom: 70px;">
+
+<div style="margin-left: 8%;">
+
+    <input
+    type="text"
+    style="font-size: large; margin-right: 10px; width: 970px;"
+    placeholder="Search by full name..."
+    (keyup) = 'findRequest()'
+    [(ngModel)] = 'searchValue'>
+
+    <i class="fas fa-search" style="font-size: large; display: inline;"></i>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>User full name</th>
+                <th>User type</th>
+                <th>Delete reason</th>
+            </tr>
+        </thead>
+        <tbody *ngFor = "let request of requests; let index = index;" [ngClass]="{'evenRow': 0 !== index % 2}">
+            <tr>
+                <td>{{request.userFullName}}</td>
+                <td>{{request.userType}}</td>
+                <td>{{request.deleteReason}}</td>
+                <td style="width: 50px;">
+                    <i
+                    class="fas fa-check"
+                    (click) = "deleteAccount(request)"
+                    style="cursor: pointer;"></i>
+                </td>
+                <td style="width: 50px;">
+                    <i
+                    class="fas fa-times"
+                    (click) = "ejectRequest(request.id)"
+                    style="cursor: pointer;"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

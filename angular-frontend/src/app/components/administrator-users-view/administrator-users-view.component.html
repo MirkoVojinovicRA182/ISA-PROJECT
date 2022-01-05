@@ -21,7 +21,7 @@
         </thead>
         <tbody *ngFor = "let user of users; let index = index;" [ngClass]="{'evenRow': 0 !== index % 2}">
             <tr>
-                <td>{{user.name}} {{user.lastName}}</td>
+                <td>{{user.lastName}} {{user.name}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.userType}}</td>
                 <td>

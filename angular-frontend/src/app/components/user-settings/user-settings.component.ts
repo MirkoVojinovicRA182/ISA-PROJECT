@@ -42,9 +42,9 @@ export class UserSettingsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(deleteReason => {
       if(deleteReason != undefined)
       {
-        this.userSettingsService.deleteAccount({
+        this.userSettingsService.createDeleteAccountRequest({
           "deleteReason": deleteReason,
-          "userId": 2
+          "userId": 1
         }).subscribe();
         alert('Your request for deleting account is now in proccess. Check your mail tomorow for more informations.')
       }

@@ -25,19 +25,25 @@
         <div class="sidebar" >
             <div class="profile">
                 <h3>Mitrović Nikola</h3>
-                <p>Aministrator</p>
+                <p>Administrator</p>
             </div>
             <ul>
+                <li>
+                    <a href="#" [routerLink] = "['/adminRegistration']">
+                        <span class="icon"><i class="fas fa-user-plus"></i></span>
+                        <span class="item">Admin registration</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" [routerLink] = "['/deleteAcountRequests']">
+                        <span class="icon"><i class="fas fa-user-minus"></i></span>
+                        <span class="item">Deletion requests</span>
+                    </a>
+                </li>
                 <li>
                     <a href="#" [routerLink] = "['/registrationRequests']">
                         <span class="icon"><i class="fas fa-table"></i></span>
                         <span class="item">Registration requests</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" [routerLink] = "['/adminRegistration']">
-                        <span class="icon"><i class="fas fa-plus-circle"></i></span>
-                        <span class="item">Admin registration</span>
                     </a>
                 </li>
                 <li>

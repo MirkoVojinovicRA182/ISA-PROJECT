@@ -14,7 +14,7 @@ export class UserSettingsService {
     return this.http.post<any>(this._url + 'userProfile/updatePassword/', userPasswordDTO);
   }
 
-  public deleteAccount(deleteAccountDto: any): any{
+  public createDeleteAccountRequest(deleteAccountDto: any): any{
     return this.http.post<any>(this._url + 'deleteAccountRequest/createRequest/', deleteAccountDto);
   }
 }

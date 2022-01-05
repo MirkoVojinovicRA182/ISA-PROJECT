@@ -2,14 +2,20 @@ package app.controller;
 
 import app.domain.ApplicationUser;
 import app.domain.RegistrationRequest;
+import app.domain.enums.UserType;
 import app.dto.DeleteAccountRequestDTO;
 import app.dto.LoginDTO;
 import app.service.DeleteAccountRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.List;
 
@@ -34,17 +40,19 @@ public class DeleteAccountRequestController {
         return new ResponseEntity<List<DeleteAccountRequestDTO>>(deleteAccountRequestService.getRequests(), HttpStatus.OK);
     }
 
-    @RequestMapping("/deleteAccount")
-    @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> deleteAccount(@RequestBody DeleteAccountRequestDTO dto){
-        deleteAccountRequestService.deleteAccount(dto);
-        return new ResponseEntity<String>("Obrisani nalog korisnika i zahtev.", HttpStatus.OK);
+    @DeleteMapping(value = "/deleteAccount")
+    public ResponseEntity<Void> deleteAccount(@RequestParam Integer userId, @RequestParam Integer requestId){
+        DeleteAccountRequestDTO requestDTO = new DeleteAccountRequestDTO();
+        requestDTO.setId(requestId);
+        requestDTO.setUserId(userId);
+        deleteAccountRequestService.deleteAccount(requestDTO);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
-    @RequestMapping("/ejectDeleteRequest/{requestId}")
-    @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> ejectDeleteRequest(@PathVariable Integer requestId){
+    @DeleteMapping( "/ejectDeleteRequest/{requestId}")
+    public ResponseEntity<Void> ejectDeleteRequest(@PathVariable Integer requestId){
         deleteAccountRequestService.ejectDeleteRequest(requestId);
-        return new ResponseEntity<String>("Obrisan zahtev.", HttpStatus.OK);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
+
 }
