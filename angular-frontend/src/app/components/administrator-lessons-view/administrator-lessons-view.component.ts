@@ -10,6 +10,7 @@ import { InstructorLessonsService } from 'src/app/services/instructor-lessons/in
 export class AdministratorLessonsViewComponent implements OnInit {
 
   lessons: InstructorLesson[] = [];
+  searchValue: string = "";
 
   constructor(private instructorLessonsService: InstructorLessonsService) { }
 
@@ -23,6 +24,39 @@ export class AdministratorLessonsViewComponent implements OnInit {
 
   deleteLesson(lesson: InstructorLesson){
     this.instructorLessonsService.deleteLesson(lesson.id).subscribe(() => this.getAllLessons());
+  }
+
+  findLesson(){
+    /*
+    this.userRegistrationService.getUsers().subscribe(
+      users =>
+      {
+        this.users = users;
+        let foundedUsers = [];
+
+        for(let user of this.users){
+          let userFullName = user.name + ' ' + user.lastName;
+          if(userFullName.toLocaleLowerCase().includes(this.searchValue.toLocaleLowerCase()))
+          foundedUsers.push(user);
+        }
+
+        this.users = foundedUsers;
+      }
+    ); */
+
+    this.instructorLessonsService.getAllLessons().subscribe(
+      lessons =>
+      {
+        this.lessons = lessons;
+        let foundedLessons = [];
+
+        for(let lesson of this.lessons)
+        if(lesson.name.toLocaleLowerCase().includes(this.searchValue.toLocaleLowerCase()))
+          foundedLessons.push(lesson);
+        
+        this.lessons = foundedLessons;
+      }
+    )
   }
 
 }

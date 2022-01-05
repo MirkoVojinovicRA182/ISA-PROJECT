@@ -27,25 +27,6 @@ export class AdministratorUsersViewComponent implements OnInit {
   }
 
   findUser(){
-
-    /*
-    this.userRegistrationService.getRegistrationRequests().subscribe(
-      requests =>
-      {
-        this.requests = requests;
-        let foundedRequests = [];
-
-        for(let req of this.requests){
-          let requestFullName = req.name + ' ' + req.lastName;
-          if(requestFullName.toLocaleLowerCase().includes(this.searchValue.toLocaleLowerCase()))
-            foundedRequests.push(req);
-        }
-        
-        this.requests = foundedRequests;
-      }
-    );
-    */
-
     this.userRegistrationService.getUsers().subscribe(
       users =>
       {

@@ -1,22 +1,35 @@
-<div>
+<h1 style="text-align: center;">Fishing lessons</h1>
+<hr style="margin-bottom: 70px;">
+
+<div style="margin-left: 8%;">
+
+    <input
+    type="text"
+    style="font-size: large; margin-right: 10px; width: 970px;"
+    placeholder="Search by full name..."
+    (keyup) = 'findLesson()'
+    [(ngModel)] = 'searchValue'>
+
+    <i class="fas fa-search" style="font-size: large; display: inline;"></i>
+
     <table class="styled-table">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Location</th>
                 <th>Promotional description</th>
-                <th></th>
             </tr>
         </thead>
-        <tbody *ngFor = "let lesson of lessons">
+        <tbody *ngFor = "let lesson of lessons; let index = index;" [ngClass]="{'evenRow': 0 !== index % 2}">
             <tr>
                 <td>{{lesson.name}}</td>
                 <td>{{lesson.address}}</td>
                 <td>{{lesson.promotionalDescription}}</td>
                 <td style="width: 50px;">
                     <i
-                    class="fas fa-user-minus"
-                    (click) = "deleteLesson(lesson)"></i>
+                    class="fas fa-trash"
+                    (click) = "deleteLesson(lesson)"
+                    style="cursor: pointer;"></i>
                 </td>
             </tr>
         </tbody>
