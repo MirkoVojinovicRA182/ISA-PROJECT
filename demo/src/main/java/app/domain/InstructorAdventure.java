@@ -51,6 +51,9 @@ public class InstructorAdventure {
     @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Image> images;
 
+    @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<AdventureReservation> adventureReservations;
+
     public InstructorAdventure() {}
 
     public InstructorAdventure(Integer id, String name, String address, String promotionalDescription, String instructorBiography,
@@ -184,6 +187,14 @@ public class InstructorAdventure {
 
     public void setImages(Set<Image> images) {
         this.images = images;
+    }
+
+    public Set<AdventureReservation> getAdventureReservations() {
+        return adventureReservations;
+    }
+
+    public void setAdventureReservations(Set<AdventureReservation> adventureReservations) {
+        this.adventureReservations = adventureReservations;
     }
 
     public void update(InstructorAdventureDTO dto) {

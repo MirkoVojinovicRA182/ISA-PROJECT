@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.domain.AdventureReservation;
 import app.domain.RegistrationRequest;
 import app.dto.AdventureReservationDTO;
 import app.dto.ClientDTO;
@@ -40,4 +41,10 @@ public class ReservationControler {
         adventureReservationService.bookAnInstructorAdventure(dto);
         return "adventure_reservation_success";
     }
+
+    @GetMapping("/getInstructorAdventures/{id}")
+    public ResponseEntity<List<AdventureReservationDTO>> getInstructorAdventures(@PathVariable Integer id){
+        return new ResponseEntity<List<AdventureReservationDTO>>(adventureReservationService.getInstructorReservations(id), HttpStatus.OK);
+    }
+
 }

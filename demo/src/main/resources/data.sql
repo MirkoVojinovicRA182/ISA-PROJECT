@@ -38,6 +38,9 @@ insert into registration_request (id, email, password, name, last_name, address,
 insert into registration_request (id, email, password, name, last_name, address, city, country, phone_number, user_type, registration_explanation, request_date) values
     (10, 'steva123@gmail.com', 'steva123', 'Stevan', 'Simić', 'Stevana Sremca 89', 'Novi Sad', 'Republika Srbija', '066/1123-23-32', 2, 'Because.', '2021-02-01T08:00:00.00');
 
+
+
+
 insert into instructor (id, address, city, country, email, last_name, name, password, phone_number) values (1,
                                                                                                             'Karađorđeva 12',
                                                                                                             'Nova Gajdobra',
@@ -62,3 +65,32 @@ insert into adventure_additional_service(id, name, price, adventure_id) values (
 insert into image(id, url, adventure_id) values (1, 'first.jpg', 1);
 insert into image(id, url, adventure_id) values (2, 'second.jpg', 1);
 insert into image(id, url, adventure_id) values (3, 'third.jpg', 1);
+
+
+insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, enabled) values (3,
+                                                                                                               'Vojvođanska 32',
+                                                                                                               'Obrovac',
+                                                                                                               'Republika Srbija',
+                                                                                                               'klijent@gmail.com',
+                                                                                                               'Neki',
+                                                                                                               'Klijent',
+                                                                                                               'klijent123',
+                                                                                                               '064-231-222-01',
+                                                                                                                'code',
+                                                                                                                'true');
+
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id)
+values (1, '2021-02-01T08:00:00.00', '2021-02-01T09:00:00.00', 3, 1);
+
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id)
+values (2, '2022-02-01T08:00:00.00', '2022-02-01T09:00:00.00', 3, 1);
+
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id)
+values (3, '2020-02-01T08:00:00.00', '2020-02-01T09:00:00.00', 3, 2);
+
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id)
+values (4, '2023-02-01T08:00:00.00', '2023-02-01T09:00:00.00', 3, 3);
+
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id)
+values (5, '2018-02-01T08:00:00.00', '2018-02-01T09:00:00.00', 3, 2);
+

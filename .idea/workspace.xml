@@ -6,8 +6,33 @@
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-delete-account-requests-view/administrator-delete-account-requests-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-delete-account-requests-view/administrator-delete-account-requests-view.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/DeleteAccountRequestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/DeleteAccountRequestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-home-page/administrator-home-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-home-page/administrator-home-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-home-page/instructor-home-page/instructor-home-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-home-page/instructor-home-page/instructor-home-page.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-home-page/instructor-home-page/instructor-home-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-home-page/instructor-home-page/instructor-home-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-lessons/instructor-lessons.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-lessons/instructor-lessons.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-lessons/instructor-lessons.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-lessons/instructor-lessons.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson-details/instructor-one-lesson-details.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson-details/instructor-one-lesson-details.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson-details/instructor-one-lesson-details.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson-details/instructor-one-lesson-details.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson/instructor-one-lesson.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson/instructor-one-lesson.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/my-test/my-test.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/my-test/my-test.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/my-test/my-test.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/my-test/my-test.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/user-settings/user-settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/user-settings/user-settings.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/ReservationControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/ReservationControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/AdventureReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/AdventureReservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorAdventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorAdventure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/AdventureReservationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/AdventureReservationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/repository/AdventureReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/repository/AdventureReservationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +141,7 @@
       <workItem from="1641146493027" duration="767000" />
       <workItem from="1641221974089" duration="11811000" />
       <workItem from="1641292517637" duration="9643000" />
+      <workItem from="1641460552536" duration="6277000" />
     </task>
     <servers />
   </component>
@@ -138,59 +164,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/ReservationControler.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="14" />
+          <line>71</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

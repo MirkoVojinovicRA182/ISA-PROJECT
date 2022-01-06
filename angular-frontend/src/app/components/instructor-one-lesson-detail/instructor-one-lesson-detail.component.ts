@@ -6,14 +6,13 @@ import { InstructorLesson } from 'src/app/model/instructor-lesson';
 import { InstructorLessonsService } from 'src/app/services/instructor-lessons/instructor-lessons.service';
 import { InstructorAdditionalServiceDialogComponent } from '../instructor-additional-service-dialog/instructor-additional-service-dialog.component';
 import { Image } from 'src/app/model/image';
-import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-my-test',
-  templateUrl: './my-test.component.html',
-  styleUrls: ['./my-test.component.css']
+  selector: 'app-instructor-one-lesson-detail',
+  templateUrl: './instructor-one-lesson-detail.component.html',
+  styleUrls: ['./instructor-one-lesson-detail.component.css']
 })
-export class MyTestComponent implements OnInit {
+export class InstructorOneLessonDetailComponent implements OnInit {
 
   lesson: InstructorLesson = new InstructorLesson();
 

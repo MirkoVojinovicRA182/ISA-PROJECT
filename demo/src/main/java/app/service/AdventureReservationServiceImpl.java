@@ -31,7 +31,7 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
 
     @Override
     public List<AdventureReservationDTO> getFreeAdventures(ReservationSearchDTO dto) {
-        List<AdventureReservationDTO> freeReservations = new ArrayList<>();
+        /*List<AdventureReservationDTO> freeReservations = new ArrayList<>();
         List<Instructor> instructors = instructorRepository.findAll();
         List<AdventureReservation> reservations = adventureReservationRepository.findAll();
         LocalDateTime dateTime = dto.getDate().atTime(8,0,0);
@@ -57,21 +57,21 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
             dateTime = dateTime.plusHours(3);
         }
 
-        return freeReservations;
+        return freeReservations;*/
+        return null;
     }
 
     @Override
     public void bookAnInstructorAdventure(AdventureReservationDTO dto) {
-        adventureReservationRepository.save(new AdventureReservation(dto.getInstructorAdventureId(), dto.getClientId(),
-                dto.getStartTime(), dto.getEndTime()));
+        /*adventureReservationRepository.save(new AdventureReservation(dto.getInstructorAdventureId(), dto.getClientId(),
+                dto.getStartTime(), dto.getEndTime()));*/
     }
 
-    private InstructorAdventure getAventureWithoutInstructor(InstructorAdventure a){
-        return new InstructorAdventure(a.getInstructor().getId(), a.getName(), a.getAddress(), a.getPromotionalDescription(), a.getInstructorBiography(),
-                a.getMaxCountOfParticipants(), a.getRulesOfConduct(), a.getDefaultEquipment(), a.getPricelist(),
-                a.getTermsOfUse(),
-                new Instructor(a.getInstructor().getId(), a.getInstructor().getEmail(), a.getInstructor().getPassword(),
-                        a.getInstructor().getName(), a.getInstructor().getLastName(), a.getInstructor().getAddress(),
-                        a.getInstructor().getCity(), a.getInstructor().getCountry(), a.getInstructor().getPhoneNumber()));
+    @Override
+    public List<AdventureReservationDTO> getInstructorReservations(int instructorId) {
+        List<AdventureReservationDTO> adventureReservationDTOS = new ArrayList<AdventureReservationDTO>();
+        for(AdventureReservation reservation: adventureReservationRepository.getInstructorReservations(instructorId))
+            adventureReservationDTOS.add(new AdventureReservationDTO(reservation));
+        return adventureReservationDTOS;
     }
 }

@@ -11,6 +11,9 @@ public class Client extends ApplicationUser{
     @Column(name = "verification_code", length = 64)
     private String verificationCode = "";
 
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<AdventureReservation> adventureReservations;
+
     private boolean enabled = false;
 
     public Client() {}
@@ -34,5 +37,13 @@ public class Client extends ApplicationUser{
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public Set<AdventureReservation> getAdventureReservations() {
+        return adventureReservations;
+    }
+
+    public void setAdventureReservations(Set<AdventureReservation> adventureReservations) {
+        this.adventureReservations = adventureReservations;
     }
 }

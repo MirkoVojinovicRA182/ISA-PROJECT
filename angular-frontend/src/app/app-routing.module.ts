@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdministratorDeleteAccountRequestsViewComponent } from './components/administrator-delete-account-requests-view/administrator-delete-account-requests-view.component';
@@ -6,11 +5,11 @@ import { AdministratorLessonsViewComponent } from './components/administrator-le
 import { AdministratorRegisterAdministratorComponent } from './components/administrator-register-administrator/administrator-register-administrator.component';
 import { AdministratorRegistrationRequestsComponent } from './components/administrator-registration-requests/administrator-registration-requests.component';
 import { AdministratorUsersViewComponent } from './components/administrator-users-view/administrator-users-view.component';
+import { InstructorLessonReservationsViewComponent } from './components/instructor-lesson-reservations-view/instructor-lesson-reservations-view.component';
 import { InstructorLessonsComponent } from './components/instructor-lessons/instructor-lessons.component';
-import { MyTestComponent } from './components/my-test/my-test.component';
+import { InstructorOneLessonDetailComponent } from './components/instructor-one-lesson-detail/instructor-one-lesson-detail.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
-import { Instructor } from './model/instructor';
 
 const routes: Routes = [
 
@@ -24,7 +23,8 @@ const routes: Routes = [
 
   // INSTRUCTOR ROUTES
   { path: 'instructorLessons', component: InstructorLessonsComponent },
-  { path: 'instructorLessons/:id', component: MyTestComponent },
+  { path: 'instructorLessons/:id', component: InstructorOneLessonDetailComponent },
+  { path: 'instructorReservations', component: InstructorLessonReservationsViewComponent },
 
   // PROFILE ROUTES
   { path: 'profile', component: UserProfileComponent },

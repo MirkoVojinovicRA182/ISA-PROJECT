@@ -1,7 +1,9 @@
 package app.dto;
 
+import app.domain.AdventureReservation;
 import app.domain.Client;
 import app.domain.InstructorAdventure;
+import app.service.AdventureReservationService;
 
 import javax.persistence.Column;
 import javax.persistence.FetchType;
@@ -10,36 +12,45 @@ import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 public class AdventureReservationDTO {
-
-    private Integer clientId;
-    private Integer instructorAdventureId;
+    private Integer id;
+    private String clientUsername;
+    private String adventureName;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 
     public AdventureReservationDTO(){}
 
-    public AdventureReservationDTO(Integer clientId, Integer instructorAdventureId,
-                                   LocalDateTime startTime, LocalDateTime endTime) {
-        this.clientId = clientId;
-        this.instructorAdventureId = instructorAdventureId;
-        this.startTime = startTime;
-        this.endTime = endTime;
+
+    public AdventureReservationDTO(AdventureReservation adventureReservation){
+        id = adventureReservation.getId();
+        clientUsername = adventureReservation.getClient().getEmail();
+        adventureName = adventureReservation.getAdventure().getName();
+        startTime = adventureReservation.getStartTime();
+        endTime = adventureReservation.getEndTime();
     }
 
-    public Integer getClientId() {
-        return clientId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setClient(Integer clientId) {
-        this.clientId = clientId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getInstructorAdventureId() {
-        return instructorAdventureId;
+    public String getClientUsername() {
+        return clientUsername;
     }
 
-    public void setInstructorAdventure(Integer instructorAdventureId) {
-        this.instructorAdventureId = instructorAdventureId;
+    public void setClientUsername(String clientUsername) {
+        this.clientUsername = clientUsername;
+    }
+
+    public String getAdventureName() {
+        return adventureName;
+    }
+
+    public void setAdventureName(String adventureName) {
+        this.adventureName = adventureName;
     }
 
     public LocalDateTime getStartTime() {

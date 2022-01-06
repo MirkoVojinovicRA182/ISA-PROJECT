@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { InstructorCalendarComponent } from './components/instructor-calendar/instructor-calendar.component';
 import { InstructorLessonsComponent } from './components/instructor-lessons/instructor-lessons.component';
 import { InstructorOneLessonComponent } from './components/instructor-one-lesson/instructor-one-lesson.component';
-import { InstructorOneLessonDetailsComponent } from './components/instructor-one-lesson-details/instructor-one-lesson-details.component';
 
 
 import {MatDialogModule} from '@angular/material/dialog';
@@ -22,14 +21,14 @@ import { AdministratorRegistrationRequestsComponent } from './components/adminis
 import { AdministratorRegisterAdministratorComponent } from './components/administrator-register-administrator/administrator-register-administrator.component';
 import { AdministratorUsersViewComponent } from './components/administrator-users-view/administrator-users-view.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { MyTestComponent } from './components/my-test/my-test.component';
 import { InstructorAdditionalServiceDialogComponent } from './components/instructor-additional-service-dialog/instructor-additional-service-dialog.component';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 import { ChangePasswordDialogComponent } from './components/user-settings/change-password-dialog/change-password-dialog.component';
 import { DeleteAccountDialogComponent } from './components/user-settings/delete-account-dialog/delete-account-dialog.component';
-import { CommonModule } from '@angular/common';
 import { AdministratorLessonsViewComponent } from './components/administrator-lessons-view/administrator-lessons-view.component';
 import { AdministratorDeleteAccountRequestsViewComponent } from './components/administrator-delete-account-requests-view/administrator-delete-account-requests-view.component';
+import { InstructorLessonReservationsViewComponent } from './components/instructor-lesson-reservations-view/instructor-lesson-reservations-view.component';
+import { InstructorOneLessonDetailComponent } from './components/instructor-one-lesson-detail/instructor-one-lesson-detail.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +37,6 @@ import { AdministratorDeleteAccountRequestsViewComponent } from './components/ad
     InstructorCalendarComponent,
     InstructorLessonsComponent,
     InstructorOneLessonComponent,
-    InstructorOneLessonDetailsComponent,
     InstructorAddLessonComponent,
     AdministratorHomePageComponent,
     AdministratorRegistrationRequestsComponent,
@@ -46,12 +44,13 @@ import { AdministratorDeleteAccountRequestsViewComponent } from './components/ad
     AdministratorUsersViewComponent,
     AdministratorLessonsViewComponent,
     UserProfileComponent,
-    MyTestComponent,
     InstructorAdditionalServiceDialogComponent,
     UserSettingsComponent,
     ChangePasswordDialogComponent,
     DeleteAccountDialogComponent,
     AdministratorDeleteAccountRequestsViewComponent,
+    InstructorLessonReservationsViewComponent,
+    InstructorOneLessonDetailComponent,
   ],
   imports: [
     BrowserModule,
