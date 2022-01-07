@@ -12,7 +12,7 @@ import javax.persistence.*;
 public abstract class ApplicationUser {
 
     @Id
-    @SequenceGenerator(name = "userIdSeqGen", sequenceName = "userIdSeq", initialValue = 2, allocationSize = 1)
+    @SequenceGenerator(name = "userIdSeqGen", sequenceName = "userIdSeq", initialValue = 5, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userIdSeqGen")
     private Integer id;
 

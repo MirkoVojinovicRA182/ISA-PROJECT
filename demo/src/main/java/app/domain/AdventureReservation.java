@@ -6,15 +6,9 @@ import java.time.LocalDateTime;
 @Entity
 public class AdventureReservation {
     @Id
-    @SequenceGenerator(name = "adventureReservationIdSeqGen", sequenceName = "adventureReservationIdSeqGen", initialValue = 1, allocationSize = 1)
+    @SequenceGenerator(name = "adventureReservationIdSeqGen", sequenceName = "adventureReservationIdSeq", initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adventureReservationIdSeqGen")
     private Integer id;
-
-    @Column
-    private Integer clientId;
-
-    @Column
-    private Integer instructorAdventureId;
 
     @Column
     private LocalDateTime startTime;
@@ -22,15 +16,37 @@ public class AdventureReservation {
     @Column
     private LocalDateTime endTime;
 
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "client_id")
+    private Client client;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "instructorAdventure_id")
+    private InstructorAdventure instructorAdventure;
+
     public AdventureReservation(){}
 
-    public AdventureReservation(Integer instructorAdventureId, Integer clientId,
-                                LocalDateTime startTime, LocalDateTime endTime) {
-        this.instructorAdventureId = instructorAdventureId;
-        this.clientId = clientId;
+    public AdventureReservation(LocalDateTime startTime, LocalDateTime endTime, Client client, InstructorAdventure instructorAdventure) {
         this.startTime = startTime;
         this.endTime = endTime;
+        this.client = client;
+        this.instructorAdventure = instructorAdventure;
+    }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public InstructorAdventure getInstructorAdventure() {
+        return instructorAdventure;
+    }
+
+    public void setInstructorAdventure(InstructorAdventure instructorAdventure) {
+        this.instructorAdventure = instructorAdventure;
     }
 
     public Integer getId() {
@@ -40,10 +56,6 @@ public class AdventureReservation {
     public void SetId(Integer id) {
         this.id = id;
     }
-
-    public Integer getClientId() { return clientId;}
-
-    public void setClientId(Integer clientId) { this.clientId = clientId;}
 
     public void setId(Integer id) { this.id = id;}
 
@@ -63,7 +75,4 @@ public class AdventureReservation {
         this.endTime = endTime;
     }
 
-    public Integer getInstructorAdventureId() {
-        return instructorAdventureId;
-    }
 }

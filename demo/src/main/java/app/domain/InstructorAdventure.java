@@ -48,6 +48,9 @@ public class InstructorAdventure {
     @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<AdventureAdditionalService> additionalServices;
 
+    @OneToMany(mappedBy = "instructorAdventure", cascade = CascadeType.ALL)
+    private Set<AdventureReservation> adventureReservations = new HashSet<>();
+
     @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Image> images;
 
@@ -80,6 +83,14 @@ public class InstructorAdventure {
         this.pricelist = pricelist;
         this.termsOfUse = termsOfUse;
         this.instructor = instructor;
+    }
+
+    public Set<AdventureReservation> getAdventureReservations() {
+        return adventureReservations;
+    }
+
+    public void setAdventureReservations(Set<AdventureReservation> adventureReservations) {
+        this.adventureReservations = adventureReservations;
     }
 
     public Integer getId() {

@@ -27,6 +27,7 @@ import { InstructorAdditionalServiceDialogComponent } from './components/instruc
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 import { ChangePasswordDialogComponent } from './components/user-settings/change-password-dialog/change-password-dialog.component';
 import { DeleteAccountDialogComponent } from './components/user-settings/delete-account-dialog/delete-account-dialog.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { DeleteAccountDialogComponent } from './components/user-settings/delete-
     UserSettingsComponent,
     ChangePasswordDialogComponent,
     DeleteAccountDialogComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
