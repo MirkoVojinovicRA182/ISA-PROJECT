@@ -28,6 +28,7 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
 import { ChangePasswordDialogComponent } from './components/user-settings/change-password-dialog/change-password-dialog.component';
 import { DeleteAccountDialogComponent } from './components/user-settings/delete-account-dialog/delete-account-dialog.component';
 import { LoginComponent } from './components/login/login.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { LoginComponent } from './components/login/login.component';
     ChangePasswordDialogComponent,
     DeleteAccountDialogComponent,
     LoginComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,

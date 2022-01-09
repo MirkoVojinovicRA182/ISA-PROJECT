@@ -83,7 +83,7 @@ public class RegistrationController {
                 "    <title>Verification succeeded!</title>\n" +
                 "    <div class=\"container text-center\">\n" +
                 "        <h3>Congratulations, your account has been verified.</h3>\n" +
-                "        <h4><a href=\"/@{/login}\">Click here to Login</a></h4>\n" +
+                "        <h4><a href=\"http://localhost:4200\">Click here to Login</a></h4>\n" +
                 "    </div>"
                 :
                 "    <title>Verification failed</title>\n" +

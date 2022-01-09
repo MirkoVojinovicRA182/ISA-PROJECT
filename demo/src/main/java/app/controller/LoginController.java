@@ -19,8 +19,8 @@ public class LoginController {
     private LoginService loginService;
 
     @RequestMapping("/getUser")
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ApplicationUser> getUser(@RequestBody LoginDTO dto){
-        return new ResponseEntity<ApplicationUser>(loginService.getUser(dto), HttpStatus.OK);
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ApplicationUser> getUser(String username, String password){
+        return new ResponseEntity<ApplicationUser>(loginService.getUser(new LoginDTO(username, password)), HttpStatus.OK);
     }
 }

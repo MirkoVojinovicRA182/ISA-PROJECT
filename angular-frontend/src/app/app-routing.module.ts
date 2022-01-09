@@ -9,11 +9,15 @@ import { LoginComponent } from './components/login/login.component';
 import { MyTestComponent } from './components/my-test/my-test.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { Instructor } from './model/instructor';
 
 const routes: Routes = [
 
+  { path: '', component: LoginComponent },
+  { path: '**', redirectTo: '' },
   { path: 'login', component: LoginComponent},
+  { path: 'landingPage', component: LandingPageComponent},
 
   // ADMINSTRATOR ROUTES
 
