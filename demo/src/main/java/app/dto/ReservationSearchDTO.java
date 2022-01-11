@@ -9,11 +9,11 @@ import java.time.LocalDateTime;
 public class ReservationSearchDTO {
 
     private LocalDate date;
-    private Client client;
+    private Integer clientid;
 
-    public ReservationSearchDTO(LocalDate date, Client client) {
+    public ReservationSearchDTO(LocalDate date, Integer clientid) {
         this.date = date;
-        this.client = client;
+        this.clientid = clientid;
     }
 
     public LocalDate getDate() {
@@ -24,11 +24,11 @@ public class ReservationSearchDTO {
         this.date = date;
     }
 
-    public Client getClient() {
-        return client;
+    public Integer getClientId() {
+        return clientid;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClientId(Integer clientid) {
+        this.clientid = clientid;
     }
 }

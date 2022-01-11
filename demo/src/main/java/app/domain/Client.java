@@ -11,6 +11,9 @@ public class Client extends ApplicationUser{
     @Column(name = "verification_code", length = 64)
     private String verificationCode = "";
 
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private Set<AdventureReservation> adventureReservations = new HashSet<>();
+
     private boolean enabled = false;
 
     public Client() {}

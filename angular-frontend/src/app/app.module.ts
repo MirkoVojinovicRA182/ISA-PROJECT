@@ -30,6 +30,8 @@ import { DeleteAccountDialogComponent } from './components/user-settings/delete-
 import { CommonModule } from '@angular/common';
 import { AdministratorLessonsViewComponent } from './components/administrator-lessons-view/administrator-lessons-view.component';
 import { AdministratorDeleteAccountRequestsViewComponent } from './components/administrator-delete-account-requests-view/administrator-delete-account-requests-view.component';
+import { LoginComponent } from './components/login/login.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { AdministratorDeleteAccountRequestsViewComponent } from './components/ad
     ChangePasswordDialogComponent,
     DeleteAccountDialogComponent,
     AdministratorDeleteAccountRequestsViewComponent,
+    LoginComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
