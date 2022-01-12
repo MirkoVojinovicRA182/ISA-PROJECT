@@ -1,6 +1,8 @@
 package app.domain;
 
 import app.domain.enums.UserType;
+import app.dto.CottageDTO;
+import app.dto.CottageOwnerDTO;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -32,5 +34,16 @@ public class CottageOwner extends ApplicationUser{
 
     public void setCottages(Set<Cottage> cottages) {
         this.cottages = cottages;
+    }
+
+    public void update(CottageOwnerDTO cottageOwnerDTO) {
+        setName(cottageOwnerDTO.getName());
+        setAddress(cottageOwnerDTO.getAddress());
+        setCity(cottageOwnerDTO.getCity());
+        setCountry(cottageOwnerDTO.getCountry());
+        setLastName(cottageOwnerDTO.getLastName());
+        setPhoneNumber(cottageOwnerDTO.getPhoneNumber());
+        setEmail(cottageOwnerDTO.getEmail());
+        setPassword(cottageOwnerDTO.getPassword());
     }
 }
