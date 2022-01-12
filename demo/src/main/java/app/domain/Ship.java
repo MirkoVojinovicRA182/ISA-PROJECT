@@ -47,5 +47,9 @@ public class Ship {
 
     @Column(name = "cancellationPolicy", unique = false, nullable = false)
     private String cancellationPolicy;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ship_owner_id")
+    private ShipOwner shipOwner;
 }
 
