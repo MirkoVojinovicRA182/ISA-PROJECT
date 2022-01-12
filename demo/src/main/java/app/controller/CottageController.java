@@ -1,6 +1,5 @@
 package app.controller;
 
-import app.domain.Cottage;
 import app.dto.CottageDTO;
 import app.service.CottageService;
 import org.springframework.beans.factory.annotation.Autowired;

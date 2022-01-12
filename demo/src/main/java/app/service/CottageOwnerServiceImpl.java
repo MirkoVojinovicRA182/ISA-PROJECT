@@ -1,8 +1,6 @@
 package app.service;
 
-import app.domain.Cottage;
 import app.domain.CottageOwner;
-import app.dto.CottageDTO;
 import app.dto.CottageOwnerDTO;
 import app.repository.CottageOwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +22,7 @@ public class CottageOwnerServiceImpl implements  CottageOwnerService{
 
     @Override
     public void deleteCottageOwner(Integer cottageOwnerId) {
-
+        cottageOwnerRepository.deleteById(cottageOwnerId);
     }
 
     @Override
