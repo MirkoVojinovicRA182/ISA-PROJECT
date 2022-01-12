@@ -14,7 +14,7 @@ public class CottageOwnerServiceImpl implements  CottageOwnerService{
 
     @Override
     public void saveCottageOwner(CottageOwnerDTO cottageOwnerDTO) {
-        CottageOwner newCottageOwner = new CottageOwner(cottageOwnerDTO.getCottageOwnerId(), cottageOwnerDTO.getEmail(), cottageOwnerDTO.getPassword(),
+        CottageOwner newCottageOwner = new CottageOwner(cottageOwnerDTO.getEmail(), cottageOwnerDTO.getPassword(),
                 cottageOwnerDTO.getName(), cottageOwnerDTO.getLastName(), cottageOwnerDTO.getAddress(), cottageOwnerDTO.getCity(),
                 cottageOwnerDTO.getCountry(), cottageOwnerDTO.getPhoneNumber());
         cottageOwnerRepository.save(newCottageOwner);

@@ -14,7 +14,7 @@ public class CottageDTO {
     private int bedsNumber;
     private String conductRules;
     private double pricelist;
-    private int cottageOwnerId;
+    private Integer cottageOwnerId;
 
     public CottageDTO(){
         super();
@@ -29,7 +29,7 @@ public class CottageDTO {
         this.bedsNumber = cottage.getBedsNumber();
         this.conductRules = cottage.getConductRules();
         this.pricelist = cottage.getPricelist();
-        this.cottageOwnerId = this.getCottageOwnerId();
+        this.cottageOwnerId = cottage.getCottageOwner().getId();
     }
 
     public CottageDTO(Integer cottageId, String name, String address, String promotiveDescription, int roomsNumber, int bedsNumber,String conductRules, double pricelist, int cottageOwnerId) {
