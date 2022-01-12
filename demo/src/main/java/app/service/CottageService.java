@@ -8,6 +8,6 @@ public interface CottageService {
     void saveCottage(CottageDTO cottageDTO);
     void deleteCottage(Integer cottageId);
     CottageDTO updateCottage(CottageDTO cottageDTO);
-    Set<CottageDTO> searchCottage(String searchFilter);
+    Set<CottageDTO> searchCottage(Integer cottageOwnerId, String searchFilter);
     Set<CottageDTO> getCottageOwnerCottager(Integer cottageOwnerId);
 }

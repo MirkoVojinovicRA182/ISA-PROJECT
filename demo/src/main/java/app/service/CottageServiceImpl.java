@@ -47,10 +47,10 @@ public class CottageServiceImpl implements CottageService{
     }
 
     @Override
-    public Set<CottageDTO> searchCottage(String searchFilter) {
+    public Set<CottageDTO> searchCottage(Integer cottageOwnerId, String searchFilter) {
         Set<CottageDTO> cottageDTOS = new HashSet<>();
-        if(cottageRepository.searchCottage(searchFilter) != null)
-            for(Cottage cottage: cottageRepository.searchCottage(searchFilter)){
+        if(cottageRepository.searchCottage(cottageOwnerId, searchFilter) != null)
+            for(Cottage cottage: cottageRepository.searchCottage(cottageOwnerId, searchFilter)){
                 cottageDTOS.add(new CottageDTO(cottage));
             }
         return cottageDTOS;

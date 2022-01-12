@@ -38,10 +38,10 @@ public class CottageController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping("/searchCottage/{searchFilter}")
+    @RequestMapping("/searchCottage/{cottageOwnerId}/{searchFilter}")
     @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<CottageDTO>> searchCottage(@PathVariable String searchFilter) throws Exception {
-        return new ResponseEntity<>(cottageService.searchCottage(searchFilter), HttpStatus.OK);
+    public ResponseEntity<Set<CottageDTO>> searchCottage(@PathVariable Integer cottageOwnerId, @PathVariable String searchFilter) throws Exception {
+        return new ResponseEntity<>(cottageService.searchCottage(cottageOwnerId, searchFilter), HttpStatus.OK);
     }
 
     @RequestMapping("/cottageOwnerCottages/{cottageOwnerId}")
