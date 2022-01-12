@@ -1,8 +1,10 @@
 package app.controller;
 
 import app.domain.AdventureReservation;
+import app.domain.ApplicationUser;
 import app.domain.RegistrationRequest;
 import app.dto.AdventureReservationDTO;
+import app.dto.AdventureReservationReportDTO;
 import app.dto.ClientDTO;
 import app.dto.ReservationSearchDTO;
 import app.service.AdventureReservationService;
@@ -42,9 +44,16 @@ public class ReservationControler {
         return "adventure_reservation_success";
     }
 
-    @GetMapping("/getInstructorAdventures/{id}")
+    @GetMapping("/getInstructorReservations/{id}")
     public ResponseEntity<List<AdventureReservationDTO>> getInstructorAdventures(@PathVariable Integer id){
         return new ResponseEntity<List<AdventureReservationDTO>>(adventureReservationService.getInstructorReservations(id), HttpStatus.OK);
+    }
+
+    @RequestMapping("/createAventureReservationReport")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> createAventureReservationReport(@RequestBody AdventureReservationReportDTO dto){
+        adventureReservationService.createAventureReservationReport(dto);
+        return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
 }

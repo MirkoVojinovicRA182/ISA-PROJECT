@@ -1,11 +1,10 @@
 package app.service;
 
-import app.domain.AdventureReservation;
-import app.domain.Client;
-import app.domain.Instructor;
-import app.domain.InstructorAdventure;
+import app.domain.*;
 import app.dto.AdventureReservationDTO;
+import app.dto.AdventureReservationReportDTO;
 import app.dto.ReservationSearchDTO;
+import app.repository.AdventureReservationReportRepository;
 import app.repository.AdventureReservationRepository;
 import app.repository.ClientRepository;
 import app.repository.InstructorRepository;
@@ -28,6 +27,9 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
 
     @Autowired
     private ClientRepository clientRepository;
+
+    @Autowired
+    private AdventureReservationReportRepository adventureReservationReportRepository;
 
     @Override
     public List<AdventureReservationDTO> getFreeAdventures(ReservationSearchDTO dto) {
@@ -73,5 +75,11 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
         for(AdventureReservation reservation: adventureReservationRepository.getInstructorReservations(instructorId))
             adventureReservationDTOS.add(new AdventureReservationDTO(reservation));
         return adventureReservationDTOS;
+    }
+
+    @Override
+    public void createAventureReservationReport(AdventureReservationReportDTO dto) {
+        adventureReservationReportRepository.save(new AdventureReservationReport(dto.getReportText(),
+                adventureReservationRepository.getById(dto.getReservationId())));
     }
 }

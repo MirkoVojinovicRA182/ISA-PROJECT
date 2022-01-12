@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class AdventureReservationDTO {
     private Integer id;
@@ -17,6 +18,7 @@ public class AdventureReservationDTO {
     private String adventureName;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    private boolean finished;
 
     public AdventureReservationDTO(){}
 
@@ -27,6 +29,7 @@ public class AdventureReservationDTO {
         adventureName = adventureReservation.getAdventure().getName();
         startTime = adventureReservation.getStartTime();
         endTime = adventureReservation.getEndTime();
+        finished = adventureReservation.getEndTime().isBefore(LocalDateTime.now());
     }
 
     public Integer getId() {
@@ -67,5 +70,13 @@ public class AdventureReservationDTO {
 
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 }

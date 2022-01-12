@@ -65,4 +65,5 @@ public class AdventureReservation {
     public void setAdventure(InstructorAdventure adventure) {
         this.adventure = adventure;
     }
+
 }

@@ -1,7 +1,8 @@
 export class Reservation{
     id: number = -1;
     clientUsername: string = "";
-    adventrureName: string = "";
+    adventureName: string = "";
     startTime: Date = new Date();
     endTime: Date = new Date();
+    finished: boolean = false;
 }

@@ -26,10 +26,11 @@
                 <td>{{reservation.endTime}}</td>
                 <td>{{reservation.adventureName}}</td>
                 <td>{{reservation.clientUsername}}</td>
-                <td *ngIf = "!checkReservationEnd(reservation.endTime)">
+                <td *ngIf = "reservation.finished">
                     <i
                      style="margin-left: 20%; cursor: pointer;"
-                    class="fas fa-pencil-alt"
+                     class="fas fa-pencil-alt"
+                     (click) = "openReportDialog(reservation.id)"
                     ></i>
                 </td>
             </tr>

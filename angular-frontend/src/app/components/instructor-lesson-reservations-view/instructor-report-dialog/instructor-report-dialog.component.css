@@ -1,0 +1,30 @@
+* {
+    color: black;
+}
+
+textarea{
+    width: 300px;
+    height: 150px;
+    margin-top: 30px;
+    resize: none;
+    font-size: large;
+}
+
+p{
+    margin-top: 30px;
+    font-size: large;
+    text-align: center;
+}
+
+button{
+    margin-top: 30px;
+    margin-left: 30%;
+}
+
+h1{
+    text-align: center;
+}
+
+button{
+    color: white;
+}
