@@ -13,7 +13,7 @@ public class CottageDTO {
     private int roomsNumber;
     private int bedsNumber;
     private String conductRules;
-    private double pricelist;
+    private String pricelist;
     private Integer cottageOwnerId;
 
     public CottageDTO(){
@@ -32,7 +32,7 @@ public class CottageDTO {
         this.cottageOwnerId = cottage.getCottageOwner().getId();
     }
 
-    public CottageDTO(Integer cottageId, String name, String address, String promotiveDescription, int roomsNumber, int bedsNumber,String conductRules, double pricelist, int cottageOwnerId) {
+    public CottageDTO(Integer cottageId, String name, String address, String promotiveDescription, int roomsNumber, int bedsNumber,String conductRules, String pricelist, int cottageOwnerId) {
         super();
         this.cottageId = cottageId;
         this.name = name;
@@ -101,11 +101,11 @@ public class CottageDTO {
         this.conductRules = conductRules;
     }
 
-    public double getPricelist() {
+    public String getPricelist() {
         return pricelist;
     }
 
-    public void setPricelist(double pricelist) {
+    public void setPricelist(String pricelist) {
         this.pricelist = pricelist;
     }
 

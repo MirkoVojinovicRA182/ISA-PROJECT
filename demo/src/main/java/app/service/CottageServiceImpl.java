@@ -7,6 +7,9 @@ import app.repository.CottageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Service
 public class CottageServiceImpl implements CottageService{
 
@@ -44,9 +47,22 @@ public class CottageServiceImpl implements CottageService{
     }
 
     @Override
-    public CottageDTO searchCottage(String searchFilter) {
+    public Set<CottageDTO> searchCottage(String searchFilter) {
+        Set<CottageDTO> cottageDTOS = new HashSet<>();
         if(cottageRepository.searchCottage(searchFilter) != null)
-            return new CottageDTO(cottageRepository.searchCottage(searchFilter));
-        return null;
+            for(Cottage cottage: cottageRepository.searchCottage(searchFilter)){
+                cottageDTOS.add(new CottageDTO(cottage));
+            }
+        return cottageDTOS;
+    }
+
+    @Override
+    public Set<CottageDTO> getCottageOwnerCottager(Integer cottageOwnerId) {
+        Set<CottageDTO> cottageDTOS = new HashSet<>();
+        if(cottageRepository.getCottageOwnerCottages(cottageOwnerId) != null)
+            for(Cottage cottage: cottageRepository.getCottageOwnerCottages(cottageOwnerId)){
+                cottageDTOS.add(new CottageDTO(cottage));
+            }
+        return cottageDTOS;
     }
 }

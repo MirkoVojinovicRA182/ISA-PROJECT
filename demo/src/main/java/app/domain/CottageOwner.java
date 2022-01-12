@@ -1,7 +1,5 @@
 package app.domain;
 
-import app.domain.enums.UserType;
-import app.dto.CottageDTO;
 import app.dto.CottageOwnerDTO;
 
 import javax.persistence.*;
