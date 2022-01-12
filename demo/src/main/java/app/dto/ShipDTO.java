@@ -1,64 +1,30 @@
-package app.domain;
+package app.dto;
 
-import app.dto.ShipDTO;
+import app.domain.Ship;
 
-import javax.persistence.*;
-
-@Entity
-public class Ship {
-    @Id
-    @SequenceGenerator(name = "shipSeqGen", sequenceName = "shipSeq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "shipSeqGen")
-    private Integer id;
-
-    @Column(name = "name", unique = false, nullable = false)
+public class ShipDTO {
+    private Integer shipId;
     private String name;
-
-    @Column(name = "type", unique = false, nullable = false)
     private String type;
-
-    @Column(name = "length", unique = false, nullable = false)
     private double length;
-
-    @Column(name = "engineNumber", unique = false, nullable = false)
     private Integer engineNumber;
-
-    @Column(name = "enginePower", unique = false, nullable = false)
     private double enginePower;
-
-    @Column(name = "maxSpeed", unique = false, nullable = false)
     private double maxSpeed;
-
-    @Column(name = "address", unique = false, nullable = false)
     private String address;
-
-    @Column(name = "promotiveDescription", unique = false, nullable = false)
     private String promotiveDescription;
-
-    @Column(name = "capacity", unique = false, nullable = false)
     private Integer capacity;
-
-    @Column(name = "conductRules", unique = false, nullable = false)
     private String conductRules;
-
-    @Column(name = "pricelist", unique = false, nullable = false)
     private String pricelist;
-
-    @Column(name = "additionalServicesInfo", unique = false, nullable = false)
     private String additionalServicesInfo;
-
-    @Column(name = "cancellationPolicy", unique = false, nullable = false)
     private String cancellationPolicy;
+    private Integer shipOwnerId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ship_owner_id")
-    private ShipOwner shipOwner;
-
-    public Ship() {
+    public ShipDTO(){
         super();
     }
 
-    public Ship(String name, String type, double length, Integer engineNumber, double enginePower, double maxSpeed, String address, String promotiveDescription, Integer capacity, String conductRules, String pricelist, String additionalServicesInfo, String cancellationPolicy, ShipOwner shipOwner) {
+    public ShipDTO(Integer shipId, String name, String type, double length, Integer engineNumber, double enginePower, double maxSpeed, String address, String promotiveDescription, Integer capacity, String conductRules, String pricelist, String additionalServicesInfo, String cancellationPolicy, Integer shipOwnerId) {
+        this.shipId = shipId;
         this.name = name;
         this.type = type;
         this.length = length;
@@ -72,15 +38,33 @@ public class Ship {
         this.pricelist = pricelist;
         this.additionalServicesInfo = additionalServicesInfo;
         this.cancellationPolicy = cancellationPolicy;
-        this.shipOwner = shipOwner;
+        this.shipOwnerId = shipOwnerId;
     }
 
-    public Integer getId() {
-        return id;
+    public ShipDTO(Ship ship) {
+        this.shipId = ship.getId();
+        this.name = ship.getName();
+        this.type = ship.getType();
+        this.length = ship.getLength();
+        this.engineNumber = ship.getEngineNumber();
+        this.enginePower = ship.getEnginePower();
+        this.maxSpeed = ship.getMaxSpeed();
+        this.address = ship.getAddress();
+        this.promotiveDescription = ship.getPromotiveDescription();
+        this.capacity = ship.getCapacity();
+        this.conductRules = ship.getConductRules();
+        this.pricelist = ship.getPricelist();
+        this.additionalServicesInfo = ship.getAdditionalServicesInfo();
+        this.cancellationPolicy = ship.getCancellationPolicy();
+        this.shipOwnerId = ship.getShipOwner().getId();
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Integer getShipId() {
+        return shipId;
+    }
+
+    public void setShipId(Integer shipId) {
+        this.shipId = shipId;
     }
 
     public String getName() {
@@ -187,29 +171,11 @@ public class Ship {
         this.cancellationPolicy = cancellationPolicy;
     }
 
-    public ShipOwner getShipOwner() {
-        return shipOwner;
+    public Integer getShipOwnerId() {
+        return shipOwnerId;
     }
 
-    public void setShipOwner(ShipOwner shipOwner) {
-        this.shipOwner = shipOwner;
+    public void setShipOwnerId(Integer shipOwnerId) {
+        this.shipOwnerId = shipOwnerId;
     }
-
-    public void update(ShipDTO shipDTO){
-        setAdditionalServicesInfo(shipDTO.getAdditionalServicesInfo());
-        setAddress(shipDTO.getAddress());
-        setConductRules(shipDTO.getConductRules());
-        setCapacity(shipDTO.getCapacity());
-        setPricelist(shipDTO.getPricelist());
-        setCancellationPolicy(shipDTO.getCancellationPolicy());
-        setEngineNumber(shipDTO.getEngineNumber());
-        setEnginePower(shipDTO.getEnginePower());
-        setLength(shipDTO.getLength());
-        setMaxSpeed(shipDTO.getMaxSpeed());
-        setName(shipDTO.getName());
-        setPromotiveDescription(shipDTO.getPromotiveDescription());
-        setType(shipDTO.getType());
-    }
-
 }
-
