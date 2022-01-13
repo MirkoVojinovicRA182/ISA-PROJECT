@@ -1,11 +1,10 @@
 package app.service;
 
 import app.domain.AdventureReservation;
-import app.domain.Client;
 import app.domain.Instructor;
 import app.domain.InstructorAdventure;
 import app.dto.AdventureReservationDTO;
-import app.dto.ReservationSearchDTO;
+import app.dto.AdventureReservationSearchDTO;
 import app.repository.AdventureReservationRepository;
 import app.repository.ClientRepository;
 import app.repository.InstructorAdventureRepository;
@@ -15,8 +14,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class AdventureReservationServiceImpl implements AdventureReservationService{
@@ -34,21 +33,23 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
     private InstructorAdventureRepository instructorAdventureRepository;
 
     @Override
-    public List<AdventureReservationDTO> getFreeAdventures(ReservationSearchDTO dto) {
+    public List<AdventureReservationDTO> getFreeAdventures(AdventureReservationSearchDTO dto) {
         List<AdventureReservationDTO> freeReservations = new ArrayList<>();
         List<Instructor> instructors = instructorRepository.findAll();
         List<AdventureReservation> reservations = adventureReservationRepository.findAll();
-        LocalDateTime dateTime = dto.getDate().atTime(8,0,0);
+        LocalDateTime dateTime = dto.getDate().atTime(dto.getHours(),0,0);
         boolean isInstructorFree = true;
 
-        for (int i=0; i < 4; i++){
+        for (int i=0; i < 1; i++){
             for(int n=0; n < instructors.size(); n++){
                 for(InstructorAdventure adventure : instructors.get(n).getAdventures()){
                     for(int j=0; j < reservations.size(); j++){
-                        if(reservations.get(j).getInstructorAdventure().getInstructor().getId().equals(instructors.get(n).getId())
-                                && reservations.get(j).getStartTime().equals(dateTime)){
-                            isInstructorFree = false;
-                            break;
+                        if(reservations.get(j).getInstructorAdventure().getMaxCountOfParticipants() >= dto.getMaxCountOfParticipants()) {
+                            if (reservations.get(j).getInstructorAdventure().getInstructor().getId().equals(instructors.get(n).getId())
+                                    && reservations.get(j).getStartTime().equals(dateTime)) {
+                                isInstructorFree = false;
+                                break;
+                            }
                         }
                     }
                     if (!isInstructorFree)
@@ -58,7 +59,7 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
                 }
                 isInstructorFree = true;
             }
-            dateTime = dateTime.plusHours(3);
+            //dateTime = dateTime.plusHours(3);
         }
 
         return freeReservations;
@@ -68,7 +69,7 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
     public void bookAnInstructorAdventure(AdventureReservationDTO dto) {
         adventureReservationRepository.save(new AdventureReservation(dto.getStartTime(), dto.getEndTime(),
                 clientRepository.getById(dto.getClientId()),
-                instructorAdventureRepository.getById(dto.getInstructorAdventureId())));
+                instructorAdventureRepository.getById(dto.getInstructorAdventureId()), "price..."));
     }
 
     private InstructorAdventure getAventureWithoutInstructor(InstructorAdventure a){

@@ -1,9 +1,7 @@
 package app.controller;
 
-import app.domain.RegistrationRequest;
 import app.dto.AdventureReservationDTO;
-import app.dto.ClientDTO;
-import app.dto.ReservationSearchDTO;
+import app.dto.AdventureReservationSearchDTO;
 import app.service.AdventureReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,8 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
-import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -26,9 +22,10 @@ public class ReservationControler {
     @Autowired
     private AdventureReservationService adventureReservationService;
 
+    //ADVENTURES
     @RequestMapping("/getFreeAdventures")
     @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<AdventureReservationDTO>> getFreeAdventures(@RequestBody ReservationSearchDTO dto) {
+    public ResponseEntity<List<AdventureReservationDTO>> getFreeAdventures(@RequestBody AdventureReservationSearchDTO dto) {
         List<AdventureReservationDTO> freeAdventures = adventureReservationService.getFreeAdventures(dto);
         return new ResponseEntity<List<AdventureReservationDTO>>(freeAdventures, HttpStatus.OK);
     }

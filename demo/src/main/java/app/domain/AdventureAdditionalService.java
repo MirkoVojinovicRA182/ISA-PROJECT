@@ -20,6 +20,10 @@ public class AdventureAdditionalService {
     @JoinColumn(name = "adventure_id")
     private InstructorAdventure adventure;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "adventure_reservation_id")
+    private AdventureReservation adventureReservation;
+
     public AdventureAdditionalService() {
     }
 

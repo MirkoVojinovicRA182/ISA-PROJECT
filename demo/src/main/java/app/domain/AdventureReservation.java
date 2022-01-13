@@ -2,6 +2,8 @@ package app.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class AdventureReservation {
@@ -16,6 +18,12 @@ public class AdventureReservation {
     @Column
     private LocalDateTime endTime;
 
+    @Column
+    private String price;
+
+    @OneToMany(mappedBy = "adventureReservation", cascade = CascadeType.ALL)
+    private Set<AdventureAdditionalService> adventureAdditionalServices = new HashSet<>();
+
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "client_id")
     private Client client;
@@ -26,11 +34,13 @@ public class AdventureReservation {
 
     public AdventureReservation(){}
 
-    public AdventureReservation(LocalDateTime startTime, LocalDateTime endTime, Client client, InstructorAdventure instructorAdventure) {
+    public AdventureReservation(LocalDateTime startTime, LocalDateTime endTime, Client client,
+                                InstructorAdventure instructorAdventure, String price) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.client = client;
         this.instructorAdventure = instructorAdventure;
+        this.price = price;
     }
 
     public Client getClient() {
@@ -75,4 +85,15 @@ public class AdventureReservation {
         this.endTime = endTime;
     }
 
+    public String getPrice() { return price; }
+
+    public void setPrice(String price) { this.price = price; }
+
+    public Set<AdventureAdditionalService> getAdventureAdditionalServices() {
+        return adventureAdditionalServices;
+    }
+
+    public void setAdventureAdditionalServices(Set<AdventureAdditionalService> adventureAdditionalServices) {
+        this.adventureAdditionalServices = adventureAdditionalServices;
+    }
 }
