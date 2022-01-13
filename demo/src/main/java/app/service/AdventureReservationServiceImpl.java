@@ -5,6 +5,7 @@ import app.dto.AdventureReservationDTO;
 import app.dto.AdventureReservationReportDTO;
 import app.dto.ReservationSearchDTO;
 import app.repository.*;
+import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,7 +65,10 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
     }
 
     @Override
-    public void bookAnInstructorAdventure(AdventureReservationDTO dto) {
+    public boolean bookAnInstructorAdventure(AdventureReservationDTO dto) {
+        if(!reservationTermValid(dto))
+            return false;
+
         Client client = clientRepository.findByEmail(dto.getClientUsername());
         InstructorAdventure adventure = instructorAdventureRepository.findByName(dto.getAdventureName());
 
@@ -73,6 +77,23 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
                 client,
                 adventure,
                 dto.getBill()));
+
+        return true;
+    }
+
+    private boolean reservationTermValid(AdventureReservationDTO dto){
+
+        LocalDateTime newReservationStart = dto.getStartTime();
+        LocalDateTime newReservationEnd = dto.getEndTime();
+
+        List<AdventureReservation> reservations = adventureReservationRepository.findAll();
+
+        for(AdventureReservation reservation: reservations){
+            if((newReservationStart.isAfter(reservation.getStartTime()) && newReservationStart.isBefore(reservation.getEndTime()))
+                || (newReservationEnd.isAfter(reservation.getStartTime()) && newReservationEnd.isBefore(reservation.getEndTime())))
+                return false;
+        }
+        return true;
     }
 
     @Override

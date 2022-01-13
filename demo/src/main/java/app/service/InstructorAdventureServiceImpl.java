@@ -42,7 +42,7 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
                 dto.getMaxCountOfParticipants(),
                 dto.getRulesOfConduct(),
                 dto.getDefaultEquipment(),
-                dto.getPricelist(),
+                dto.getPrice(),
                 dto.getTermsOfUse(),
                 instructorRepository.getById(dto.getInstructorId()));
         instructorAdventureRepository.save(adventure);

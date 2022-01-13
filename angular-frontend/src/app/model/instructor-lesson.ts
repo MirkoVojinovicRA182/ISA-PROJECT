@@ -8,7 +8,7 @@ export class InstructorLesson{
     maxCountOfParticipants: string = "";
     rulesOfConduct: string = "";
     defaultEquipment: string = "";
-    pricelist: string = "";
+    price: number = 0;
     termsOfUse: string = "";
 
 

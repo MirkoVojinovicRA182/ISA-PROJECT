@@ -33,6 +33,7 @@ export class InstructorAddAdventureReservationDialogComponent implements OnInit{
 
   showAdditionalServices(){
     this.newReservation.adventureName = this.selectedAdventure.name;
+    this.newReservation.bill = this.selectedAdventure.price;
     this.lessonService.getAdditionalServices(this.selectedAdventure.id).subscribe(services => this.additionalServices = services);
   }
 

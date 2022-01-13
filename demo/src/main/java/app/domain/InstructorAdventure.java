@@ -35,8 +35,8 @@ public class InstructorAdventure {
     @Column(name = "defaultEquipment", unique = false, nullable = false)
     private String defaultEquipment;
 
-    @Column(name = "pricelist", unique = false, nullable = false)
-    private String pricelist;
+    @Column(name = "price", unique = false, nullable = false)
+    private Double price;
 
     @Column(name = "termsOfUse", unique = false, nullable = false)
     private String termsOfUse;
@@ -57,7 +57,7 @@ public class InstructorAdventure {
     public InstructorAdventure() {}
 
     public InstructorAdventure(Integer id, String name, String address, String promotionalDescription, String instructorBiography,
-                               int maxCountOfParticipants, String rulesOfConduct, String defaultEquipment, String pricelist,
+                               int maxCountOfParticipants, String rulesOfConduct, String defaultEquipment, Double price,
                                String termsOfUse, Instructor instructor) {
         this.id = id;
         this.name = name;
@@ -67,12 +67,12 @@ public class InstructorAdventure {
         this.maxCountOfParticipants = maxCountOfParticipants;
         this.rulesOfConduct = rulesOfConduct;
         this.defaultEquipment = defaultEquipment;
-        this.pricelist = pricelist;
+        this.price = price;
         this.termsOfUse = termsOfUse;
         this.instructor = instructor;
     }
 
-    public InstructorAdventure(String name, String address, String promotionalDescription, String instructorBiography, int maxCountOfParticipants, String rulesOfConduct, String defaultEquipment, String pricelist, String termsOfUse, Instructor instructor) {
+    public InstructorAdventure(String name, String address, String promotionalDescription, String instructorBiography, int maxCountOfParticipants, String rulesOfConduct, String defaultEquipment, Double price, String termsOfUse, Instructor instructor) {
         this.name = name;
         this.address = address;
         this.promotionalDescription = promotionalDescription;
@@ -80,7 +80,7 @@ public class InstructorAdventure {
         this.maxCountOfParticipants = maxCountOfParticipants;
         this.rulesOfConduct = rulesOfConduct;
         this.defaultEquipment = defaultEquipment;
-        this.pricelist = pricelist;
+        this.price = price;
         this.termsOfUse = termsOfUse;
         this.instructor = instructor;
     }
@@ -149,12 +149,12 @@ public class InstructorAdventure {
         this.defaultEquipment = defaultEquipment;
     }
 
-    public String getPricelist() {
-        return pricelist;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setPricelist(String pricelist) {
-        this.pricelist = pricelist;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public String getTermsOfUse() {
@@ -205,7 +205,7 @@ public class InstructorAdventure {
         setMaxCountOfParticipants(dto.getMaxCountOfParticipants());
         setRulesOfConduct(dto.getRulesOfConduct());
         setDefaultEquipment(dto.getDefaultEquipment());
-        setPricelist(dto.getPricelist());
+        setPrice(dto.getPrice());
         setTermsOfUse(dto.getTermsOfUse());
     }
 

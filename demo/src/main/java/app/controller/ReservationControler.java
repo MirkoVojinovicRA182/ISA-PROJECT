@@ -37,11 +37,12 @@ public class ReservationControler {
     }
 
     @RequestMapping("/adventureReservation")
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String processRegister(@RequestBody AdventureReservationDTO dto, HttpServletRequest request)
-            throws UnsupportedEncodingException, MessagingException {
-        adventureReservationService.bookAnInstructorAdventure(dto);
-        return "adventure_reservation_success";
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String>  processRegister(@RequestBody AdventureReservationDTO dto, HttpServletRequest request) {
+        if(adventureReservationService.bookAnInstructorAdventure(dto))
+            return new ResponseEntity<String>("Created.", HttpStatus.CREATED);
+
+        return new ResponseEntity<String>("Failed!", HttpStatus.EXPECTATION_FAILED);
     }
 
     @GetMapping("/getInstructorReservations/{id}")

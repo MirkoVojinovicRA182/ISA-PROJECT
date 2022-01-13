@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface AdventureReservationService{
     List<AdventureReservationDTO> getFreeAdventures(ReservationSearchDTO dto);
-    void bookAnInstructorAdventure(AdventureReservationDTO dto);
+    boolean bookAnInstructorAdventure(AdventureReservationDTO dto);
     List<AdventureReservationDTO> getInstructorReservations(int instructorId);
 
     void createAventureReservationReport(AdventureReservationReportDTO dto);

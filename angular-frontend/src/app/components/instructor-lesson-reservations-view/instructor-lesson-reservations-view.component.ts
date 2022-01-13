@@ -66,9 +66,14 @@ export class InstructorLessonReservationsViewComponent implements OnInit {
   openReservationDialog(){
     const dialogRef = this.detailsDialog.open(InstructorAddAdventureReservationDialogComponent, {} );
 
-    dialogRef.afterClosed().subscribe(reservation => {
-      this.reservationService.createAdventureReservation(reservation).subscribe();
-    });
+    dialogRef.afterClosed().subscribe(reservation =>
+      {
+        this.reservationService.createAdventureReservation(reservation).subscribe(
+          {
+            next: succ => alert(succ),
+            error: err => alert('The selected start time is busy!')
+          })
+      });
   }
 
 }
