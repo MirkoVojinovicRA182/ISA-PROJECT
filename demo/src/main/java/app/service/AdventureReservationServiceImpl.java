@@ -4,10 +4,7 @@ import app.domain.*;
 import app.dto.AdventureReservationDTO;
 import app.dto.AdventureReservationReportDTO;
 import app.dto.ReservationSearchDTO;
-import app.repository.AdventureReservationReportRepository;
-import app.repository.AdventureReservationRepository;
-import app.repository.ClientRepository;
-import app.repository.InstructorRepository;
+import app.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +27,9 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
 
     @Autowired
     private AdventureReservationReportRepository adventureReservationReportRepository;
+
+    @Autowired
+    InstructorAdventureRepository instructorAdventureRepository;
 
     @Override
     public List<AdventureReservationDTO> getFreeAdventures(ReservationSearchDTO dto) {
@@ -65,8 +65,14 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
 
     @Override
     public void bookAnInstructorAdventure(AdventureReservationDTO dto) {
-        /*adventureReservationRepository.save(new AdventureReservation(dto.getInstructorAdventureId(), dto.getClientId(),
-                dto.getStartTime(), dto.getEndTime()));*/
+        Client client = clientRepository.findByEmail(dto.getClientUsername());
+        InstructorAdventure adventure = instructorAdventureRepository.findByName(dto.getAdventureName());
+
+        adventureReservationRepository.save(new AdventureReservation(dto.getStartTime(),
+                dto.getEndTime(),
+                client,
+                adventure,
+                dto.getBill()));
     }
 
     @Override

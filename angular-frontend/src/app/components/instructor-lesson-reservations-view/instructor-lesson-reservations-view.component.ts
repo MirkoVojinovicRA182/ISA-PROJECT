@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
+import { AdventureReservation } from 'src/app/model/adventure-reservation';
 import { Report } from 'src/app/model/report';
-import { Reservation } from 'src/app/model/reservation';
 import { ReservationsService } from 'src/app/services/reservations/reservations.service';
+import { InstructorAddAdventureReservationDialogComponent } from './instructor-add-adventure-reservation-dialog/instructor-add-adventure-reservation-dialog.component';
 import { InstructorReportDialogComponent } from './instructor-report-dialog/instructor-report-dialog.component';
 
 @Component({
@@ -14,7 +15,7 @@ import { InstructorReportDialogComponent } from './instructor-report-dialog/inst
 export class InstructorLessonReservationsViewComponent implements OnInit {
 
   searchValue: string = "";
-  reservations: Reservation[] = [];
+  reservations: AdventureReservation[] = [];
 
 
   constructor(private reservationService: ReservationsService,
@@ -59,6 +60,14 @@ export class InstructorLessonReservationsViewComponent implements OnInit {
       report.reservationId = reservationId;
 
       this.reservationService.createAventureReservationReport(report).subscribe();
+    });
+  }
+
+  openReservationDialog(){
+    const dialogRef = this.detailsDialog.open(InstructorAddAdventureReservationDialogComponent, {} );
+
+    dialogRef.afterClosed().subscribe(reservation => {
+      this.reservationService.createAdventureReservation(reservation).subscribe();
     });
   }
 

@@ -30,6 +30,7 @@ import { AdministratorDeleteAccountRequestsViewComponent } from './components/ad
 import { InstructorLessonReservationsViewComponent } from './components/instructor-lesson-reservations-view/instructor-lesson-reservations-view.component';
 import { InstructorOneLessonDetailComponent } from './components/instructor-one-lesson-detail/instructor-one-lesson-detail.component';
 import { InstructorReportDialogComponent } from './components/instructor-lesson-reservations-view/instructor-report-dialog/instructor-report-dialog.component';
+import { InstructorAddAdventureReservationDialogComponent } from './components/instructor-lesson-reservations-view/instructor-add-adventure-reservation-dialog/instructor-add-adventure-reservation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { InstructorReportDialogComponent } from './components/instructor-lesson-
     AdministratorDeleteAccountRequestsViewComponent,
     InstructorLessonReservationsViewComponent,
     InstructorOneLessonDetailComponent,
-    InstructorReportDialogComponent
+    InstructorReportDialogComponent,
+    InstructorAddAdventureReservationDialogComponent
   ],
   imports: [
     BrowserModule,

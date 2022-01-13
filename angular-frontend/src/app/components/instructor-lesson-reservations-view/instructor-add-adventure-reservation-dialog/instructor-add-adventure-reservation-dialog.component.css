@@ -1,0 +1,31 @@
+*{
+    color: black;
+}
+
+h1{
+    text-align: center;
+    color:rgb(5, 68, 104);
+}
+
+.tableDiv{
+  font-size: medium;  
+}
+
+table{
+    margin-top: 50px;
+}
+
+td{
+    padding: 10px;
+}
+
+select{
+    width: 250px;
+}
+
+
+button{
+    margin-top: 30px;
+    color: white;
+    margin-left: 40%;
+}

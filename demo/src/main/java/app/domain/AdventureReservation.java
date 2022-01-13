@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 @Entity
 public class AdventureReservation {
     @Id
-    @SequenceGenerator(name = "adventureReservationIdSeqGen", sequenceName = "adventureReservationIdSeq", initialValue = 1, allocationSize = 1)
+    @SequenceGenerator(name = "adventureReservationIdSeqGen", sequenceName = "adventureReservationIdSeq", initialValue = 6, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adventureReservationIdSeqGen")
     private Integer id;
 
@@ -24,7 +24,17 @@ public class AdventureReservation {
     @JoinColumn(name = "adventure_id")
     private InstructorAdventure adventure;
 
+    private Double bill;
+
     public AdventureReservation(){}
+
+    public AdventureReservation(LocalDateTime startTime, LocalDateTime endTime, Client client, InstructorAdventure adventure, Double bill) {
+        this.startTime = startTime;
+        this.endTime = endTime.plusHours(1);
+        this.client = client;
+        this.adventure = adventure;
+        this.bill = bill;
+    }
 
     public Integer getId() {
         return id;
@@ -66,4 +76,11 @@ public class AdventureReservation {
         this.adventure = adventure;
     }
 
+    public Double getBill() {
+        return bill;
+    }
+
+    public void setBill(Double bill) {
+        this.bill = bill;
+    }
 }

@@ -18,6 +18,7 @@ public class AdventureReservationDTO {
     private String adventureName;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    private Double bill;
     private boolean finished;
 
     public AdventureReservationDTO(){}
@@ -30,6 +31,7 @@ public class AdventureReservationDTO {
         startTime = adventureReservation.getStartTime();
         endTime = adventureReservation.getEndTime();
         finished = adventureReservation.getEndTime().isBefore(LocalDateTime.now());
+        bill = adventureReservation.getBill();
     }
 
     public Integer getId() {
@@ -78,5 +80,13 @@ public class AdventureReservationDTO {
 
     public void setFinished(boolean finished) {
         this.finished = finished;
+    }
+
+    public Double getBill() {
+        return bill;
+    }
+
+    public void setBill(Double bill) {
+        this.bill = bill;
     }
 }

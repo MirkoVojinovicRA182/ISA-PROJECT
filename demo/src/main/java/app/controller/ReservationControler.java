@@ -49,11 +49,12 @@ public class ReservationControler {
         return new ResponseEntity<List<AdventureReservationDTO>>(adventureReservationService.getInstructorReservations(id), HttpStatus.OK);
     }
 
-    @RequestMapping("/createAventureReservationReport")
+    @RequestMapping("/createAdventureReservationReport")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> createAventureReservationReport(@RequestBody AdventureReservationReportDTO dto){
+    public ResponseEntity<Void> createAdventureReservationReport(@RequestBody AdventureReservationReportDTO dto){
         adventureReservationService.createAventureReservationReport(dto);
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
+
 
 }

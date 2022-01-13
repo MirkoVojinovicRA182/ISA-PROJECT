@@ -2,9 +2,12 @@
 <hr style="margin-bottom: 70px;">
 
 <div style="margin-left: 8%;">
+
+    <button (click) = 'openReservationDialog()' mat-raised-button class="myButton" style="margin-right: 20px;">Add</button>
+
     <input
     type="text"
-    style="font-size: large; margin-right: 10px; width: 970px;"
+    style="font-size: large; margin-right: 10px; width: 840px;"
     placeholder="Search by reservation name..."
     (keyup) = 'findReservation()'
     [(ngModel)] = 'searchValue'>
