@@ -135,7 +135,9 @@
         <i
         class="fas fa-plus"
         style="font-size: medium;
-               margin-left: 10%;"
+               margin-left: 10%;
+               cursor: pointer;"
+        (click) = 'addAction()'       
         ></i>
 
         <hr>
@@ -143,36 +145,24 @@
         <table class="styled-table">
             <thead>
                 <tr>
-                    <th>Date and time</th>
-                    <th>Location</th>
-                    <th>Duration</th>
-                    <th>Max people</th>
+                    <th>Creation date</th>
+                    <th>Duration (days)</th>
+                    <th>Start time</th>
+                    <th>End time</th>
                     <th>Additional services</th>
                     <th>Price</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor = "let action of actions">
                 <tr>
-                    <td>2022-01-21</td>
-                    <td>Kanal DTD</td>
-                    <td>2 days</td>
-                    <td>15</td>
-                    <td>
-                        <p>* čamac</p>
-                        <p>* roštilj</p>
-                    </td>
-                    <td>100 <i class="fas fa-euro-sign"></i></td>
+                    <td style="width: 30px;">{{action.creationDate}}</td>
+                    <td>{{action.duration}}</td>
+                    <td style="width: 30px;">{{action.startTime}}</td>
+                    <td style="width: 30px;">{{action.endTime}}</td>
+                    <td>{{action.additionalServices}}</td>
+                    <td>{{action.price}}</td>
                 </tr>
-                <tr>
-                    <td>2022-03-22</td>
-                    <td>Kanal DTD</td>
-                    <td>10 days</td>
-                    <td>10</td>
-                    <td>
-                        <p>* roštilj</p>
-                    </td>
-                    <td>500 <i class="fas fa-euro-sign"></i></td>
-                </tr>
+                
             </tbody>
         </table>
     </div>

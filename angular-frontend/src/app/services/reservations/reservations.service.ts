@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { serverPort } from 'src/app/app.consts';
+import { ActionAdventure } from 'src/app/model/action-adventure';
 import { AdventureReservation } from 'src/app/model/adventure-reservation';
 import { Report } from 'src/app/model/report';
 
@@ -18,7 +19,7 @@ export class ReservationsService {
     return this.http.get<AdventureReservation[]>(this._url + 'reservation/getInstructorReservations/' + instructorId);
   }
 
-  createAventureReservationReport(report: Report): Observable<Report>{
+  createAdventureReservationReport(report: Report): Observable<Report>{
     return this.http.post<Report>(this._url + 'reservation/createAdventureReservationReport/', report);
   }
 
@@ -26,6 +27,15 @@ export class ReservationsService {
     return this.http.post(this._url + 'reservation/adventureReservation/', reservation, {responseType: 'text'}).pipe(
       catchError(this.handleError)
     )
+  }
+
+  getAdventureActionsByAdventureId(adventureId: number): Observable<ActionAdventure[]>{
+    return this.http.get<ActionAdventure[]>(this._url + 'action/getByAdventureId/' + adventureId);
+  }
+
+  createAdventureAction(action: ActionAdventure){
+    return this.http.post(this._url + 'action/createAdventureAction/', action, {responseType: 'text'}).pipe(
+      catchError(this.handleError))
   }
 
   private handleError(err: HttpErrorResponse): Observable<never> {

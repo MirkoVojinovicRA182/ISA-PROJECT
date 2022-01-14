@@ -3,8 +3,10 @@ package app.service;
 import app.domain.*;
 import app.dto.AdventureReservationDTO;
 import app.dto.AdventureReservationReportDTO;
+import app.dto.ReservationCheckDTO;
 import app.dto.ReservationSearchDTO;
 import app.repository.*;
+import app.utility.Utility;
 import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +33,9 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
 
     @Autowired
     InstructorAdventureRepository instructorAdventureRepository;
+
+    @Autowired
+    ActionAdventureRepository actionAdventureRepository;
 
     @Override
     public List<AdventureReservationDTO> getFreeAdventures(ReservationSearchDTO dto) {
@@ -66,7 +71,11 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
 
     @Override
     public boolean bookAnInstructorAdventure(AdventureReservationDTO dto) {
-        if(!reservationTermValid(dto))
+
+        boolean invalidTerm = !Utility.reservationTermValid(new ReservationCheckDTO(dto.getStartTime(), dto.getEndTime(), adventureReservationRepository.findAll(),
+                actionAdventureRepository.findAll()));
+
+        if(invalidTerm)
             return false;
 
         Client client = clientRepository.findByEmail(dto.getClientUsername());
@@ -78,21 +87,6 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
                 adventure,
                 dto.getBill()));
 
-        return true;
-    }
-
-    private boolean reservationTermValid(AdventureReservationDTO dto){
-
-        LocalDateTime newReservationStart = dto.getStartTime();
-        LocalDateTime newReservationEnd = dto.getEndTime();
-
-        List<AdventureReservation> reservations = adventureReservationRepository.findAll();
-
-        for(AdventureReservation reservation: reservations){
-            if((newReservationStart.isAfter(reservation.getStartTime()) && newReservationStart.isBefore(reservation.getEndTime()))
-                || (newReservationEnd.isAfter(reservation.getStartTime()) && newReservationEnd.isBefore(reservation.getEndTime())))
-                return false;
-        }
         return true;
     }
 

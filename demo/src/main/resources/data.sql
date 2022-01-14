@@ -68,16 +68,17 @@ insert into image(id, url, adventure_id) values (3, 'third.jpg', 1);
 
 
 insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, enabled) values (3,
-                                                                                                               'Vojvođanska 32',
-                                                                                                               'Obrovac',
-                                                                                                               'Republika Srbija',
-                                                                                                               'klijent@gmail.com',
-                                                                                                               'Neki',
-                                                                                                               'Klijent',
-                                                                                                               'klijent123',
-                                                                                                               '064-231-222-01',
-                                                                                                                'code',
-                                                                                                                'true');
+                                                                                                                                    'Vojvođanska 32',
+                                                                                                                                    'Obrovac',
+                                                                                                                                    'Republika Srbija',
+                                                                                                                                    'klijent@gmail.com',
+                                                                                                                                    'Neki',
+                                                                                                                                    'Klijent',
+                                                                                                                                    'klijent123',
+                                                                                                                                    '064-231-222-01',
+                                                                                                                                    'code',
+                                                                                                                                    'true');
+
 
 insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill)
 values (1, '2021-02-01T08:00:00.00', '2021-02-01T09:00:00.00', 3, 1, 300);
@@ -93,4 +94,10 @@ values (4, '2023-02-01T08:00:00.00', '2023-02-01T09:00:00.00', 3, 3, 450);
 
 insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill)
 values (5, '2018-02-01T08:00:00.00', '2018-02-01T09:00:00.00', 3, 2, 60);
+
+
+insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values (1, 'Pecaljka Brod', '2022-10-10T08:00:00.00', 15, '2022-11-10T09:00:00.00', '2022-11-10T08:00:00.00', 70, 1);
+insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values (2, 'Kombinezon', '2022-10-10T08:00:00.00', 10, '2022-12-10T09:00:00.00', '2022-12-10T08:00:00.00', 90, 2);
+insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values (3, 'Camac', '2022-10-10T08:00:00.00', 6, '2022-09-10T09:00:00.00', '2022-09-10T08:00:00.00', 50, 3);
+
 

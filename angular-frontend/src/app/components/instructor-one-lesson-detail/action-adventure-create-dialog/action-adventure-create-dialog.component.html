@@ -1,0 +1,65 @@
+<div>
+    <h1>New adventure action</h1>
+    <hr>
+
+    <table>
+        <tr>
+            <td>Start:</td>
+            <td>
+                <input 
+                type="datetime-local"
+                [ngModel]="newAction.startTime | date:'yyyy-MM-ddThh:mm:ss.SSS'"
+                (ngModelChange) = "setStart($event)">
+            </td>
+        </tr>
+        <tr>
+            <td>End:</td>
+            <td>
+                <input 
+                type="datetime-local"
+                [ngModel]="newAction.endTime | date:'yyyy-MM-ddThh:mm:ss.SSS'"
+                (ngModelChange) = "setEnd($event)">
+            </td>
+        </tr>
+        <tr>
+            <td>Duration:</td>
+            <td>
+                <input 
+                class="numInput" 
+                type="number" 
+                min="1"
+                [(ngModel)] = "newAction.duration"> days
+            </td>
+        </tr>
+        <tr>
+            <td>Additional services:</td>
+            <td>
+                <ng-container *ngFor = "let service of additionalServices">
+                    <i *ngIf = "additionalServices.length == 0">no available</i>
+                    <input type="checkbox" id="service.id" style="padding: 10px;" (change) = "checkService(service.name, $event)"> 
+                    <label for="service.id">{{service.name}}</label><br>
+                </ng-container>
+            </td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td>
+                <input 
+                class="numInput" 
+                type="number" 
+                min="0"
+                [(ngModel)] = "newAction.price">
+            </td>
+        </tr>
+    </table>
+
+    <button 
+    mat-raised-button 
+    class="myButton" 
+    id="actionButton"
+    [mat-dialog-close]="newAction"
+    >Create</button>
+    
+    <button mat-raised-button class="myButton" id="actionButton">Cancel</button>
+
+</div>

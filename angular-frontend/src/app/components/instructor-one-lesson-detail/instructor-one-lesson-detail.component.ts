@@ -6,6 +6,9 @@ import { InstructorLesson } from 'src/app/model/instructor-lesson';
 import { InstructorLessonsService } from 'src/app/services/instructor-lessons/instructor-lessons.service';
 import { InstructorAdditionalServiceDialogComponent } from '../instructor-additional-service-dialog/instructor-additional-service-dialog.component';
 import { Image } from 'src/app/model/image';
+import { ActionAdventure } from 'src/app/model/action-adventure';
+import { ReservationsService } from 'src/app/services/reservations/reservations.service';
+import { ActionAdventureCreateDialogComponent } from './action-adventure-create-dialog/action-adventure-create-dialog.component';
 
 @Component({
   selector: 'app-instructor-one-lesson-detail',
@@ -28,9 +31,12 @@ export class InstructorOneLessonDetailComponent implements OnInit {
 
   uploadImage: File | undefined;
 
+  actions: ActionAdventure[] = [];
+
   constructor(private route: ActivatedRoute,
               private router: Router,
               private instructorLessonService: InstructorLessonsService,
+              private reservationService: ReservationsService,
               private detailsDialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -48,6 +54,8 @@ export class InstructorOneLessonDetailComponent implements OnInit {
         this.getAdditionalServices(id);
 
         this.getImages(id);
+
+        this.getActions(id);
       }
     );
   }
@@ -61,6 +69,37 @@ export class InstructorOneLessonDetailComponent implements OnInit {
   getImages(id: number){
     this.instructorLessonService.getImages(id).subscribe(
       images => this.images = images
+    );
+  }
+
+  getActions(id: number){
+    this.reservationService.getAdventureActionsByAdventureId(id).subscribe(
+      actions => this.actions = actions
+    );
+  }
+
+  addAction(){
+    const dialogRef = this.detailsDialog.open(ActionAdventureCreateDialogComponent, {data: this.lesson.id});
+
+    dialogRef.afterClosed().subscribe(newAction =>
+      {
+        let action = new ActionAdventure();
+
+        action.creationDate = new Date();
+        action.startTime = newAction.startTime;
+        action.endTime = newAction.endTime;
+        action.duration = newAction.duration;
+        action.price = newAction.price;
+        action.additionalServices = newAction.additionalServices;
+        action.adventureId = this.lesson.id;
+
+        this.reservationService.createAdventureAction(action).subscribe(
+          {
+            next: succ => alert(succ),
+            error: err => alert('The selected start time is busy!')
+          })
+        
+      }
     );
   }
 

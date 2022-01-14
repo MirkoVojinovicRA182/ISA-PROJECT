@@ -59,7 +59,7 @@ export class InstructorLessonReservationsViewComponent implements OnInit {
       report.reportText = reportText;
       report.reservationId = reservationId;
 
-      this.reservationService.createAventureReservationReport(report).subscribe();
+      this.reservationService.createAdventureReservationReport(report).subscribe();
     });
   }
 
