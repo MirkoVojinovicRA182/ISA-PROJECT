@@ -15,15 +15,17 @@ public class AdventureReservationDTO {
     private Integer instructorAdventureId;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    private String price;
 
     public AdventureReservationDTO(){}
 
     public AdventureReservationDTO(Integer clientId, Integer instructorAdventureId,
-                                   LocalDateTime startTime, LocalDateTime endTime) {
+                                   LocalDateTime startTime, LocalDateTime endTime, String price) {
         this.clientId = clientId;
         this.instructorAdventureId = instructorAdventureId;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.price = price;
     }
 
     public Integer getClientId() {
@@ -57,4 +59,8 @@ public class AdventureReservationDTO {
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
+
+    public String getPrice() { return price; }
+
+    public void setPrice(String price) { this.price = price; }
 }

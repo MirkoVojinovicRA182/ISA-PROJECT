@@ -2,7 +2,10 @@ package app.controller;
 
 import app.dto.AdventureReservationDTO;
 import app.dto.AdventureReservationSearchDTO;
+import app.dto.ShipReservationDTO;
+import app.dto.ShipReservationSearchDTO;
 import app.service.AdventureReservationService;
+import app.service.ShipReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,6 +25,9 @@ public class ReservationControler {
     @Autowired
     private AdventureReservationService adventureReservationService;
 
+    @Autowired
+    private ShipReservationService shipReservationService;
+
     //ADVENTURES
     @RequestMapping("/getFreeAdventures")
     @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -32,9 +38,25 @@ public class ReservationControler {
 
     @RequestMapping("/adventureReservation")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String processRegister(@RequestBody AdventureReservationDTO dto, HttpServletRequest request)
+    public String adventureReservation(@RequestBody AdventureReservationDTO dto, HttpServletRequest request)
             throws UnsupportedEncodingException, MessagingException {
         adventureReservationService.bookAnInstructorAdventure(dto);
         return "adventure_reservation_success";
+    }
+
+    //SHIPS
+    @RequestMapping("/getFreeShips")
+    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ShipReservationDTO>> getFreeShips(@RequestBody ShipReservationSearchDTO dto) {
+        List<ShipReservationDTO> freeShips = shipReservationService.getFreeShips(dto);
+        return new ResponseEntity<List<ShipReservationDTO>>(freeShips, HttpStatus.OK);
+    }
+
+    @RequestMapping("/shipReservation")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String shipReservation(@RequestBody ShipReservationDTO dto, HttpServletRequest request)
+            throws UnsupportedEncodingException, MessagingException {
+        shipReservationService.bookAShip(dto);
+        return "ship_reservation_success";
     }
 }
