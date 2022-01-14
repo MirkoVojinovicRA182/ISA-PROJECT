@@ -55,7 +55,7 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
                     if (!isInstructorFree)
                         break;
                     freeReservations.add(new AdventureReservationDTO(dto.getClientId(),
-                            adventure.getId(), dateTime, dateTime.plusHours(3)));
+                            adventure.getId(), dateTime, dateTime.plusHours(3), adventure.getPricelist()));
                 }
                 isInstructorFree = true;
             }
@@ -67,9 +67,10 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
 
     @Override
     public void bookAnInstructorAdventure(AdventureReservationDTO dto) {
+        InstructorAdventure adventure = instructorAdventureRepository.getByAdventureId(dto.getInstructorAdventureId());
         adventureReservationRepository.save(new AdventureReservation(dto.getStartTime(), dto.getEndTime(),
                 clientRepository.getById(dto.getClientId()),
-                instructorAdventureRepository.getById(dto.getInstructorAdventureId()), "price..."));
+                adventure, adventure.getPricelist()));
     }
 
     private InstructorAdventure getAventureWithoutInstructor(InstructorAdventure a){

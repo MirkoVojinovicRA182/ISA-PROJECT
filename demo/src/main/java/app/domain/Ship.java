@@ -3,11 +3,13 @@ package app.domain;
 import app.dto.ShipDTO;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Ship {
     @Id
-    @SequenceGenerator(name = "shipSeqGen", sequenceName = "shipSeq", initialValue = 1, allocationSize = 1)
+    @SequenceGenerator(name = "shipSeqGen", sequenceName = "shipSeq", initialValue = 5, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "shipSeqGen")
     private Integer id;
 
@@ -53,6 +55,9 @@ public class Ship {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ship_owner_id")
     private ShipOwner shipOwner;
+
+    @OneToMany(mappedBy = "ship", cascade = CascadeType.ALL)
+    private Set<ShipReservation> shipReservations = new HashSet<>();
 
     public Ship() {
         super();
@@ -194,6 +199,8 @@ public class Ship {
     public void setShipOwner(ShipOwner shipOwner) {
         this.shipOwner = shipOwner;
     }
+
+    public Set<ShipReservation> getShipReservations() { return shipReservations; }
 
     public void update(ShipDTO shipDTO){
         setAdditionalServicesInfo(shipDTO.getAdditionalServicesInfo());

@@ -27,6 +27,15 @@ insert into administrator (id, address, city, country, email, name, last_name, p
                                                                                                             'Mitrović',
                                                                                                             'mitar567',
                                                                                                             '065-231-222-01');
+insert into ship_owner (id, address, city, country, email, name, last_name, password, phone_number) values (5,
+                                                                                                            'Vojvođanska 32',
+                                                                                                            'Obrovac',
+                                                                                                            'Republika Srbija',
+                                                                                                            'nik@gmail.com',
+                                                                                                            'Nikola',
+                                                                                                            'Mitrović',
+                                                                                                            'mita567',
+                                                                                                            '065-231-666-01');
 
 insert into registration_request (id, email, password, name, last_name, address, city, country, phone_number, user_type, registration_explanation, request_date) values
 (1, 'maki@gmail.com', 'maki123', 'Marija', 'Stojadinović', 'Bulevar Mihajla Pupina 12', 'Novi Sad', 'Republika Srbija', '066/113-23-32', 1, 'Because.', '2022-01-20T08:00:00.00');
@@ -78,3 +87,6 @@ insert into adventure_additional_service(id, name, price, adventure_id) values (
 insert into image(id, url, adventure_id) values (1, 'first.jpg', 1);
 insert into image(id, url, adventure_id) values (2, 'second.jpg', 1);
 insert into image(id, url, adventure_id) values (3, 'third.jpg', 1);
+
+insert into ship(id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, conduct_rules, pricelist, additional_services_info, cancellation_policy, ship_owner_id)
+    values(1, 'Cimi', 'jahta', 20.0, 5, 500.0, 30.0, 'Luka Kravica, 23', 'Jahta samo za odabrane', 30, '...', '2000$', '...', '...', 5);
