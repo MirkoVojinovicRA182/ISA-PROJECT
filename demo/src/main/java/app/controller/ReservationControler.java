@@ -3,12 +3,10 @@ package app.controller;
 import app.domain.AdventureReservation;
 import app.domain.ApplicationUser;
 import app.domain.RegistrationRequest;
-import app.dto.AdventureReservationDTO;
-import app.dto.AdventureReservationReportDTO;
-import app.dto.ClientDTO;
-import app.dto.ReservationSearchDTO;
+import app.dto.*;
 import app.service.AdventureReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -55,6 +54,11 @@ public class ReservationControler {
     public ResponseEntity<Void> createAdventureReservationReport(@RequestBody AdventureReservationReportDTO dto){
         adventureReservationService.createAventureReservationReport(dto);
         return new ResponseEntity<Void>(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/generateInstructorSallary")
+    public ResponseEntity<Double> generateInstructorSallary(@RequestBody SallaryDTO dto){
+        return new ResponseEntity<Double>(adventureReservationService.getInstructorSallary(dto.getFromDate(), dto.getToDate(), dto.getInstructorId()), HttpStatus.OK);
     }
 
 

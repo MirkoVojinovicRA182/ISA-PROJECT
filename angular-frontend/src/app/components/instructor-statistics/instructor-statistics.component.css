@@ -1,0 +1,44 @@
+h1{
+    text-align: center;
+    color:rgb(5, 68, 104);
+}
+
+h2{
+    text-align: center;
+}
+
+.radio{
+    margin-left: 20%;
+}
+
+label{
+    font-size: large;
+}
+
+#s{
+    display: inline-block;
+    margin-left: 8%;
+}
+
+.s{
+    width: 200px;
+}
+
+.sallary{
+    margin-top: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 10px;
+    border: 2px solid #cacaca;
+    padding: 40px;
+    text-align: center;
+}
+
+#button{
+    margin-top: 50px;
+}
+
+.message{
+    margin-top: 50px;
+    font-size: large;   
+}

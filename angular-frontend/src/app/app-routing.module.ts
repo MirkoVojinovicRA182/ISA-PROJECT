@@ -8,6 +8,7 @@ import { AdministratorUsersViewComponent } from './components/administrator-user
 import { InstructorLessonReservationsViewComponent } from './components/instructor-lesson-reservations-view/instructor-lesson-reservations-view.component';
 import { InstructorLessonsComponent } from './components/instructor-lessons/instructor-lessons.component';
 import { InstructorOneLessonDetailComponent } from './components/instructor-one-lesson-detail/instructor-one-lesson-detail.component';
+import { InstructorStatisticsComponent } from './components/instructor-statistics/instructor-statistics.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 
@@ -25,10 +26,11 @@ const routes: Routes = [
   { path: 'instructorLessons', component: InstructorLessonsComponent },
   { path: 'instructorLessons/:id', component: InstructorOneLessonDetailComponent },
   { path: 'instructorReservations', component: InstructorLessonReservationsViewComponent },
+  { path: 'statistics', component: InstructorStatisticsComponent },
 
   // PROFILE ROUTES
   { path: 'profile', component: UserProfileComponent },
-  { path: 'settings', component: UserSettingsComponent },
+  { path: 'settings', component: UserSettingsComponent }
 
 ];
 

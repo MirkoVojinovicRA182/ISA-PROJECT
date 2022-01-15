@@ -103,4 +103,17 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
         adventureReservationReportRepository.save(new AdventureReservationReport(dto.getReportText(),
                 adventureReservationRepository.getById(dto.getReservationId())));
     }
+
+    @Override
+    public double getInstructorSallary(LocalDateTime fromDate, LocalDateTime toDate, int instructorId) {
+        double sallary = 0;
+
+        for(AdventureReservation reservation: adventureReservationRepository.getInstructorReservations(instructorId))
+            if(reservation.getEndTime().isAfter(fromDate) && reservation.getEndTime().isBefore(toDate))
+                sallary += reservation.getBill();
+
+        return sallary;
+    }
+
+
 }

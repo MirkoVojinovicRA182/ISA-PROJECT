@@ -34,8 +34,8 @@
         <tr>
             <td>Additional services:</td>
             <td>
+                <i *ngIf = "additionalServices.length == 0">no available</i>
                 <ng-container *ngFor = "let service of additionalServices">
-                    <i *ngIf = "additionalServices.length == 0">no available</i>
                     <input type="checkbox" id="service.id" style="padding: 10px;" (change) = "checkService(service.name, $event)"> 
                     <label for="service.id">{{service.name}}</label><br>
                 </ng-container>

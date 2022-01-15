@@ -9,8 +9,12 @@ import java.util.List;
 
 public interface AdventureReservationService{
     List<AdventureReservationDTO> getFreeAdventures(ReservationSearchDTO dto);
+
     boolean bookAnInstructorAdventure(AdventureReservationDTO dto);
+
     List<AdventureReservationDTO> getInstructorReservations(int instructorId);
 
     void createAventureReservationReport(AdventureReservationReportDTO dto);
+
+    double getInstructorSallary(LocalDateTime fromDate, LocalDateTime toDate, int instructorId);
 }

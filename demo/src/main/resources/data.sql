@@ -87,7 +87,7 @@ insert into adventure_reservation (id, start_time, end_time, client_id, adventur
 values (2, '2022-02-01T08:00:00.00', '2022-02-01T09:00:00.00', 3, 1, 100);
 
 insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill)
-values (3, '2020-02-01T08:00:00.00', '2020-02-01T09:00:00.00', 3, 2, 312);
+values (3, '2020-02-01T08:00:00.00', '2020-02-01T09:00:00.00', 3, 1, 312);
 
 insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill)
 values (4, '2023-02-01T08:00:00.00', '2023-02-01T09:00:00.00', 3, 3, 450);
