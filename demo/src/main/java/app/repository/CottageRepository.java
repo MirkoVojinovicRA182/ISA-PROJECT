@@ -13,4 +13,7 @@ public interface CottageRepository extends JpaRepository<Cottage, Integer> {
 
     @Query("SELECT u FROM Cottage u WHERE u.cottageOwner.id = ?1")
     public Set<Cottage> getCottageOwnerCottages(Integer cottageOwnerId);
+
+    @Query("SELECT u FROM Cottage u WHERE u.id = ?1")
+    Cottage getByCottageId(Integer cottageId);
 }

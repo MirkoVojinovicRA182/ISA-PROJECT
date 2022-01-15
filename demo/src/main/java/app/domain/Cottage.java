@@ -39,6 +39,9 @@ public class Cottage {
     @JoinColumn(name = "cottage_owner_id")
     private CottageOwner cottageOwner;
 
+    @OneToMany(mappedBy = "cottage", cascade = CascadeType.ALL)
+    private Set<CottageReservation> cottageReservations = new HashSet<>();
+
     public Cottage() {
         super();
     }
@@ -127,6 +130,13 @@ public class Cottage {
         this.cottageOwner = cottageOwner;
     }
 
+    public Set<CottageReservation> getCottageReservations() {
+        return cottageReservations;
+    }
+
+    public void setCottageReservations(Set<CottageReservation> cottageReservations) {
+        this.cottageReservations = cottageReservations;
+    }
 
     public void update(CottageDTO cottageDTO) {
         setName(cottageDTO.getName());

@@ -17,6 +17,9 @@ public class Client extends ApplicationUser{
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private Set<ShipReservation> shipReservations = new HashSet<>();
 
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private Set<CottageReservation> cottageReservations = new HashSet<>();
+
     private boolean enabled = false;
 
     public Client() {}
@@ -45,4 +48,20 @@ public class Client extends ApplicationUser{
     public Set<AdventureReservation> getAdventureReservations() { return adventureReservations; }
 
     public Set<ShipReservation> getShipReservations() { return shipReservations; }
+
+    public void setAdventureReservations(Set<AdventureReservation> adventureReservations) {
+        this.adventureReservations = adventureReservations;
+    }
+
+    public void setShipReservations(Set<ShipReservation> shipReservations) {
+        this.shipReservations = shipReservations;
+    }
+
+    public Set<CottageReservation> getCottageReservations() {
+        return cottageReservations;
+    }
+
+    public void setCottageReservations(Set<CottageReservation> cottageReservations) {
+        this.cottageReservations = cottageReservations;
+    }
 }

@@ -36,6 +36,15 @@ insert into ship_owner (id, address, city, country, email, name, last_name, pass
                                                                                                             'Mitrović',
                                                                                                             'mita567',
                                                                                                             '065-231-666-01');
+insert into cottage_owner (id, address, city, country, email, name, last_name, password, phone_number) values (6,
+                                                                                                            'Alekse Santica 49',
+                                                                                                            'Bukovce',
+                                                                                                            'Republika Srbija',
+                                                                                                            'cone@gmail.com',
+                                                                                                            'Nemanja',
+                                                                                                            'Peric',
+                                                                                                            'cone567',
+                                                                                                            '065-555-666-01');
 
 insert into registration_request (id, email, password, name, last_name, address, city, country, phone_number, user_type, registration_explanation, request_date) values
 (1, 'maki@gmail.com', 'maki123', 'Marija', 'Stojadinović', 'Bulevar Mihajla Pupina 12', 'Novi Sad', 'Republika Srbija', '066/113-23-32', 1, 'Because.', '2022-01-20T08:00:00.00');
@@ -90,3 +99,6 @@ insert into image(id, url, adventure_id) values (3, 'third.jpg', 1);
 
 insert into ship(id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, conduct_rules, pricelist, additional_services_info, cancellation_policy, ship_owner_id)
     values(1, 'Cimi', 'jahta', 20.0, 5, 500.0, 30.0, 'Luka Kravica, 23', 'Jahta samo za odabrane', 30, '...', '2000$', '...', '...', 5);
+
+insert into cottage(id, name, address, promotive_description, rooms_number, beds_number, conduct_rules, pricelist, cottage_owner_id)
+    values(1, 'Tornik', 'Zlatibori, BB', 'Samo za odabrane', 5, 10, '...nesto', '400$', 6)

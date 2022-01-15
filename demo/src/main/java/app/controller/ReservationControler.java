@@ -1,10 +1,8 @@
 package app.controller;
 
-import app.dto.AdventureReservationDTO;
-import app.dto.AdventureReservationSearchDTO;
-import app.dto.ShipReservationDTO;
-import app.dto.ShipReservationSearchDTO;
+import app.dto.*;
 import app.service.AdventureReservationService;
+import app.service.CottageReservationService;
 import app.service.ShipReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,6 +25,9 @@ public class ReservationControler {
 
     @Autowired
     private ShipReservationService shipReservationService;
+
+    @Autowired
+    private CottageReservationService cottageReservationService;
 
     //ADVENTURES
     @RequestMapping("/getFreeAdventures")
@@ -58,5 +59,21 @@ public class ReservationControler {
             throws UnsupportedEncodingException, MessagingException {
         shipReservationService.bookAShip(dto);
         return "ship_reservation_success";
+    }
+
+    //COTTAGES
+    @RequestMapping("/getFreeCottages")
+    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<CottageReservationDTO>> getFreeCottages(@RequestBody CottageReservationSearchDTO dto) {
+        List<CottageReservationDTO> freeCottages = cottageReservationService.getFreeCottages(dto);
+        return new ResponseEntity<List<CottageReservationDTO>>(freeCottages, HttpStatus.OK);
+    }
+
+    @RequestMapping("/cottageReservation")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String cottageReservation(@RequestBody CottageReservationDTO dto, HttpServletRequest request)
+            throws UnsupportedEncodingException, MessagingException {
+        cottageReservationService.bookACottage(dto);
+        return "cottage_reservation_success";
     }
 }
