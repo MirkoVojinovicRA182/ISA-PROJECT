@@ -78,19 +78,29 @@ insert into client (id, address, city, country, email, name, last_name, password
                                                                                                                                     '064-231-222-01',
                                                                                                                                     'code',
                                                                                                                                     'true');
-
+insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, enabled) values (4,
+                                                                                                                                    'Bulevar Cara Lazara 5',
+                                                                                                                                    'Novi Sad',
+                                                                                                                                    'Republika Srbija',
+                                                                                                                                    'mita123@gmail.com',
+                                                                                                                                    'Mita',
+                                                                                                                                    'Mitrović',
+                                                                                                                                    'mita123',
+                                                                                                                                    '065-222-222-01',
+                                                                                                                                    'code',
+                                                                                                                                    'true');
 
 insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill)
 values (1, '2021-02-01T08:00:00.00', '2021-02-01T09:00:00.00', 3, 1, 300);
 
 insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill)
-values (2, '2022-02-01T08:00:00.00', '2022-02-01T09:00:00.00', 3, 1, 100);
+values (2, '2022-02-01T08:00:00.00', '2022-02-01T09:00:00.00', 4, 1, 100);
 
 insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill)
 values (3, '2020-02-01T08:00:00.00', '2020-02-01T09:00:00.00', 3, 1, 312);
 
 insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill)
-values (4, '2023-02-01T08:00:00.00', '2023-02-01T09:00:00.00', 3, 3, 450);
+values (4, '2023-02-01T08:00:00.00', '2023-02-01T09:00:00.00', 4, 3, 450);
 
 insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill)
 values (5, '2018-02-01T08:00:00.00', '2018-02-01T09:00:00.00', 3, 2, 60);
