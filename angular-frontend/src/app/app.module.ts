@@ -34,6 +34,7 @@ import { InstructorAddAdventureReservationDialogComponent } from './components/i
 import { ActionAdventureCreateDialogComponent } from './components/instructor-one-lesson-detail/action-adventure-create-dialog/action-adventure-create-dialog.component';
 import { InstructorStatisticsComponent } from './components/instructor-statistics/instructor-statistics.component';
 import { InstructorClientInfoDialogComponent } from './components/instructor-lesson-reservations-view/instructor-client-info-dialog/instructor-client-info-dialog.component';
+import { AdministratorCottagesViewComponent } from './components/administrator-cottages-view/administrator-cottages-view.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { InstructorClientInfoDialogComponent } from './components/instructor-les
     InstructorAddAdventureReservationDialogComponent,
     ActionAdventureCreateDialogComponent,
     InstructorStatisticsComponent,
-    InstructorClientInfoDialogComponent
+    InstructorClientInfoDialogComponent,
+    AdministratorCottagesViewComponent
   ],
   imports: [
     BrowserModule,

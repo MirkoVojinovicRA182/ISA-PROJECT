@@ -110,4 +110,41 @@ insert into action_adventure (id, additional_services, creation_date, duration, 
 insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values (2, 'Kombinezon', '2022-10-10T08:00:00.00', 10, '2022-12-10T09:00:00.00', '2022-12-10T08:00:00.00', 90, 2);
 insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values (3, 'Camac', '2022-10-10T08:00:00.00', 6, '2022-09-10T09:00:00.00', '2022-09-10T08:00:00.00', 50, 3);
 
+insert into cottage_owner (id, address, city, country, email, name, last_name, password, phone_number) values (5,
+                                                                                                        'Bulevar Cara Lazara 15',
+                                                                                                        'Novi Sad',
+                                                                                                        'Republika Srbija',
+                                                                                                        'steva123@gmail.com',
+                                                                                                        'Stevan',
+                                                                                                        'Martinović',
+                                                                                                        'steva123',
+                                                                                                        '066-122-222-01');
 
+insert into cottage_owner (id, address, city, country, email, name, last_name, password, phone_number) values (6,
+                                                                                                               'Bulevar Cara Lazara 35',
+                                                                                                               'Novi Sad',
+                                                                                                               'Republika Srbija',
+                                                                                                               'mmina123@gmail.com',
+                                                                                                               'Mina',
+                                                                                                               'Nikolić',
+                                                                                                               'mina123',
+                                                                                                               '062-122-222-01');
+
+insert into cottage_owner (id, address, city, country, email, name, last_name, password, phone_number) values (7,
+                                                                                                               'Bulevar Cara Lazara 35',
+                                                                                                               'Novi Sad',
+                                                                                                               'Republika Srbija',
+                                                                                                               'nina123@gmail.com',
+                                                                                                               'Nikolina',
+                                                                                                               'Ivanić',
+                                                                                                               'ninaIvanic123',
+                                                                                                               '064-122-222-01');
+
+insert into cottage (id, name, address, promotive_description, rooms_number, beds_number, conduct_rules, pricelist, cottage_owner_id)
+    values(1, 'Stevanova', 'Neka', 'Dodjite u Stevanovu kolibu', 10, 15, 'Pravila', 'Cenovnik', 5);
+
+insert into cottage (id, name, address, promotive_description, rooms_number, beds_number, conduct_rules, pricelist, cottage_owner_id)
+values(2, 'Minina', 'Neka', 'Dodjite u Mininu kolibu', 10, 15, 'Pravila', 'Cenovnik', 6);
+
+insert into cottage (id, name, address, promotive_description, rooms_number, beds_number, conduct_rules, pricelist, cottage_owner_id)
+values(3, 'Ninina', 'Neka', 'Dodjite u Nininu kolibu', 10, 15, 'Pravila', 'Cenovnik', 7);

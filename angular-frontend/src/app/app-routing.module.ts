@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdministratorCottagesViewComponent } from './components/administrator-cottages-view/administrator-cottages-view.component';
 import { AdministratorDeleteAccountRequestsViewComponent } from './components/administrator-delete-account-requests-view/administrator-delete-account-requests-view.component';
 import { AdministratorLessonsViewComponent } from './components/administrator-lessons-view/administrator-lessons-view.component';
 import { AdministratorRegisterAdministratorComponent } from './components/administrator-register-administrator/administrator-register-administrator.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'users', component: AdministratorUsersViewComponent },
   { path: 'lessons', component: AdministratorLessonsViewComponent },
   {path: 'deleteAcountRequests', component: AdministratorDeleteAccountRequestsViewComponent},
+  {path: 'cottages', component: AdministratorCottagesViewComponent},
 
   // INSTRUCTOR ROUTES
   { path: 'instructorLessons', component: InstructorLessonsComponent },

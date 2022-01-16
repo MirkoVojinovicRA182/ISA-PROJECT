@@ -1,6 +1,7 @@
 package app.service;
 
 import app.domain.Instructor;
+import app.dto.CottageDTO;
 import app.dto.InstructorAdventureDTO;
 import app.dto.UserProfileDTO;
 
@@ -14,4 +15,8 @@ public interface EntityService {
     UserProfileDTO getInstructorById(Integer id);
 
     UserProfileDTO getAdministratorById(Integer id);
+
+    List<CottageDTO> getAllCottages();
+
+    void deleteCottage(Integer cottageId);
 }
