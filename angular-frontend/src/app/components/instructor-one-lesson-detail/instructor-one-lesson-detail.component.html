@@ -15,60 +15,61 @@
             <tr>
                 <td>Name: </td>
                 <td>
-                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.name">
+                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.name" [disabled] = "lesson.reserved">
                 </td>
             </tr>
             <tr>
                 <td>Address: </td>
                 <td>
-                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.address">
+                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.address" [disabled] = "lesson.reserved">
                 </td>
             </tr>
             <tr>
                 <td>Promotional description: </td>
                 <td>
-                    <textarea tabindex="-1" [(ngModel)] = "lesson.promotionalDescription"></textarea>
+                    <textarea tabindex="-1" [(ngModel)] = "lesson.promotionalDescription" [disabled] = "lesson.reserved"></textarea>
                 </td>
             </tr>
             <tr>
                 <td>Instructor biography: </td>
                 <td>
-                    <textarea [(ngModel)] = "lesson.instructorBiography"></textarea>
+                    <textarea [(ngModel)] = "lesson.instructorBiography" [disabled] = "lesson.reserved"></textarea>
                 </td>
             </tr>
             <tr>
                 <td>Max count of participants: </td>
                 <td>
-                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.maxCountOfParticipants">
+                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.maxCountOfParticipants" [disabled] = "lesson.reserved">
                 </td>
             </tr>
             <tr>
                 <td>Rules of conduct: </td>
                 <td>
-                    <textarea type="text" tabindex="-1" [(ngModel)] = "lesson.rulesOfConduct"></textarea>
+                    <textarea type="text" tabindex="-1" [(ngModel)] = "lesson.rulesOfConduct" [disabled] = "lesson.reserved"></textarea>
                 </td>
             </tr>
             <tr>
                 <td>Default equipment: </td>
                 <td>
-                    <textarea type="text" tabindex="-1" [(ngModel)] = "lesson.defaultEquipment"></textarea>
+                    <textarea type="text" tabindex="-1" [(ngModel)] = "lesson.defaultEquipment" [disabled] = "lesson.reserved"></textarea>
                 </td>
             </tr>
             <tr>
                 <td>Price list: </td>
                 <td>
-                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.price">
+                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.price" [disabled] = "lesson.reserved">
                 </td>
             </tr>
             <tr>
                 <td>Terms of use: </td>
                 <td>
-                    <textarea type="text" tabindex="-1" [(ngModel)] = "lesson.termsOfUse"></textarea>
+                    <textarea type="text" tabindex="-1" [(ngModel)] = "lesson.termsOfUse" [disabled] = "lesson.reserved"></textarea>
                 </td>
             </tr>
         </table>
 
-        <button 
+        <button
+        [disabled] = "lesson.reserved"  
         mat-raised-button
         class="myButton"
         (click) = 'modifyLesson()'

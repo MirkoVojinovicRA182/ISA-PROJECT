@@ -10,7 +10,7 @@ export class InstructorLesson{
     defaultEquipment: string = "";
     price: number = 0;
     termsOfUse: string = "";
-
+    reserved: boolean = false;
 
     constructor(){
     }

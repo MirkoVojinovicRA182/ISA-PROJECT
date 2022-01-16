@@ -2,13 +2,13 @@
     padding-top: 5%;
     background-color: rgb(5, 68, 104);
     box-shadow: 3px 3px rgb(189, 188, 188);
-    text-align: center;
     border-radius: 10px;
 }
 
 h1{
     color: rgba(255, 255, 255, 0.699);
     font-family: 'Raleway', sans-serif;
+    text-align: center;
 }
 
 i{
@@ -16,6 +16,7 @@ i{
     margin-bottom: 10px;
     color: white;
     cursor: pointer;
+    margin-left: 5%;
 }
 
 tr{

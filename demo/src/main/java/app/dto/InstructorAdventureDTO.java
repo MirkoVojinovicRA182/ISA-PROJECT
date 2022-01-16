@@ -14,6 +14,7 @@ public class InstructorAdventureDTO {
     private Double price;
     private String termsOfUse;
     private int instructorId;
+    private boolean isReserved;
 
     public InstructorAdventureDTO() {
     }
@@ -126,5 +127,13 @@ public class InstructorAdventureDTO {
 
     public void setInstructorId(Integer instructorId) {
         this.instructorId = instructorId;
+    }
+
+    public boolean isReserved() {
+        return isReserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        isReserved = reserved;
     }
 }

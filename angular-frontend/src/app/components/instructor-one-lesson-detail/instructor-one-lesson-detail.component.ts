@@ -33,6 +33,7 @@ export class InstructorOneLessonDetailComponent implements OnInit {
 
   actions: ActionAdventure[] = [];
 
+
   constructor(private route: ActivatedRoute,
               private router: Router,
               private instructorLessonService: InstructorLessonsService,
@@ -56,6 +57,7 @@ export class InstructorOneLessonDetailComponent implements OnInit {
         this.getImages(id);
 
         this.getActions(id);
+
       }
     );
   }

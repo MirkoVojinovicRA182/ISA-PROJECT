@@ -28,7 +28,7 @@
                 <td>{{reservation.startTime}}</td>
                 <td>{{reservation.endTime}}</td>
                 <td>{{reservation.adventureName}}</td>
-                <td>{{reservation.clientUsername}}</td>
+                <td><u style="cursor: pointer;">{{reservation.clientUsername}}</u></td>
                 <td *ngIf = "reservation.finished">
                     <i
                      style="margin-left: 20%; cursor: pointer;"
