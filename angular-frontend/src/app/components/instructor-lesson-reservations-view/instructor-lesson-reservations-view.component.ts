@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 import { AdventureReservation } from 'src/app/model/adventure-reservation';
 import { Report } from 'src/app/model/report';
+import { User } from 'src/app/model/user';
 import { ReservationsService } from 'src/app/services/reservations/reservations.service';
+import { UserProfileService } from 'src/app/services/user-profile/user-profile.service';
 import { InstructorAddAdventureReservationDialogComponent } from './instructor-add-adventure-reservation-dialog/instructor-add-adventure-reservation-dialog.component';
+import { InstructorClientInfoDialogComponent } from './instructor-client-info-dialog/instructor-client-info-dialog.component';
 import { InstructorReportDialogComponent } from './instructor-report-dialog/instructor-report-dialog.component';
 
 @Component({
@@ -19,7 +22,8 @@ export class InstructorLessonReservationsViewComponent implements OnInit {
 
 
   constructor(private reservationService: ReservationsService,
-              private detailsDialog: MatDialog) { }
+              private detailsDialog: MatDialog,
+              private userService: UserProfileService) { }
 
   ngOnInit(): void {
     this.getReservations();
@@ -74,6 +78,19 @@ export class InstructorLessonReservationsViewComponent implements OnInit {
             error: err => alert('The selected start time is busy!')
           })
       });
+  }
+
+  openClientInfoDialog(clientUsername: string){
+
+    this.userService.getClient(clientUsername).subscribe(client => {
+      const dialogRef = this.detailsDialog.open(InstructorClientInfoDialogComponent,
+        {
+          data: client
+        } 
+     );
+    }
+    )
+
   }
 
 }

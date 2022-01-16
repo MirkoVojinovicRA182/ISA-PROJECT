@@ -92,4 +92,12 @@ public class UserServiceImpl implements UserService{
         else if(userType.equals(UserType.ShipOwner))
             shipOwnerRepository.deleteById(userId);
     }
+
+    @Override
+    public UserProfileDTO getClient(String username) {
+        Client user = clientRepository.findByEmail(username);
+        if(user != null)
+            return new UserProfileDTO(user);
+        return null;
+    }
 }

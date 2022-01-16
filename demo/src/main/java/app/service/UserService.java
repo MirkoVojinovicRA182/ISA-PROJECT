@@ -9,4 +9,6 @@ public interface UserService {
     Collection<UserProfileDTO> getUsers();
 
     void deleteUser(Integer userId, UserType userType);
+
+    UserProfileDTO getClient(String username);
 }

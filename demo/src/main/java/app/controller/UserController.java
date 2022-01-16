@@ -5,6 +5,7 @@ import app.domain.RegistrationRequest;
 import app.domain.enums.UserType;
 import app.dto.UserProfileDTO;
 import app.service.UserService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,6 +26,11 @@ public class UserController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<UserProfileDTO>> getUsers(){
         return new ResponseEntity<Collection<UserProfileDTO>>(userService.getUsers(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getClient/{username}")
+    public ResponseEntity<UserProfileDTO> getClient(@PathVariable String username){
+        return new ResponseEntity<UserProfileDTO>(userService.getClient(username), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/deleteUser")
