@@ -2,6 +2,7 @@ package app.controller;
 
 import app.dto.CottageDTO;
 import app.dto.InstructorAdventureDTO;
+import app.dto.ShipDTO;
 import app.dto.UserProfileDTO;
 import app.service.EntityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,11 @@ public class EntityController {
         return new ResponseEntity<List<CottageDTO>>(entityService.getAllCottages(), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/getAllShips")
+    public ResponseEntity<List<ShipDTO>> getAllShips(){
+        return new ResponseEntity<List<ShipDTO>>(entityService.getAllShips(), HttpStatus.OK);
+    }
+
     @RequestMapping("/getInstructor/{id}")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserProfileDTO> getInstructor(@PathVariable Integer id){
@@ -52,6 +58,12 @@ public class EntityController {
     @DeleteMapping(value = "/deleteCottage/{id}")
     public ResponseEntity<Void> deleteCottage(@PathVariable Integer id){
         entityService.deleteCottage(id);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/deleteShip/{id}")
+    public ResponseEntity<Void> deleteShip(@PathVariable Integer id){
+        entityService.deleteShip(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 }

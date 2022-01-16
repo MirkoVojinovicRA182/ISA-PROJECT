@@ -9,10 +9,9 @@
       <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-home-page/administrator-home-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-home-page/administrator-home-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-lessons-view/administrator-lessons-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-lessons-view/administrator-lessons-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/services/administrator-entities/administrator-entities.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/services/administrator-entities/administrator-entities.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/EntityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/EntityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/ApplicationUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/ApplicationUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/ShipOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/ShipOwner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/EntityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/EntityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/EntityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/EntityServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/data.sql" afterDir="false" />
@@ -128,7 +127,7 @@
       <workItem from="1641993571547" duration="13994000" />
       <workItem from="1642089565752" duration="5397000" />
       <workItem from="1642169438279" duration="12729000" />
-      <workItem from="1642321055446" duration="7896000" />
+      <workItem from="1642321055446" duration="9689000" />
     </task>
     <servers />
   </component>

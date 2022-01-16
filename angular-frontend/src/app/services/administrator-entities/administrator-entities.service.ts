@@ -19,4 +19,12 @@ export class AdministratorEntitiesService {
   public deleteCottage(cottageId: number){
     return this.http.delete(this._url + 'entity/deleteCottage/' + cottageId);
   }
+
+  public getAllShips(): Observable<any> {
+    return this.http.get<any>(this._url + 'entity/getAllShips/');
+  }
+
+  public deleteShip(shipId: number){
+    return this.http.delete(this._url + 'entity/deleteShip/' + shipId);
+  }
 }

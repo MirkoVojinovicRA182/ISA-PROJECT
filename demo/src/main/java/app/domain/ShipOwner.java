@@ -5,8 +5,16 @@ import app.domain.enums.UserType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class ShipOwner extends ApplicationUser{
+
+    @OneToMany(mappedBy = "shipOwner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<Ship> ships = new HashSet<Ship>();
+
 
     public ShipOwner() {
     }

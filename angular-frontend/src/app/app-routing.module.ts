@@ -5,6 +5,7 @@ import { AdministratorDeleteAccountRequestsViewComponent } from './components/ad
 import { AdministratorLessonsViewComponent } from './components/administrator-lessons-view/administrator-lessons-view.component';
 import { AdministratorRegisterAdministratorComponent } from './components/administrator-register-administrator/administrator-register-administrator.component';
 import { AdministratorRegistrationRequestsComponent } from './components/administrator-registration-requests/administrator-registration-requests.component';
+import { AdministratorShipsViewComponent } from './components/administrator-ships-view/administrator-ships-view.component';
 import { AdministratorUsersViewComponent } from './components/administrator-users-view/administrator-users-view.component';
 import { InstructorLessonReservationsViewComponent } from './components/instructor-lesson-reservations-view/instructor-lesson-reservations-view.component';
 import { InstructorLessonsComponent } from './components/instructor-lessons/instructor-lessons.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'lessons', component: AdministratorLessonsViewComponent },
   {path: 'deleteAcountRequests', component: AdministratorDeleteAccountRequestsViewComponent},
   {path: 'cottages', component: AdministratorCottagesViewComponent},
+  {path: 'ships', component: AdministratorShipsViewComponent},
 
   // INSTRUCTOR ROUTES
   { path: 'instructorLessons', component: InstructorLessonsComponent },
