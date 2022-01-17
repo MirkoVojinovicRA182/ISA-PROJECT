@@ -1,0 +1,121 @@
+<h1><b>Users complaints</b></h1>
+<hr>
+
+<div class="content">
+
+    <div class="optionsDiv">
+        <h2>Choose type of complaint:</h2>
+
+        <input type="radio" id="instructorC" value="complaints" class="radio" name="complaints" (click) = "showTable(1)">
+        <label for="instructorC"><i>instructors</i></label>
+    
+        <input type="radio" id="shipC" value="complaints" class="radio" name="complaints" (click) = "showTable(2)">
+        <label for="shipC"><i>ships and owners</i></label>
+    
+        <input type="radio" id="cottageC" value="complaints" class="radio" name="complaints" (click) = "showTable(3)">
+        <label for="cottageC"><i>cottages and owners</i></label>
+    </div>
+
+    <div class="iDiv" *ngIf = "iTableDisplayed">
+        <input
+        class="searchInput"
+        type="text"
+        placeholder="Search by instructor name..."
+        (keyup) = 'findInstructorComplaint()'
+        [(ngModel)] = 'searchValueInstructorC'>
+
+        <i id="searchIcon" class="fas fa-search"></i>
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Client name</th>
+                    <th>Instructor name</th>
+                    <th>Complaint text</th>
+                </tr>
+            </thead>
+            <tbody *ngFor = "let c of instructorComplaints; let index = index;" [ngClass]="{'evenRow': 0 !== index % 2}">
+                <tr>
+                    <td>{{c.clientName}}</td>
+                    <td>{{c.instructorName}}</td>
+                    <td>{{c.complaintText}}</td>
+                    <td>
+                        <i class="fas fa-pencil-alt" id="writeAnswerIcon" (click) = "openComplaintAnswerDialog(c)"></i>
+                    </td>
+                </tr>
+            </tbody>
+    
+        </table>
+    </div>
+
+    <div class="sDiv" *ngIf = "sTableDisplayed">
+        <input
+        class="searchInput"
+        type="text"
+        placeholder="Search by ship name..."
+        (keyup) = 'findShipComplaint()'
+        [(ngModel)] = 'searchValueShipC'>
+
+        <i id="searchIcon" class="fas fa-search"></i>
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Client name</th>
+                    <th>Ship owner name</th>
+                    <th>Ship name</th>
+                    <th>Complaint text</th>
+                </tr>
+            </thead>
+            <tbody *ngFor = "let s of shipComplaints; let index = index;" [ngClass]="{'evenRow': 0 !== index % 2}">
+                <tr>
+                    <td>{{s.clientName}}</td>
+                    <td>{{s.ownerName}}</td>
+                    <td>{{s.ownerEntityName}}</td>
+                    <td>{{s.complaintText}}</td>
+                    <td>
+                        <i class="fas fa-pencil-alt" id="writeAnswerIcon" (click) = "openComplaintAnswerDialog(s)"></i>
+                    </td>
+                </tr>
+            </tbody>
+    
+        </table>
+    
+    </div>
+
+    <div class="cDiv" *ngIf = "cTableDisplayed">
+        <input
+        class="searchInput"
+        type="text"
+        placeholder="Search by cottage name..."
+        (keyup) = 'findCottageComplaint()'
+        [(ngModel)] = 'searchValueCottageC'>
+
+        <i id="searchIcon" class="fas fa-search"></i>
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Client name</th>
+                    <th>Ship owner name</th>
+                    <th>Ship name</th>
+                    <th>Complaint text</th>
+                </tr>
+            </thead>
+            <tbody *ngFor = "let c of cottageComplaints; let index = index;" [ngClass]="{'evenRow': 0 !== index % 2}">
+                <tr>
+                    <td>{{c.clientName}}</td>
+                    <td>{{c.ownerName}}</td>
+                    <td>{{c.ownerEntityName}}</td>
+                    <td>{{c.complaintText}}</td>
+                    <td>
+                        <i class="fas fa-pencil-alt" id="writeAnswerIcon" (click) = "openComplaintAnswerDialog(c)"></i>
+                    </td>
+                </tr>
+            </tbody>
+    
+        </table>
+    
+    </div>
+
+</div>

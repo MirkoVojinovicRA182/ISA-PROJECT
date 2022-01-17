@@ -187,3 +187,30 @@ values (2, 'Todorov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Todorov opis', 10, 'Cenov
 
 insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id)
 values (3, 'Ognjenov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Ognjenov opis', 10, 'Cenovnik', 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 10);
+
+insert into instructor_complaint(id, text, instructor_id, client_id)
+values (1, 'Neki tekst zalbe 1', 1, 3);
+
+insert into instructor_complaint(id, text, instructor_id, client_id)
+values (2, 'Neki tekst zalbe 2', 1, 4);
+
+insert into ship_complaint(id, text, ship_id, ship_owner_id, client_id)
+values (1, 'Neki tekst zalbe 3', 1, 8, 3);
+
+insert into ship_complaint(id, text, ship_id, ship_owner_id, client_id)
+values (2, 'Neki tekst zalbe 4', 2, 9, 3);
+
+insert into ship_complaint(id, text, ship_id, ship_owner_id, client_id)
+values (3, 'Neki tekst zalbe 5', 3, 10, 4);
+
+insert into cottage_complaint(id, text, cottage_id, cottage_owner_id, client_id)
+values (1, 'Neki tekst zalbe 6', 1, 5, 4);
+
+insert into cottage_complaint(id, text, cottage_id, cottage_owner_id, client_id)
+values (2, 'Neki tekst zalbe 7', 2, 6, 4);
+
+insert into cottage_complaint(id, text, cottage_id, cottage_owner_id, client_id)
+values (3, 'Neki tekst zalbe 8', 3, 7, 3);
+
+
+

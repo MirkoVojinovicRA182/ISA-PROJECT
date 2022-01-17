@@ -60,7 +60,7 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
             if (instructor.getId().equals(dto.getUserId()))
                 instructorRepository.delete(instructor);
 
-        Utility.sendMail("mail", "Odobreno", "Vaš nalog je uspešno obrisan.");
+        //Utility.sendMail("mail", "Odobreno", "Vaš nalog je uspešno obrisan.");
     }
 
     @Override
@@ -68,6 +68,6 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
         DeleteAccountRequest request = deleteAccountRequestRepository.findById(requestId).orElseGet(null);
         deleteAccountRequestRepository.delete(request);
 
-        Utility.sendMail("mail", "Odbijeno", "Vaš razlog za brisanje naloga nije dovoljan.");
+        //Utility.sendMail("mail", "Odbijeno", "Vaš razlog za brisanje naloga nije dovoljan.");
     }
 }

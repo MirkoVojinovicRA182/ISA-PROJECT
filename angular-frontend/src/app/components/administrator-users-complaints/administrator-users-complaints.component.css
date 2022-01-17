@@ -1,0 +1,68 @@
+h1, h2{
+    text-align: center;
+}
+
+
+.content{
+    margin-top: 50px;
+}
+
+.radio{
+    margin-top: 30px;
+    margin-left: 17%;
+}
+
+.evenRow{
+    background-color: rgb(223, 223, 223);
+}
+
+.searchInput{
+    font-size: medium;
+    width: 970px;
+    margin-right: 10px;
+}
+
+#searchIcon{
+    font-size: medium; 
+}
+
+.styled-table {
+    border-collapse: collapse;
+    font-size: 15px;
+    font-family: sans-serif;
+    margin-top: 30px;
+    width: 1000px;
+}
+
+
+th{
+    width: 333px;
+}
+
+tr{
+    text-align: center;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 5px 5spx;
+}
+
+.styled-table thead tr {
+    border-bottom: 2px solid #535353;
+}
+
+.optionsDiv{
+    margin: 50px;
+    border-radius: 10px;
+    border: 1px solid #cacaca;
+    padding: 10px;
+}
+
+.iDiv, .sDiv, .cDiv{
+    margin-left: 10%;
+}
+
+#writeAnswerIcon{
+    cursor: pointer;
+}

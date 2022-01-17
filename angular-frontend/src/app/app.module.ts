@@ -36,6 +36,8 @@ import { InstructorStatisticsComponent } from './components/instructor-statistic
 import { InstructorClientInfoDialogComponent } from './components/instructor-lesson-reservations-view/instructor-client-info-dialog/instructor-client-info-dialog.component';
 import { AdministratorCottagesViewComponent } from './components/administrator-cottages-view/administrator-cottages-view.component';
 import { AdministratorShipsViewComponent } from './components/administrator-ships-view/administrator-ships-view.component';
+import { AdministratorUsersComplaintsComponent } from './components/administrator-users-complaints/administrator-users-complaints.component';
+import { WriteAnswerDialogComponent } from './components/administrator-users-complaints/write-answer-dialog/write-answer-dialog.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { AdministratorShipsViewComponent } from './components/administrator-ship
     InstructorStatisticsComponent,
     InstructorClientInfoDialogComponent,
     AdministratorCottagesViewComponent,
-    AdministratorShipsViewComponent
+    AdministratorShipsViewComponent,
+    AdministratorUsersComplaintsComponent,
+    WriteAnswerDialogComponent
   ],
   imports: [
     BrowserModule,

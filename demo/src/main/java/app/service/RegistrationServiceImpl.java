@@ -49,7 +49,7 @@ public class RegistrationServiceImpl implements RegistrationService{
 
     @Override
     public ApplicationUser approveRegistration(RegistrationRequest registrationRequest) throws Exception {
-        Utility.sendMail(registrationRequest.getEmail(), "Approved", "Your registration request has been approved.");
+        //Utility.sendMail(registrationRequest.getEmail(), "Approved", "Your registration request has been approved.");
 
         registrationRequestRepository.deleteById(registrationRequest.getId());
 
@@ -81,7 +81,7 @@ public class RegistrationServiceImpl implements RegistrationService{
 
     @Override
     public void ejectRegistration(RegistrationRequest registrationRequest) {
-        Utility.sendMail(registrationRequest.getEmail(), "Eject", "Your registration request has been denied.");
+        //Utility.sendMail(registrationRequest.getEmail(), "Eject", "Your registration request has been denied.");
 
         registrationRequestRepository.deleteById(registrationRequest.getId());
     }
