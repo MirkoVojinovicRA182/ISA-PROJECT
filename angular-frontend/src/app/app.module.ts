@@ -38,6 +38,8 @@ import { AdministratorCottagesViewComponent } from './components/administrator-c
 import { AdministratorShipsViewComponent } from './components/administrator-ships-view/administrator-ships-view.component';
 import { AdministratorUsersComplaintsComponent } from './components/administrator-users-complaints/administrator-users-complaints.component';
 import { WriteAnswerDialogComponent } from './components/administrator-users-complaints/write-answer-dialog/write-answer-dialog.component';
+import { OwnerRegistrationComponent } from './components/owner-registration/owner-registration.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { WriteAnswerDialogComponent } from './components/administrator-users-com
     AdministratorCottagesViewComponent,
     AdministratorShipsViewComponent,
     AdministratorUsersComplaintsComponent,
-    WriteAnswerDialogComponent
+    WriteAnswerDialogComponent,
+    OwnerRegistrationComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,108 @@
+<div class="content">
+
+    
+
+    <h1>Registration</h1>
+    <hr>
+
+    <div class="tableDiv">
+
+        <table class="leftTable">
+            <tr>
+                <td>
+                    Email (username):
+                </td>
+                <td>
+                    <input type="text" id="inputText" [(ngModel)] = "registrationRequest.email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    <input type="text" id="inputText" [(ngModel)] = "registrationRequest.password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    First name:
+                </td>
+                <td>
+                    <input type="text" id="inputText" [(ngModel)] = "registrationRequest.name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Last name:
+                </td>
+                <td>
+                    <input type="text" id="inputText" [(ngModel)] = "registrationRequest.lastName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Address:
+                </td>
+                <td>
+                    <input type="text" id="inputText" [(ngModel)] = "registrationRequest.address">
+                </td>
+            </tr>
+        </table>
+
+        <table class="rightTable">
+            <tr>
+                <td>
+                    City:
+                </td>
+                <td>
+                    <input type="text" id="inputText" [(ngModel)] = "registrationRequest.city">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Country:
+                </td>
+                <td>
+                    <input type="text" id="inputText" [(ngModel)] = "registrationRequest.country">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Phone number:
+                </td>
+                <td>
+                    <input type="text" id="inputText" [(ngModel)] = "registrationRequest.phoneNumber">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    User type:
+                </td>
+                <td style="width: 600px;">
+                    <input type="radio" id="instructor" value="userType" class="radio" name="userType" (click) = "registrationRequest.userType = 'Instructor'">
+                    <label for="instructor"><i>Fishing instructor</i></label>
+    
+                    <input type="radio" id="cottageOwner" value="userType" class="radio" name="userType" (click) = "registrationRequest.userType = 'CottageOwner'">
+                    <label for="cottageOwner"><i>Cottage owner</i></label>
+    
+                    <input type="radio" id="shipOwner" value="userType" class="radio" name="userType" (click) = "registrationRequest.userType = 'ShipOwner'">
+                    <label for="shipOwner"><i>Ship owner</i></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Registration explanation:
+                </td>
+                <td>
+                    <input type="text" id="inputText" [(ngModel)] = "registrationRequest.registrationExplanation"> 
+                </td>
+            </tr>
+        </table>
+    
+        <button mat-raised-button class="registerButton" (click) = "registerUser()">Register</button>
+    
+
+    </div>
+
+</div>

@@ -1,10 +1,18 @@
-import { defaultThrottleConfig } from "rxjs/internal/operators/throttle";
+
 
 export class RegistrationRequest{
-    requestDate: Date = new Date();
+
+    id: number = -1;
+    email: string = "";
+    password: string = "";
     name: string = "";
     lastName: string = "";
+    address: string = "";
+    city: string = "";
+    country: string = "";
+    phoneNumber: string = "";
     userType: string = "";
     registrationExplanation: string = "";
+    requestDate: Date = new Date();
 
 }

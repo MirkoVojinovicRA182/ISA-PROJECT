@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Entity
 public class RegistrationRequest{
     @Id
-    @SequenceGenerator(name = "regReqSeqGen", sequenceName = "regReqSeq", initialValue = 1, allocationSize = 1)
+    @SequenceGenerator(name = "regReqSeqGen", sequenceName = "regReqSeq", initialValue = 11, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "regReqSeqGen")
     private Integer id;
 

@@ -35,7 +35,7 @@ export class InstructorOneLessonDetailComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,
-              private router: Router,
+              public router: Router,
               private instructorLessonService: InstructorLessonsService,
               private reservationService: ReservationsService,
               private detailsDialog: MatDialog) { }

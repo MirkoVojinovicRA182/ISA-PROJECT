@@ -19,6 +19,10 @@ export class UserRegistrationService {
     return this._http.get<RegistrationRequest[]>(this._url + 'registration/getRegistrationRequests/'); 
   }
 
+  sendRegistrationRequest(registrationRequest: RegistrationRequest){
+    return this._http.post<RegistrationRequest>(this._url + 'registration/createRegistrationRequest', registrationRequest);
+  }
+
   approveRegistration(request: RegistrationRequest) {
     return this._http.post<RegistrationRequest>(this._url + 'registration/approveRegistration/', request);
   }

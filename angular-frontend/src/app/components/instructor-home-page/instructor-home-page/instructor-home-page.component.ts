@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Instructor } from 'src/app/model/instructor';
 import { InstructorHomePageService } from 'src/app/services/instructor-home-page/instructor-home-page.service';
 
@@ -21,7 +22,9 @@ export class InstructorHomePageComponent implements OnInit {
 
   instructorId: number = 1;
 
-  constructor(private _instructorHomePageService: InstructorHomePageService) { }
+  constructor(private _instructorHomePageService: InstructorHomePageService,
+    public router: Router,
+    public route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getInstructor();

@@ -63,7 +63,9 @@ body{
   display: inline-block;
 }
 
- 
+ a{
+   cursor: pointer;
+ }
 
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active{

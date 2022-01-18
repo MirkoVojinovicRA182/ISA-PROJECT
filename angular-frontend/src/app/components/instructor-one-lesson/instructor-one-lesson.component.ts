@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy } from '@angular/compiler';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InstructorLesson } from 'src/app/model/instructor-lesson';
 
 @Component({
@@ -15,7 +16,8 @@ export class InstructorOneLessonComponent implements OnInit {
 
   isDisabled: boolean = true;
 
-  constructor(public detailsDialog: MatDialog) { }
+  constructor(public detailsDialog: MatDialog,public router: Router,
+    public route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
