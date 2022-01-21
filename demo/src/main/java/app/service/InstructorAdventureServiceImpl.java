@@ -30,6 +30,9 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
     @Autowired
     private AdventureReservationRepository adventureReservationRepository;
 
+    @Autowired
+    private ActionAdventureRepository actionAdventureRepository;
+
     @Override
     public void saveAdventure(InstructorAdventureDTO dto) {
         InstructorAdventure adventure = new InstructorAdventure(
@@ -62,6 +65,10 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
     private boolean adventureReserved(InstructorAdventure a) {
         for(AdventureReservation res: adventureReservationRepository.findAll())
             if(res.getAdventure().getId().equals(a.getId()) && res.getEndTime().isAfter(LocalDateTime.now()))
+                return true;
+
+        for(ActionAdventure action: actionAdventureRepository.findAll())
+            if(action.getAdventure().getId().equals(a.getId()) && action.getEndTime().isAfter(LocalDateTime.now()))
                 return true;
         return false;
     }

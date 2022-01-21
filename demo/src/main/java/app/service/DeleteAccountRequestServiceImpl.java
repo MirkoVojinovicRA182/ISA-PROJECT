@@ -12,6 +12,8 @@ import app.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +54,7 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
     }
 
     @Override
-    public void deleteAccount(DeleteAccountRequestDTO dto) {
+    public void deleteAccount(DeleteAccountRequestDTO dto) throws MessagingException, UnsupportedEncodingException {
         DeleteAccountRequest request = deleteAccountRequestRepository.findById(dto.getId()).orElseGet(null);
         deleteAccountRequestRepository.delete(request);
 
@@ -60,14 +62,14 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
             if (instructor.getId().equals(dto.getUserId()))
                 instructorRepository.delete(instructor);
 
-        //Utility.sendMail("mail", "Odobreno", "Vaš nalog je uspešno obrisan.");
+        Utility.sendMail("mail", "Account deletion approved", "Your account is deleted.");
     }
 
     @Override
-    public void ejectDeleteRequest(Integer requestId) {
+    public void ejectDeleteRequest(Integer requestId) throws MessagingException, UnsupportedEncodingException {
         DeleteAccountRequest request = deleteAccountRequestRepository.findById(requestId).orElseGet(null);
         deleteAccountRequestRepository.delete(request);
 
-        //Utility.sendMail("mail", "Odbijeno", "Vaš razlog za brisanje naloga nije dovoljan.");
+        Utility.sendMail("mail", "Account deletion ejected", "Your request for deleting account is ejected.");
     }
 }

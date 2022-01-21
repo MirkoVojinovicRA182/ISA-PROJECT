@@ -5,6 +5,7 @@ import app.domain.AdventureReservation;
 import app.dto.ReservationCheckDTO;
 
 import javax.mail.*;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
@@ -12,34 +13,83 @@ import java.util.Properties;
 
 public class Utility {
 
+    private static String email = "";
+
+    public static void sendMail(String emaill, String messageSubject, String messageBody) throws MessagingException, UnsupportedEncodingException {
+
+        email = emaill;
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                email = "pswtestmail@gmail.com";
+
+                Properties properties = new Properties();
+                properties.put("mail.smtp.host", "smtp.gmail.com");
+                properties.put("mail.smtp.port", 587);
+                properties.put("mail.smtp.auth", "true");
+                properties.put("mail.smtp.starttls.enable", "true");
+                properties.put("mail.smtp.user", email);
 
 
-    public static void sendMail(String email, String messageSubject, String messageBody) throws MessagingException, UnsupportedEncodingException {
+                Session session = Session.getDefaultInstance(properties);
+                Message msg = new MimeMessage(session);
 
-        email = "pswtestmail@gmail.com";
+                try {
+                    msg.setFrom(new InternetAddress(email));
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+                InternetAddress[] toAddresses = new InternetAddress[0];
+                try {
+                    toAddresses = new InternetAddress[]{ new InternetAddress(email) };
+                } catch (AddressException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    msg.setRecipients(Message.RecipientType.TO, toAddresses);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    msg.setSubject(messageSubject);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+                // set plain text message
+                try {
+                    msg.setText(messageBody);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
 
-        Properties properties = new Properties();
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", 587);
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.user", email);
+                Transport t = null;
+                try {
+                    t = session.getTransport("smtp");
+                } catch (NoSuchProviderException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    t.connect(email, "pswtestmail567");
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    t.sendMessage(msg, msg.getAllRecipients());
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    t.close();
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
 
 
-        Session session = Session.getDefaultInstance(properties);
-        Message msg = new MimeMessage(session);
-
-        msg.setFrom(new InternetAddress(email));
-        InternetAddress[] toAddresses = { new InternetAddress(email) };
-        msg.setRecipients(Message.RecipientType.TO, toAddresses);
-        msg.setSubject(messageSubject);
-        // set plain text message
-        msg.setText(messageBody);
-
-        Transport t = session.getTransport("smtp");
-        t.connect(email, "pswtestmail567");
-        t.sendMessage(msg, msg.getAllRecipients());
-        t.close();
 
     }
 

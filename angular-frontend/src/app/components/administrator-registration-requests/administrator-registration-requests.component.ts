@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { EjectRegistrationRequest } from 'src/app/model/eject-registration-request';
 import { RegistrationRequest } from 'src/app/model/registration-request';
 import { UserRegistrationService } from 'src/app/services/user-registration/user-registration.service';
+import { EjectRegistrationRequestComponent } from './eject-registration-request/eject-registration-request.component';
 
 @Component({
   templateUrl: './administrator-registration-requests.component.html',
@@ -11,7 +14,8 @@ export class AdministratorRegistrationRequestsComponent implements OnInit {
   requests: RegistrationRequest[] = [];
   searchValue: string = "";
 
-  constructor(private userRegistrationService: UserRegistrationService) { }
+  constructor(private userRegistrationService: UserRegistrationService,
+              private detailsDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getRegistrationRequests();
@@ -22,7 +26,21 @@ export class AdministratorRegistrationRequestsComponent implements OnInit {
   }
 
   ejectRegistration(request: RegistrationRequest){
-    this.userRegistrationService.ejectRegistration(request).subscribe(() => this.getRegistrationRequests());
+
+    const dialogRef = this.detailsDialog.open(EjectRegistrationRequestComponent, {});
+
+    dialogRef.afterClosed().subscribe(retVal => 
+      {
+        if(retVal.closed != true){
+          let ejectRegistrationRequest = new EjectRegistrationRequest();
+
+          ejectRegistrationRequest.requestId = request.id;
+          ejectRegistrationRequest.clientEmail = request.email;
+          ejectRegistrationRequest.ejectExplanation = retVal.ejectExplanation;
+
+          this.userRegistrationService.ejectRegistration(ejectRegistrationRequest).subscribe(() => this.getRegistrationRequests())
+        }
+      });
   }
 
   approveRegistration(request: RegistrationRequest){

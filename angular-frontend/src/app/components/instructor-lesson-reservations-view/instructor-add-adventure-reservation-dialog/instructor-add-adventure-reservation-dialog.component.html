@@ -13,7 +13,8 @@
                      style="width: 250px;"
                      [ngModel]="newReservation.startTime | date:'yyyy-MM-ddThh:mm:ss.SSS'"
                      (ngModelChange) = "setStart($event)"
-                     name="newReservation.startTime">
+                     name="newReservation.startTime"
+                     [min]="currentDate">
                 </td>
             </tr>
             <tr>

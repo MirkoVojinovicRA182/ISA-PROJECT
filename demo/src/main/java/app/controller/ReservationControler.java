@@ -37,7 +37,7 @@ public class ReservationControler {
 
     @RequestMapping("/adventureReservation")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String>  processRegister(@RequestBody AdventureReservationDTO dto, HttpServletRequest request) {
+    public ResponseEntity<String>  processRegister(@RequestBody AdventureReservationDTO dto, HttpServletRequest request) throws MessagingException, UnsupportedEncodingException {
         if(adventureReservationService.bookAnInstructorAdventure(dto))
             return new ResponseEntity<String>("Created.", HttpStatus.CREATED);
 

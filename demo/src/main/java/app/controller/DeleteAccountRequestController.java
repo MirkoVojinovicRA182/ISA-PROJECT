@@ -17,6 +17,8 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @RestController
@@ -41,7 +43,7 @@ public class DeleteAccountRequestController {
     }
 
     @DeleteMapping(value = "/deleteAccount")
-    public ResponseEntity<Void> deleteAccount(@RequestParam Integer userId, @RequestParam Integer requestId){
+    public ResponseEntity<Void> deleteAccount(@RequestParam Integer userId, @RequestParam Integer requestId) throws MessagingException, UnsupportedEncodingException {
         DeleteAccountRequestDTO requestDTO = new DeleteAccountRequestDTO();
         requestDTO.setId(requestId);
         requestDTO.setUserId(userId);
@@ -50,7 +52,7 @@ public class DeleteAccountRequestController {
     }
 
     @DeleteMapping( "/ejectDeleteRequest/{requestId}")
-    public ResponseEntity<Void> ejectDeleteRequest(@PathVariable Integer requestId){
+    public ResponseEntity<Void> ejectDeleteRequest(@PathVariable Integer requestId) throws MessagingException, UnsupportedEncodingException {
         deleteAccountRequestService.ejectDeleteRequest(requestId);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }

@@ -40,6 +40,7 @@ import { AdministratorUsersComplaintsComponent } from './components/administrato
 import { WriteAnswerDialogComponent } from './components/administrator-users-complaints/write-answer-dialog/write-answer-dialog.component';
 import { OwnerRegistrationComponent } from './components/owner-registration/owner-registration.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { EjectRegistrationRequestComponent } from './components/administrator-registration-requests/eject-registration-request/eject-registration-request.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     AdministratorUsersComplaintsComponent,
     WriteAnswerDialogComponent,
     OwnerRegistrationComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    EjectRegistrationRequestComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,9 @@ public class CottageOwner extends ApplicationUser{
     @OneToMany(mappedBy = "cottageOwner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Cottage> cottages = new HashSet<Cottage>();
 
+    @OneToMany(mappedBy = "cottageOwner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<CottageComplaint> complaints = new HashSet<CottageComplaint>();
+
     public CottageOwner() {
     }
 

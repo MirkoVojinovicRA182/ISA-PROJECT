@@ -4,6 +4,7 @@ import { AdventureAdditionalService } from 'src/app/model/adventure-additional-s
 import { AdventureReservation } from 'src/app/model/adventure-reservation';
 import { InstructorLesson } from 'src/app/model/instructor-lesson';
 import { InstructorLessonsService } from 'src/app/services/instructor-lessons/instructor-lessons.service';
+import { setMinDate } from 'src/app/utility';
 
 @Component({
   selector: 'app-instructor-add-adventure-reservation-dialog',
@@ -13,9 +14,14 @@ import { InstructorLessonsService } from 'src/app/services/instructor-lessons/in
 export class InstructorAddAdventureReservationDialogComponent implements OnInit{
 
   adventures: InstructorLesson[] = [];
+
   additionalServices: AdventureAdditionalService[] = [];
+
   selectedAdventure: InstructorLesson = new InstructorLesson();
+
   newReservation: AdventureReservation = new AdventureReservation();
+
+  currentDate: string = setMinDate();
   
   start: Date = new Date();
 

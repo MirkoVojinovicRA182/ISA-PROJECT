@@ -11,6 +11,8 @@ import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -70,7 +72,7 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
     }
 
     @Override
-    public boolean bookAnInstructorAdventure(AdventureReservationDTO dto) {
+    public boolean bookAnInstructorAdventure(AdventureReservationDTO dto) throws MessagingException, UnsupportedEncodingException {
 
         boolean invalidTerm = !Utility.reservationTermValid(new ReservationCheckDTO(dto.getStartTime(), dto.getEndTime(), adventureReservationRepository.findAll(),
                 actionAdventureRepository.findAll()));
@@ -86,6 +88,8 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
                 client,
                 adventure,
                 dto.getBill()));
+
+        Utility.sendMail(dto.getClientUsername(), "New adventure reservation", "You have new adventure reservation.");
 
         return true;
     }

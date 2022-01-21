@@ -6,16 +6,35 @@
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-home-page/administrator-home-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-home-page/administrator-home-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-home-page/instructor-home-page/instructor-home-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-home-page/instructor-home-page/instructor-home-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson/instructor-one-lesson.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson/instructor-one-lesson.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/model/registration-request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/model/registration-request.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-registration-requests/administrator-registration-requests.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/administrator-registration-requests/administrator-registration-requests.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-add-lesson/instructor-add-lesson.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-add-lesson/instructor-add-lesson.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-lesson-reservations-view/instructor-add-adventure-reservation-dialog/instructor-add-adventure-reservation-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-lesson-reservations-view/instructor-add-adventure-reservation-dialog/instructor-add-adventure-reservation-dialog.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-lesson-reservations-view/instructor-add-adventure-reservation-dialog/instructor-add-adventure-reservation-dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-lesson-reservations-view/instructor-add-adventure-reservation-dialog/instructor-add-adventure-reservation-dialog.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-lesson-reservations-view/instructor-lesson-reservations-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-lesson-reservations-view/instructor-lesson-reservations-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-lessons/instructor-lessons.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-lessons/instructor-lessons.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson-detail/action-adventure-create-dialog/action-adventure-create-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson-detail/action-adventure-create-dialog/action-adventure-create-dialog.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson-detail/action-adventure-create-dialog/action-adventure-create-dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson-detail/action-adventure-create-dialog/action-adventure-create-dialog.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson-detail/instructor-one-lesson-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson-detail/instructor-one-lesson-detail.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson-detail/instructor-one-lesson-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-one-lesson-detail/instructor-one-lesson-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/user-settings/user-settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/user-settings/user-settings.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/services/user-registration/user-registration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/services/user-registration/user-registration.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/DeleteAccountRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/DeleteAccountRequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/ReservationControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/ReservationControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/Instructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Instructor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorAdventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorAdventure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/RegistrationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/RegistrationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/ShipOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/ShipOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/DeleteAccountRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/DeleteAccountRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/DeleteAccountRequestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/DeleteAccountRequestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/InstructorAdventureServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/InstructorAdventureServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/utility/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +45,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -131,6 +150,9 @@
       <workItem from="1642321055446" duration="9689000" />
       <workItem from="1642433655813" duration="10734000" />
       <workItem from="1642512688343" duration="2500000" />
+      <workItem from="1642601285727" duration="5953000" />
+      <workItem from="1642614008842" duration="2038000" />
+      <workItem from="1642626580834" duration="3730000" />
     </task>
     <servers />
   </component>

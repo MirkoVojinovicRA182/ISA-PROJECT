@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActionAdventure } from 'src/app/model/action-adventure';
 import { AdventureAdditionalService } from 'src/app/model/adventure-additional-service';
 import { InstructorLessonsService } from 'src/app/services/instructor-lessons/instructor-lessons.service';
+import { setMinDate } from 'src/app/utility';
 
 @Component({
   selector: 'app-action-adventure-create-dialog',
@@ -17,6 +18,8 @@ export class ActionAdventureCreateDialogComponent implements OnInit {
 
   tempServ: String[] = [];
 
+  currentDate: string = setMinDate();
+
   constructor(public dialogRef: MatDialogRef<ActionAdventureCreateDialogComponent>,
               private lessonService: InstructorLessonsService,
               @Inject(MAT_DIALOG_DATA) public lessonId: number) { }
@@ -25,6 +28,7 @@ export class ActionAdventureCreateDialogComponent implements OnInit {
     this.lessonService.getAdditionalServices(this.lessonId).subscribe(services => this.additionalServices = services);
   }
 
+  
   setStart(val: any){
     this.newAction.startTime = val;
   }

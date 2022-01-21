@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { serverPort } from 'src/app/app.consts';
 import { Administrator } from 'src/app/model/administrator';
+import { EjectRegistrationRequest } from 'src/app/model/eject-registration-request';
 import { RegistrationRequest } from 'src/app/model/registration-request';
 import { User } from 'src/app/model/user';
 
@@ -27,8 +28,8 @@ export class UserRegistrationService {
     return this._http.post<RegistrationRequest>(this._url + 'registration/approveRegistration/', request);
   }
 
-  ejectRegistration(request: RegistrationRequest) {
-    return this._http.post<RegistrationRequest>(this._url + 'registration/ejectRegistration/', request);
+  ejectRegistration(ejectRegistrationRequest: EjectRegistrationRequest) {
+    return this._http.post<RegistrationRequest>(this._url + 'registration/ejectRegistration/', ejectRegistrationRequest);
   }
 
   registerAdmin(newAdmin: Administrator){

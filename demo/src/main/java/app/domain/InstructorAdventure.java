@@ -10,7 +10,7 @@ import java.util.Set;
 @Entity
 public class InstructorAdventure {
     @Id
-    @SequenceGenerator(name = "instructorAdventureIdSeqGen", sequenceName = "instructorAdventureIdSeq", initialValue = 1, allocationSize = 1)
+    @SequenceGenerator(name = "instructorAdventureIdSeqGen", sequenceName = "instructorAdventureIdSeq", initialValue = 4, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instructorAdventureIdSeqGen")
     private Integer id;
 

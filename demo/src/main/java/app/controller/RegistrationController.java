@@ -5,6 +5,7 @@ import app.domain.RegistrationRequest;
 import app.domain.ApplicationUser;
 import app.domain.enums.UserType;
 import app.dto.ClientDTO;
+import app.dto.EjectRegistrationRequestDTO;
 import app.dto.UserToRegisterDto;
 import app.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,8 +52,8 @@ public class RegistrationController {
 
     @RequestMapping("/ejectRegistration")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> ejectRegistration(@RequestBody RegistrationRequest registrationRequest) {
-        registrationService.ejectRegistration(registrationRequest);
+    public ResponseEntity<Void> ejectRegistration(@RequestBody EjectRegistrationRequestDTO dto) throws MessagingException, UnsupportedEncodingException {
+        registrationService.ejectRegistration(dto);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 

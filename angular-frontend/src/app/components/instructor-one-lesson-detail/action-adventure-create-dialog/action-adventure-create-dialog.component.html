@@ -9,7 +9,8 @@
                 <input 
                 type="datetime-local"
                 [ngModel]="newAction.startTime | date:'yyyy-MM-ddThh:mm:ss.SSS'"
-                (ngModelChange) = "setStart($event)">
+                (ngModelChange) = "setStart($event)"
+                [min]="currentDate">
             </td>
         </tr>
         <tr>
@@ -18,7 +19,9 @@
                 <input 
                 type="datetime-local"
                 [ngModel]="newAction.endTime | date:'yyyy-MM-ddThh:mm:ss.SSS'"
-                (ngModelChange) = "setEnd($event)">
+                (ngModelChange) = "setEnd($event)"
+                [min]="currentDate"
+                >
             </td>
         </tr>
         <tr>
@@ -60,6 +63,10 @@
     [mat-dialog-close]="newAction"
     >Create</button>
     
-    <button mat-raised-button class="myButton" id="actionButton">Cancel</button>
+    <button 
+    mat-raised-button 
+    class="myButton" 
+    id="actionButton"
+    [mat-dialog-close]="true">Cancel</button>
 
 </div>

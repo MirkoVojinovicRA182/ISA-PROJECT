@@ -97,7 +97,11 @@ export class InstructorOneLessonDetailComponent implements OnInit {
 
         this.reservationService.createAdventureAction(action).subscribe(
           {
-            next: succ => alert(succ),
+            next: succ => 
+            {
+              this.getLesson(this.lesson.id);
+              alert(succ);
+            },
             error: err => alert('The selected start time is busy!')
           })
         

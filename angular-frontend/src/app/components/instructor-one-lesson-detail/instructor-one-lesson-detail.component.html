@@ -96,6 +96,7 @@
 
 
         <i
+        *ngIf = "!lesson.reserved"
         class="fas fa-plus"
         style="font-size: medium;
                margin-left: 10%;
@@ -117,7 +118,7 @@
                 <tr>
                     <td>{{service.name}}</td>
                     <td>{{service.price}} <i class="fas fa-euro-sign"></i></td>
-                    <td><i class="fas fa-trash" style="cursor: pointer;" (click) = 'deleteAdditionalService(service.id)'></i></td>
+                    <td *ngIf = "!lesson.reserved"><i class="fas fa-trash" style="cursor: pointer;" (click) = 'deleteAdditionalService(service.id)'></i></td>
                 </tr>
             </tbody>
         </table>
@@ -172,7 +173,7 @@
 
 <div class="images">
     <h2 style="display: inline;">Images</h2>
-    <div class="addImage" style="float: right;">
+    <div class="addImage" style="float: right;" *ngIf = "!lesson.reserved">
         <label><i>add image</i></label>
         <label class="fas fa-upload" style="margin-left: 20px; font-size: 20px; cursor: pointer;">
             <input type="file" (change)="onImageUpload($event)">
@@ -185,7 +186,7 @@
                     <td *ngFor = "let image of images;">
                         <div class="image-container">
                             <img src='assets/{{image.url}}' class="image">
-                            <div class="overlay">
+                            <div class="overlay" *ngIf = "!lesson.reserved">
                                 <a 
                                 (click) = 'deleteImage(image)'
                                 class="icon"

@@ -106,9 +106,9 @@ insert into adventure_reservation (id, start_time, end_time, client_id, adventur
 values (5, '2018-02-01T08:00:00.00', '2018-02-01T09:00:00.00', 3, 2, 60);
 
 
-insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values (1, 'Pecaljka Brod', '2022-10-10T08:00:00.00', 15, '2022-11-10T09:00:00.00', '2022-11-10T08:00:00.00', 70, 1);
-insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values (2, 'Kombinezon', '2022-10-10T08:00:00.00', 10, '2022-12-10T09:00:00.00', '2022-12-10T08:00:00.00', 90, 2);
-insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values (3, 'Camac', '2022-10-10T08:00:00.00', 6, '2022-09-10T09:00:00.00', '2022-09-10T08:00:00.00', 50, 3);
+insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values (1, '', '2022-10-10T08:00:00.00', 15, '2022-11-10T09:00:00.00', '2022-11-10T08:00:00.00', 70, 1);
+insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values (2, '', '2022-10-10T08:00:00.00', 10, '2022-12-10T09:00:00.00', '2022-12-10T08:00:00.00', 90, 2);
+insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values (3, '', '2022-10-10T08:00:00.00', 6, '2022-09-10T09:00:00.00', '2022-09-10T08:00:00.00', 50, 3);
 
 insert into cottage_owner (id, address, city, country, email, name, last_name, password, phone_number) values (5,
                                                                                                         'Bulevar Cara Lazara 15',
