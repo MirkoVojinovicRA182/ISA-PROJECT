@@ -5,6 +5,7 @@ import app.domain.ApplicationUser;
 import app.domain.RegistrationRequest;
 import app.dto.*;
 import app.service.AdventureReservationService;
+import app.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -57,9 +58,19 @@ public class ReservationControler {
     }
 
     @PostMapping("/generateInstructorSallary")
-    public ResponseEntity<Double> generateInstructorSallary(@RequestBody SallaryDTO dto){
-        return new ResponseEntity<Double>(adventureReservationService.getInstructorSallary(dto.getFromDate(), dto.getToDate(), dto.getInstructorId()), HttpStatus.OK);
+    public ResponseEntity<List<SallaryByDayDTO>> generateInstructorSallary(@RequestBody SallaryDTO dto){
+        return new ResponseEntity<List<SallaryByDayDTO>>(adventureReservationService.getInstructorSallary(dto.getFromDate(), dto.getToDate(), dto.getInstructorId()), HttpStatus.OK);
     }
 
+    @PostMapping("/sumSystemSallary")
+    public ResponseEntity<List<SallaryByDayDTO>> sumSystemSallary(@RequestBody SallaryDTO dto){
+        return new ResponseEntity<List<SallaryByDayDTO>>(adventureReservationService.sumSystemSallary(dto.getFromDate(), dto.getToDate()), HttpStatus.OK);
+    }
+
+    @PostMapping("/defineSystemSallary/{value}")
+    public ResponseEntity<Void> defineSystemSallary(@PathVariable Double value){
+        Utility.saveSystemSallary(value);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
 
 }

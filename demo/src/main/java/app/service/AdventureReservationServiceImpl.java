@@ -1,10 +1,7 @@
 package app.service;
 
 import app.domain.*;
-import app.dto.AdventureReservationDTO;
-import app.dto.AdventureReservationReportDTO;
-import app.dto.ReservationCheckDTO;
-import app.dto.ReservationSearchDTO;
+import app.dto.*;
 import app.repository.*;
 import app.utility.Utility;
 import org.apache.tomcat.jni.Local;
@@ -13,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import java.io.UnsupportedEncodingException;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -87,7 +86,8 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
                 dto.getEndTime(),
                 client,
                 adventure,
-                dto.getBill()));
+                dto.getBill(),
+                Utility.getSystemSallary()));
 
         Utility.sendMail(dto.getClientUsername(), "New adventure reservation", "You have new adventure reservation.");
 
@@ -109,14 +109,65 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
     }
 
     @Override
-    public double getInstructorSallary(LocalDateTime fromDate, LocalDateTime toDate, int instructorId) {
-        double sallary = 0;
+    public List<SallaryByDayDTO> getInstructorSallary(LocalDate fromDate, LocalDate toDate, int instructorId) {
 
-        for(AdventureReservation reservation: adventureReservationRepository.getInstructorReservations(instructorId))
-            if(reservation.getEndTime().isAfter(fromDate) && reservation.getEndTime().isBefore(toDate))
-                sallary += reservation.getBill();
+        List<SallaryByDayDTO> list = new ArrayList<SallaryByDayDTO>();
 
-        return sallary;
+        DecimalFormat df = new DecimalFormat("0.00");
+
+        for(LocalDate date = fromDate; date.isBefore(toDate.plusDays(1)); date = date.plusDays(1)){
+
+            String dateFormat = String.valueOf(date.getDayOfMonth()) + "." +
+                    String.valueOf(date.getMonthValue()) + "." +
+                    String.valueOf(date.getYear()) + ".";
+
+            double currentBill = 0;
+
+            for(AdventureReservation reservation: adventureReservationRepository.getInstructorReservations(instructorId)) {
+
+                if (reservation.getEndTime().getDayOfMonth() == date.getDayOfMonth() &&
+                    reservation.getEndTime().getMonthValue() == date.getMonthValue() &&
+                    reservation.getEndTime().getYear() == date.getYear())
+                        currentBill += reservation.getBill() - reservation.getBill() * reservation.getSystemSallary();
+            }
+
+            list.add(new SallaryByDayDTO(dateFormat, Double.valueOf(df.format(currentBill))));
+
+            currentBill = 0;
+        }
+
+        return list;
+
+    }
+
+    @Override
+    public List<SallaryByDayDTO> sumSystemSallary(LocalDate fromDate, LocalDate toDate) {
+        List<SallaryByDayDTO> list = new ArrayList<SallaryByDayDTO>();
+
+        DecimalFormat df = new DecimalFormat("0.00");
+
+        for(LocalDate date = fromDate; date.isBefore(toDate.plusDays(1)); date = date.plusDays(1)){
+
+            String dateFormat = String.valueOf(date.getDayOfMonth()) + "." +
+                    String.valueOf(date.getMonthValue()) + "." +
+                    String.valueOf(date.getYear()) + ".";
+
+            double currentBill = 0;
+
+            for(AdventureReservation reservation: adventureReservationRepository.findAll()) {
+
+                if (reservation.getEndTime().getDayOfMonth() == date.getDayOfMonth() &&
+                        reservation.getEndTime().getMonthValue() == date.getMonthValue() &&
+                        reservation.getEndTime().getYear() == date.getYear())
+                    currentBill += reservation.getBill() * reservation.getSystemSallary();
+            }
+
+            list.add(new SallaryByDayDTO(dateFormat, Double.valueOf(df.format(currentBill))));
+
+            currentBill = 0;
+        }
+
+        return list;
     }
 
 

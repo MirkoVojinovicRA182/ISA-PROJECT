@@ -1,28 +1,29 @@
 package app.dto;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class SallaryDTO {
-    private LocalDateTime fromDate;
-    private LocalDateTime toDate;
+    private LocalDate fromDate;
+    private LocalDate toDate;
     private Integer instructorId;
 
     public SallaryDTO() {
     }
 
-    public LocalDateTime getFromDate() {
+    public LocalDate getFromDate() {
         return fromDate;
     }
 
-    public void setFromDate(LocalDateTime fromDate) {
+    public void setFromDate(LocalDate fromDate) {
         this.fromDate = fromDate;
     }
 
-    public LocalDateTime getToDate() {
+    public LocalDate getToDate() {
         return toDate;
     }
 
-    public void setToDate(LocalDateTime toDate) {
+    public void setToDate(LocalDate toDate) {
         this.toDate = toDate;
     }
 

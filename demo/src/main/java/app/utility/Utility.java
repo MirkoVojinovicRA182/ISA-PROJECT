@@ -3,17 +3,21 @@ package app.utility;
 import app.domain.ActionAdventure;
 import app.domain.AdventureReservation;
 import app.dto.ReservationCheckDTO;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.Properties;
 
 public class Utility {
 
     private static String email = "";
+    private static String resouurcesAbsolutePath = "C:\\Users\\Mirko\\Documents\\GitHub\\ISA-PROJECT\\demo\\src\\main\\resources\\systemSallary.json";
 
     public static void sendMail(String emaill, String messageSubject, String messageBody) throws MessagingException, UnsupportedEncodingException {
 
@@ -107,5 +111,37 @@ public class Utility {
         }
 
         return true;
+    }
+
+    public static void saveSystemSallary(double sallaryPercentage){
+        JSONObject obj = new JSONObject();
+        obj.put("sallaryPercentage", sallaryPercentage / 100);
+
+        try (FileWriter file = new FileWriter(resouurcesAbsolutePath)) {
+            file.write(obj.toJSONString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static double getSystemSallary() {
+        JSONParser parser = new JSONParser();
+
+        try (Reader reader = new FileReader(resouurcesAbsolutePath)) {
+
+            JSONObject jsonObject = (JSONObject) parser.parse(reader);
+
+            Double systemSallary = (Double) jsonObject.get("sallaryPercentage");
+
+            return systemSallary;
+
+        } catch (FileNotFoundException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 }

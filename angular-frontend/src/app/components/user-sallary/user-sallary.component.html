@@ -1,0 +1,54 @@
+<div class="sallary">
+
+    <p id="s">From:</p>
+
+    <input 
+    type="date" 
+    id="s" 
+    class="s"
+    [max]="todayDate"
+    [(ngModel)] = "fromDate">
+
+    <p id="s">To:</p>
+
+    <input 
+    type="date" 
+    id="s" 
+    class="s" 
+    [max]="todayDate"
+    [(ngModel)] = "toDate"> <br>
+
+    <button 
+    mat-raised-button 
+    [class]="generateButtonClass"
+    id="button"
+    (click) = "generateSallary()">Generate</button>
+
+    <div class="message" *ngIf = "messageDisplayed">
+
+        <div class="sumDiv">
+            <p>Sallary in the selected period is: <b>{{sum}} </b> <i class="fas fa-euro-sign"></i></p>
+            <hr>
+        </div>
+
+        <div class="sallaryTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Sallary</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor = "let s of generatedSallaries; let index = index;" [ngClass]="{'evenRow': 0 !== index % 2}">
+                    <tr>
+                        <td>{{s.date}}</td>
+                        <td>{{s.sallaryValue}} <i class="fas fa-euro-sign"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

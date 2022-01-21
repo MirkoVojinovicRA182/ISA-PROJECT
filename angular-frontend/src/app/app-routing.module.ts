@@ -7,6 +7,7 @@ import { AdministratorLessonsViewComponent } from './components/administrator-le
 import { AdministratorRegisterAdministratorComponent } from './components/administrator-register-administrator/administrator-register-administrator.component';
 import { AdministratorRegistrationRequestsComponent } from './components/administrator-registration-requests/administrator-registration-requests.component';
 import { AdministratorShipsViewComponent } from './components/administrator-ships-view/administrator-ships-view.component';
+import { AdministratorStatisticsComponent } from './components/administrator-statistics/administrator-statistics.component';
 import { AdministratorUsersComplaintsComponent } from './components/administrator-users-complaints/administrator-users-complaints.component';
 import { AdministratorUsersViewComponent } from './components/administrator-users-view/administrator-users-view.component';
 import { InstructorHomePageComponent } from './components/instructor-home-page/instructor-home-page/instructor-home-page.component';
@@ -17,6 +18,7 @@ import { InstructorStatisticsComponent } from './components/instructor-statistic
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { OwnerRegistrationComponent } from './components/owner-registration/owner-registration.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserSallaryComponent } from './components/user-sallary/user-sallary.component';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 
 const routes: Routes = [
@@ -61,6 +63,10 @@ const routes: Routes = [
         component: AdministratorShipsViewComponent
       },
       {
+        path: 'adminStatistics',
+        component: AdministratorStatisticsComponent
+      },
+      {
         path: 'complaints',
         component: AdministratorUsersComplaintsComponent
       },
@@ -89,6 +95,10 @@ const routes: Routes = [
       {
         path: 'instructorReservations',
         component: InstructorLessonReservationsViewComponent
+      },
+      {
+        path: 'instructorStatistics',
+        component: InstructorStatisticsComponent
       },
       {
         path: 'profile',

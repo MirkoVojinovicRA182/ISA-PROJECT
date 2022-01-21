@@ -1,0 +1,14 @@
+<div>
+
+    <h1 style="text-align: center;"><b>Statistics</b></h1>
+    <hr style="margin-bottom: 70px;">
+
+    <div class="systemSallaryDiv">
+        <label>Define system sallary:</label>
+        <input type="number" min="0" max="100" [(ngModel)] = "systemSallary">
+        <button mat-raised-button class="adminButton"(click) = "defineSystemSallary()">Define</button>
+    </div>
+    
+
+    <app-user-sallary [generateButtonClass] = "buttonClass" [role] = "role"></app-user-sallary>
+</div>

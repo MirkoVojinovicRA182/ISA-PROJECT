@@ -50,6 +50,19 @@ export class ReservationsService {
 
   }
 
+  getSystemSallary(fromDate: Date, toDate: Date) {
+    let data = {
+      fromDate: fromDate,
+      toDate: toDate
+    }
+
+    return this.http.post(this._url + 'reservation/sumSystemSallary/', data);
+  }
+
+  defineSystemSallary(sallary: number){
+    return this.http.post(this._url + 'reservation/defineSystemSallary/'+ sallary, sallary);
+  }
+
   private handleError(err: HttpErrorResponse): Observable<never> {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console

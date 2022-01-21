@@ -41,6 +41,8 @@ import { WriteAnswerDialogComponent } from './components/administrator-users-com
 import { OwnerRegistrationComponent } from './components/owner-registration/owner-registration.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { EjectRegistrationRequestComponent } from './components/administrator-registration-requests/eject-registration-request/eject-registration-request.component';
+import { UserSallaryComponent } from './components/user-sallary/user-sallary.component';
+import { AdministratorStatisticsComponent } from './components/administrator-statistics/administrator-statistics.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { EjectRegistrationRequestComponent } from './components/administrator-re
     WriteAnswerDialogComponent,
     OwnerRegistrationComponent,
     LandingPageComponent,
-    EjectRegistrationRequestComponent
+    EjectRegistrationRequestComponent,
+    UserSallaryComponent,
+    AdministratorStatisticsComponent
   ],
   imports: [
     BrowserModule,
