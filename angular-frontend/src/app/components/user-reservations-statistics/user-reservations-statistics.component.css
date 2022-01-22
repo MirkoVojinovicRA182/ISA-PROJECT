@@ -1,16 +1,3 @@
-h1{
-    text-align: center;
-    color:rgb(5, 68, 104);
-}
-
-h2{
-    text-align: center;
-}
-
-.radio{
-    margin-left: 15%;
-}
-
 label{
     font-size: large;
 }
@@ -24,7 +11,7 @@ label{
     width: 200px;
 }
 
-.sallary{
+.resNum{
     margin-top: 10%;
     margin-left: 15%;
     margin-right: 15%;
@@ -34,14 +21,18 @@ label{
     text-align: center;
 }
 
-.sallaryTable{
+.resTable{
     max-height: 250px;
     overflow-y: auto;
-    margin-left: 30%;
+    margin-left: 10%;
 }
 
 th, td{
-    width: 150px;
+    width: 250px;
+}
+
+tr{
+    margin-bottom: 20px;
 }
 
 

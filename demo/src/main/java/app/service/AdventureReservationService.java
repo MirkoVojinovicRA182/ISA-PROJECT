@@ -1,9 +1,6 @@
 package app.service;
 
-import app.dto.AdventureReservationDTO;
-import app.dto.AdventureReservationReportDTO;
-import app.dto.ReservationSearchDTO;
-import app.dto.SallaryByDayDTO;
+import app.dto.*;
 
 import javax.mail.MessagingException;
 import java.io.UnsupportedEncodingException;
@@ -23,4 +20,6 @@ public interface AdventureReservationService{
     List<SallaryByDayDTO> getInstructorSallary(LocalDate fromDate, LocalDate toDate, int instructorId);
 
     List<SallaryByDayDTO> sumSystemSallary(LocalDate fromDate, LocalDate toDate);
+
+    List<ReservationStatisticsDTO> getReservationStatistics(LocalDateTime fromDate, LocalDateTime toDate, Integer instructorId);
 }

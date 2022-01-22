@@ -63,6 +63,10 @@ export class ReservationsService {
     return this.http.post(this._url + 'reservation/defineSystemSallary/'+ sallary, sallary);
   }
 
+  getReservationStatistics(dateRange: any){
+    return this.http.post(this._url + 'reservation/getReservationStatistics', dateRange);
+  }
+
   private handleError(err: HttpErrorResponse): Observable<never> {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console

@@ -170,5 +170,19 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
         return list;
     }
 
+    @Override
+    public List<ReservationStatisticsDTO> getReservationStatistics(LocalDateTime fromDate, LocalDateTime toDate, Integer instructorId) {
+
+        List<ReservationStatisticsDTO> statisticsDTOS = new ArrayList<ReservationStatisticsDTO>();
+
+        for(AdventureReservation reservation: adventureReservationRepository.getInstructorReservationsByDateRange(fromDate, toDate, instructorId)){
+            statisticsDTOS.add(new ReservationStatisticsDTO(reservation.getAdventure().getName(), reservation.getStartTime(),
+                    reservation.getEndTime()));
+        }
+
+
+        return statisticsDTOS;
+    }
+
 
 }

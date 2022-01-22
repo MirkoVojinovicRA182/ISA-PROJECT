@@ -4,14 +4,14 @@
 <div>
 
     <input type="radio" id="graphics" value="graph" class="radio" name="stats" (click) = 'showGraphics()'>
-    <label for="graphics">Reservation graphics</label>
+    <label for="graphics">Reservations in certaion period of time</label>
 
     
     <input type="radio" id="earning" value="graph" class="radio" name="stats" (click) = 'showSallary()'>
     <label for="earning">Earnings in a certain period of time</label><br>
 
     <div class="graphics" *ngIf = "graphicsChecked">
-        Grafici.
+        <app-user-reservations-statistics [generateButtonClass] = "buttonClass"></app-user-reservations-statistics>
     </div>
 
     <app-user-sallary *ngIf = "sallaryChecked" 

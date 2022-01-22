@@ -73,4 +73,9 @@ public class ReservationControler {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
+    @PostMapping("/getReservationStatistics")
+    public ResponseEntity<List<ReservationStatisticsDTO>> getReservationStatistics(@RequestBody StatsDateRangeDTO dto){
+        return new ResponseEntity<List<ReservationStatisticsDTO>>(adventureReservationService.getReservationStatistics(dto.getFromDate(), dto.getToDate(), dto.getUserId()), HttpStatus.OK);
+    }
+
 }

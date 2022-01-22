@@ -43,6 +43,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { EjectRegistrationRequestComponent } from './components/administrator-registration-requests/eject-registration-request/eject-registration-request.component';
 import { UserSallaryComponent } from './components/user-sallary/user-sallary.component';
 import { AdministratorStatisticsComponent } from './components/administrator-statistics/administrator-statistics.component';
+import { UserReservationsStatisticsComponent } from './components/user-reservations-statistics/user-reservations-statistics.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { AdministratorStatisticsComponent } from './components/administrator-sta
     LandingPageComponent,
     EjectRegistrationRequestComponent,
     UserSallaryComponent,
-    AdministratorStatisticsComponent
+    AdministratorStatisticsComponent,
+    UserReservationsStatisticsComponent
   ],
   imports: [
     BrowserModule,
