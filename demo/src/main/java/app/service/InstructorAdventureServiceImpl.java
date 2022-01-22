@@ -75,7 +75,17 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
 
     @Override
     public void deleteAdventure(Integer adventureId) {
+
+        List<AdventureReservation> adventureReservations = adventureReservationRepository.findByAdventureId(adventureId);
+
+        for(AdventureReservation reservation : adventureReservations){
+            reservation.setAdventure(null);
+            adventureReservationRepository.save(reservation);
+        }
+
         instructorAdventureRepository.deleteById(adventureId);
+
+
     }
 
     @Override

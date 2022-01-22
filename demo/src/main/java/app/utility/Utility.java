@@ -17,7 +17,7 @@ import java.util.Properties;
 public class Utility {
 
     private static String email = "";
-    private static String resouurcesAbsolutePath = "C:\\Users\\Mirko\\Documents\\GitHub\\ISA-PROJECT\\demo\\src\\main\\resources\\systemSallary.json";
+    private static String resourcesAbsolutePath = "C:\\Users\\Mirko\\Documents\\GitHub\\ISA-PROJECT\\demo\\src\\main\\resources\\systemSallary.json";
 
     public static void sendMail(String emaill, String messageSubject, String messageBody) throws MessagingException, UnsupportedEncodingException {
 
@@ -117,7 +117,7 @@ public class Utility {
         JSONObject obj = new JSONObject();
         obj.put("sallaryPercentage", sallaryPercentage / 100);
 
-        try (FileWriter file = new FileWriter(resouurcesAbsolutePath)) {
+        try (FileWriter file = new FileWriter(resourcesAbsolutePath)) {
             file.write(obj.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();
@@ -126,7 +126,7 @@ public class Utility {
     public static double getSystemSallary() {
         JSONParser parser = new JSONParser();
 
-        try (Reader reader = new FileReader(resouurcesAbsolutePath)) {
+        try (Reader reader = new FileReader(resourcesAbsolutePath)) {
 
             JSONObject jsonObject = (JSONObject) parser.parse(reader);
 

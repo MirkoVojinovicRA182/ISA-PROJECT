@@ -26,7 +26,10 @@ public class AdventureReservationDTO {
 
     public AdventureReservationDTO(AdventureReservation adventureReservation){
         id = adventureReservation.getId();
-        clientUsername = adventureReservation.getClient().getEmail();
+        if(adventureReservation.getClient() != null)
+            clientUsername = adventureReservation.getClient().getEmail();
+        else
+            clientUsername = "Obrisan";
         adventureName = adventureReservation.getAdventure().getName();
         startTime = adventureReservation.getStartTime();
         endTime = adventureReservation.getEndTime();

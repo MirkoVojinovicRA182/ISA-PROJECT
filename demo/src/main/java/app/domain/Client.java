@@ -14,6 +14,15 @@ public class Client extends ApplicationUser{
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<AdventureReservation> adventureReservations;
 
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<CottageComplaint> cottageComplaints = new HashSet<CottageComplaint>();
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<InstructorComplaint> instructorComplaints = new HashSet<InstructorComplaint>();
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<ShipComplaint> shipComplaints = new HashSet<ShipComplaint>();
+
     private boolean enabled = false;
 
     public Client() {}

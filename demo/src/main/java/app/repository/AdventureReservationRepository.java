@@ -20,4 +20,8 @@ public interface AdventureReservationRepository extends JpaRepository<AdventureR
     public List<AdventureReservation> getInstructorReservationsByDateRange(LocalDateTime fromDate,
                                                                            LocalDateTime toDate,
                                                                            Integer instructorId);
+
+    public List<AdventureReservation> findByClientId(Integer clientId);
+
+    public List<AdventureReservation> findByAdventureId(Integer adventureId);
 }

@@ -29,6 +29,8 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private ShipOwnerRepository shipOwnerRepository;
 
+    @Autowired
+    private AdventureReservationRepository adventureReservationRepository;
 
     @Override
     public Collection<UserProfileDTO> getUsers() {
@@ -83,10 +85,27 @@ public class UserServiceImpl implements UserService{
     public void deleteUser(Integer userId, UserType userType) {
         if(userType.equals(UserType.Administrator))
             administratorRepository.deleteById(userId);
-        else if(userType.equals(UserType.Client))
+        else if(userType.equals(UserType.Client)){
+
+            List<AdventureReservation> clientReservations = adventureReservationRepository.findByClientId(userId);
+
+            for(AdventureReservation adventureReservation: clientReservations){
+                adventureReservation.setClient(null);
+                adventureReservationRepository.save(adventureReservation);
+            }
+
             clientRepository.deleteById(userId);
-        else if(userType.equals(UserType.Instructor))
+        }
+        else if(userType.equals(UserType.Instructor)){
+            List<AdventureReservation> instructorReservations = adventureReservationRepository.getInstructorReservations(userId);
+
+            for(AdventureReservation adventureReservation: instructorReservations){
+                adventureReservation.setAdventure(null);
+                adventureReservationRepository.save(adventureReservation);
+            }
+
             instructorRepository.deleteById(userId);
+        }
         else if(userType.equals(UserType.CottageOwner))
             cottageOwnerRepository.deleteById(userId);
         else if(userType.equals(UserType.ShipOwner))
