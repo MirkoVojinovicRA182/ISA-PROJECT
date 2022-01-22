@@ -55,6 +55,9 @@ public class Ship {
     @JoinColumn(name = "ship_owner_id")
     private ShipOwner shipOwner;
 
+    @OneToMany(mappedBy = "ship", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<ShipComplaint> complaints = new HashSet<ShipComplaint>();
+
     public Ship() {
         super();
     }

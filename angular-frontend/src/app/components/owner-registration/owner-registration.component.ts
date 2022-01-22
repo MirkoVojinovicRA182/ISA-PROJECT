@@ -10,6 +10,8 @@ import { UserRegistrationService } from 'src/app/services/user-registration/user
 export class OwnerRegistrationComponent implements OnInit {
 
   registrationRequest: RegistrationRequest = new RegistrationRequest();
+
+  repeatedPassword: string = "";
   
   constructor(private registrationService: UserRegistrationService) { }
 
@@ -17,11 +19,16 @@ export class OwnerRegistrationComponent implements OnInit {
   }
 
   registerUser(){
-    this.registrationService.sendRegistrationRequest(this.registrationRequest).subscribe(
-      () => {
-        alert("Registration request is sent to administrator. Check your mail latter for more informations.");
-      }
-    );
+    if(this.repeatedPassword == this.registrationRequest.password){
+      this.registrationService.sendRegistrationRequest(this.registrationRequest).subscribe(
+        () => {
+          alert("Registration request is sent to administrator. Check your mail latter for more informations.");
+        }
+      );
+      return;
+    }
+    alert('Repeated password is not same!!!');
+    
   }
 
 }

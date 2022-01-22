@@ -30,7 +30,7 @@ export class InstructorAddAdventureReservationDialogComponent implements OnInit{
               }
 
   ngOnInit(): void {
-    this.lessonService.getAllLessons().subscribe(adventures =>
+    this.lessonService.getInstructorAdventures(1).subscribe(adventures =>
       { 
         this.adventures = adventures;
       }
@@ -45,6 +45,9 @@ export class InstructorAddAdventureReservationDialogComponent implements OnInit{
 
   setStart(val: any){
     this.newReservation.startTime = val;
+  }
+
+  setEnd(val: any){
     this.newReservation.endTime = val;
   }
 

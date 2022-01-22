@@ -18,6 +18,18 @@
                 </td>
             </tr>
             <tr>
+                <td>End:</td>
+                <td>
+                    <input
+                     type="datetime-local"
+                     style="width: 250px;"
+                     [ngModel]="newReservation.endTime | date:'yyyy-MM-ddThh:mm:ss.SSS'"
+                     (ngModelChange) = "setEnd($event)"
+                     name="newReservation.endTime"
+                     [min]="currentDate">
+                </td>
+            </tr>
+            <tr>
                 <td>Adventure:</td>
                 <td>
                     <select name="adventureSelect"  [(ngModel)] = "selectedAdventure" #adventureSelect = "ngModel" (change) = "showAdditionalServices()">

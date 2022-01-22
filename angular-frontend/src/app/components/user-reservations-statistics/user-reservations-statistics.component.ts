@@ -1,6 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ReservationsService } from 'src/app/services/reservations/reservations.service';
+import { setMinDate } from 'src/app/utility';
 
 @Component({
   selector: 'app-user-reservations-statistics',
@@ -14,13 +15,13 @@ export class UserReservationsStatisticsComponent implements OnInit {
 
   @Input() generateButtonClass = "";
 
-  todayDate:string = formatDate(new Date(), 'yyyy-MM-dd', 'en_US');
-
   generateClicked: boolean = false;
 
   reservations: any;
 
   reservationsCount: number = 0;
+
+  currentDate: string = setMinDate();
 
   constructor(private reservationService: ReservationsService) { }
 

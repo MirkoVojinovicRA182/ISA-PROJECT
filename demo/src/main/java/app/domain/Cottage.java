@@ -9,6 +9,8 @@ public class Cottage {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cottageSeqGen")
     private Integer id;
 
+
+
     @Column(name = "name", unique = false, nullable = false)
     private String name;
 
@@ -33,6 +35,9 @@ public class Cottage {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cottage_owner_id")
     private CottageOwner cottageOwner;
+
+    @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<CottageComplaint> complaints = new HashSet<CottageComplaint>();
 
 
     public Cottage() {

@@ -39,7 +39,7 @@
             <tr>
                 <td>Max count of participants: </td>
                 <td>
-                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.maxCountOfParticipants" [disabled] = "lesson.reserved">
+                    <input type="number" min="0" tabindex="-1" [(ngModel)] = "lesson.maxCountOfParticipants" [disabled] = "lesson.reserved">
                 </td>
             </tr>
             <tr>
@@ -57,7 +57,7 @@
             <tr>
                 <td>Price list: </td>
                 <td>
-                    <input type="text" tabindex="-1" [(ngModel)] = "lesson.price" [disabled] = "lesson.reserved">
+                    <input type="number" min="0" tabindex="-1" [(ngModel)] = "lesson.price" [disabled] = "lesson.reserved">
                 </td>
             </tr>
             <tr>

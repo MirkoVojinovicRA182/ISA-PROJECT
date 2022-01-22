@@ -1,13 +1,8 @@
 package app.service;
 
-import app.domain.Administrator;
-import app.domain.ApplicationUser;
-import app.domain.DeleteAccountRequest;
-import app.domain.Instructor;
+import app.domain.*;
 import app.dto.DeleteAccountRequestDTO;
-import app.repository.AdministratorRepository;
-import app.repository.DeleteAccountRequestRepository;
-import app.repository.InstructorRepository;
+import app.repository.*;
 import app.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +20,12 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
 
     @Autowired
     private InstructorRepository instructorRepository;
+
+    @Autowired
+    private CottageOwnerRepository cottageOwnerRepository;
+
+    @Autowired
+    private ShipOwnerRepository shipOwnerRepository;
 
     @Autowired
     private AdministratorRepository administratorRepository;
@@ -61,6 +62,15 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
         for (Instructor instructor : instructorRepository.findAll())
             if (instructor.getId().equals(dto.getUserId()))
                 instructorRepository.delete(instructor);
+
+        for (CottageOwner cottageOwner : cottageOwnerRepository.findAll())
+            if (cottageOwner.getId().equals(dto.getUserId()))
+                cottageOwnerRepository.delete(cottageOwner);
+
+
+        for (ShipOwner shipOwner : shipOwnerRepository.findAll())
+            if (shipOwner.getId().equals(dto.getUserId()))
+                shipOwnerRepository.delete(shipOwner);
 
         Utility.sendMail("mail", "Account deletion approved", "Your account is deleted.");
     }

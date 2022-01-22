@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class DeleteAccountRequest {
 
     @Id
-    @SequenceGenerator(name = "deleteReqSeqGen", sequenceName = "deleteReqSeq", initialValue = 1, allocationSize = 1)
+    @SequenceGenerator(name = "deleteReqSeqGen", sequenceName = "deleteReqSeq", initialValue = 3, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "deleteReqSeqGen")
     private Integer id;
 

@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 @Entity
 public class AdventureReservation {
     @Id
-    @SequenceGenerator(name = "adventureReservationIdSeqGen", sequenceName = "adventureReservationIdSeq", initialValue = 13, allocationSize = 1)
+    @SequenceGenerator(name = "adventureReservationIdSeqGen", sequenceName = "adventureReservationIdSeq", initialValue = 16, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adventureReservationIdSeqGen")
     private Integer id;
 
