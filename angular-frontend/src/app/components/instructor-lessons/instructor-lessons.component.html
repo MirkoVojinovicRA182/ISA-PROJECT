@@ -1,7 +1,7 @@
 <div>
-  <i  class="fas fa-search"></i>
-  <input type="text" (keyup) = "findLesson()" [(ngModel)] = "searchValue">
-  <button mat-raised-button class="myButton" (click) = 'showAddLessonDialog()' style="margin-left: 65%;">Add</button>
+  <button mat-raised-button class="myButton" (click) = 'showAddLessonDialog()'>Add</button>
+  <input type="text" (keyup) = "findLesson()" [(ngModel)] = "searchValue" placeholder="Search by name...">
+  <i class="fas fa-search"></i>
 </div>
 <hr>
 <div class="grid-container">    
@@ -9,8 +9,7 @@
     <div class="grid-item" *ngFor="let l of lessons">
 
       <app-instructor-one-lesson [lesson] = l
-                                 (deleteButtonClicked)='onDeleteButtonClicked($event)'
-                                 (lessonModifed)='onLessonModifed($event)'>
+                                 (deleteButtonClicked)='onDeleteButtonClicked($event)'>
 
       </app-instructor-one-lesson>
 

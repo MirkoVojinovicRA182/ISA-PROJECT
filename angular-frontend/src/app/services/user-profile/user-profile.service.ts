@@ -21,4 +21,8 @@ export class UserProfileService {
   public changeProfileInfo(loggedUser: User): Observable<User> {
     return this.http.post<User>(this._url + 'userProfile/updatePersonalInfo/', loggedUser);
   }
+
+  getClient(clientUsername: string){
+    return this.http.get<User>(this._url + 'users/getClient/' + clientUsername);
+  }
 }

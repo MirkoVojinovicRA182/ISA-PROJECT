@@ -1,0 +1,21 @@
+*{
+    color: black;
+}
+
+h1{
+    text-align: center;
+}
+
+textarea{
+    font-size: large;
+    width: 300px;
+    height: 200px;
+    resize: none;
+    margin-top: 30px;
+}
+
+.adminButton{
+    color: white;
+    margin-top: 20px;
+    margin-left: 30%;
+}

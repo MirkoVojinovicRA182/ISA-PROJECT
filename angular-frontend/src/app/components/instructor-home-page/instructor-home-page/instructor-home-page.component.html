@@ -24,42 +24,37 @@
   </div>
         <div class="sidebar" >
             <div class="profile">
-                <h3>{{instructor.name + ' ' + instructor.lastName}}</h3>
-                <p>Instructor</p>
+                <img src="https://t3.ftcdn.net/jpg/02/50/29/46/360_F_250294677_TDdyRLSmihsAANwSh02xsrlY2dVEJdvc.jpg">
+                <p style="margin-top: 10px">Instructor</p>
             </div>
             <ul>
                 <li>
-                    <a href="#" [routerLink] = "['/instructorLessons']">
+                    <a (click) = "router.navigate(['instructorLessons'], {relativeTo:route})">
                         <span class="icon"><i class="fas fa-fish"></i></span>
                         <span class="item">Fishing lessons</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a (click) = "router.navigate(['instructorReservations'], {relativeTo:route})">
                         <span class="icon"><i class="fas fa-plus"></i></span>
                         <span class="item">Reservations</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <span class="icon"><i class="fas fa-calendar"></i></span>
-                        <span class="item">Calendar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
+                    <a (click) = "router.navigate(['instructorStatistics'], {relativeTo:route})">
                         <span class="icon"><i class="fas fa-chart-bar"></i></span>
-                        <span class="item">Reports</span>
+                        <span class="item">Statistics</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" [routerLink] = "['/profile']">
+                <li>
+                    <a (click) = "router.navigate(['profile'], {relativeTo:route})">
                         <span class="icon"><i class="fas fa-user-circle"></i></span>
                         <span class="item">Profile</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" [routerLink] = "['/settings']">
+                    <a (click) = "router.navigate(['settings'], {relativeTo:route})">
                         <span class="icon"><i class="fas fa-cog"></i></span>
                         <span class="item">Settings</span>
                     </a>

@@ -1,13 +1,11 @@
 package app.service;
 
-import app.domain.Administrator;
-import app.domain.Instructor;
-import app.domain.InstructorAdventure;
+import app.domain.*;
+import app.dto.CottageDTO;
 import app.dto.InstructorAdventureDTO;
+import app.dto.ShipDTO;
 import app.dto.UserProfileDTO;
-import app.repository.AdministratorRepository;
-import app.repository.InstructorAdventureRepository;
-import app.repository.InstructorRepository;
+import app.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +23,12 @@ public class EntityServiceImpl implements EntityService{
 
     @Autowired
     private InstructorAdventureRepository instructorAdventureRepository;
+
+    @Autowired
+    private CottageRepository cottageRepository;
+
+    @Autowired
+    private ShipRepository shipRepository;
 
     @Override
     public List<UserProfileDTO> getAllInstructors() {
@@ -56,5 +60,32 @@ public class EntityServiceImpl implements EntityService{
         if(administrator != null)
             return new UserProfileDTO(administrator);
         return null;
+    }
+
+    @Override
+    public List<CottageDTO> getAllCottages() {
+        List<CottageDTO> cottageDTOS = new ArrayList<CottageDTO>();
+        for (Cottage cottage: cottageRepository.findAll())
+            cottageDTOS.add(new CottageDTO(cottage));
+
+        return cottageDTOS;
+    }
+
+    @Override
+    public void deleteCottage(Integer cottageId) {
+        this.cottageRepository.deleteById(cottageId);
+    }
+
+    @Override
+    public List<ShipDTO> getAllShips() {
+        List<ShipDTO> shipDTOS = new ArrayList<ShipDTO>();
+        for(Ship ship: this.shipRepository.findAll())
+            shipDTOS.add(new ShipDTO(ship));
+        return shipDTOS;
+    }
+
+    @Override
+    public void deleteShip(Integer shipId) {
+        this.shipRepository.deleteById(shipId);
     }
 }

@@ -1,0 +1,11 @@
+<div>
+    <h1>Write answer:</h1>
+    <hr>
+
+    <textarea [(ngModel)] = "answerText"></textarea><br>
+
+    <button 
+    mat-raised-button 
+    class="adminButton"
+    [mat-dialog-close]="answerText">Answer</button>
+</div>

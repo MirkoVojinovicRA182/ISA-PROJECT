@@ -1,18 +1,21 @@
 package app.dto;
 
+import app.domain.AdventureReservation;
 import app.domain.Client;
 import app.domain.InstructorAdventure;
+import app.service.AdventureReservationService;
 
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class AdventureReservationDTO {
-
-    private Integer clientId;
-    private Integer instructorAdventureId;
+    private Integer id;
+    private String clientUsername;
+    private String adventureName;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private String price;
@@ -27,21 +30,48 @@ public class AdventureReservationDTO {
         this.endTime = endTime;
         this.price = price;
     }
+    
+    private Double bill;
+    private boolean finished;
 
-    public Integer getClientId() {
-        return clientId;
+    public AdventureReservationDTO(){}
+
+
+    public AdventureReservationDTO(AdventureReservation adventureReservation){
+        id = adventureReservation.getId();
+        if(adventureReservation.getClient() != null)
+            clientUsername = adventureReservation.getClient().getEmail();
+        else
+            clientUsername = "Obrisan";
+        adventureName = adventureReservation.getAdventure().getName();
+        startTime = adventureReservation.getStartTime();
+        endTime = adventureReservation.getEndTime();
+        finished = adventureReservation.getEndTime().isBefore(LocalDateTime.now());
+        bill = adventureReservation.getBill();
     }
 
-    public void setClient(Integer clientId) {
-        this.clientId = clientId;
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getInstructorAdventureId() {
-        return instructorAdventureId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setInstructorAdventure(Integer instructorAdventureId) {
-        this.instructorAdventureId = instructorAdventureId;
+    public String getClientUsername() {
+        return clientUsername;
+    }
+
+    public void setClientUsername(String clientUsername) {
+        this.clientUsername = clientUsername;
+    }
+
+    public String getAdventureName() {
+        return adventureName;
+    }
+
+    public void setAdventureName(String adventureName) {
+        this.adventureName = adventureName;
     }
 
     public LocalDateTime getStartTime() {
@@ -63,4 +93,20 @@ public class AdventureReservationDTO {
     public String getPrice() { return price; }
 
     public void setPrice(String price) { this.price = price; }
+    
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
+    }
+
+    public Double getBill() {
+        return bill;
+    }
+
+    public void setBill(Double bill) {
+        this.bill = bill;
+    }
 }

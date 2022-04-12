@@ -13,6 +13,10 @@ body{
   background: white;
 }
 
+a{
+  cursor: pointer;
+}
+
 .wrapper .sidebar{
   background: rgb(167, 164, 164);
   position: fixed;

@@ -11,9 +11,10 @@ public class InstructorAdventureDTO {
     private Integer maxCountOfParticipants;
     private String rulesOfConduct;
     private String defaultEquipment;
-    private String pricelist;
+    private Double price;
     private String termsOfUse;
     private int instructorId;
+    private boolean isReserved;
 
     public InstructorAdventureDTO() {
     }
@@ -27,7 +28,7 @@ public class InstructorAdventureDTO {
         maxCountOfParticipants = a.getMaxCountOfParticipants();
         rulesOfConduct = a.getRulesOfConduct();
         defaultEquipment = a.getDefaultEquipment();
-        pricelist = a.getPricelist();
+        price = a.getPrice();
         termsOfUse = a.getTermsOfUse();
         instructorId = a.getInstructor().getId();
     }
@@ -104,12 +105,12 @@ public class InstructorAdventureDTO {
         this.defaultEquipment = defaultEquipment;
     }
 
-    public String getPricelist() {
-        return pricelist;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setPricelist(String pricelist) {
-        this.pricelist = pricelist;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public String getTermsOfUse() {
@@ -126,5 +127,13 @@ public class InstructorAdventureDTO {
 
     public void setInstructorId(Integer instructorId) {
         this.instructorId = instructorId;
+    }
+
+    public boolean isReserved() {
+        return isReserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        isReserved = reserved;
     }
 }

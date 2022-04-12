@@ -1,0 +1,37 @@
+<h1><b>Ships</b></h1>
+<hr>
+
+<div class="tableDiv">
+
+    <input
+    type="text"
+    placeholder="Search by ship name..."
+    (keyup) = 'findShip()'
+    [(ngModel)] = 'searchValue'>
+
+    <i id="searchIcon" class="fas fa-search"></i>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Promotional description</th>
+            </tr>
+        </thead>
+        <tbody *ngFor = "let ship of ships; let index = index;" [ngClass]="{'evenRow': 0 !== index % 2}">
+            <tr>
+                <td>{{ship.name}}</td>
+                <td>{{ship.address}}</td>
+                <td>{{ship.promotiveDescription}}</td>
+                <td style="width: 50px;">
+                    <i
+                    class="fas fa-trash"
+                    (click) = "deleteShip(ship.shipId)"
+                    style="cursor: pointer;"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

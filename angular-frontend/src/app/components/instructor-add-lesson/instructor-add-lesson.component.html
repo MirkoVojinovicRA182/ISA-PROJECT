@@ -27,7 +27,7 @@
         <tr>
             <td>Max count of participants: </td>
             <td>
-                <input type="text" tabindex="-1" [(ngModel)] = "data.maxCountOfParticipants">
+                <input type="number" min="1" tabindex="-1" [(ngModel)] = "data.maxCountOfParticipants">
             </td>
         </tr>
         <tr>
@@ -45,7 +45,7 @@
         <tr>
             <td>Price list: </td>
             <td>
-                <input type="text" tabindex="-1" [(ngModel)] = "data.pricelist">
+                <input type="number" min="0" tabindex="-1" [(ngModel)] = "data.pricelist">
             </td>
         </tr>
         <tr>

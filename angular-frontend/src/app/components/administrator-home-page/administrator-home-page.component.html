@@ -24,62 +24,68 @@
   </div>
         <div class="sidebar" >
             <div class="profile">
-                <h3>Mitrović Nikola</h3>
+                <img src="https://logodix.com/logo/1707088.png">
                 <p>Administrator</p>
             </div>
             <ul>
                 <li>
-                    <a href="#" [routerLink] = "['/adminRegistration']">
+                    <a (click) = "router.navigate(['adminRegistration'], {relativeTo:route})">
                         <span class="icon"><i class="fas fa-user-plus"></i></span>
                         <span class="item">Admin registration</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" [routerLink] = "['/deleteAcountRequests']">
+                    <a (click) = "router.navigate(['deleteAcountRequests'], {relativeTo:route})">
                         <span class="icon"><i class="fas fa-user-minus"></i></span>
                         <span class="item">Deletion requests</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" [routerLink] = "['/registrationRequests']">
+                    <a (click) = "router.navigate(['registrationRequests'], {relativeTo:route})">
                         <span class="icon"><i class="fas fa-table"></i></span>
                         <span class="item">Registration requests</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" [routerLink] = "['/users']">
+                    <a (click) = "router.navigate(['users'], {relativeTo:route})">
                         <span class="icon"><i class="fas fa-users"></i></span>
                         <span class="item">Users</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" [routerLink] = "['/lessons']">
+                    <a (click) = "router.navigate(['complaints'], {relativeTo:route})">
+                        <span class="icon"><i class="fas fa-table"></i></span>
+                        <span class="item">Users complaints</span>
+                    </a>
+                </li>
+                <li>
+                    <a (click) = "router.navigate(['lessons'], {relativeTo:route})">
                         <span class="icon"><i class="fas fa-fish"></i></span>
                         <span class="item">Fishing lessons</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a (click) = "router.navigate(['ships'], {relativeTo:route})">
                         <span class="icon"><i class="fas fa-ship"></i></span>
                         <span class="item">Ships</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a (click) = "router.navigate(['cottages'], {relativeTo:route})">
                         <span class="icon"><i class="fas fa-home"></i></span>
                         <span class="item">Cottages</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" [routerLink] = "['/profile']">
-                        <span class="icon"><i class="fas fa-user-circle"></i></span>
-                        <span class="item">Profile</span>
+                    <a (click) = "router.navigate(['adminStatistics'], {relativeTo:route})">
+                        <span class="icon"><i class="fas fa-chart-bar"></i></span>
+                        <span class="item">Statistics</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <span class="icon"><i class="fas fa-dollar-sign"></i></span>
-                        <span class="item">Finance</span>
+                    <a (click) = "router.navigate(['profile'], {relativeTo:route})">
+                        <span class="icon"><i class="fas fa-user-circle"></i></span>
+                        <span class="item">Profile</span>
                     </a>
                 </li>
                 <li>

@@ -28,4 +28,5 @@ export class UserProfileComponent implements OnInit {
     this.userRegistrationService.changeProfileInfo(this.loggedUser).subscribe(() => this.inputsDisabled = true);
   }
 
+
 }

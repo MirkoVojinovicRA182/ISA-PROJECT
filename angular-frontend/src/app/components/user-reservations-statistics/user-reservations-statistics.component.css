@@ -1,0 +1,55 @@
+label{
+    font-size: large;
+}
+
+#s{
+    display: inline-block;
+    margin-left: 8%;
+}
+
+.s{
+    width: 200px;
+}
+
+.resNum{
+    margin-top: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 10px;
+    border: 2px solid #cacaca;
+    padding: 40px;
+    text-align: center;
+}
+
+.resTable{
+    max-height: 250px;
+    overflow-y: auto;
+    margin-left: 10%;
+}
+
+th, td{
+    width: 250px;
+}
+
+tr{
+    margin-bottom: 20px;
+}
+
+
+#button{
+    margin-top: 50px;
+}
+
+.message{
+    margin-top: 50px;
+    font-size: large;   
+}
+
+.evenRow{
+    background-color: rgb(223, 223, 223);
+}
+
+.sumDiv{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

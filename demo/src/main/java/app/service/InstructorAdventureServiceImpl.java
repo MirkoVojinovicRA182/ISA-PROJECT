@@ -1,19 +1,14 @@
 package app.service;
 
-import app.domain.AdventureAdditionalService;
-import app.domain.Image;
-import app.domain.Instructor;
-import app.domain.InstructorAdventure;
+import app.domain.*;
 import app.dto.AdventureAdditionalServiceDTO;
 import app.dto.ImageDTO;
 import app.dto.InstructorAdventureDTO;
-import app.repository.AdventureAdditionalServiceRepository;
-import app.repository.ImageRepository;
-import app.repository.InstructorAdventureRepository;
-import app.repository.InstructorRepository;
+import app.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +27,12 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
     @Autowired
     private ImageRepository imageRepository;
 
+    @Autowired
+    private AdventureReservationRepository adventureReservationRepository;
+
+    @Autowired
+    private ActionAdventureRepository actionAdventureRepository;
+
     @Override
     public void saveAdventure(InstructorAdventureDTO dto) {
         InstructorAdventure adventure = new InstructorAdventure(
@@ -42,7 +43,7 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
                 dto.getMaxCountOfParticipants(),
                 dto.getRulesOfConduct(),
                 dto.getDefaultEquipment(),
-                dto.getPricelist(),
+                dto.getPrice(),
                 dto.getTermsOfUse(),
                 instructorRepository.getById(dto.getInstructorId()));
         instructorAdventureRepository.save(adventure);
@@ -52,14 +53,39 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
     public List<InstructorAdventureDTO> getAdventuresByInstructorId(Integer instructorId) {
         Instructor instructor = instructorRepository.findById(instructorId).orElseGet(null);
         List<InstructorAdventureDTO> adventures = new ArrayList<InstructorAdventureDTO>();
-        for(InstructorAdventure a: instructor.getAdventures())
-            adventures.add(new InstructorAdventureDTO(a));
+        for(InstructorAdventure a: instructor.getAdventures()) {
+            InstructorAdventureDTO instructorAdventureDTO = new InstructorAdventureDTO(a);
+            if(adventureReserved(a))
+                instructorAdventureDTO.setReserved(true);
+            adventures.add(instructorAdventureDTO);
+        }
         return adventures;
+    }
+
+    private boolean adventureReserved(InstructorAdventure a) {
+        for(AdventureReservation res: adventureReservationRepository.findAll())
+            if(res.getAdventure().getId().equals(a.getId()) && res.getEndTime().isAfter(LocalDateTime.now()))
+                return true;
+
+        for(ActionAdventure action: actionAdventureRepository.findAll())
+            if(action.getAdventure().getId().equals(a.getId()) && action.getEndTime().isAfter(LocalDateTime.now()))
+                return true;
+        return false;
     }
 
     @Override
     public void deleteAdventure(Integer adventureId) {
+
+        List<AdventureReservation> adventureReservations = adventureReservationRepository.findByAdventureId(adventureId);
+
+        for(AdventureReservation reservation : adventureReservations){
+            reservation.setAdventure(null);
+            adventureReservationRepository.save(reservation);
+        }
+
         instructorAdventureRepository.deleteById(adventureId);
+
+
     }
 
     @Override
@@ -73,8 +99,12 @@ public class InstructorAdventureServiceImpl implements InstructorAdventureServic
     @Override
     public InstructorAdventureDTO getAdventureById(Integer id) {
         InstructorAdventure adventure = instructorAdventureRepository.findById(id).orElseGet(null);
-        if(adventure != null)
-            return new InstructorAdventureDTO(adventure);
+        if(adventure != null){
+            InstructorAdventureDTO instructorAdventureDTO = new InstructorAdventureDTO(adventure);
+            if(adventureReserved(adventure))
+                instructorAdventureDTO.setReserved(true);
+            return instructorAdventureDTO;
+        }
         return null;
     }
 

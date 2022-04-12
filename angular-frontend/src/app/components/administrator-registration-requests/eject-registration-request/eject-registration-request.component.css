@@ -1,0 +1,18 @@
+*{
+    color: black;
+}
+
+textarea{
+    width: 300px;
+    height: 150px;
+    margin-top: 40px;
+    resize: none;
+    margin-left: 8%;
+}
+
+button{
+    flex: left;
+    color: white;
+    margin-left: 15%;
+    margin-top: 30px;
+}

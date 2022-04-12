@@ -2,15 +2,21 @@ package app.domain;
 
 import app.dto.CottageOwnerDTO;
 
+import javax.persistence.Entity;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+
+
 
 @Entity
 public class CottageOwner extends ApplicationUser{
 
     @OneToMany(mappedBy = "cottageOwner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<Cottage> cottages = new HashSet<Cottage>();
+
+    @OneToMany(mappedBy = "cottageOwner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<CottageComplaint> complaints = new HashSet<CottageComplaint>();
 
     public CottageOwner() {
     }

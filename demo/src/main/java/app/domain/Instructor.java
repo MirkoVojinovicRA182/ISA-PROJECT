@@ -19,6 +19,9 @@ public class Instructor extends ApplicationUser{
     @OneToMany(mappedBy = "instructor", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<InstructorBusyness> instructorBusynesses = new HashSet<InstructorBusyness>();
 
+    @OneToMany(mappedBy = "instructor", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<InstructorComplaint> instructorComplaints = new HashSet<InstructorComplaint>();
+
     public Instructor() {
     }
 
@@ -44,5 +47,13 @@ public class Instructor extends ApplicationUser{
     }
     public void setInstructorBusynesses(Set<InstructorBusyness> instructorBusynesses) {
         this.instructorBusynesses = instructorBusynesses;
+    }
+
+    public Set<InstructorComplaint> getInstructorComplaints() {
+        return instructorComplaints;
+    }
+
+    public void setInstructorComplaints(Set<InstructorComplaint> instructorComplaints) {
+        this.instructorComplaints = instructorComplaints;
     }
 }

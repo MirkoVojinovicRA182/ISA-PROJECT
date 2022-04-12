@@ -27,22 +27,6 @@ export class AdministratorLessonsViewComponent implements OnInit {
   }
 
   findLesson(){
-    /*
-    this.userRegistrationService.getUsers().subscribe(
-      users =>
-      {
-        this.users = users;
-        let foundedUsers = [];
-
-        for(let user of this.users){
-          let userFullName = user.name + ' ' + user.lastName;
-          if(userFullName.toLocaleLowerCase().includes(this.searchValue.toLocaleLowerCase()))
-          foundedUsers.push(user);
-        }
-
-        this.users = foundedUsers;
-      }
-    ); */
 
     this.instructorLessonsService.getAllLessons().subscribe(
       lessons =>

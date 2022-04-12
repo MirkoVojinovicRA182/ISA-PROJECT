@@ -1,0 +1,21 @@
+*{
+    color: black;
+}
+
+h1{
+    text-align: center;
+    color:rgb(5, 68, 104);
+}
+
+table{
+    margin-top: 50px;
+    font-size: large;
+}
+
+td{
+    padding: 5%;
+}
+
+.content{
+    width: 250px;
+}

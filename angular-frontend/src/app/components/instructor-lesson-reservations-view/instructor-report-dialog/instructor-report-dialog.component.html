@@ -1,0 +1,19 @@
+<div>
+    <h1>Report</h1>
+    <hr>
+
+    <p>Whether the client came?</p>
+
+    <div class="clientCameDiv">
+        <input type="radio" id="yes" name="clientCame" style="margin-left: 25%;" tabindex="-1" (click) = 'setNoSelected(false)'>
+        <label for="yes">Yes</label>
+
+        <input type="radio" id="no" name="clientCame" style="margin-left: 25%;" tabindex="-1" (click) = 'setNoSelected(true)'>
+        <label for="no">No</label>
+    </div>
+
+    <textarea [(ngModel)] = 'reportText' [disabled] = "noSelected"></textarea> <br>
+
+    <button mat-raised-button class="myButton" tabindex="-1" [mat-dialog-close]="reportText">Send</button>
+
+</div>

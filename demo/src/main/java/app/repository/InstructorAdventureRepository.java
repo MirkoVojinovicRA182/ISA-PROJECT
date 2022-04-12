@@ -9,4 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 public interface InstructorAdventureRepository extends JpaRepository<InstructorAdventure, Integer> {
     @Query("SELECT u FROM InstructorAdventure u WHERE u.id = ?1")
     InstructorAdventure getByAdventureId(Integer id);
+    
+    InstructorAdventure findByName(String name);
 }

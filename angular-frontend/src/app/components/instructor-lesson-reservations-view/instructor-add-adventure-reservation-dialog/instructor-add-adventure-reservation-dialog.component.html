@@ -1,0 +1,64 @@
+<div>
+    <h1>New reservation</h1>
+    <hr>
+
+    <div class="tableDiv">
+
+        <table>
+            <tr>
+                <td>Start:</td>
+                <td>
+                    <input
+                     type="datetime-local"
+                     style="width: 250px;"
+                     [ngModel]="newReservation.startTime | date:'yyyy-MM-ddThh:mm:ss.SSS'"
+                     (ngModelChange) = "setStart($event)"
+                     name="newReservation.startTime"
+                     [min]="currentDate">
+                </td>
+            </tr>
+            <tr>
+                <td>End:</td>
+                <td>
+                    <input
+                     type="datetime-local"
+                     style="width: 250px;"
+                     [ngModel]="newReservation.endTime | date:'yyyy-MM-ddThh:mm:ss.SSS'"
+                     (ngModelChange) = "setEnd($event)"
+                     name="newReservation.endTime"
+                     [min]="currentDate">
+                </td>
+            </tr>
+            <tr>
+                <td>Adventure:</td>
+                <td>
+                    <select name="adventureSelect"  [(ngModel)] = "selectedAdventure" #adventureSelect = "ngModel" (change) = "showAdditionalServices()">
+                        <option *ngFor = "let adventure of adventures" [ngValue]="adventure">{{adventure.name}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Client username:</td>
+                <td>
+                    <input type="text" style="width: 150px;" [(ngModel)] = "newReservation.clientUsername">
+                </td>
+            </tr>
+            <tr>
+                <td>Additional services:</td>
+                <td>
+                    <i *ngIf="additionalServices.length == 0" style="color: red;">not on offer</i>
+                    <ng-container *ngFor = "let service of additionalServices">
+                        <input type="checkbox" id="service.id" style="padding: 10px;" (change) = "countBill(service.price, $event)">
+                        <label for="service.id">{{service.name}}  {{service.price}} <i class="fas fa-euro-sign"></i></label><br>
+                    </ng-container>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <button 
+    mat-raised-button 
+    class="myButton" 
+    [mat-dialog-close]="newReservation">Reserve</button>
+</div>>

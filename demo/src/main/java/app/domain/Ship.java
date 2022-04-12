@@ -58,6 +58,9 @@ public class Ship {
 
     @OneToMany(mappedBy = "ship", cascade = CascadeType.ALL)
     private Set<ShipReservation> shipReservations = new HashSet<>();
+    
+    @OneToMany(mappedBy = "ship", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<ShipComplaint> complaints = new HashSet<ShipComplaint>();
 
     public Ship() {
         super();

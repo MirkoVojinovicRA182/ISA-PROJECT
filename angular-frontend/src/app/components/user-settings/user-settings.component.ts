@@ -44,7 +44,10 @@ export class UserSettingsComponent implements OnInit {
       {
         this.userSettingsService.createDeleteAccountRequest({
           "deleteReason": deleteReason,
-          "userId": 1
+          "userId": 1,
+          "userFullName": "Marko Isaković",
+          "userType": "Instructor"
+
         }).subscribe();
         alert('Your request for deleting account is now in proccess. Check your mail tomorow for more informations.')
       }

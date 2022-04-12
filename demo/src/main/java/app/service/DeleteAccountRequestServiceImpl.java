@@ -1,17 +1,14 @@
 package app.service;
 
-import app.domain.Administrator;
-import app.domain.ApplicationUser;
-import app.domain.DeleteAccountRequest;
-import app.domain.Instructor;
+import app.domain.*;
 import app.dto.DeleteAccountRequestDTO;
-import app.repository.AdministratorRepository;
-import app.repository.DeleteAccountRequestRepository;
-import app.repository.InstructorRepository;
+import app.repository.*;
 import app.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +20,12 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
 
     @Autowired
     private InstructorRepository instructorRepository;
+
+    @Autowired
+    private CottageOwnerRepository cottageOwnerRepository;
+
+    @Autowired
+    private ShipOwnerRepository shipOwnerRepository;
 
     @Autowired
     private AdministratorRepository administratorRepository;
@@ -52,7 +55,7 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
     }
 
     @Override
-    public void deleteAccount(DeleteAccountRequestDTO dto) {
+    public void deleteAccount(DeleteAccountRequestDTO dto) throws MessagingException, UnsupportedEncodingException {
         DeleteAccountRequest request = deleteAccountRequestRepository.findById(dto.getId()).orElseGet(null);
         deleteAccountRequestRepository.delete(request);
 
@@ -60,14 +63,23 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
             if (instructor.getId().equals(dto.getUserId()))
                 instructorRepository.delete(instructor);
 
-        Utility.sendMail("mail", "Odobreno", "Vaš nalog je uspešno obrisan.");
+        for (CottageOwner cottageOwner : cottageOwnerRepository.findAll())
+            if (cottageOwner.getId().equals(dto.getUserId()))
+                cottageOwnerRepository.delete(cottageOwner);
+
+
+        for (ShipOwner shipOwner : shipOwnerRepository.findAll())
+            if (shipOwner.getId().equals(dto.getUserId()))
+                shipOwnerRepository.delete(shipOwner);
+
+        Utility.sendMail("mail", "Account deletion approved", "Your account is deleted.");
     }
 
     @Override
-    public void ejectDeleteRequest(Integer requestId) {
+    public void ejectDeleteRequest(Integer requestId) throws MessagingException, UnsupportedEncodingException {
         DeleteAccountRequest request = deleteAccountRequestRepository.findById(requestId).orElseGet(null);
         deleteAccountRequestRepository.delete(request);
 
-        Utility.sendMail("mail", "Odbijeno", "Vaš razlog za brisanje naloga nije dovoljan.");
+        Utility.sendMail("mail", "Account deletion ejected", "Your request for deleting account is ejected.");
     }
 }

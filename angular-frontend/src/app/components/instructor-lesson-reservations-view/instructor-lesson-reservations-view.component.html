@@ -1,0 +1,42 @@
+<h1><b>Lessons reservations</b></h1>
+<hr style="margin-bottom: 70px;">
+
+<div style="margin-left: 8%;">
+
+    <button (click) = 'openReservationDialog()' mat-raised-button class="myButton" style="margin-right: 20px;">Add</button>
+
+    <input
+    type="text"
+    style="font-size: large; margin-right: 10px; width: 840px;"
+    placeholder="Search by reservation name..."
+    (keyup) = 'findReservation()'
+    [(ngModel)] = 'searchValue'>
+
+    <i class="fas fa-search" style="font-size: large; display: inline;"></i>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Start time</th>
+                <th>End time</th>
+                <th>Adventure name</th>
+                <th>Client username</th>
+            </tr>
+        </thead>
+        <tbody *ngFor = "let reservation of reservations; let index = index;" [ngClass]="{'evenRow': 0 !== index % 2}">
+            <tr>
+                <td>{{reservation.startTime}}</td>
+                <td>{{reservation.endTime}}</td>
+                <td>{{reservation.adventureName}}</td>
+                <td><u style="cursor: pointer;" (click) = "openClientInfoDialog(reservation.clientUsername)">{{reservation.clientUsername}}</u></td>
+                <td *ngIf = "reservation.finished">
+                    <i
+                     style="margin-left: 20%; cursor: pointer;"
+                     class="fas fa-pencil-alt"
+                     (click) = "openReportDialog(reservation.id)"
+                    ></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

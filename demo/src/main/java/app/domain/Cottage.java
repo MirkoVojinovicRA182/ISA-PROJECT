@@ -41,6 +41,10 @@ public class Cottage {
 
     @OneToMany(mappedBy = "cottage", cascade = CascadeType.ALL)
     private Set<CottageReservation> cottageReservations = new HashSet<>();
+    
+    @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<CottageComplaint> complaints = new HashSet<CottageComplaint>();
+
 
     public Cottage() {
         super();

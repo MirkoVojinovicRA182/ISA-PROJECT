@@ -1,0 +1,20 @@
+<div>
+    <h1>Why do you want to eject request?</h1>
+
+    <hr>
+
+    <textarea [(ngModel)] = "retVal.ejectExplanation"></textarea> <br>
+
+
+    <button 
+    mat-raised-button 
+    class="adminButton"
+    [mat-dialog-close]="retVal">Eject</button>
+
+    <button 
+    mat-raised-button 
+    class="adminButton"
+    (click) = "closeDialog()"
+    >Close</button>
+
+</div>

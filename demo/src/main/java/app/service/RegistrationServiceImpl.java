@@ -3,6 +3,7 @@ package app.service;
 import app.domain.*;
 import app.domain.enums.UserType;
 import app.dto.ClientDTO;
+import app.dto.EjectRegistrationRequestDTO;
 import app.dto.UserToRegisterDto;
 import app.repository.*;
 import app.utility.Utility;
@@ -80,10 +81,10 @@ public class RegistrationServiceImpl implements RegistrationService{
     }
 
     @Override
-    public void ejectRegistration(RegistrationRequest registrationRequest) {
-        Utility.sendMail(registrationRequest.getEmail(), "Eject", "Your registration request has been denied.");
+    public void ejectRegistration(EjectRegistrationRequestDTO dto) throws MessagingException, UnsupportedEncodingException {
+        Utility.sendMail(dto.getClientEmail(), "Eject", dto.getEjectExplanation());
 
-        registrationRequestRepository.deleteById(registrationRequest.getId());
+        registrationRequestRepository.deleteById(dto.getRequestId());
     }
 
     @Override

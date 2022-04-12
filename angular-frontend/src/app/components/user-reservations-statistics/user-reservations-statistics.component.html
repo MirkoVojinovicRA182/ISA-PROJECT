@@ -1,0 +1,57 @@
+<div class="resNum">
+
+    <p id="s">From:</p>
+
+    <input 
+    type="datetime-local" 
+    id="s" 
+    class="s"
+    [max]="currentDate"
+    [(ngModel)] = "fromDate">
+
+    <p id="s">To:</p>
+
+    <input 
+    type="datetime-local" 
+    id="s" 
+    class="s" 
+    [max]="currentDate"
+    [(ngModel)] = "toDate"> <br>
+
+    <button 
+    mat-raised-button 
+    [class]="generateButtonClass"
+    id="button"
+    (click) = "getReservations()">Generate</button>
+
+    <div class="message" *ngIf = "generateClicked">
+
+        <div class="sumDiv">
+            <p>Number of reservations in the selected period is: <b>{{reservationsCount}}</b></p>
+            <hr>
+        </div>
+
+        <div class="resTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Entity name</th>
+                        <th>Start</th>
+                        <th>End</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor = "let r of reservations; let index = index;" [ngClass]="{'evenRow': 0 !== index % 2}">
+                    <tr>
+                        <td>{{r.entityName}}</td>
+                        <td>{{r.start}}</td>
+                        <td>{{r.end}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
