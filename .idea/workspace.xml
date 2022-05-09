@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/AdventureReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/AdventureReservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/ApplicationUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/ApplicationUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorAdventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorAdventure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/AdventureReservationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/AdventureReservationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/repository/AdventureReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/repository/AdventureReservationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/InstructorAdventureServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/InstructorAdventureServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/utility/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/systemSallary.json" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/systemSallary.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +47,22 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/demo/src/main/java/app/IsaProjectApplication.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwner.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -179,11 +200,6 @@
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/ShipReservationServiceImpl.java</url>
           <line>30</line>
           <option name="timeStamp" value="47" />
@@ -234,11 +250,6 @@
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/ReservationControler.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/ShipReservationServiceImpl.java</url>
           <line>57</line>
           <option name="timeStamp" value="60" />
@@ -257,6 +268,7 @@
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/ShipReservationServiceImpl.java</url>
           <line>60</line>
           <option name="timeStamp" value="63" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/DeleteAccountRequestController.java</url>
           <line>46</line>

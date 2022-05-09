@@ -55,9 +55,6 @@ public class InstructorAdventure {
     private Set<Image> images;
 
     @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    private Set<AdventureReservation> adventureReservations;
-
-    @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<ActionAdventure> actionAdventures;
 
     public InstructorAdventure() {}
@@ -89,14 +86,6 @@ public class InstructorAdventure {
         this.price = price;
         this.termsOfUse = termsOfUse;
         this.instructor = instructor;
-    }
-
-    public Set<AdventureReservation> getAdventureReservations() {
-        return adventureReservations;
-    }
-
-    public void setAdventureReservations(Set<AdventureReservation> adventureReservations) {
-        this.adventureReservations = adventureReservations;
     }
 
     public Integer getId() {

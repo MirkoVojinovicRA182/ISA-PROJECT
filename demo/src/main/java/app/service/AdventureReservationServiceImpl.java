@@ -44,17 +44,17 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
     @Override
     public List<AdventureReservationDTO> getFreeAdventures(AdventureReservationSearchDTO dto) {
         List<AdventureReservationDTO> freeReservations = new ArrayList<>();
-    private AdventureReservationReportRepository adventureReservationReportRepository;
+        return freeReservations;
+    }
 
-    @Autowired
-    InstructorAdventureRepository instructorAdventureRepository;
+    private AdventureReservationReportRepository adventureReservationReportRepository;
 
     @Autowired
     ActionAdventureRepository actionAdventureRepository;
 
-    @Override
-    public List<AdventureReservationDTO> getFreeAdventures(ReservationSearchDTO dto) {
-        /*List<AdventureReservationDTO> freeReservations = new ArrayList<>();
+    /*@Override
+    public List<AdventureReservationDTO> getFreeAdventures(AdventureReservationSearchDTO dto) {
+        List<AdventureReservationDTO> freeReservations = new ArrayList<>();
         List<Instructor> instructors = instructorRepository.findAll();
         List<AdventureReservation> reservations = adventureReservationRepository.findAll();
         LocalDateTime dateTime = dto.getDate().atTime(dto.getHours(),0,0);
@@ -82,9 +82,9 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
             //dateTime = dateTime.plusHours(3);
         }
 
-        return freeReservations;*/
+        return freeReservations;
         return null;
-    }
+    }*/
 
     @Override
     public boolean bookAnInstructorAdventure(AdventureReservationDTO dto) throws MessagingException, UnsupportedEncodingException {
@@ -154,14 +154,6 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
 
         return list;
 
-    }
-
-    @Override
-    public void bookAnInstructorAdventure(AdventureReservationDTO dto) {
-        InstructorAdventure adventure = instructorAdventureRepository.getByAdventureId(dto.getInstructorAdventureId());
-        adventureReservationRepository.save(new AdventureReservation(dto.getStartTime(), dto.getEndTime(),
-                clientRepository.getById(dto.getClientId()),
-                adventure, adventure.getPricelist()));
     }
     
     public List<SallaryByDayDTO> sumSystemSallary(LocalDate fromDate, LocalDate toDate) {

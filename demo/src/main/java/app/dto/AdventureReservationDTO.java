@@ -21,20 +21,9 @@ public class AdventureReservationDTO {
     private String price;
 
     public AdventureReservationDTO(){}
-
-    public AdventureReservationDTO(Integer clientId, Integer instructorAdventureId,
-                                   LocalDateTime startTime, LocalDateTime endTime, String price) {
-        this.clientId = clientId;
-        this.instructorAdventureId = instructorAdventureId;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.price = price;
-    }
     
     private Double bill;
     private boolean finished;
-
-    public AdventureReservationDTO(){}
 
 
     public AdventureReservationDTO(AdventureReservation adventureReservation){

@@ -57,21 +57,17 @@ public class AdventureReservation {
 
     public void setInstructorAdventure(InstructorAdventure instructorAdventure) {
         this.instructorAdventure = instructorAdventure;
+    }
+
+    @Column
     private Double bill;
 
     @Column
     private Double systemSallary;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "client_id")
-    private Client client;
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "adventure_id")
     private InstructorAdventure adventure;
-
-
-    public AdventureReservation(){}
 
     public AdventureReservation(LocalDateTime startTime, LocalDateTime endTime, Client client, InstructorAdventure adventure, Double bill, Double systemSallary) {
         this.startTime = startTime;
@@ -84,10 +80,6 @@ public class AdventureReservation {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public void setId(Integer id) { this.id = id;}
@@ -118,12 +110,6 @@ public class AdventureReservation {
 
     public void setAdventureAdditionalServices(Set<AdventureAdditionalService> adventureAdditionalServices) {
         this.adventureAdditionalServices = adventureAdditionalServices;
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 
     public InstructorAdventure getAdventure() {

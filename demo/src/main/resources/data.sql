@@ -27,7 +27,7 @@ insert into administrator (id, address, city, country, email, name, last_name, p
                                                                                                             'Mitrović',
                                                                                                             'mitar567',
                                                                                                             '065-231-222-01');
-insert into ship_owner (id, address, city, country, email, name, last_name, password, phone_number) values (5,
+insert into ship_owner (id, address, city, country, email, name, last_name, password, phone_number) values (4,
                                                                                                             'Vojvođanska 32',
                                                                                                             'Obrovac',
                                                                                                             'Republika Srbija',
@@ -36,16 +36,6 @@ insert into ship_owner (id, address, city, country, email, name, last_name, pass
                                                                                                             'Mitrović',
                                                                                                             'mita567',
                                                                                                             '065-231-666-01');
-insert into cottage_owner (id, address, city, country, email, name, last_name, password, phone_number) values (6,
-                                                                                                            'Alekse Santica 49',
-                                                                                                            'Bukovce',
-                                                                                                            'Republika Srbija',
-                                                                                                            'cone@gmail.com',
-                                                                                                            'Nemanja',
-                                                                                                            'Peric',
-                                                                                                            'cone567',
-                                                                                                            '065-555-666-01');
-
 insert into registration_request (id, email, password, name, last_name, address, city, country, phone_number, user_type, registration_explanation, request_date) values
 (1, 'maki@gmail.com', 'maki123', 'Marija', 'Stojadinović', 'Bulevar Mihajla Pupina 12', 'Novi Sad', 'Republika Srbija', '066/113-23-32', 1, 'Because.', '2022-01-20T08:00:00.00');
 
@@ -76,20 +66,7 @@ insert into registration_request (id, email, password, name, last_name, address,
 insert into registration_request (id, email, password, name, last_name, address, city, country, phone_number, user_type, registration_explanation, request_date) values
     (10, 'steva123@gmail.com', 'steva123', 'Stevan', 'Simić', 'Stevana Sremca 89', 'Novi Sad', 'Republika Srbija', '066/1123-23-32', 2, 'Because.', '2021-02-01T08:00:00.00');
 
-
-
-
-insert into instructor (id, address, city, country, email, last_name, name, password, phone_number) values (1,
-                                                                                                            'Karađorđeva 12',
-                                                                                                            'Nova Gajdobra',
-                                                                                                            'Republika Srbija',
-                                                                                                            'mare@gmail.com',
-                                                                                                            'Marko',
-                                                                                                            'Isaković',
-                                                                                                            'mare123',
-                                                                                                            '065-244-32-21');
-
-insert into instructor (id, address, city, country, email, last_name, name, password, phone_number) values (11,
+insert into instructor (id, address, city, country, email, last_name, name, password, phone_number) values (13,
                                                                                                             'Karađorđeva 12',
                                                                                                             'Nova Gajdobra',
                                                                                                             'Republika Srbija',
@@ -107,10 +84,10 @@ insert into instructor_adventure(id, name, address, promotional_description, ins
 values (3, 'Pecanje u Silbašu', 'Kanal DTD', 'Uživajte na pecanju u Silbašu', 'Trenutno nedostupna', 7, 'Pravila', 'Pecaljka/Ručak', 150, 'Uslovi otkaza rezervacije', 1);
 
 insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, price, terms_of_use, instructor_id)
-values (4, 'Pecanje u Sivcu', 'Jezero', 'Uživajte na pecanju u Sivcu', 'Trenutno nedostupna', 10, 'Pravila', 'Pecaljka/Ručak', 140, 'Uslovi otkaza rezervacije', 11);
+values (4, 'Pecanje u Sivcu', 'Jezero', 'Uživajte na pecanju u Sivcu', 'Trenutno nedostupna', 10, 'Pravila', 'Pecaljka/Ručak', 140, 'Uslovi otkaza rezervacije', 13);
 
 insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, price, terms_of_use, instructor_id)
-values (5, 'Pecanje u Mošorinu', 'Reka Tisa', 'Uživajte na pecanju na Tisi', 'Trenutno nedostupna', 10, 'Pravila', 'Pecaljka/Ručak', 50, 'Uslovi otkaza rezervacije', 11);
+values (5, 'Pecanje u Mošorinu', 'Reka Tisa', 'Uživajte na pecanju na Tisi', 'Trenutno nedostupna', 10, 'Pravila', 'Pecaljka/Ručak', 50, 'Uslovi otkaza rezervacije', 13);
 
 
 insert into adventure_additional_service(id, name, price, adventure_id) values (1, 'Brod', 100, 1);
@@ -122,7 +99,7 @@ insert into image(id, url, adventure_id) values (2, 'second.jpg', 1);
 insert into image(id, url, adventure_id) values (3, 'third.jpg', 1);
 
 
-insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, enabled) values (3,
+insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, enabled) values (12,
                                                                                                                                     'Vojvođanska 32',
                                                                                                                                     'Obrovac',
                                                                                                                                     'Republika Srbija',
@@ -133,7 +110,7 @@ insert into client (id, address, city, country, email, name, last_name, password
                                                                                                                                     '064-231-222-01',
                                                                                                                                     'code',
                                                                                                                                     'true');
-insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, enabled) values (4,
+insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, enabled) values (11,
                                                                                                                                     'Bulevar Cara Lazara 5',
                                                                                                                                     'Novi Sad',
                                                                                                                                     'Republika Srbija',
@@ -145,41 +122,41 @@ insert into client (id, address, city, country, email, name, last_name, password
                                                                                                                                     'code',
                                                                                                                                     'true');
 
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (1, '2022-01-04T08:00:00.00', '2022-01-04T09:00:00.00', 3, 1, 90, 0.1);
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (2, '2022-01-04T10:00:00.00', '2022-01-04T11:00:00.00', 4, 1, 90, 0.1);
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (3, '2022-01-04T12:00:00.00', '2022-01-04T13:00:00.00', 4, 1, 90, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (1, '2022-01-04T08:00:00.00', '2022-01-04T09:00:00.00', 11, 1, 1, 90, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (2, '2022-01-04T10:00:00.00', '2022-01-04T11:00:00.00', 12, 1, 1, 90, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (3, '2022-01-04T12:00:00.00', '2022-01-04T13:00:00.00', 12, 1, 1, 90, 0.1);
 
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (4, '2022-01-05T08:00:00.00', '2022-01-05T09:00:00.00', 3, 1, 90, 0.1);
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (5, '2022-01-05T10:00:00.00', '2022-01-05T11:00:00.00', 4, 2, 120, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (4, '2022-01-05T08:00:00.00', '2022-01-05T09:00:00.00', 11, 1, 1, 90, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (5, '2022-01-05T10:00:00.00', '2022-01-05T11:00:00.00', 12, 2, 1, 120, 0.1);
 
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (6, '2022-01-06T08:00:00.00', '2022-01-06T09:00:00.00', 3, 1, 90, 0.2);
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (7, '2022-01-06T11:00:00.00', '2022-01-06T12:00:00.00', 4, 1, 90, 0.2);
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (8, '2022-01-06T15:00:00.00', '2022-01-06T16:00:00.00', 4, 1, 90, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (6, '2022-01-06T08:00:00.00', '2022-01-06T09:00:00.00', 11, 1, 1, 90, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (7, '2022-01-06T11:00:00.00', '2022-01-06T12:00:00.00', 12, 1, 1, 90, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (8, '2022-01-06T15:00:00.00', '2022-01-06T16:00:00.00', 12, 1, 1, 90, 0.2);
 
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (9, '2022-01-07T08:00:00.00', '2022-01-07T09:00:00.00', 4, 3, 150, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (9, '2022-01-07T08:00:00.00', '2022-01-07T09:00:00.00', 11, 3, 1, 150, 0.2);
 
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (10, '2022-01-08T08:00:00.00', '2022-01-08T09:00:00.00', 3, 2, 120, 0.2);
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (11, '2022-01-08T10:00:00.00', '2022-01-08T11:00:00.00', 4, 2, 120, 0.2);
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (12, '2022-01-08T13:00:00.00', '2022-01-08T14:00:00.00', 3, 2, 120, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (10, '2022-01-08T08:00:00.00', '2022-01-08T09:00:00.00', 11, 2, 1, 120, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (11, '2022-01-08T10:00:00.00', '2022-01-08T11:00:00.00', 12, 2, 1, 120, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (12, '2022-01-08T13:00:00.00', '2022-01-08T14:00:00.00', 11, 2, 1, 120, 0.2);
 
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (13, '2022-01-15T13:00:00.00', '2022-01-15T14:00:00.00', 4, 4, 140, 0.1);
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (14, '2022-01-18T13:00:00.00', '2022-01-18T14:00:00.00', 3, 5, 50, 0.1);
-insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary)
-values (15, '2022-01-11T13:00:00.00', '2022-01-11T14:00:00.00', 4, 4, 140, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (13, '2022-01-15T13:00:00.00', '2022-01-15T14:00:00.00', 12, 4, 1, 140, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (14, '2022-01-18T13:00:00.00', '2022-01-18T14:00:00.00', 11, 5, 1, 50, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary)
+values (15, '2022-01-11T13:00:00.00', '2022-01-11T14:00:00.00', 12, 4, 1, 140, 0.1);
 
 
 insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values (1, '', '2022-10-10T08:00:00.00', 15, '2022-11-10T09:00:00.00', '2022-11-10T08:00:00.00', 70, 1);
@@ -265,28 +242,28 @@ insert into ship (id, name, type, length, engine_number, engine_power, max_speed
 values (3, 'Ognjenov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Ognjenov opis', 10, 'Cenovnik', 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 10);
 
 insert into instructor_complaint(id, text, instructor_id, client_id)
-values (1, 'Neki tekst zalbe 1', 1, 3);
+values (1, 'Neki tekst zalbe 1', 1, 11);
 
 insert into instructor_complaint(id, text, instructor_id, client_id)
-values (2, 'Neki tekst zalbe 2', 1, 4);
+values (2, 'Neki tekst zalbe 2', 1, 12);
 
 insert into ship_complaint(id, text, ship_id, ship_owner_id, client_id)
-values (1, 'Neki tekst zalbe 3', 1, 8, 3);
+values (1, 'Neki tekst zalbe 3', 1, 8, 11);
 
 insert into ship_complaint(id, text, ship_id, ship_owner_id, client_id)
-values (2, 'Neki tekst zalbe 4', 2, 9, 3);
+values (2, 'Neki tekst zalbe 4', 2, 9, 11);
 
 insert into ship_complaint(id, text, ship_id, ship_owner_id, client_id)
-values (3, 'Neki tekst zalbe 5', 3, 10, 4);
+values (3, 'Neki tekst zalbe 5', 3, 10, 12);
 
 insert into cottage_complaint(id, text, cottage_id, cottage_owner_id, client_id)
-values (1, 'Neki tekst zalbe 6', 1, 5, 4);
+values (1, 'Neki tekst zalbe 6', 1, 5, 12);
 
 insert into cottage_complaint(id, text, cottage_id, cottage_owner_id, client_id)
-values (2, 'Neki tekst zalbe 7', 2, 6, 4);
+values (2, 'Neki tekst zalbe 7', 2, 6, 12);
 
 insert into cottage_complaint(id, text, cottage_id, cottage_owner_id, client_id)
-values (3, 'Neki tekst zalbe 8', 3, 7, 3);
+values (3, 'Neki tekst zalbe 8', 3, 7, 11);
 
 insert into delete_account_request(id, delete_reason, user_full_name, user_type, user_id)
 values (1, 'Zato', 'Vukašin Crnjanski', 1, 8);

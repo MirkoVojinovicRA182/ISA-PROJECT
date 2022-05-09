@@ -19,8 +19,6 @@ public class Client extends ApplicationUser{
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private Set<CottageReservation> cottageReservations = new HashSet<>();
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    private Set<AdventureReservation> adventureReservations;
 
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<CottageComplaint> cottageComplaints = new HashSet<CottageComplaint>();

@@ -25,12 +25,12 @@ import { Instructor } from './model/instructor';
 
 const routes: Routes = [
 
-  { path: '', component: LoginComponent },
-  { path: '**', redirectTo: 'welcome' },
+  { path: '', component: LandingPageComponent },
+  //{ path: '**', redirectTo: 'welcome' },
   { path: 'login', component: LoginComponent},
   { path: 'landingPage', component: LandingPageComponent},
   { path: 'welcome', component: LandingPageComponent },
-  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  //{ path: '', redirectTo: 'welcome', pathMatch: 'full' },
 
   // ADMINSTRATOR ROUTES
 
