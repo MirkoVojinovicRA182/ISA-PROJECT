@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cottage-owner-home-page',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CottageOwnerHomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router,
+    public route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }

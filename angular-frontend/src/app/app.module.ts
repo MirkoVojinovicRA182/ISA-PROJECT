@@ -45,6 +45,11 @@ import { EjectRegistrationRequestComponent } from './components/administrator-re
 import { UserSallaryComponent } from './components/user-sallary/user-sallary.component';
 import { AdministratorStatisticsComponent } from './components/administrator-statistics/administrator-statistics.component';
 import { UserReservationsStatisticsComponent } from './components/user-reservations-statistics/user-reservations-statistics.component';
+import { CottageOwnerHomePageComponent } from './components/cottage-owner-home-page/cottage-owner-home-page.component';
+import { CottagesPreviewComponent } from './components/cottages-preview/cottages-preview.component';
+import { CottageComponent } from './components/cottage/cottage.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -83,7 +88,10 @@ import { UserReservationsStatisticsComponent } from './components/user-reservati
     EjectRegistrationRequestComponent,
     UserSallaryComponent,
     AdministratorStatisticsComponent,
-    UserReservationsStatisticsComponent
+    UserReservationsStatisticsComponent,
+    CottageOwnerHomePageComponent,
+    CottagesPreviewComponent,
+    CottageComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +102,9 @@ import { UserReservationsStatisticsComponent } from './components/user-reservati
 
     MatDialogModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    NgxSliderModule,
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

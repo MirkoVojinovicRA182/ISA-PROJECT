@@ -22,6 +22,10 @@ import { UserSallaryComponent } from './components/user-sallary/user-sallary.com
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { Instructor } from './model/instructor';
+import { CottageOwnerHomePageComponent } from './components/cottage-owner-home-page/cottage-owner-home-page.component';
+import { CottagesPreviewComponent } from './components/cottages-preview/cottages-preview.component';
+import { Cottage } from './model/cottage';
+import { CottageComponent } from './components/cottage/cottage.component';
 
 const routes: Routes = [
 
@@ -112,6 +116,23 @@ const routes: Routes = [
       {
         path: 'settings',
         component: UserSettingsComponent
+      }
+    ]
+  },
+
+    // COTTAGE OWNER ROUTES
+
+  { 
+    path: 'cottageOwner', 
+    component: CottageOwnerHomePageComponent,
+    children: [
+      {
+        path: 'cottagesPreview',
+        component: CottagesPreviewComponent
+      },
+      {
+        path: 'cottageDetails',
+        component: CottageComponent
       }
     ]
   },

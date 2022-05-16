@@ -10,4 +10,5 @@ public interface CottageService {
     CottageDTO updateCottage(CottageDTO cottageDTO);
     Set<CottageDTO> searchCottage(Integer cottageOwnerId, String searchFilter);
     Set<CottageDTO> getCottageOwnerCottager(Integer cottageOwnerId);
+    CottageDTO getCottageById(Integer cottageId);
 }

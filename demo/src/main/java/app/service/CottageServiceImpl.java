@@ -65,4 +65,11 @@ public class CottageServiceImpl implements CottageService{
             }
         return cottageDTOS;
     }
+
+    @Override
+    public CottageDTO getCottageById(Integer cottageId) {
+        return new CottageDTO(cottageRepository.getByCottageId(cottageId));
+    }
+
+
 }

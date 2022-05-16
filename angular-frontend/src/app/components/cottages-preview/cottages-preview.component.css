@@ -1,0 +1,142 @@
+
+.full-div {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+.main-search-div {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    width: 100% !important;
+    background-color: rgba(1, 167, 139, .65);
+    margin: 0px !important;
+    padding: 10px !important;
+}
+
+
+input {
+    padding: 4px 10px 4px 10px;
+    border-radius: 0px;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #CFD8DC;
+    color: #000;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+input:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.hotel, .arrival, .box {
+    border: 1px solid #CFD8DC;
+    color: #9E9E9E;
+    cursor: pointer;
+}
+
+.hotel.active, .arrival.active {
+    background-color: #304FFE;
+    color: #fff !important;
+    border: 1px solid #304FFE;
+}
+
+.fa-star {
+    color: #E0E0E0;
+    cursor: pointer;
+}
+
+.fa-star.active {
+    color: #FFB300;
+}
+
+.icon-star {
+    color: #000;
+}
+
+#green {
+    color: #388E3C; 
+    background-color: #C8E6C9;
+    padding: 5px 9px;
+    cursor: pointer;
+}
+
+#blue {
+    background-color: #BBDEFB;
+    color: #1976D2;
+    padding: 5px 12px;
+    cursor: pointer;
+}
+
+#defaultGreen {
+    background-color: rgb(1, 167, 139) !important;
+    border-color: rgb(1, 167, 139) !important;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+#defaultGreen:focus {
+    background-color: rgb(1, 167, 139) !important;
+    border-color: rgb(1, 167, 139) !important;
+}
+
+.cottageDiv {
+    padding-top: 30px !important;
+}
+
+.greenButton {
+    background-color: rgb(1, 167, 139) !important;
+    border: rgb(1, 167, 139) !important;
+    color: white !important;
+    margin: 5px !important;
+} 
+
+.greenButton:focus {
+    background-color: rgb(1, 167, 139) !important;
+    border: rgb(1, 167, 139) !important;
+    color: white !important;
+}
+
+.greenButton:hover{
+    background-color: rgb(12, 218, 183) !important;
+    border-color: rgb(1, 167, 139) !important;
+    color: white !important;
+    transform: scale(1.1);
+}
+
+.whiteButton {
+    background-color: rgb(255, 255, 255) !important;
+    border-color: rgb(1, 167, 139) !important;
+    color: rgb(1, 167, 139) !important;
+    margin: 5px !important;
+} 
+
+.whiteButton:focus {
+    background-color: rgb(255, 255, 255) !important;
+    border-color: rgb(1, 167, 139) !important;
+    color: rgb(12, 218, 183) !important;
+}
+
+.whiteButton:hover {
+    background-color: rgb(255, 255, 255) !important;
+    border-color: rgb(12, 218, 183) !important;
+    color: rgb(12, 218, 183) !important;
+    transform: scale(1.1);
+} 
