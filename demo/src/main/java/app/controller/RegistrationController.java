@@ -6,6 +6,7 @@ import app.domain.ApplicationUser;
 import app.domain.enums.UserType;
 import app.dto.ClientDTO;
 import app.dto.EjectRegistrationRequestDTO;
+import app.dto.UserRequest;
 import app.dto.UserToRegisterDto;
 import app.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
@@ -66,11 +68,25 @@ public class RegistrationController {
     
     @RequestMapping("/registerClient")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String processRegister(@RequestBody ClientDTO dto, HttpServletRequest request)
+    public String processRegister(@RequestBody UserRequest dto, HttpServletRequest request, UriComponentsBuilder ucBuilder)
             throws UnsupportedEncodingException, MessagingException {
         registrationService.registerClient(dto, getSiteURL(request));
         return "register_success";
     }
+
+   /* @PostMapping("/signup")
+    public ResponseEntity<ApplicationUser> addUser(@RequestBody UserRequest userRequest, UriComponentsBuilder ucBuilder) {
+
+        ApplicationUser existUser = this.userService.findByUsername(userRequest.getUsername());
+
+        if (existUser != null) {
+            return new ResponseEntity<>(existUser, HttpStatus.EXPECTATION_FAILED);
+        }
+
+        ApplicationUser user = this.userService.save(userRequest);
+
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
+    }*/
 
     private String getSiteURL(HttpServletRequest request) {
         String siteURL = request.getRequestURL().toString();

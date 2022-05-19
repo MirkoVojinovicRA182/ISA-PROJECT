@@ -1,5 +1,7 @@
 package app.domain;
 
+import app.domain.enums.UserType;
+
 import javax.persistence.Entity;
 
 @Entity

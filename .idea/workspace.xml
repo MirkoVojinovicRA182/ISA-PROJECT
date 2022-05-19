@@ -5,18 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_5_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/JwtAuthenticationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/UserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/UserTokenState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/security/RestAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/security/TokenAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/security/TokenBasedAuthentication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/CustomUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/CustomUserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/utility/TokenUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_2_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_5_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_5_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_2_5_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_5_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_5_6.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/AdventureReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/AdventureReservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Administrator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/ApplicationUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/ApplicationUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorAdventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorAdventure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/AdventureReservationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/AdventureReservationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/enums/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/enums/UserType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/ClientDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/ClientDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/CottageOwnerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/CottageOwnerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/UserProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/UserProfileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +86,7 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
@@ -176,7 +204,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
-          <line>23</line>
+          <line>38</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -273,6 +301,36 @@
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/DeleteAccountRequestController.java</url>
           <line>46</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationServiceImpl.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

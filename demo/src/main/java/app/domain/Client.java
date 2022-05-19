@@ -1,5 +1,7 @@
 package app.domain;
 
+import app.domain.enums.UserType;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -29,8 +31,6 @@ public class Client extends ApplicationUser{
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<ShipComplaint> shipComplaints = new HashSet<ShipComplaint>();
 
-    private boolean enabled = false;
-
     public Client() {}
 
     public Client(String email, String password, String name, String lastName, String address,
@@ -42,17 +42,10 @@ public class Client extends ApplicationUser{
         return verificationCode;
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
-
     public void setVerificationCode(String verificationCode) {
         this.verificationCode = verificationCode;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
 
     public Set<AdventureReservation> getAdventureReservations() { return adventureReservations; }
 

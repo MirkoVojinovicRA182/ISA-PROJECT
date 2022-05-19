@@ -3,16 +3,21 @@ package app.domain;
 //import app.domain.enums.UserType;
 
 import app.dto.UserProfileDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
 
 
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-public abstract class ApplicationUser {
+public abstract class ApplicationUser implements UserDetails {
 
     @Id
-    @SequenceGenerator(name = "userIdSeqGen", sequenceName = "userIdSeq", initialValue = 13, allocationSize = 1)
+    @SequenceGenerator(name = "userIdSeqGen", sequenceName = "userIdSeq", initialValue = 14, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userIdSeqGen")
     private Integer id;
 
@@ -40,11 +45,20 @@ public abstract class ApplicationUser {
     @Column(name = "phoneNumber", unique = true, nullable = false)
     private String phoneNumber;
 
+    @Column(name = "isEnabled", unique = false, nullable = false)
+    private boolean isEnabled;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private List<Role> roles;
 
     public ApplicationUser() {
     }
 
-    public ApplicationUser(Integer id, String email, String password, String name, String lastName, String address, String city, String country, String phoneNumber) {
+    public ApplicationUser(Integer id, String email, String password, String name, String lastName, String address, String city,
+                           String country, String phoneNumber) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -56,7 +70,8 @@ public abstract class ApplicationUser {
         this.phoneNumber = phoneNumber;
     }
 
-    public ApplicationUser(String email, String password, String name, String lastName, String address, String city, String country, String phoneNumber) {
+    public ApplicationUser(String email, String password, String name, String lastName, String address, String city,
+                           String country, String phoneNumber) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -66,6 +81,14 @@ public abstract class ApplicationUser {
         this.country = country;
         this.phoneNumber = phoneNumber;
     }
+
+    public boolean isEnabled() { return isEnabled; }
+
+    public void setIsEnabled(Boolean isEnabled) { this.isEnabled = isEnabled; }
+
+    public List<Role> getRoles() { return roles; }
+
+    public void setRoles(List<Role> roles) { this.roles = roles; }
 
     public Integer getId() {
         return id;
@@ -137,6 +160,32 @@ public abstract class ApplicationUser {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getUsername() { return email; }
+
+    @JsonIgnore
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.roles;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
     }
 
     public void updatePersonalInfo(UserProfileDTO dto){
