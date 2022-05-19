@@ -1,4 +1,4 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.CottageComplaint;
 import app.domain.InstructorComplaint;
@@ -10,6 +10,7 @@ import app.dto.OwnerComplaintDTO;
 import app.repository.CottageComplaintRepository;
 import app.repository.InstructorComplaintRepository;
 import app.repository.ShipComplaintRepository;
+import app.service.ComplaintService;
 import app.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ComplaintServiceImpl implements ComplaintService{
+public class ComplaintServiceImpl implements ComplaintService {
 
     @Autowired
     private InstructorComplaintRepository instructorComplaintRepository;

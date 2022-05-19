@@ -1,4 +1,4 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.*;
 import app.dto.CottageDTO;
@@ -6,6 +6,7 @@ import app.dto.InstructorAdventureDTO;
 import app.dto.ShipDTO;
 import app.dto.UserProfileDTO;
 import app.repository.*;
+import app.service.EntityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class EntityServiceImpl implements EntityService{
+public class EntityServiceImpl implements EntityService {
 
     @Autowired
     private InstructorRepository instructorRepository;

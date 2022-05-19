@@ -1,9 +1,10 @@
-package app.service;
+package app.service.impl;
 
 import java.util.List;
 
 import app.domain.Role;
 import app.repository.RoleRepository;
+import app.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

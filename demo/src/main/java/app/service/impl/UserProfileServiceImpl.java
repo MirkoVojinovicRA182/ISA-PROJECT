@@ -1,4 +1,4 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.Administrator;
 import app.domain.ApplicationUser;
@@ -11,11 +11,12 @@ import app.repository.AdministratorRepository;
 import app.repository.CottageOwnerRepository;
 import app.repository.InstructorRepository;
 import app.repository.ShipOwnerRepository;
+import app.service.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserProfileServiceImpl implements UserProfileService{
+public class UserProfileServiceImpl implements UserProfileService {
 
     @Autowired
     private InstructorRepository instructorRepository;

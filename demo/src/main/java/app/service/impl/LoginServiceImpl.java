@@ -1,4 +1,4 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.*;
 import app.dto.LoginDTO;
@@ -7,11 +7,12 @@ import app.repository.ClientRepository;
 import app.repository.CottageOwnerRepository;
 import app.repository.InstructorRepository;
 import app.repository.ShipOwnerRepository;
+import app.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LoginServiceImpl implements LoginService{
+public class LoginServiceImpl implements LoginService {
 
     @Autowired
     private CottageOwnerRepository cottageOwnerRepository;

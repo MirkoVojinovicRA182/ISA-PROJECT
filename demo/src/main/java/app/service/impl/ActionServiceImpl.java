@@ -1,4 +1,4 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.ActionAdventure;
 import app.domain.InstructorAdventure;
@@ -8,6 +8,7 @@ import app.repository.ActionAdventureRepository;
 import app.repository.AdventureReservationReportRepository;
 import app.repository.AdventureReservationRepository;
 import app.repository.InstructorAdventureRepository;
+import app.service.ActionService;
 import app.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ActionServiceImpl implements ActionService{
+public class ActionServiceImpl implements ActionService {
 
     @Autowired
     private ActionAdventureRepository actionAdventureRepository;

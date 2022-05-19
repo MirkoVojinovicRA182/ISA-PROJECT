@@ -1,4 +1,4 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.*;
 import app.domain.enums.UserType;
@@ -7,6 +7,8 @@ import app.dto.EjectRegistrationRequestDTO;
 import app.dto.UserRequest;
 import app.dto.UserToRegisterDto;
 import app.repository.*;
+import app.service.RegistrationService;
+import app.service.RoleService;
 import app.utility.Utility;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @Service
-public class RegistrationServiceImpl implements RegistrationService{
+public class RegistrationServiceImpl implements RegistrationService {
 
     @Autowired
     private RegistrationRequestRepository registrationRequestRepository;

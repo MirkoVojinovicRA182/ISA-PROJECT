@@ -1,8 +1,9 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.*;
 import app.dto.DeleteAccountRequestDTO;
 import app.repository.*;
+import app.service.DeleteAccountRequestService;
 import app.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestService{
+public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestService {
 
     @Autowired
     private DeleteAccountRequestRepository deleteAccountRequestRepository;

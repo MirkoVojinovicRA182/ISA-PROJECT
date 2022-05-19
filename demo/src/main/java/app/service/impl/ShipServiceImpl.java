@@ -1,4 +1,4 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.Cottage;
 import app.domain.Ship;
@@ -7,11 +7,12 @@ import app.dto.CottageDTO;
 import app.dto.ShipDTO;
 import app.repository.ShipOwnerRepository;
 import app.repository.ShipRepository;
+import app.service.ShipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ShipServiceImpl implements  ShipService{
+public class ShipServiceImpl implements ShipService {
     @Autowired
     private ShipOwnerRepository shipOwnerRepository;
 

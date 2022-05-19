@@ -2,8 +2,7 @@ package app.config;
 
 import app.security.RestAuthenticationEntryPoint;
 import app.security.TokenAuthenticationFilter;
-import app.service.CustomUserDetailsService;
-import app.service.CustomUserDetailsServiceImpl;
+import app.service.impl.CustomUserDetailsServiceImpl;
 import app.utility.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

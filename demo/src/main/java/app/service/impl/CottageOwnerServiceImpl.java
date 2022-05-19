@@ -1,13 +1,14 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.CottageOwner;
 import app.dto.CottageOwnerDTO;
 import app.repository.CottageOwnerRepository;
+import app.service.CottageOwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CottageOwnerServiceImpl implements  CottageOwnerService{
+public class CottageOwnerServiceImpl implements CottageOwnerService {
 
     @Autowired
     private CottageOwnerRepository cottageOwnerRepository;

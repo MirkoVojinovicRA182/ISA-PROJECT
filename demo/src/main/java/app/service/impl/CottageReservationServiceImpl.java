@@ -1,4 +1,4 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.Cottage;
 import app.domain.CottageReservation;
@@ -10,6 +10,7 @@ import app.dto.ShipReservationDTO;
 import app.repository.ClientRepository;
 import app.repository.CottageRepository;
 import app.repository.CottageReservationRepository;
+import app.service.CottageReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CottageReservationServiceImpl implements CottageReservationService{
+public class CottageReservationServiceImpl implements CottageReservationService {
 
     @Autowired
     private ClientRepository clientRepository;

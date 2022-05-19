@@ -1,4 +1,4 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.*;
 import app.dto.AdventureReservationDTO;
@@ -7,6 +7,7 @@ import app.dto.ShipReservationSearchDTO;
 import app.repository.ClientRepository;
 import app.repository.ShipRepository;
 import app.repository.ShipReservationRepository;
+import app.service.ShipReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ShipReservationServiceImpl implements ShipReservationService{
+public class ShipReservationServiceImpl implements ShipReservationService {
 
     @Autowired
     private ClientRepository clientRepository;

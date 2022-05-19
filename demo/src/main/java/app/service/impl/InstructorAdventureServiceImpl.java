@@ -1,10 +1,11 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.*;
 import app.dto.AdventureAdditionalServiceDTO;
 import app.dto.ImageDTO;
 import app.dto.InstructorAdventureDTO;
 import app.repository.*;
+import app.service.InstructorAdventureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class InstructorAdventureServiceImpl implements InstructorAdventureService{
+public class InstructorAdventureServiceImpl implements InstructorAdventureService {
 
     @Autowired
     private InstructorAdventureRepository instructorAdventureRepository;

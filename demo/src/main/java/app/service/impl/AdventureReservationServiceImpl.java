@@ -1,4 +1,4 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.AdventureReservation;
 import app.domain.Instructor;
@@ -12,6 +12,7 @@ import app.repository.InstructorRepository;
 import app.domain.*;
 import app.dto.*;
 import app.repository.*;
+import app.service.AdventureReservationService;
 import app.utility.Utility;
 import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class AdventureReservationServiceImpl implements AdventureReservationService{
+public class AdventureReservationServiceImpl implements AdventureReservationService {
 
     @Autowired
     private AdventureReservationRepository adventureReservationRepository;

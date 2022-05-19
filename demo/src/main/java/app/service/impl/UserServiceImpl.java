@@ -1,9 +1,10 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.*;
 import app.domain.enums.UserType;
 import app.dto.UserProfileDTO;
 import app.repository.*;
+import app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private AdministratorRepository administratorRepository;

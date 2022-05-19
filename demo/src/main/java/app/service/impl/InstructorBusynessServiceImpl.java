@@ -1,10 +1,11 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.Instructor;
 import app.domain.InstructorBusyness;
 import app.dto.InstructorBusynessDTO;
 import app.repository.InstructorBusynessRepository;
 import app.repository.InstructorRepository;
+import app.service.InstructorBusynessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class InstructorBusynessServiceImpl implements InstructorBusynessService{
+public class InstructorBusynessServiceImpl implements InstructorBusynessService {
 
     @Autowired
     private InstructorBusynessRepository instructorBusynessRepository;

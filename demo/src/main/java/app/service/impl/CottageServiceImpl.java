@@ -1,9 +1,10 @@
-package app.service;
+package app.service.impl;
 
 import app.domain.Cottage;
 import app.dto.CottageDTO;
 import app.repository.CottageOwnerRepository;
 import app.repository.CottageRepository;
+import app.service.CottageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class CottageServiceImpl implements CottageService{
+public class CottageServiceImpl implements CottageService {
 
     @Autowired
     private CottageOwnerRepository cottageOwnerRepository;
