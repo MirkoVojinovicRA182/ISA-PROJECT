@@ -18,9 +18,10 @@ public class ClientDTO {
     private UserType userType;
     private Set<Reservation> reservations = new HashSet<>();
     private String verificationCode;
+    private UserType role;
 
     public ClientDTO(String email, String password, String name, String lastName, String address, String city,
-                     String country, String phoneNumber, UserType userType, String verificationCode) {
+                     String country, String phoneNumber, UserType userType, String verificationCode, UserType role) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -31,9 +32,14 @@ public class ClientDTO {
         this.phoneNumber = phoneNumber;
         this.userType = userType;
         this.verificationCode = verificationCode;
+        this.role = role;
     }
 
     public ClientDTO(){}
+
+    public UserType getRole() { return role; }
+
+    public void setRole(UserType role) { this.role = role; }
 
     public void setVerificationCode(String verificationCode) {
         this.verificationCode = verificationCode;

@@ -46,35 +46,35 @@ public class UserServiceImpl implements UserService{
         for(Administrator admin: admins)
         {
             UserProfileDTO userProfileDTO = new UserProfileDTO(admin);
-            userProfileDTO.setUserType(UserType.Administrator);
+            userProfileDTO.setUserType(UserType.ADMINISTRATOR);
             users.add(userProfileDTO);
         }
 
         for(Client client: clients)
         {
             UserProfileDTO userProfileDTO = new UserProfileDTO(client);
-            userProfileDTO.setUserType(UserType.Client);
+            userProfileDTO.setUserType(UserType.CLIENT);
             users.add(userProfileDTO);
         }
 
         for(Instructor instructor: instructors)
         {
             UserProfileDTO userProfileDTO = new UserProfileDTO(instructor);
-            userProfileDTO.setUserType(UserType.Instructor);
+            userProfileDTO.setUserType(UserType.INSTRUCTOR);
             users.add(userProfileDTO);
         }
 
         for(CottageOwner cottageOwner: cottageOwners)
         {
             UserProfileDTO userProfileDTO = new UserProfileDTO(cottageOwner);
-            userProfileDTO.setUserType(UserType.CottageOwner);
+            userProfileDTO.setUserType(UserType.COTTAGE_OWNER);
             users.add(userProfileDTO);
         }
 
         for(ShipOwner shipOwner: shipOwners)
         {
             UserProfileDTO userProfileDTO = new UserProfileDTO(shipOwner);
-            userProfileDTO.setUserType(UserType.ShipOwner);
+            userProfileDTO.setUserType(UserType.SHIP_OWNER);
             users.add(userProfileDTO);
         }
 
@@ -83,9 +83,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void deleteUser(Integer userId, UserType userType) {
-        if(userType.equals(UserType.Administrator))
+        if(userType.equals(UserType.ADMINISTRATOR))
             administratorRepository.deleteById(userId);
-        else if(userType.equals(UserType.Client)){
+        else if(userType.equals(UserType.CLIENT)){
 
             List<AdventureReservation> clientReservations = adventureReservationRepository.findByClientId(userId);
 
@@ -96,7 +96,7 @@ public class UserServiceImpl implements UserService{
 
             clientRepository.deleteById(userId);
         }
-        else if(userType.equals(UserType.Instructor)){
+        else if(userType.equals(UserType.INSTRUCTOR)){
             List<AdventureReservation> instructorReservations = adventureReservationRepository.getInstructorReservations(userId);
 
             for(AdventureReservation adventureReservation: instructorReservations){
@@ -106,9 +106,9 @@ public class UserServiceImpl implements UserService{
 
             instructorRepository.deleteById(userId);
         }
-        else if(userType.equals(UserType.CottageOwner))
+        else if(userType.equals(UserType.COTTAGE_OWNER))
             cottageOwnerRepository.deleteById(userId);
-        else if(userType.equals(UserType.ShipOwner))
+        else if(userType.equals(UserType.SHIP_OWNER))
             shipOwnerRepository.deleteById(userId);
     }
 

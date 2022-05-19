@@ -4,6 +4,7 @@ import app.domain.*;
 import app.domain.enums.UserType;
 import app.dto.ClientDTO;
 import app.dto.EjectRegistrationRequestDTO;
+import app.dto.UserRequest;
 import app.dto.UserToRegisterDto;
 import app.repository.*;
 import app.utility.Utility;
@@ -11,6 +12,7 @@ import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
@@ -40,7 +42,13 @@ public class RegistrationServiceImpl implements RegistrationService{
     private ClientRepository clientRepository;
 
     @Autowired
+    private RoleService roleService;
+
+    @Autowired
     private JavaMailSender mailSender;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public RegistrationRequest saveRegistrationRequest(RegistrationRequest request) { return registrationRequestRepository.save(request); }
@@ -54,14 +62,14 @@ public class RegistrationServiceImpl implements RegistrationService{
 
         registrationRequestRepository.deleteById(registrationRequest.getId());
 
-        if(registrationRequest.getUserType().equals(UserType.CottageOwner))
+        if(registrationRequest.getUserType().equals(UserType.COTTAGE_OWNER))
             return cottageOwnerRepository.save(new CottageOwner(registrationRequest.getEmail(), registrationRequest.getPassword(),
                     registrationRequest.getName(), registrationRequest.getLastName(), registrationRequest.getAddress(), registrationRequest.getCity(),
                     registrationRequest.getCountry(), registrationRequest.getPhoneNumber()));
-        if(registrationRequest.getUserType().equals(UserType.ShipOwner))
+        if(registrationRequest.getUserType().equals(UserType.SHIP_OWNER))
             return shipOwnerRepository.save(new ShipOwner(registrationRequest.getEmail(), registrationRequest.getPassword(), registrationRequest.getName(), registrationRequest.getLastName(),
                     registrationRequest.getAddress(), registrationRequest.getCity(), registrationRequest.getCountry(), registrationRequest.getPhoneNumber()));
-        if(registrationRequest.getUserType().equals(UserType.Instructor))
+        if(registrationRequest.getUserType().equals(UserType.INSTRUCTOR))
             return instructorRepository.save(new Instructor(registrationRequest.getEmail(), registrationRequest.getPassword(), registrationRequest.getName(), registrationRequest.getLastName(),
                     registrationRequest.getAddress(), registrationRequest.getCity(), registrationRequest.getCountry(), registrationRequest.getPhoneNumber()));
 
@@ -69,11 +77,14 @@ public class RegistrationServiceImpl implements RegistrationService{
     }
 
     @Override
-    public void registerClient(ClientDTO dto, String siteURL) throws UnsupportedEncodingException, MessagingException {
+    public void registerClient(UserRequest dto, String siteURL) throws UnsupportedEncodingException, MessagingException {
         String randomCode = RandomString.make(64);
-        Client client = new Client(dto.getEmail(), dto.getPassword(), dto.getName(), dto.getLastName(), dto.getAddress(),
+        Client client = new Client(dto.getEmail(), passwordEncoder.encode(dto.getPassword()), dto.getFirstName(), dto.getLastName(), dto.getAddress(),
                 dto.getCity(), dto.getCountry(), dto.getPhoneNumber());
         client.setVerificationCode(randomCode);
+
+        List<Role> roles = roleService.findByName("ROLE_USER");
+        client.setRoles(roles);
 
         clientRepository.save(client);
 
@@ -130,7 +141,7 @@ public class RegistrationServiceImpl implements RegistrationService{
             return false;
         } else {
             client.setVerificationCode(null);
-            client.setEnabled(true);
+            client.setIsEnabled(true);
             clientRepository.save(client);
 
             return true;

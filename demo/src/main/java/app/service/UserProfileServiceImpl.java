@@ -31,13 +31,13 @@ public class UserProfileServiceImpl implements UserProfileService{
 
     @Override
     public UserProfileDTO updatePersonalInfo(UserProfileDTO dto) {
-        if(dto.getUserType().equals(UserType.Instructor)){
+        if(dto.getUserType().equals(UserType.INSTRUCTOR)){
             Instructor instructor = instructorRepository.findById(dto.getUserId()).orElseGet(null);
             instructor.updatePersonalInfo(dto);
             instructorRepository.save(instructor);
         }
 
-        if(dto.getUserType().equals(UserType.Administrator)){
+        if(dto.getUserType().equals(UserType.ADMINISTRATOR)){
             Administrator administrator = administratorRepository.findById(dto.getUserId()).orElseGet(null);
             administrator.updatePersonalInfo(dto);
             administratorRepository.save(administrator);
@@ -49,14 +49,14 @@ public class UserProfileServiceImpl implements UserProfileService{
     @Override
     public UserProfileDTO updatePassword(UserPasswordDTO userPasswordDTO) {
         UserProfileDTO dto = new UserProfileDTO();
-        if(userPasswordDTO.getUserType().equals(UserType.Instructor)){
+        if(userPasswordDTO.getUserType().equals(UserType.INSTRUCTOR)){
             Instructor instructor = instructorRepository.findById(userPasswordDTO.getUserId()).orElseGet(null);
             instructor.setPassword(userPasswordDTO.getNewPassword());
             instructorRepository.save(instructor);
             dto = new UserProfileDTO((ApplicationUser)instructor);
         }
 
-        if(userPasswordDTO.getUserType().equals(UserType.Administrator)){
+        if(userPasswordDTO.getUserType().equals(UserType.ADMINISTRATOR)){
             Administrator administrator = administratorRepository.findById(userPasswordDTO.getUserId()).orElseGet(null);
             administrator.setPassword(userPasswordDTO.getNewPassword());
             administratorRepository.save(administrator);

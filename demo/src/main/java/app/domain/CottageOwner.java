@@ -1,6 +1,8 @@
 package app.domain;
 
+import app.domain.enums.UserType;
 import app.dto.CottageOwnerDTO;
+import org.apache.catalina.User;
 
 import javax.persistence.Entity;
 import javax.persistence.*;

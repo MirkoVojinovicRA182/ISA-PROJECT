@@ -1,6 +1,7 @@
 package app.dto;
 
 import app.domain.CottageOwner;
+import app.domain.enums.UserType;
 
 import javax.persistence.Column;
 
@@ -14,12 +15,14 @@ public class CottageOwnerDTO {
     private String city;
     private String country;
     private String phoneNumber;
+    private UserType role;
 
     public CottageOwnerDTO(){
         super();
     }
 
-    public CottageOwnerDTO(Integer cottageOwnerId, String email, String password, String name, String lastName, String address, String city, String country, String phoneNumber){
+    public CottageOwnerDTO(Integer cottageOwnerId, String email, String password, String name, String lastName, String address,
+                           String city, String country, String phoneNumber, UserType role){
         this.cottageOwnerId = cottageOwnerId;
         this.email = email;
         this.password = password;

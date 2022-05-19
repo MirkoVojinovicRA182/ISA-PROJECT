@@ -5,6 +5,7 @@ import app.domain.RegistrationRequest;
 import app.domain.ApplicationUser;
 import app.dto.ClientDTO;
 import app.dto.EjectRegistrationRequestDTO;
+import app.dto.UserRequest;
 import app.dto.UserToRegisterDto;
 
 import javax.mail.MessagingException;
@@ -17,7 +18,7 @@ public interface RegistrationService {
 
     ApplicationUser approveRegistration(RegistrationRequest registrationRequest) throws Exception;
 
-    void registerClient(ClientDTO dto, String siteURL) throws UnsupportedEncodingException, MessagingException;
+    void registerClient(UserRequest dto, String siteURL) throws UnsupportedEncodingException, MessagingException;
 
     RegistrationRequest saveRegistrationRequest(RegistrationRequest request);
 
