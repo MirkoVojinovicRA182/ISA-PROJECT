@@ -37,6 +37,7 @@ export class CottagesPreviewComponent implements OnInit {
   constructor(private cottageService: CottagesService, private router: Router) { }
 
   ngOnInit(): void {
+    window.scroll(0,0)
     this.getUserCottages();
   }
 
@@ -109,6 +110,18 @@ export class CottagesPreviewComponent implements OnInit {
 
   public addressInputChange(filter: any){
     this.addressFilter = filter;
+  }
+
+  public cottageDetails(cottage: any){
+    var selectedCottage = JSON.stringify(cottage)
+    localStorage.setItem('selectedCottage', selectedCottage)
+    this.router.navigate(['cottageOwner/cottageDetails'])
+  }
+
+  public editCottage(cottage: any){
+    var selectedCottage = JSON.stringify(cottage)
+    localStorage.setItem('selectedCottage', selectedCottage)
+    this.router.navigate(['cottageOwner/cottageDetails'])
   }
 
 }

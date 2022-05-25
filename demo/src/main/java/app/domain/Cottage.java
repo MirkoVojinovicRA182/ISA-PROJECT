@@ -4,7 +4,9 @@ import app.dto.CottageDTO;
 import app.dto.InstructorAdventureDTO;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -45,6 +47,9 @@ public class Cottage {
     @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<CottageComplaint> complaints = new HashSet<CottageComplaint>();
 
+    @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<CottageImage> images = new HashSet<>();
+
 
     public Cottage() {
         super();
@@ -64,6 +69,14 @@ public class Cottage {
 
     public Integer getId() {
         return id;
+    }
+
+    public Set<CottageImage> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<CottageImage> images) {
+        this.images = images;
     }
 
     public void setId(Integer id) {

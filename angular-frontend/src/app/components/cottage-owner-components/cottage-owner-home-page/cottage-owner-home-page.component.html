@@ -29,6 +29,12 @@
             </div>
             <ul>
                 <li>
+                    <a (click) = "router.navigate([' '], {relativeTo:route})">
+                        <span  class="icon"><i class="fas fa-user-plus invertImage"></i></span>
+                        <span class="item" style="color: white;">Home</span>
+                    </a>
+                </li>
+                <li>
                     <a (click) = "router.navigate(['cottagesPreview'], {relativeTo:route})">
                         <span  class="icon"><i class="fas fa-user-plus invertImage"></i></span>
                         <span class="item" style="color: white;">My cottages</span>

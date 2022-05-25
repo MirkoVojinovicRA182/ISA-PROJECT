@@ -25,6 +25,7 @@ import { InstructorStatisticsComponent } from './components/instructor-component
 import { LandingPageComponent } from './components/unregistered-user-components/landing-page/landing-page.component';
 import { LoginComponent } from './components/unregistered-user-components/login/login.component';
 import { UserProfileComponent } from './components/unregistered-user-components/user-profile/user-profile.component';
+import { CottageOwnerDefaultComponent } from './components/cottage-owner-components/cottage-owner-default/cottage-owner-default.component';
 
 const routes: Routes = [
 
@@ -125,6 +126,10 @@ const routes: Routes = [
     path: 'cottageOwner', 
     component: CottageOwnerHomePageComponent,
     children: [
+      {
+        path: ' ',
+        component: CottageOwnerDefaultComponent
+      },
       {
         path: 'cottagesPreview',
         component: CottagesPreviewComponent

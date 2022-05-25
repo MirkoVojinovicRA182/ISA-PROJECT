@@ -11,4 +11,5 @@ public interface CottageService {
     Set<CottageDTO> searchCottage(Integer cottageOwnerId, String searchFilter);
     Set<CottageDTO> getCottageOwnerCottager(Integer cottageOwnerId);
     CottageDTO getCottageById(Integer cottageId);
+    CottageDTO addImage(Integer cottageId, String imgUrl);
 }

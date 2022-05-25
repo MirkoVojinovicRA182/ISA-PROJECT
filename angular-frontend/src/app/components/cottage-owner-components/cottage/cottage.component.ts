@@ -12,13 +12,19 @@ export class CottageComponent implements OnInit {
   images = [
     {path: 'https://upload.wikimedia.org/wikipedia/commons/2/26/Church_Cottage%2C_Stretton_Grandison_-_geograph.org.uk_-_459243.jpg'},
     {path: 'https://upload.wikimedia.org/wikipedia/commons/2/26/Church_Cottage%2C_Stretton_Grandison_-_geograph.org.uk_-_459243.jpg'},
+    {path: 'https://upload.wikimedia.org/wikipedia/commons/2/26/Church_Cottage%2C_Stretton_Grandison_-_geograph.org.uk_-_459243.jpg'},
+    {path: 'https://upload.wikimedia.org/wikipedia/commons/2/26/Church_Cottage%2C_Stretton_Grandison_-_geograph.org.uk_-_459243.jpg'},
   ]
   
-  constructor(private router: Router) { 
-    this.cottage = this.router?.getCurrentNavigation()?.extras.state;
+  constructor(private router: Router) {
+    var selectedCottage = localStorage.getItem('selectedCottage')
+    if(selectedCottage != null)
+      this.cottage = JSON.parse(selectedCottage)
   }
 
   ngOnInit(): void {
+    window.scroll(0,0)
+    this.images.push({path: 'https://upload.wikimedia.org/wikipedia/commons/2/26/Church_Cottage%2C_Stretton_Grandison_-_geograph.org.uk_-_459243.jpg'})
   }
 
 }

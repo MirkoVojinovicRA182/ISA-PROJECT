@@ -56,4 +56,10 @@ public class CottageController {
         return new ResponseEntity<>(cottageService.getCottageById(cottageId), HttpStatus.OK);
     }
 
+    @RequestMapping("/addImage/{cottageId}/{imgUrl}")
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CottageDTO> addImage(@PathVariable Integer cottageId, @PathVariable String imgUrl) throws Exception {
+        return new ResponseEntity<>(cottageService.addImage(cottageId, imgUrl), HttpStatus.OK);
+    }
+
 }

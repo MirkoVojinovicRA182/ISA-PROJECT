@@ -1,7 +1,9 @@
 package app.service.impl;
 
 import app.domain.Cottage;
+import app.domain.CottageImage;
 import app.dto.CottageDTO;
+import app.repository.CottageImageRepository;
 import app.repository.CottageOwnerRepository;
 import app.repository.CottageRepository;
 import app.service.CottageService;
@@ -19,6 +21,9 @@ public class CottageServiceImpl implements CottageService {
 
     @Autowired
     private CottageRepository cottageRepository;
+
+    @Autowired
+    private CottageImageRepository cottageImageRepository;
 
     @Override
     public void saveCottage(CottageDTO cottageDTO) {
@@ -70,6 +75,16 @@ public class CottageServiceImpl implements CottageService {
     @Override
     public CottageDTO getCottageById(Integer cottageId) {
         return new CottageDTO(cottageRepository.getByCottageId(cottageId));
+    }
+
+    @Override
+    public CottageDTO addImage(Integer cottageId, String imgUrl) {
+        Cottage cottageForUpdate = cottageRepository.findById(cottageId).orElseGet(null);
+        CottageImage image = new CottageImage(imgUrl, cottageForUpdate);
+        cottageImageRepository.save(image);
+        cottageForUpdate.getImages().add(image);
+        cottageRepository.save(cottageForUpdate);
+        return new CottageDTO(cottageForUpdate);
     }
 
 
