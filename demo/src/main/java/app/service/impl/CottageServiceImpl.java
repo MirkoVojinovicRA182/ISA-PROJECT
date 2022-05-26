@@ -2,10 +2,12 @@ package app.service.impl;
 
 import app.domain.Cottage;
 import app.domain.CottageImage;
+import app.domain.Room;
 import app.dto.CottageDTO;
 import app.repository.CottageImageRepository;
 import app.repository.CottageOwnerRepository;
 import app.repository.CottageRepository;
+import app.repository.CottageRoomRepository;
 import app.service.CottageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,17 +27,19 @@ public class CottageServiceImpl implements CottageService {
     @Autowired
     private CottageImageRepository cottageImageRepository;
 
+    @Autowired
+    private CottageRoomRepository cottageRoomRepository;
+
     @Override
     public void saveCottage(CottageDTO cottageDTO) {
         Cottage newCottage = new Cottage(
                 cottageDTO.getName(),
                 cottageDTO.getAddress(),
                 cottageDTO.getPromotiveDescription(),
-                cottageDTO.getRoomsNumber(),
-                cottageDTO.getBedsNumber(),
                 cottageDTO.getConductRules(),
                 cottageDTO.getPricelist(),
-                cottageOwnerRepository.getById(cottageDTO.getCottageOwnerId()));
+                cottageOwnerRepository.getById(cottageDTO.getCottageOwnerId()),
+                cottageDTO.getRooms());
         cottageRepository.save(newCottage);
     }
 
@@ -78,11 +82,25 @@ public class CottageServiceImpl implements CottageService {
     }
 
     @Override
-    public CottageDTO addImage(Integer cottageId, String imgUrl) {
+    public CottageDTO addImage(Integer cottageId, Set<String> imgsUrl) {
         Cottage cottageForUpdate = cottageRepository.findById(cottageId).orElseGet(null);
-        CottageImage image = new CottageImage(imgUrl, cottageForUpdate);
-        cottageImageRepository.save(image);
-        cottageForUpdate.getImages().add(image);
+        Set<CottageImage> images = new HashSet<>();
+        for(String imgUrl : imgsUrl){
+            CottageImage image = new CottageImage(imgUrl, cottageForUpdate);
+            images.add(image);
+        }
+        cottageImageRepository.saveAll(images);
+        cottageForUpdate.getImages().addAll(images);
+        cottageRepository.save(cottageForUpdate);
+        return new CottageDTO(cottageForUpdate);
+    }
+
+    @Override
+    public CottageDTO addRoom(Integer cottageId, Set<Room> rooms) {
+        Cottage cottageForUpdate = cottageRepository.findById(cottageId).orElseGet(null);
+        Set<Room> newRooms = new HashSet<>();
+        cottageRoomRepository.saveAll(newRooms);
+        cottageForUpdate.getRooms().addAll(newRooms);
         cottageRepository.save(cottageForUpdate);
         return new CottageDTO(cottageForUpdate);
     }

@@ -2,6 +2,7 @@ package app.dto;
 
 import app.domain.Cottage;
 import app.domain.CottageImage;
+import app.domain.Room;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,12 +12,11 @@ public class CottageDTO {
     private String name;
     private String address;
     private String promotiveDescription;
-    private int roomsNumber;
-    private int bedsNumber;
     private String conductRules;
     private String pricelist;
     private Integer cottageOwnerId;
     private Set<CottageImage> images;
+    private Set<Room> rooms;
 
     public CottageDTO(){
         super();
@@ -27,26 +27,24 @@ public class CottageDTO {
         this.name = cottage.getName();
         this.address = cottage.getAddress();
         this.promotiveDescription = cottage.getPromotiveDescription();
-        this.roomsNumber = cottage.getRoomsNumber();
-        this.bedsNumber = cottage.getBedsNumber();
         this.conductRules = cottage.getConductRules();
         this.pricelist = cottage.getPricelist();
         this.cottageOwnerId = cottage.getCottageOwner().getId();
         this.images = cottage.getImages();
+        this.rooms = cottage.getRooms();
     }
 
-    public CottageDTO(Integer cottageId, String name, String address, String promotiveDescription, int roomsNumber, int bedsNumber,String conductRules, String pricelist, int cottageOwnerId) {
+    public CottageDTO(Integer cottageId, String name, String address, String promotiveDescription, String conductRules, String pricelist, int cottageOwnerId) {
         super();
         this.cottageId = cottageId;
         this.name = name;
         this.address = address;
         this.promotiveDescription = promotiveDescription;
-        this.roomsNumber = roomsNumber;
-        this.bedsNumber = bedsNumber;
         this.conductRules = conductRules;
         this.pricelist = pricelist;
         this.cottageOwnerId = cottageOwnerId;
         this.images = new HashSet<>();
+        this.rooms = new HashSet<>();
     }
 
     public Integer getCottageId() {
@@ -81,22 +79,6 @@ public class CottageDTO {
         this.promotiveDescription = promotiveDescription;
     }
 
-    public int getRoomsNumber() {
-        return roomsNumber;
-    }
-
-    public void setRoomsNumber(int roomsNumber) {
-        this.roomsNumber = roomsNumber;
-    }
-
-    public int getBedsNumber() {
-        return bedsNumber;
-    }
-
-    public void setBedsNumber(int bedsNumber) {
-        this.bedsNumber = bedsNumber;
-    }
-
     public String getConductRules() {
         return conductRules;
     }
@@ -127,5 +109,13 @@ public class CottageDTO {
 
     public void setImages(Set<CottageImage> images) {
         this.images = images;
+    }
+
+    public Set<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Set<Room> rooms) {
+        this.rooms = rooms;
     }
 }

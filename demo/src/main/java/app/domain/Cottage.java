@@ -25,12 +25,6 @@ public class Cottage {
     @Column(name = "promotiveDescription", unique = false, nullable = false)
     private String promotiveDescription;
 
-    @Column(name = "roomsNumber", unique = false, nullable = false)
-    private int roomsNumber;
-
-    @Column(name = "bedsNumber", unique = false, nullable = false)
-    private int bedsNumber;
-
     @Column(name = "conductRules", unique = false, nullable = false)
     private String conductRules;
 
@@ -50,21 +44,23 @@ public class Cottage {
     @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<CottageImage> images = new HashSet<>();
 
+    @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<Room> rooms = new HashSet<>();
+
 
     public Cottage() {
         super();
     }
 
-    public Cottage(String name, String address, String promotiveDescription, int roomsNumber, int bedsNumber, String conductRules, String pricelist, CottageOwner cottageOwner) {
+    public Cottage(String name, String address, String promotiveDescription, String conductRules, String pricelist, CottageOwner cottageOwner, Set<Room> rooms) {
         super();
         this.name = name;
         this.address = address;
         this.promotiveDescription = promotiveDescription;
-        this.roomsNumber = roomsNumber;
-        this.bedsNumber = bedsNumber;
         this.conductRules = conductRules;
         this.pricelist = pricelist;
         this.cottageOwner = cottageOwner;
+        this.rooms = rooms;
     }
 
     public Integer getId() {
@@ -107,21 +103,6 @@ public class Cottage {
         this.promotiveDescription = promotiveDescription;
     }
 
-    public int getRoomsNumber() {
-        return roomsNumber;
-    }
-
-    public void setRoomsNumber(int roomsNumber) {
-        this.roomsNumber = roomsNumber;
-    }
-
-    public int getBedsNumber() {
-        return bedsNumber;
-    }
-
-    public void setBedsNumber(int bedsNumber) {
-        this.bedsNumber = bedsNumber;
-    }
 
     public String getConductRules() {
         return conductRules;
@@ -155,12 +136,19 @@ public class Cottage {
         this.cottageReservations = cottageReservations;
     }
 
+    public Set<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Set<Room> rooms) {
+        this.rooms = rooms;
+    }
+
     public void update(CottageDTO cottageDTO) {
         setName(cottageDTO.getName());
         setAddress(cottageDTO.getAddress());
         setPromotiveDescription(cottageDTO.getPromotiveDescription());
-        setRoomsNumber(cottageDTO.getRoomsNumber());
-        setBedsNumber(cottageDTO.getBedsNumber());
+        setRooms(cottageDTO.getRooms());
         setConductRules(cottageDTO.getConductRules());
         setPricelist(cottageDTO.getPricelist());
     }

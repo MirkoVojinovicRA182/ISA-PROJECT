@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.domain.Room;
 import app.dto.CottageDTO;
 import app.service.CottageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,8 +59,14 @@ public class CottageController {
 
     @RequestMapping("/addImage/{cottageId}/{imgUrl}")
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CottageDTO> addImage(@PathVariable Integer cottageId, @PathVariable String imgUrl) throws Exception {
+    public ResponseEntity<CottageDTO> addImage(@PathVariable Integer cottageId, @RequestBody Set<String> imgUrl) throws Exception {
         return new ResponseEntity<>(cottageService.addImage(cottageId, imgUrl), HttpStatus.OK);
+    }
+
+    @RequestMapping("/addRoom/{cottageId}")
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CottageDTO> addRoom(@PathVariable Integer cottageId, @RequestBody Set<Room> rooms) throws Exception {
+        return new ResponseEntity<>(cottageService.addRoom(cottageId, rooms), HttpStatus.OK);
     }
 
 }

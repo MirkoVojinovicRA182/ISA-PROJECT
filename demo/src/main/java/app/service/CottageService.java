@@ -1,5 +1,6 @@
 package app.service;
 
+import app.domain.Room;
 import app.dto.CottageDTO;
 
 import java.util.Set;
@@ -11,5 +12,6 @@ public interface CottageService {
     Set<CottageDTO> searchCottage(Integer cottageOwnerId, String searchFilter);
     Set<CottageDTO> getCottageOwnerCottager(Integer cottageOwnerId);
     CottageDTO getCottageById(Integer cottageId);
-    CottageDTO addImage(Integer cottageId, String imgUrl);
+    CottageDTO addImage(Integer cottageId, Set<String> imgUrl);
+    CottageDTO addRoom(Integer cottageId, Set<Room> imgUrl);
 }
