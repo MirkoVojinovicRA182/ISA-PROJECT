@@ -16,7 +16,7 @@ public class Room {
     private Integer roomNumber;
 
     @Column(name = "bedsNumber", unique = false, nullable = false)
-    private String bedsNumber;
+    private Integer bedsNumber;
 
     @Column(name = "bathroom", unique = false, nullable = false)
     private boolean bathroom;
@@ -31,12 +31,13 @@ public class Room {
 
     public Room(){}
 
-    public Room(Integer id, Integer roomNumber, String bedsNumber, boolean bathroom, boolean clime) {
+    public Room(Integer id, Integer roomNumber, Integer bedsNumber, boolean bathroom, boolean clime, Cottage cottage) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.bedsNumber = bedsNumber;
         this.bathroom = bathroom;
         this.clime = clime;
+        this.cottage = cottage;
     }
 
     public Integer getId() {
@@ -55,11 +56,11 @@ public class Room {
         this.roomNumber = roomNumber;
     }
 
-    public String getBedsNumber() {
+    public Integer getBedsNumber() {
         return bedsNumber;
     }
 
-    public void setBedsNumber(String bedsNumber) {
+    public void setBedsNumber(Integer bedsNumber) {
         this.bedsNumber = bedsNumber;
     }
 

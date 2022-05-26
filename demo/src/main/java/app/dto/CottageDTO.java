@@ -30,8 +30,8 @@ public class CottageDTO {
         this.conductRules = cottage.getConductRules();
         this.pricelist = cottage.getPricelist();
         this.cottageOwnerId = cottage.getCottageOwner().getId();
-        this.images = cottage.getImages();
-        this.rooms = cottage.getRooms();
+        this.images = /*(cottage.getImages()  != null) ? cottage.getImages() :*/ new HashSet<>();
+        this.rooms = (cottage.getRooms()  != null) ? cottage.getRooms() : new HashSet<>();
     }
 
     public CottageDTO(Integer cottageId, String name, String address, String promotiveDescription, String conductRules, String pricelist, int cottageOwnerId) {

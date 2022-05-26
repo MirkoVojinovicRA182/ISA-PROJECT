@@ -40,7 +40,7 @@ public class CottageReservationServiceImpl implements CottageReservationService 
 
         for(Cottage cottage : cottages){
             reserved = false;
-            if(cottage.getRoomsNumber() >= dto.getRoomsNumber()){
+            if(cottage.getRooms().size() >= dto.getRoomsNumber()){
                 if(cottage.getBedsNumber() >= dto.getBedsNumber()) {
                     for (var reservation : reservations) {
                         if (reservation.getStartTime().equals(dateTime)) {

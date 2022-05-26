@@ -25,12 +25,12 @@ export class CottagesPreviewComponent implements OnInit {
 
   roomsOptions: Options = {
     floor: 0,
-    ceil: 0,
+    ceil: 100,
   };
 
   bedsOptions: Options = {
     floor: 0,
-    ceil: 0,
+    ceil: 100,
   };
 
 
@@ -61,34 +61,40 @@ export class CottagesPreviewComponent implements OnInit {
   }
 
   getMaxRooms(){
-    this.maxRooms = this.cottages[0]?.roomsNumber;
-    for (var cottage of this.cottages) {
-      if(this.maxRooms < cottage?.roomsNumber)
-        this.maxRooms = cottage?.roomsNumber;
+    if(this.cottages.rooms != null){
+      this.maxRooms = this.cottages[0]?.roomsNumber;
+      for (var cottage of this.cottages) {
+        if(this.maxRooms < cottage?.rooms.lenght)
+          this.maxRooms = cottage?.rooms.lenght;
+      }
+      this.selectedRoomsMax = this.maxRooms;
+      this.roomsOptions = new Options();
+      this.roomsOptions.floor = 1;
+      this.roomsOptions.ceil = this.maxRooms;
     }
-    this.selectedRoomsMax = this.maxRooms;
-    this.roomsOptions = new Options();
-    this.roomsOptions.floor = 1;
-    this.roomsOptions.ceil = this.maxRooms;
   }
 
   getMaxBeds(){
-    this.maxBeds = this.cottages[0]?.bedsNumber;
-    for (var cottage of this.cottages) {
-      if(this.maxBeds < cottage?.bedsNumber)
-        this.maxBeds = cottage?.bedsNumber;
+    if(this.cottages.rooms != null){
+      this.maxBeds = this.cottages[0]?.rooms[0]?.bedsNumber;
+      for (var cottage of this.cottages) {
+        for(var room of cottage?.rooms){
+          if(this.maxBeds < room?.bedsNumber)
+            this.maxBeds = room?.bedsNumber;
+        }
+      }
+      this.selectedBedsMax = this.maxBeds;
+      this.bedsOptions = new Options();
+      this.bedsOptions.floor = 1;
+      this.bedsOptions.ceil = this.maxBeds;
     }
-    this.selectedBedsMax = this.maxBeds;
-    this.bedsOptions = new Options();
-    this.bedsOptions.floor = 1;
-    this.bedsOptions.ceil = this.maxBeds;
   }
 
   filterCottages(){
     this.filteredCottages = new Array();
     for (var cottage of this.cottages) {
-      if(this.selectedRoomsMin <= cottage?.roomsNumber && cottage?.roomsNumber <= this.selectedRoomsMax && 
-        this.selectedBedsMin <= cottage?.bedsNumber && cottage?.bedsNumber <= this.selectedBedsMax &&
+      if(this.selectedRoomsMin <= cottage?.rooms.lenght && cottage?.rooms.lenght <= this.selectedRoomsMax && 
+        this.selectedBedsMin <= this.getAllBedsNumber(cottage) && this.getAllBedsNumber(cottage) <= this.selectedBedsMax &&
         cottage?.name.toLowerCase().includes(this.nameFilter.toLowerCase()) && cottage?.address.toLowerCase().includes(this.addressFilter.toLowerCase()))
         this.filteredCottages.push(cottage)
     }
@@ -102,6 +108,14 @@ export class CottagesPreviewComponent implements OnInit {
     this.selectedRoomsMin = 1;
     this.nameFilter = "";
     this.addressFilter = "";
+  }
+
+  getAllBedsNumber(cottage : any){
+    var bedsNumber = 0;
+    for(var room of cottage.rooms){
+      bedsNumber += room.bedsNumber
+    }
+    return bedsNumber;
   }
 
   public nameInputChange(filter: any){

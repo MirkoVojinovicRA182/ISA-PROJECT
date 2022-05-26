@@ -144,6 +144,14 @@ public class Cottage {
         this.rooms = rooms;
     }
 
+    public Integer getBedsNumber(){
+        Integer bedsNumber = 0;
+        for(Room room : getRooms()){
+            bedsNumber += room.getBedsNumber();
+        }
+        return bedsNumber;
+    }
+
     public void update(CottageDTO cottageDTO) {
         setName(cottageDTO.getName());
         setAddress(cottageDTO.getAddress());
@@ -151,5 +159,7 @@ public class Cottage {
         setRooms(cottageDTO.getRooms());
         setConductRules(cottageDTO.getConductRules());
         setPricelist(cottageDTO.getPricelist());
+        setRooms(cottageDTO.getRooms());
+        setImages(cottageDTO.getImages());
     }
 }
