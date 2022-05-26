@@ -34,6 +34,12 @@ public class CottageOwner extends ApplicationUser{
 
     }
 
+    public CottageOwner(String email, String password, String name, String lastName,
+                        String address, String city, String country, String phoneNumber, boolean enabled) {
+        super(email, password, name, lastName, address, city, country, phoneNumber, enabled);
+
+    }
+
     public Set<Cottage> getCottages() {
         return cottages;
     }

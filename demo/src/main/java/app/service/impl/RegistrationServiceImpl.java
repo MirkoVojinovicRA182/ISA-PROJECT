@@ -67,7 +67,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         if(registrationRequest.getUserType().equals(UserType.COTTAGE_OWNER))
             return cottageOwnerRepository.save(new CottageOwner(registrationRequest.getEmail(), registrationRequest.getPassword(),
                     registrationRequest.getName(), registrationRequest.getLastName(), registrationRequest.getAddress(), registrationRequest.getCity(),
-                    registrationRequest.getCountry(), registrationRequest.getPhoneNumber()));
+                    registrationRequest.getCountry(), registrationRequest.getPhoneNumber(), true));
         if(registrationRequest.getUserType().equals(UserType.SHIP_OWNER))
             return shipOwnerRepository.save(new ShipOwner(registrationRequest.getEmail(), registrationRequest.getPassword(), registrationRequest.getName(), registrationRequest.getLastName(),
                     registrationRequest.getAddress(), registrationRequest.getCity(), registrationRequest.getCountry(), registrationRequest.getPhoneNumber()));

@@ -82,6 +82,19 @@ public abstract class ApplicationUser implements UserDetails {
         this.phoneNumber = phoneNumber;
     }
 
+    public ApplicationUser(String email, String password, String name, String lastName, String address, String city,
+                           String country, String phoneNumber, boolean isEnabled) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.phoneNumber = phoneNumber;
+        this.isEnabled = isEnabled;
+    }
+
     public boolean isEnabled() { return isEnabled; }
 
     public void setIsEnabled(Boolean isEnabled) { this.isEnabled = isEnabled; }
