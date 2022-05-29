@@ -143,6 +143,26 @@ public class UserServiceImpl implements UserService {
             cottageOwnerRepository.save(cottageOwner);
             return new UserProfileDTO(cottageOwner);
         }
+    }
+    
+    public Client findByUsername(String username) {
+ /*       if (cottageOwnerRepository.findByEmail(username) != null)
+            return cottageOwnerRepository.findByEmail(username);
+
+        if (shipOwnerRepository.findByEmail(username) != null)
+            return shipOwnerRepository.findByEmail(username);
+
+        if (instructorRepository.findByEmail(username) != null)
+            return instructorRepository.findByEmail(username);
+
+        if (administratorRepository.findByEmail(username) != null)
+            return administratorRepository.findByEmail(username);
+*/
+        if (clientRepository.findByEmail(username) != null) {
+            Client c = clientRepository.findByEmail(username);
+            return c;
+
+        }
         return null;
     }
 }

@@ -1,5 +1,6 @@
 package app.service;
 
+import app.domain.Client;
 import app.domain.enums.UserType;
 import app.dto.CottageOwnerDTO;
 import app.dto.UserProfileDTO;
@@ -16,4 +17,6 @@ public interface UserService {
     UserProfileDTO getCottageOwner(String username);
 
     UserProfileDTO updateCottageOwner(UserProfileDTO userProfileDTO);
+    
+    Client findByUsername(String username);
 }

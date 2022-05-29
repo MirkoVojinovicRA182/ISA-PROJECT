@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdministratorCottagesViewComponent } from './components/administrator-components/administrator-cottages-view/administrator-cottages-view.component';
-import { OwnerRegistrationComponent } from './components/owner-registration/owner-registration.component';
+import { OwnerRegistrationComponent } from './components/unregistered-user-components/owner-registration/owner-registration.component';
 import { UserSettingsComponent } from './components/unregistered-user-components/user-settings/user-settings.component';
 import { Instructor } from './model/instructor';
 import { Cottage } from './model/cottage';
@@ -26,26 +26,55 @@ import { LandingPageComponent } from './components/unregistered-user-components/
 import { LoginComponent } from './components/unregistered-user-components/login/login.component';
 import { UserProfileComponent } from './components/unregistered-user-components/user-profile/user-profile.component';
 import { CottageOwnerDefaultComponent } from './components/cottage-owner-components/cottage-owner-default/cottage-owner-default.component';
+import { AllCottagesComponent } from './components/unregistered-user-components/all-cottages/all-cottages.component';
+import { AllAdventuresComponent } from './components/unregistered-user-components/all-adventures/all-adventures.component';
+import { AllShipsComponent } from './components/unregistered-user-components/all-ships/all-ships.component';
 
 const routes: Routes = [
 
-  { path: '', component: LandingPageComponent },
-  //{ path: '**', redirectTo: 'welcome' },
-  { path: 'login', component: LoginComponent},
-  { path: 'landingPage', component: LandingPageComponent},
-  { path: 'welcome', component: LandingPageComponent },
-  //{ path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: '',   redirectTo: '/landingPage/login', pathMatch: 'full' },
+  {
+    path: 'landingPage',
+    component: LandingPageComponent,
+
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'registration',
+        component: OwnerRegistrationComponent
+      },
+      {
+        path: 'allCottages',
+        component: AllCottagesComponent
+      },
+      {
+        path: 'allAdventures',
+        component: AllAdventuresComponent
+      },
+      {
+        path: 'allShips',
+        component: AllShipsComponent
+      },
+      {
+        path: 'instructorLessons/:id',
+        component: InstructorOneLessonDetailComponent
+      },
+    ]
+  },
 
   // ADMINSTRATOR ROUTES
 
-  { 
-    path: 'admin', 
+  {
+    path: 'admin',
     component: AdministratorHomePageComponent,
 
     children: [
       {
-          path: 'registrationRequests',
-          component: AdministratorRegistrationRequestsComponent
+        path: 'registrationRequests',
+        component: AdministratorRegistrationRequestsComponent
       },
       {
         path: 'adminRegistration',
@@ -83,13 +112,13 @@ const routes: Routes = [
         path: 'profile',
         component: UserProfileComponent
       }
-  ]
-  
+    ]
+
   },
 
   // INSTRUCTOR ROUTES
-  { 
-    path: 'instructor', 
+  {
+    path: 'instructor',
     component: InstructorHomePageComponent,
 
     children: [
@@ -120,10 +149,10 @@ const routes: Routes = [
     ]
   },
 
-    // COTTAGE OWNER ROUTES
+  // COTTAGE OWNER ROUTES
 
-  { 
-    path: 'cottageOwner', 
+  {
+    path: 'cottageOwner',
     component: CottageOwnerHomePageComponent,
     children: [
       {
@@ -141,12 +170,15 @@ const routes: Routes = [
     ]
   },
 
-  // REGISTRATION ROUTES
-  { path: 'registration', component: OwnerRegistrationComponent },
-
   // PROFILE ROUTES
-  { path: 'profile', component: UserProfileComponent },
-  { path: 'settings', component: UserSettingsComponent }
+  {
+    path: 'profile',
+    component: UserProfileComponent
+  },
+  { 
+    path: 'settings', 
+    component: UserSettingsComponent 
+  }
 
 ];
 

@@ -20,4 +20,8 @@ export class CottagesService {
   getCottageById(cottageId: number): Observable<Cottage[]>{
     return this.http.get<Cottage[]>(this._url + 'cottage/getCottage/' + cottageId);
   }
+
+  getAllCottages(): Observable<Cottage[]>{
+    return this.http.get<Cottage[]>(this._url + 'entity/getAllCottages/');
+  }
 }

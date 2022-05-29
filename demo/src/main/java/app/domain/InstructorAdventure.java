@@ -45,7 +45,7 @@ public class InstructorAdventure {
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
-    @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<AdventureAdditionalService> additionalServices;
 
     @OneToMany(mappedBy = "instructorAdventure", cascade = CascadeType.ALL)

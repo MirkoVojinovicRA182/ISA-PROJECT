@@ -16,15 +16,25 @@ export class OwnerRegistrationComponent implements OnInit {
   constructor(private registrationService: UserRegistrationService) { }
 
   ngOnInit(): void {
+    this.registrationRequest.userType = "Client"
   }
 
   registerUser(){
     if(this.repeatedPassword == this.registrationRequest.password){
-      this.registrationService.sendRegistrationRequest(this.registrationRequest).subscribe(
-        () => {
-          alert("Registration request is sent to administrator. Check your mail latter for more informations.");
-        }
-      );
+      if(this.registrationRequest.userType != "Client"){
+        this.registrationService.sendRegistrationRequest(this.registrationRequest).subscribe(
+          () => {
+            alert("Registration request is sent to administrator. Check your mail latter for more informations.");
+          }
+        );
+      }
+      else {
+        this.registrationService.registerClient(this.registrationRequest).subscribe(
+          () => {
+            alert("Registration request is sent to mail. Check your mail latter for account verification.");
+          }
+        )
+      }
       return;
     }
     alert('Repeated password is not same!!!');

@@ -1,10 +1,7 @@
 package app.service;
 
 import app.domain.Instructor;
-import app.dto.CottageDTO;
-import app.dto.InstructorAdventureDTO;
-import app.dto.ShipDTO;
-import app.dto.UserProfileDTO;
+import app.dto.*;
 
 import java.util.List;
 
@@ -13,9 +10,9 @@ public interface EntityService {
 
     List<InstructorAdventureDTO> getAllInstructorAdventures();
 
-    UserProfileDTO getInstructorById(Integer id);
+    UserRequest getInstructorById(Integer id);
 
-    UserProfileDTO getAdministratorById(Integer id);
+    UserRequest getAdministratorById(Integer id);
 
     List<CottageDTO> getAllCottages();
 

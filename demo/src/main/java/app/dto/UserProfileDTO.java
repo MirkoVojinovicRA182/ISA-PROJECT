@@ -24,7 +24,6 @@ public class UserProfileDTO {
         name = applicationUser.getName();
         lastName = applicationUser.getLastName();
         email = applicationUser.getEmail();
-        password = applicationUser.getPassword();
         address = applicationUser.getAddress();
         city = applicationUser.getCity();
         country = applicationUser.getCountry();

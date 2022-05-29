@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { serverPort } from 'src/app/app.consts';
 import { Administrator } from 'src/app/model/administrator';
+import { Client } from 'src/app/model/client';
 import { EjectRegistrationRequest } from 'src/app/model/eject-registration-request';
 import { RegistrationRequest } from 'src/app/model/registration-request';
 import { User } from 'src/app/model/user';
@@ -42,6 +43,10 @@ export class UserRegistrationService {
 
   deleteUser(user: User){
     return this._http.delete(this._url + 'users/deleteUser?userId=' + user.userId + '&userType=' + user.userType);
+  }
+
+  registerClient(client: Client){
+    return this._http.post<Administrator>(this._url + 'registration/registerClient', client)
   }
 
 }

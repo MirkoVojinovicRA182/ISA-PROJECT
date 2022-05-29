@@ -1,5 +1,7 @@
 package app.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -24,8 +26,9 @@ public class AdventureReservation {
     @OneToMany(mappedBy = "adventureReservation", cascade = CascadeType.ALL)
     private Set<AdventureAdditionalService> adventureAdditionalServices = new HashSet<>();
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
+    @JsonBackReference
     private Client client;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)

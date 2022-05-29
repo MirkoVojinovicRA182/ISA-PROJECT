@@ -1,29 +1,25 @@
 <div class="content">
-    <h2><b>Login page</b></h2>
+    <h2 style="text-align: center;"><b style="color: rgb(18, 162, 37); font-size: 18pt;">Login page</b></h2>
     <hr style="margin-bottom: 70px;">
     <div class="container">
         <table>
             <tr>
                 <td>Username: </td>
                 <td>
-                    <input type="email" id="username" name="username" required>
+                    <input type="email" id="username" name="username" [(ngModel)]="username" required>
                 </td>
             </tr>
             <tr>
                 <td>Password: </td>
                 <td>
-                    <input type="password" id="password" name="password" pattern="[a-zA-Z]+" required>
+                    <input type="password" id="password" name="password" [(ngModel)]="password" required>
                 </td>
             </tr>
         </table>
     </div>
     <div>
-        <button
-            tabindex="-1"
-            class="userProfileButton"
-            style="margin-top: 30px; margin-left: 50%;"
-            (click)="login()"
+        <button tabindex="-1" class="userProfileButton"
+            style="margin-top: 30px; margin-left: 50%; background-color: rgb(18, 162, 37);" (click)="login()"
             mat-raised-button>Login</button>
     </div>
 </div>
-

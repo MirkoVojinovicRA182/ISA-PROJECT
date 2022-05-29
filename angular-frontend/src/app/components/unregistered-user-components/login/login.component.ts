@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { LoginUser } from 'src/app/model/login-user';
 import { User } from 'src/app/model/user';
 import { LoginService } from 'src/app/services/login/login.service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   loggedUser: User = new User()
   username: string = ""
   password: string = ""
+  user: any
 
   constructor(private _loginService: LoginService,
     private route: ActivatedRoute,
@@ -23,23 +25,33 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(){
-    this.username = (<HTMLInputElement>document.getElementById("username")).value;
-    this.password = (<HTMLInputElement>document.getElementById("password")).value;
-    this.loginUser  = {
-      username: this.username,
-      password: this.password
-    }
-    //this._loginService.getUser(this.loginUser).subscribe(response => this.loggedUser = response);
-    this._loginService.login(this.loginUser).subscribe(
-      data => {
-        if (data != null){
-          localStorage.setItem("token", JSON.stringify(data))
-          this.router.navigate([''])
-        } 
-      }
-      
-      );
+  login() {
+    this._loginService.login({ username: this.username, password: this.password })
+      .subscribe(data => {
+        localStorage.setItem('jwt', data.body.accessToken)
+        let token = this.getDecodedAccessToken(data.body.accessToken)
+        this._loginService.getMyInfo(token.sub).subscribe(response => { this.user = response 
+        if (this.user.roles[0].name == "ROLE_ADMIN") {
+          this.router.navigate(['admin'])
+        } else if (this.user.roles[0].name == "ROLE_CLIENT") {
+          this.router.navigate(['admin'])
+        } else if (this.user.roles[0].name == "ROLE_INSTRUCTOR") {
+          this.router.navigate(['instructor'])
+        } else if (this.user.roles[0].name == "ROLE_SHIP_OWNER") {
+          this.router.navigate(['shipOwner'])
+        } else {
+          this.router.navigate(['cottageOwner'])
+        }
+      })
+      })
   }
 
+  getDecodedAccessToken(token: string): any {
+    try {
+      return jwt_decode(token);
+    } catch(Error) {
+      return null;
+    }
+  }
 }
+
