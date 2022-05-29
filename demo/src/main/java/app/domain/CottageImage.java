@@ -1,5 +1,7 @@
 package app.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,6 +17,7 @@ public class CottageImage {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cottage_id")
+    @JsonBackReference
     private Cottage cottage;
 
     public CottageImage() {

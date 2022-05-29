@@ -1,5 +1,7 @@
 package app.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -22,6 +24,7 @@ public class CottageReservation {
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "cottage_id")
+    @JsonBackReference
     private Cottage cottage;
 
     public CottageReservation(){}

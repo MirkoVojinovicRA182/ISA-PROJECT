@@ -30,7 +30,7 @@ public class CottageDTO {
         this.conductRules = cottage.getConductRules();
         this.pricelist = cottage.getPricelist();
         this.cottageOwnerId = cottage.getCottageOwner().getId();
-        this.images = /*(cottage.getImages()  != null) ? cottage.getImages() :*/ new HashSet<>();
+        this.images = (cottage.getImages()  != null) ? cottage.getImages() : new HashSet<>();
         this.rooms = (cottage.getRooms()  != null) ? cottage.getRooms() : new HashSet<>();
     }
 

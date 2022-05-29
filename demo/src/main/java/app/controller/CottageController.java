@@ -4,6 +4,7 @@ import app.domain.Room;
 import app.dto.CottageDTO;
 import app.service.CottageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

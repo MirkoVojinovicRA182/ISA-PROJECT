@@ -2,6 +2,7 @@ package app.domain;
 
 import app.dto.CottageDTO;
 import app.dto.InstructorAdventureDTO;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -33,18 +34,23 @@ public class Cottage {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cottage_owner_id")
+    @JsonBackReference
     private CottageOwner cottageOwner;
 
     @OneToMany(mappedBy = "cottage", cascade = CascadeType.ALL)
+    @JsonBackReference
     private Set<CottageReservation> cottageReservations = new HashSet<>();
     
     @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<CottageComplaint> complaints = new HashSet<CottageComplaint>();
 
     @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<CottageImage> images = new HashSet<>();
 
     @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<Room> rooms = new HashSet<>();
 
 

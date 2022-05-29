@@ -2,6 +2,7 @@ package app.domain;
 
 import app.domain.enums.UserType;
 import app.dto.CottageOwnerDTO;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.apache.catalina.User;
 
 import javax.persistence.Entity;
@@ -15,6 +16,7 @@ import java.util.Set;
 public class CottageOwner extends ApplicationUser{
 
     @OneToMany(mappedBy = "cottageOwner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<Cottage> cottages = new HashSet<Cottage>();
 
     @OneToMany(mappedBy = "cottageOwner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
