@@ -16,6 +16,9 @@ public class CottageReservation {
     private LocalDateTime startTime;
 
     @Column
+    private LocalDateTime endTime;
+
+    @Column
     private String price;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
@@ -29,8 +32,17 @@ public class CottageReservation {
 
     public CottageReservation(){}
 
+    public CottageReservation(LocalDateTime startTime, LocalDateTime endTime,String price, Client client, Cottage cottage) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.price = price;
+        this.client = client;
+        this.cottage = cottage;
+    }
+
     public CottageReservation(LocalDateTime startTime, String price, Client client, Cottage cottage) {
         this.startTime = startTime;
+        this.endTime = startTime.plusDays(1);
         this.price = price;
         this.client = client;
         this.cottage = cottage;
@@ -43,6 +55,14 @@ public class CottageReservation {
     public LocalDateTime getStartTime() { return startTime; }
 
     public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
+
+    public LocalDateTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
+    }
 
     public String getPrice() { return price; }
 

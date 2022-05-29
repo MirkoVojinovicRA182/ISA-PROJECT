@@ -137,7 +137,19 @@ insert into cottage_owner (id, address, city, country, email, name, last_name, p
 
 /*----------------------------------------------------------------------Cottage-----------------------------------------------------------------------------------------------*/
 insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id)
-    values(1, 'Stevanova', 'Neka', 'Dodjite u Stevanovu kolibu', 'Pravila', 'Cenovnik', 5);
+    values(1, 'Stevanova', 'Neka', 'Dodjite u Stevanovu kolibu', 'Pravila', 'Cenovnik: Dan 50$', 5);
+
+insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
+    (4, 'Koliba na fruskoj', 'Fruska Gora', 'Dodjite u Stevanovu kolibu, najbolji odnos cene i kvaliteta', 'Pravila ponasanja', 'Dan 40$', 5);
+
+insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
+    (5, 'Koliba na fruskoj 2', 'Fruska Gora', 'Dodjite u Stevanovu kolibu na fruskoj gori', 'Pravila ponasanja', 'Dan 60$', 5);
+
+insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
+    (6, 'Koliba na fruskoj 3', 'Fruska Gora', 'Dodjite u Stevanovu kolibu 3', 'Pravila ponasanja 3', 'Dan 70$', 5);
+
+insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
+    (7, 'Koliba na fruskoj 4', 'Fruska Gora', 'Dodjite u Stevanovu kolibu 4', 'Pravila ponasanja 4', 'Dan 90$', 5);
 
 insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
     (2, 'Minina', 'Neka', 'Dodjite u Mininu kolibu', 'Pravila', 'Cenovnik', 6);
@@ -148,6 +160,24 @@ insert into cottage (id, name, address, promotive_description, conduct_rules, pr
 /*----------------------------------------------------------------------Rooms-----------------------------------------------------------------------------------------------*/
 insert into room (id, room_number, beds_number, bathroom, clime, cottage_id)
     values (1, 1, 2, true, true, 1);
+
+insert into room (id, room_number, beds_number, bathroom, clime, cottage_id)
+    values (7, 1, 2, true, true, 4);
+
+insert into room (id, room_number, beds_number, bathroom, clime, cottage_id)
+    values (8, 1, 2, false , false , 5);
+
+insert into room (id, room_number, beds_number, bathroom, clime, cottage_id)
+    values (9, 1, 2, false , true, 6);
+
+insert into room (id, room_number, beds_number, bathroom, clime, cottage_id)
+    values (10, 1, 2, true, false , 7);
+
+insert into room (id, room_number, beds_number, bathroom, clime, cottage_id)
+    values (11, 2, 4, true, false , 7);
+
+insert into room (id, room_number, beds_number, bathroom, clime, cottage_id)
+    values (12, 3, 3, true, true , 7);
 
 insert into room (id, room_number, beds_number, bathroom, clime, cottage_id)
     values (2, 2, 3, true, true, 1);

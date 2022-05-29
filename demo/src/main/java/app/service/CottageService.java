@@ -1,5 +1,6 @@
 package app.service;
 
+import app.domain.Mark;
 import app.domain.Room;
 import app.dto.CottageDTO;
 
@@ -14,4 +15,5 @@ public interface CottageService {
     CottageDTO getCottageById(Integer cottageId);
     CottageDTO addImage(Integer cottageId, Set<String> imgUrl);
     CottageDTO addRoom(Integer cottageId, Set<Room> imgUrl);
+    Integer rateCottage(Integer cottageId, Mark mark);
 }

@@ -127,7 +127,7 @@ const routes: Routes = [
     component: CottageOwnerHomePageComponent,
     children: [
       {
-        path: ' ',
+        path: '',
         component: CottageOwnerDefaultComponent
       },
       {

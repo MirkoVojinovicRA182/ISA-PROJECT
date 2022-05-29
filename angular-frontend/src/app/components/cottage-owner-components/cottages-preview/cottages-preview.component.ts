@@ -25,12 +25,12 @@ export class CottagesPreviewComponent implements OnInit {
 
   roomsOptions: Options = {
     floor: 0,
-    ceil: 100,
+    ceil: 0,
   };
 
   bedsOptions: Options = {
     floor: 0,
-    ceil: 100,
+    ceil: 0,
   };
 
 
@@ -44,9 +44,9 @@ export class CottagesPreviewComponent implements OnInit {
   getUserCottages(){
     this.cottageService.getUserCottages(5).subscribe(
       cottages => {
-        this.cottages = cottages,
-        this.filteredCottages = cottages,
-        this.getMaxRooms(),
+        this.cottages = cottages
+        this.filteredCottages = cottages
+        this.getMaxRooms()
         this.getMaxBeds()
       }
     );
@@ -61,11 +61,11 @@ export class CottagesPreviewComponent implements OnInit {
   }
 
   getMaxRooms(){
-    if(this.cottages.rooms != null){
-      this.maxRooms = this.cottages[0]?.roomsNumber;
+    if(this.cottages.rooms !== null){
+      this.maxRooms = this.cottages[0].rooms.length;
       for (var cottage of this.cottages) {
-        if(this.maxRooms < cottage?.rooms.lenght)
-          this.maxRooms = cottage?.rooms.lenght;
+        if(this.maxRooms < cottage?.rooms.length)
+          this.maxRooms = cottage?.rooms.length;
       }
       this.selectedRoomsMax = this.maxRooms;
       this.roomsOptions = new Options();
@@ -75,13 +75,11 @@ export class CottagesPreviewComponent implements OnInit {
   }
 
   getMaxBeds(){
-    if(this.cottages.rooms != null){
-      this.maxBeds = this.cottages[0]?.rooms[0]?.bedsNumber;
+    if(this.cottages.rooms !== null){
+      this.maxBeds = this.getAllBedsNumber(this.cottages[0]);
       for (var cottage of this.cottages) {
-        for(var room of cottage?.rooms){
-          if(this.maxBeds < room?.bedsNumber)
-            this.maxBeds = room?.bedsNumber;
-        }
+        if(this.maxBeds < this.getAllBedsNumber(cottage))
+          this.maxBeds = this.getAllBedsNumber(cottage)
       }
       this.selectedBedsMax = this.maxBeds;
       this.bedsOptions = new Options();
@@ -93,7 +91,7 @@ export class CottagesPreviewComponent implements OnInit {
   filterCottages(){
     this.filteredCottages = new Array();
     for (var cottage of this.cottages) {
-      if(this.selectedRoomsMin <= cottage?.rooms.lenght && cottage?.rooms.lenght <= this.selectedRoomsMax && 
+      if(this.selectedRoomsMin <= cottage?.rooms.length && cottage?.rooms.length <= this.selectedRoomsMax && 
         this.selectedBedsMin <= this.getAllBedsNumber(cottage) && this.getAllBedsNumber(cottage) <= this.selectedBedsMax &&
         cottage?.name.toLowerCase().includes(this.nameFilter.toLowerCase()) && cottage?.address.toLowerCase().includes(this.addressFilter.toLowerCase()))
         this.filteredCottages.push(cottage)

@@ -2,6 +2,7 @@ package app.dto;
 
 import app.domain.Cottage;
 import app.domain.CottageImage;
+import app.domain.Mark;
 import app.domain.Room;
 
 import java.util.HashSet;
@@ -17,6 +18,7 @@ public class CottageDTO {
     private Integer cottageOwnerId;
     private Set<CottageImage> images;
     private Set<Room> rooms;
+    private Set<Mark> marks;
 
     public CottageDTO(){
         super();
@@ -32,6 +34,7 @@ public class CottageDTO {
         this.cottageOwnerId = cottage.getCottageOwner().getId();
         this.images = (cottage.getImages()  != null) ? cottage.getImages() : new HashSet<>();
         this.rooms = (cottage.getRooms()  != null) ? cottage.getRooms() : new HashSet<>();
+        this.marks = (cottage.getMarks()  != null) ? cottage.getMarks() : new HashSet<>();
     }
 
     public CottageDTO(Integer cottageId, String name, String address, String promotiveDescription, String conductRules, String pricelist, int cottageOwnerId) {
@@ -45,6 +48,7 @@ public class CottageDTO {
         this.cottageOwnerId = cottageOwnerId;
         this.images = new HashSet<>();
         this.rooms = new HashSet<>();
+        this.marks = new HashSet<>();
     }
 
     public Integer getCottageId() {
@@ -117,5 +121,13 @@ public class CottageDTO {
 
     public void setRooms(Set<Room> rooms) {
         this.rooms = rooms;
+    }
+
+    public Set<Mark> getMarks() {
+        return marks;
+    }
+
+    public void setMarks(Set<Mark> marks) {
+        this.marks = marks;
     }
 }

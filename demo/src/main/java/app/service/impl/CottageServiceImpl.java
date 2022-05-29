@@ -2,6 +2,7 @@ package app.service.impl;
 
 import app.domain.Cottage;
 import app.domain.CottageImage;
+import app.domain.Mark;
 import app.domain.Room;
 import app.dto.CottageDTO;
 import app.repository.CottageImageRepository;
@@ -105,6 +106,14 @@ public class CottageServiceImpl implements CottageService {
         cottageForUpdate.getRooms().addAll(newRooms);
         cottageRepository.save(cottageForUpdate);
         return new CottageDTO(cottageForUpdate);
+    }
+
+    @Override
+    public Integer rateCottage(Integer cottageId, Mark mark) {
+        Cottage cottageForUpdate = cottageRepository.findById(cottageId).orElseGet(null);
+        cottageForUpdate.rateCottage(mark);
+        cottageRepository.save(cottageForUpdate);
+        return cottageForUpdate.getRating();
     }
 
 

@@ -58,34 +58,43 @@
                         <span class="font-weight" style="font-size: 20px; position: absolute; right: 10px;">Address:{{cottage?.address}}</span>
                     </div><br>
                     <hr>
-                    <div class="product-description">
-                        <div class="mt-2">
-                            <span class="font-weight-bold" style="font-size: 20px;">Description</span>
-                            <p>{{cottage?.promotiveDescription}}</p>
-                            <div class="bullets">
-                                <div class="d-flex align-items-center">
-                                    <span class="dot"></span>
-                                    <span class="bullet-text">Best in Quality</span>
+                    <div class="product-description" style="background-color: rgb(245, 245, 245); padding: 5px;">
+                        <div>
+                            <div>
+                                <span class="font-weight-bold" style="font-size: 20px;">Description:</span>
+                                <p>{{cottage?.promotiveDescription}}</p>
+                            </div>
+                            <hr>
+                            <div>
+                                <div class="element">
+                                    <p style="margin-bottom: 0px; font-size: 16px;">Rooms:</p>
+                                    <div style="margin-left: 10px;" *ngFor="let room of cottage.rooms">
+                                        <p style="margin-bottom: 0px; font-size: 14px;">Room {{room.roomNumber}}:</p>
+                                        <div class="bullets" style="margin-left: 10px;">
+                                            <div class="d-flex align-items-center">
+                                                <span class="dot"></span>
+                                                <span class="bullet-text">Beds number: {{room.bedsNumber}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="bullets" style="margin-left: 10px;" *ngIf="room.bathroom">
+                                            <div class="d-flex align-items-center">
+                                                <span class="dot"></span>
+                                                <span class="bullet-text">Bathroom</span>
+                                            </div>
+                                        </div>
+                                        <div class="bullets" style="margin-left: 10px;" *ngIf="room.clime">
+                                            <div class="d-flex align-items-center">
+                                                <span class="dot"></span>
+                                                <span class="bullet-text">Clime</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="d-flex align-items-center">
-                                    <span class="dot"></span>
-                                    <span class="bullet-text">Anti-creak joinery</span>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <span class="dot"></span>
-                                    <span class="bullet-text">Sturdy laminate surfaces</span>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <span class="dot"></span>
-                                    <span class="bullet-text">Relocation friendly design</span>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <span class="dot"></span>
-                                    <span class="bullet-text">High gloss, high style</span>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <span class="dot"></span>
-                                    <span class="bullet-text">Easy-access hydraulic storage</span>
+                                <div class="element" style="vertical-align: top;">
+                                    <span class="font-weight-bold" style="font-size: 18px;">Conduct rules:</span>
+                                    <p>{{cottage?.conductRules}}</p>
+                                    <span class="font-weight-bold" style="font-size: 18px;">Pricelist:</span>
+                                    <p>{{cottage?.pricelist}}</p>
                                 </div>
                             </div>
                         </div>

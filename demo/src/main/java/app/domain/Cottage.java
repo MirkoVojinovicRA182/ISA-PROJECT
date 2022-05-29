@@ -53,6 +53,9 @@ public class Cottage {
     @JsonBackReference
     private Set<Room> rooms = new HashSet<>();
 
+    @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
+    private Set<Mark> marks = new HashSet<>();
 
     public Cottage() {
         super();
@@ -148,6 +151,26 @@ public class Cottage {
 
     public void setRooms(Set<Room> rooms) {
         this.rooms = rooms;
+    }
+
+    public Set<Mark> getMarks() {
+        return marks;
+    }
+
+    public void setMarks(Set<Mark> marks) {
+        this.marks = marks;
+    }
+
+    public void rateCottage(Mark mark) {
+        marks.add(mark);
+    }
+
+    public Integer getRating() {
+        Integer sum = 0;
+        for (Mark mark : marks) {
+            sum += mark.getMark();
+        }
+        return sum / marks.size();
     }
 
     public Integer getBedsNumber(){

@@ -1,17 +1,28 @@
 package app.dto;
 
+import javax.xml.crypto.Data;
 import java.time.LocalDateTime;
 
 public class CottageReservationDTO {
     private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private String price;
     private Integer clientId;
     private Integer cottageId;
 
     public CottageReservationDTO(){}
 
+    public CottageReservationDTO(LocalDateTime startTime, LocalDateTime endTime,String price, Integer clientId, Integer cottageId) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.price = price;
+        this.clientId = clientId;
+        this.cottageId = cottageId;
+    }
+
     public CottageReservationDTO(LocalDateTime startTime, String price, Integer clientId, Integer cottageId) {
         this.startTime = startTime;
+        this.endTime = startTime.plusDays(1);
         this.price = price;
         this.clientId = clientId;
         this.cottageId = cottageId;

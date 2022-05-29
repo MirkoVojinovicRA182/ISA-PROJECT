@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.domain.Mark;
 import app.domain.Room;
 import app.dto.CottageDTO;
 import app.service.CottageService;
@@ -69,6 +70,12 @@ public class CottageController {
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CottageDTO> addRoom(@PathVariable Integer cottageId, @RequestBody Set<Room> rooms) throws Exception {
         return new ResponseEntity<>(cottageService.addRoom(cottageId, rooms), HttpStatus.OK);
+    }
+
+    @RequestMapping("/rateCottage/{cottageId}")
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Integer> rateCottage(@PathVariable Integer cottageId, @RequestBody Mark mark) throws Exception {
+        return new ResponseEntity<>(cottageService.rateCottage(cottageId, mark), HttpStatus.OK);
     }
 
 }

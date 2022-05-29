@@ -207,3 +207,10 @@ body{
 .fa-heart{
     color: rgb(1, 167, 139) !important;
 }
+
+.element {
+    display: inline-block;
+    width: 45% !important;
+    height: 100%;
+    margin-right: 5px;
+  }
