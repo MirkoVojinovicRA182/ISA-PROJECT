@@ -204,7 +204,16 @@ body{
     transform: scale(1.1);
 }
 
-.fa-heart{
+.fa-image{
+    color: rgb(1, 167, 139) !important;
+}
+
+.fa-calendar{
+    color: rgb(1, 167, 139) !important;
+}
+
+.fa-pen
+{
     color: rgb(1, 167, 139) !important;
 }
 

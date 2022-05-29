@@ -153,3 +153,8 @@ input:focus {
     display: inline-block;
     overflow: hidden; 
 }
+
+.card{
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+}
