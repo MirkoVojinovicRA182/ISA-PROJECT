@@ -1,0 +1,19 @@
+<body tabindex="-1">
+    <h1>Edit your cottage info</h1>
+    <hr>
+    <div class="element">
+        <p class="info-font mb-1 mt-2">Name:</p>
+        <input class="info-font input-size" type="text" [(ngModel)] = "cottage.name">
+        <p class="info-font mb-1 mt-2">Address:</p>
+        <input class="info-font input-size" type="text" [(ngModel)] = "cottage.address">
+        <p class="info-font mb-1 mt-2">Promotive description:</p>
+        <textarea class="info-font input-size" type="text" style="resize: none; height: 100px;" [(ngModel)] = "cottage.promotiveDescription"></textarea>
+    </div>
+    <div class="element" style="vertical-align: top;">
+        <p class="info-font mb-1 mt-2">Conduct rules:</p>
+        <textarea class="info-font input-size" type="text" style="resize: none; height: 100px;" [(ngModel)] = "cottage.conductRules"></textarea>
+        <p class="info-font mb-1 mt-2">Pricelist:</p>
+        <textarea class="info-font input-size" type="text" style="resize: none; height: 90px;" [(ngModel)] = "cottage.pricelist"></textarea>
+    </div>
+    <button tabindex="-1" [mat-dialog-close]="cottage" class="btn greenButton mt-3 height: 90px" (click)="change()" mat-raised-button>Send request</button>
+</body>

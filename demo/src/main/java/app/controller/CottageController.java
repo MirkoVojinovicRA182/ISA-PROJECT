@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT})
 @RequestMapping("/api/cottage")
 public class CottageController {
 
@@ -29,8 +29,8 @@ public class CottageController {
         return new ResponseEntity<>(cottageDto, HttpStatus.CREATED);
     }
 
-    @RequestMapping("/updateCottage")
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    /*@RequestMapping("/updateCottage")*/
+    @PutMapping(value = "/updateCottage", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CottageDTO> changeCottage(@RequestBody CottageDTO cottageDto) throws Exception {
         cottageService.updateCottage(cottageDto);
         return new ResponseEntity<>(cottageDto, HttpStatus.OK);

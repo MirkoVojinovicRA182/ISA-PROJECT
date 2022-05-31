@@ -52,6 +52,7 @@ import { UserReservationsStatisticsComponent } from './components/unregistered-u
 import { UserSallaryComponent } from './components/unregistered-user-components/user-sallary/user-sallary.component';
 import { CottageOwnerDefaultComponent } from './components/cottage-owner-components/cottage-owner-default/cottage-owner-default.component';
 import { CottageOwnerDeleteAccountComponent } from './components/cottage-owner-components/cottage-owner-delete-account/cottage-owner-delete-account.component';
+import { CottageEditComponent } from './components/cottage-owner-components/cottage-edit/cottage-edit.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { CottageOwnerDeleteAccountComponent } from './components/cottage-owner-c
     CottageComponent,
     CottageOwnerDefaultComponent,
     CottageOwnerDeleteAccountComponent,
+    CottageEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,13 +16,11 @@ public class CottageDTO {
     private String conductRules;
     private String pricelist;
     private Integer cottageOwnerId;
-    private Set<CottageImage> images;
+    /*private Set<CottageImage> images;
     private Set<Room> rooms;
-    private Set<Mark> marks;
+    private Set<Mark> marks;*/
 
-    public CottageDTO(){
-        super();
-    }
+    public CottageDTO(){}
 
     public CottageDTO(Cottage cottage){
         this.cottageId = cottage.getId();
@@ -32,9 +30,9 @@ public class CottageDTO {
         this.conductRules = cottage.getConductRules();
         this.pricelist = cottage.getPricelist();
         this.cottageOwnerId = cottage.getCottageOwner().getId();
-        this.images = (cottage.getImages()  != null) ? cottage.getImages() : new HashSet<>();
+        /*this.images = (cottage.getImages()  != null) ? cottage.getImages() : new HashSet<>();
         this.rooms = (cottage.getRooms()  != null) ? cottage.getRooms() : new HashSet<>();
-        this.marks = (cottage.getMarks()  != null) ? cottage.getMarks() : new HashSet<>();
+        this.marks = (cottage.getMarks()  != null) ? cottage.getMarks() : new HashSet<>();*/
     }
 
     public CottageDTO(Integer cottageId, String name, String address, String promotiveDescription, String conductRules, String pricelist, int cottageOwnerId) {
@@ -46,9 +44,9 @@ public class CottageDTO {
         this.conductRules = conductRules;
         this.pricelist = pricelist;
         this.cottageOwnerId = cottageOwnerId;
-        this.images = new HashSet<>();
+        /*this.images = new HashSet<>();
         this.rooms = new HashSet<>();
-        this.marks = new HashSet<>();
+        this.marks = new HashSet<>();*/
     }
 
     public Integer getCottageId() {
@@ -107,7 +105,7 @@ public class CottageDTO {
         this.cottageOwnerId = cottageOwnerId;
     }
 
-    public Set<CottageImage> getImages() {
+    /*public Set<CottageImage> getImages() {
         return images;
     }
 
@@ -129,5 +127,9 @@ public class CottageDTO {
 
     public void setMarks(Set<Mark> marks) {
         this.marks = marks;
+    }*/
+
+    public void setCottageOwnerId(Integer cottageOwnerId) {
+        this.cottageOwnerId = cottageOwnerId;
     }
 }

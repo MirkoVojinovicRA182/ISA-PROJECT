@@ -17,7 +17,7 @@
                 <div _ngcontent-rys-c26="" class="browser-content" style="padding-bottom: 10px;">
                     <div _ngcontent-rys-c26="" class="text-align: center;">
                         <div _ngcontent-rys-c26="" style="margin-bottom: 20px; width: 100% !important; margin-left: auto; margin-right: auto;">
-                            <carousel style="margin: auto;"
+                            <carousel style="margin: auto; z-index: 0;"
                                 [images]="images"
                                 [height]="500"
                                 [cellWidth]="'100%'"
@@ -38,7 +38,7 @@
                 <div class="card">
                     <div class="buttons">
                         <button class="btn btn-outline-warning btn-long greenButton" style="height: 62px;">Schedule</button>
-                        <button class="btn btn-light wishlist whiteButton" style="width: 145px; block-size: fit-content">
+                        <button class="btn btn-light wishlist whiteButton" style="width: 145px; block-size: fit-content" (click)="showEditDialog()">
                                 <i class="fa fa-pen" aria-hidden="true"></i>
                                 <p style="margin: 0px;">Edit</p>
                         </button>

@@ -20,4 +20,8 @@ export class CottagesService {
   getCottageById(cottageId: number): Observable<Cottage[]>{
     return this.http.get<Cottage[]>(this._url + 'cottage/getCottage/' + cottageId);
   }
+
+  updateCottage(cottage: any){
+    return this.http.put<any>(this._url + 'cottage/updateCottage' , cottage);
+  }
 }

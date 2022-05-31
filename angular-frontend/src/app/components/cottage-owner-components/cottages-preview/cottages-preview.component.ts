@@ -5,6 +5,7 @@ import jwtDecode from 'jwt-decode';
 import { Observable } from 'rxjs';
 import { serverPort } from 'src/app/app.consts';
 import { CottagesService } from 'src/app/services/cottages/cottages.service';
+import { CottageEditComponent } from '../cottage-edit/cottage-edit.component';
 
 @Component({
   selector: 'app-cottages-preview',
@@ -60,10 +61,6 @@ export class CottagesPreviewComponent implements OnInit {
 
   showCottageDetails(cottage: any){
     this.router.navigate(["cottageOwner/cottageDetails"], { state: { data:cottage }});
-
-    /*this.router.navigateByUrl("cottageOwner/cottageDetails", {
-           state: {data:cottage}
-       });*/
   }
 
   getMaxRooms(){

@@ -185,10 +185,7 @@ public class Cottage {
         setName(cottageDTO.getName());
         setAddress(cottageDTO.getAddress());
         setPromotiveDescription(cottageDTO.getPromotiveDescription());
-        setRooms(cottageDTO.getRooms());
         setConductRules(cottageDTO.getConductRules());
         setPricelist(cottageDTO.getPricelist());
-        setRooms(cottageDTO.getRooms());
-        setImages(cottageDTO.getImages());
     }
 }
