@@ -11,7 +11,7 @@ public interface CottageService {
     void deleteCottage(Integer cottageId);
     CottageDTO updateCottage(CottageDTO cottageDTO);
     Set<CottageDTO> searchCottage(Integer cottageOwnerId, String searchFilter);
-    Set<CottageDTO> getCottageOwnerCottager(Integer cottageOwnerId);
+    Set<CottageDTO> getCottageOwnerCottager(String cottageOwnerUsername);
     CottageDTO getCottageById(Integer cottageId);
     CottageDTO addImage(Integer cottageId, Set<String> imgUrl);
     CottageDTO addRoom(Integer cottageId, Set<Room> imgUrl);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import jwtDecode from 'jwt-decode';
 import { UserProfileService } from 'src/app/services/user-profile/user-profile.service';
 
 @Component({
@@ -14,9 +15,13 @@ export class CottageOwnerDefaultComponent implements OnInit {
   editEnabled: boolean = true
 
   ngOnInit(): void {
-    this.userService.getCottageOwner("steva123@gmail.com").subscribe(
-      cottageOwner => this.cottageOwner = cottageOwner
-    )
+    window.scroll(0,0)
+    var token = localStorage.getItem('token');
+    if(token != null){
+      this.userService.getCottageOwner(jwtDecode<any>(JSON.parse(token).accessToken).sub).subscribe(
+        cottageOwner => this.cottageOwner = cottageOwner
+      )
+    }
   }
 
   edit(event:any){

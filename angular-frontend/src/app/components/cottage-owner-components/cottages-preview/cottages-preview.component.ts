@@ -1,6 +1,7 @@
 import { Options } from '@angular-slider/ngx-slider';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 import { Observable } from 'rxjs';
 import { serverPort } from 'src/app/app.consts';
 import { CottagesService } from 'src/app/services/cottages/cottages.service';
@@ -22,6 +23,7 @@ export class CottagesPreviewComponent implements OnInit {
   selectedRoomsMax: number = 0;
   selectedBedsMin: number = 0;
   selectedBedsMax: number = 0;
+  cottageOwnerEmail: string = "";
 
   roomsOptions: Options = {
     floor: 0,
@@ -38,11 +40,15 @@ export class CottagesPreviewComponent implements OnInit {
 
   ngOnInit(): void {
     window.scroll(0,0)
-    this.getUserCottages();
+    var token = localStorage.getItem('token');
+    if(token != null){
+      this.cottageOwnerEmail = jwtDecode<any>(JSON.parse(token).accessToken).sub;
+    }
+    this.getUserCottages(this.cottageOwnerEmail);
   }
 
-  getUserCottages(){
-    this.cottageService.getUserCottages(5).subscribe(
+  getUserCottages(username: string){
+    this.cottageService.getUserCottages(username).subscribe(
       cottages => {
         this.cottages = cottages
         this.filteredCottages = cottages

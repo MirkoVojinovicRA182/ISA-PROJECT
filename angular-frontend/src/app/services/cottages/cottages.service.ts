@@ -13,8 +13,8 @@ export class CottagesService {
 
   constructor(private http: HttpClient) { }
 
-  getUserCottages(userId: number): Observable<Cottage[]>{
-    return this.http.get<Cottage[]>(this._url + 'cottage/cottageOwnerCottages/' + userId);
+  getUserCottages(username: string): Observable<Cottage[]>{
+    return this.http.get<Cottage[]>(this._url + 'cottage/cottageOwnerCottages/' + username);
   }
 
   getCottageById(cottageId: number): Observable<Cottage[]>{

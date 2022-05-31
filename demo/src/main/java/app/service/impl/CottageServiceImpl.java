@@ -70,10 +70,10 @@ public class CottageServiceImpl implements CottageService {
     }
 
     @Override
-    public Set<CottageDTO> getCottageOwnerCottager(Integer cottageOwnerId) {
+    public Set<CottageDTO> getCottageOwnerCottager(String cottageOwnerUsername) {
         Set<CottageDTO> cottageDTOS = new HashSet<>();
-        if(cottageRepository.getCottageOwnerCottages(cottageOwnerId) != null)
-            for(Cottage cottage: cottageRepository.getCottageOwnerCottages(cottageOwnerId)){
+        if(cottageRepository.getCottageOwnerCottages(cottageOwnerUsername) != null)
+            for(Cottage cottage: cottageRepository.getCottageOwnerCottages(cottageOwnerUsername)){
                 cottageDTOS.add(new CottageDTO(cottage));
             }
         return cottageDTOS;

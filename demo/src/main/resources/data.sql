@@ -126,13 +126,13 @@ insert into action_adventure (id, additional_services, creation_date, duration, 
 
 /*----------------------------------------------------------------------Cottage owner-----------------------------------------------------------------------------------------------*/
 insert into cottage_owner (id, address, city, country, email, name, last_name, password, phone_number, is_enabled) values
-    (5, 'Bulevar Cara Lazara 15', 'Novi Sad', 'Republika Srbija', 'steva123@gmail.com', 'Stevan', 'Martinović', 'steva123', '066-122-222-01', true);
+    (5, 'Bulevar Cara Lazara 15', 'Novi Sad', 'Republika Srbija', 'steva123@gmail.com', 'Stevan', 'Martinović', '$2a$10$syFgCOEoyd8Mz4KxNdKXa.F8R.NNdY7IdR6jPRNJFcFdMyh/2sYwi', '066-122-222-01', true);
 
 insert into cottage_owner (id, address, city, country, email, name, last_name, password, phone_number, is_enabled) values
-    (6, 'Bulevar Cara Lazara 35', 'Novi Sad', 'Republika Srbija', 'mmina123@gmail.com', 'Mina', 'Nikolić', 'mina123', '062-122-222-01', true);
+    (6, 'Bulevar Cara Lazara 35', 'Novi Sad', 'Republika Srbija', 'mmina123@gmail.com', 'Mina', 'Nikolić', '$2a$10$syFgCOEoyd8Mz4KxNdKXa.F8R.NNdY7IdR6jPRNJFcFdMyh/2sYwi', '062-122-222-01', true);
 
 insert into cottage_owner (id, address, city, country, email, name, last_name, password, phone_number, is_enabled) values
-    (7, 'Bulevar Cara Lazara 35', 'Novi Sad', 'Republika Srbija', 'nina123@gmail.com', 'Nikolina', 'Ivanić', 'ninaIvanic123', '064-122-222-01', true);
+    (7, 'Bulevar Cara Lazara 35', 'Novi Sad', 'Republika Srbija', 'nina123@gmail.com', 'Nikolina', 'Ivanić', '$2a$10$syFgCOEoyd8Mz4KxNdKXa.F8R.NNdY7IdR6jPRNJFcFdMyh/2sYwi', '064-122-222-01', true);
 
 
 /*----------------------------------------------------------------------Cottage-----------------------------------------------------------------------------------------------*/

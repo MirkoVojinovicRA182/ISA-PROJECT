@@ -48,10 +48,10 @@ public class CottageController {
         return new ResponseEntity<>(cottageService.searchCottage(cottageOwnerId, searchFilter), HttpStatus.OK);
     }
 
-    @RequestMapping("/cottageOwnerCottages/{cottageOwnerId}")
+    @RequestMapping("/cottageOwnerCottages/{cottageOwnerUsername}")
     @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Set<CottageDTO>> getCottageOwnerCottages(@PathVariable Integer cottageOwnerId) throws Exception{
-        return new ResponseEntity<>(cottageService.getCottageOwnerCottager(cottageOwnerId), HttpStatus.OK);
+    public ResponseEntity<Set<CottageDTO>> getCottageOwnerCottages(@PathVariable String cottageOwnerUsername) throws Exception{
+        return new ResponseEntity<>(cottageService.getCottageOwnerCottager(cottageOwnerUsername), HttpStatus.OK);
     }
 
     @RequestMapping("/getCottage/{cottageId}")
