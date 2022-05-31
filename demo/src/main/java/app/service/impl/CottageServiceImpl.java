@@ -42,7 +42,8 @@ public class CottageServiceImpl implements CottageService {
                 cottageDTO.getConductRules(),
                 cottageDTO.getPricelist(),
                 cottageOwnerRepository.getById(cottageDTO.getCottageOwnerId()),
-                cottageDTO.getRooms());
+                /*(Set<Room>) cottageDTO.getRooms()*/new HashSet<>());
+        newCottage.setCottageOwner(cottageOwnerRepository.findById(cottageDTO.getCottageOwnerId()).orElseGet(null));
         cottageRepository.save(newCottage);
     }
 

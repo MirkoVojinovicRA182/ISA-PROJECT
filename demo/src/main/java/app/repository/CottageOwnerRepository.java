@@ -7,4 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface CottageOwnerRepository extends JpaRepository<CottageOwner, Integer> {
     @Query("SELECT u FROM CottageOwner u WHERE u.email = ?1")
     CottageOwner findByEmail(String username);
+
+    @Query("SELECT u FROM CottageOwner u WHERE u.id = ?1")
+    CottageOwner findById(String id);
 }

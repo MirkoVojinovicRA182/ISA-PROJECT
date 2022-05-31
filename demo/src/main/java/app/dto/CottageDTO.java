@@ -5,7 +5,9 @@ import app.domain.CottageImage;
 import app.domain.Mark;
 import app.domain.Room;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class CottageDTO {
@@ -16,9 +18,9 @@ public class CottageDTO {
     private String conductRules;
     private String pricelist;
     private Integer cottageOwnerId;
-    /*private Set<CottageImage> images;
-    private Set<Room> rooms;
-    private Set<Mark> marks;*/
+    private List<CottageImage> images;
+    private List<Room> rooms;
+    private List<Mark> marks;
 
     public CottageDTO(){}
 
@@ -30,9 +32,9 @@ public class CottageDTO {
         this.conductRules = cottage.getConductRules();
         this.pricelist = cottage.getPricelist();
         this.cottageOwnerId = cottage.getCottageOwner().getId();
-        /*this.images = (cottage.getImages()  != null) ? cottage.getImages() : new HashSet<>();
-        this.rooms = (cottage.getRooms()  != null) ? cottage.getRooms() : new HashSet<>();
-        this.marks = (cottage.getMarks()  != null) ? cottage.getMarks() : new HashSet<>();*/
+        this.images = (cottage.getImages()  != null) ? (List<CottageImage>) cottage.getImages() : new ArrayList<>();
+        this.rooms = (cottage.getRooms()  != null) ? (List<Room>) cottage.getRooms() : new ArrayList<>();
+        this.marks = (cottage.getMarks()  != null) ? (List<Mark>) cottage.getMarks() : new ArrayList<>();
     }
 
     public CottageDTO(Integer cottageId, String name, String address, String promotiveDescription, String conductRules, String pricelist, int cottageOwnerId) {
@@ -44,9 +46,9 @@ public class CottageDTO {
         this.conductRules = conductRules;
         this.pricelist = pricelist;
         this.cottageOwnerId = cottageOwnerId;
-        /*this.images = new HashSet<>();
-        this.rooms = new HashSet<>();
-        this.marks = new HashSet<>();*/
+        this.images = new ArrayList<>();
+        this.rooms = new ArrayList<>();
+        this.marks = new ArrayList<>();
     }
 
     public Integer getCottageId() {
@@ -105,27 +107,27 @@ public class CottageDTO {
         this.cottageOwnerId = cottageOwnerId;
     }
 
-    /*public Set<CottageImage> getImages() {
+    /*public List<CottageImage> getImages() {
         return images;
     }
 
-    public void setImages(Set<CottageImage> images) {
+    public void setImages(List<CottageImage> images) {
         this.images = images;
     }
 
-    public Set<Room> getRooms() {
+    public List<Room> getRooms() {
         return rooms;
     }
 
-    public void setRooms(Set<Room> rooms) {
+    public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
 
-    public Set<Mark> getMarks() {
+    public List<Mark> getMarks() {
         return marks;
     }
 
-    public void setMarks(Set<Mark> marks) {
+    public void setMarks(List<Mark> marks) {
         this.marks = marks;
     }*/
 

@@ -13,7 +13,7 @@ import java.util.Set;
 @Entity
 public class Cottage {
     @Id
-    @SequenceGenerator(name = "cottageSeqGen", sequenceName = "cottageSeq", initialValue = 1, allocationSize = 1)
+    @SequenceGenerator(name = "cottageSeqGen", sequenceName = "cottageSeq", initialValue = 10, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cottageSeqGen")
     private Integer id;
 
