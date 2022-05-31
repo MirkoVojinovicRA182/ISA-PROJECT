@@ -30,11 +30,16 @@ export class LoginComponent implements OnInit {
       username: this.username,
       password: this.password
     }
-    this._loginService.getUser(this.loginUser).subscribe(response => this.loggedUser = response);
-    if (this.loggedUser != null){
-      localStorage.setItem("username", this.username)
-      this.router.navigate([''])
-    } 
+    //this._loginService.getUser(this.loginUser).subscribe(response => this.loggedUser = response);
+    this._loginService.login(this.loginUser).subscribe(
+      data => {
+        if (data != null){
+          localStorage.setItem("token", JSON.stringify(data))
+          this.router.navigate([''])
+        } 
+      }
+      
+      );
   }
 
 }

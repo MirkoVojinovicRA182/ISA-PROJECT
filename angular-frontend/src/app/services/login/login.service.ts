@@ -23,4 +23,12 @@ export class LoginService {
     })
     return this._http.get<User>(this._url + 'login/getUser', {params: params});
   }
+
+  login(loginUser: LoginUser){
+    let data ={
+      username: loginUser.username,
+      password: loginUser.password
+    }
+    return this._http.post<any>(this._url + 'login/login',  data);
+  }
 }
