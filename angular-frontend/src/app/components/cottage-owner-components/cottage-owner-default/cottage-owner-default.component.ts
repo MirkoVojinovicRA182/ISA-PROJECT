@@ -14,7 +14,10 @@ export class CottageOwnerDefaultComponent implements OnInit {
   constructor(private userService: UserProfileService, public detailsDialog: MatDialog) { }
 
   cottageOwner:any
-  editEnabled: boolean = true
+  editDisabled: boolean = true
+  passwordChangeEnabled: boolean = false
+  newPassword: string = ""
+  newPasswordConfirm: string = ""
 
   ngOnInit(): void {
     window.scroll(0,0)
@@ -27,7 +30,7 @@ export class CottageOwnerDefaultComponent implements OnInit {
   }
 
   edit(event:any){
-    this.editEnabled = !this.editEnabled
+    this.editDisabled = !this.editDisabled
     if(event.textContent == "Edit"){
       event.textContent = "Save"
     }else{
@@ -36,9 +39,27 @@ export class CottageOwnerDefaultComponent implements OnInit {
     }
   }
 
+  changePassword(event:any){
+    this.passwordChangeEnabled = !this.passwordChangeEnabled
+    if(event.textContent == "Change password"){
+      event.textContent = "Save changes"
+    }else{
+      let data = {
+        userId: this.cottageOwner.userId,
+        userType: 0,
+        newPassword: this.newPassword
+      }
+      this.userService.updatePassword(data).subscribe(
+        user => {this.cottageOwner
+        console.log(user)}
+      )
+      event.textContent = "Change password"
+    }
+  }
+
   showDeleteAccountDialog(){
     let deleteRequest = {
-      reason: "",
+      deleteReason: "",
       userId: this.cottageOwner.userId,
       userType: 0,
       userFullName: this.cottageOwner.name + " " + this.cottageOwner.lastName

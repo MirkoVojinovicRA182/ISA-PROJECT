@@ -1,9 +1,6 @@
 package app.service.impl;
 
-import app.domain.Administrator;
-import app.domain.ApplicationUser;
-import app.domain.CottageOwner;
-import app.domain.Instructor;
+import app.domain.*;
 import app.domain.enums.UserType;
 import app.dto.UserPasswordDTO;
 import app.dto.UserProfileDTO;
@@ -13,6 +10,7 @@ import app.repository.InstructorRepository;
 import app.repository.ShipOwnerRepository;
 import app.service.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,6 +27,9 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     @Autowired
     private ShipOwnerRepository shipOwnerRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserProfileDTO updatePersonalInfo(UserProfileDTO dto) {
@@ -62,6 +63,13 @@ public class UserProfileServiceImpl implements UserProfileService {
             administrator.setPassword(userPasswordDTO.getNewPassword());
             administratorRepository.save(administrator);
             dto = new UserProfileDTO((ApplicationUser)administrator);
+        }
+
+        if(userPasswordDTO.getUserType().equals(UserType.COTTAGE_OWNER)){
+            CottageOwner cottageOwner = cottageOwnerRepository.findById(userPasswordDTO.getUserId()).orElseGet(null);
+            cottageOwner.setPassword(passwordEncoder.encode(userPasswordDTO.getNewPassword()));
+            cottageOwnerRepository.save(cottageOwner);
+            dto = new UserProfileDTO((ApplicationUser)cottageOwner);
         }
 
         return dto;

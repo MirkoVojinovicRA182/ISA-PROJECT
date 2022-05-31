@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RequestMapping("/api/userProfile")
 public class UserProfileController {
 
@@ -28,7 +28,7 @@ public class UserProfileController {
     @RequestMapping("/updatePassword")
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserProfileDTO> updatePassword(@RequestBody UserPasswordDTO userPasswordDTO){
-        return new ResponseEntity<UserProfileDTO>(userProfileService.updatePassword(userPasswordDTO), HttpStatus.OK);
+        return new ResponseEntity<>(userProfileService.updatePassword(userPasswordDTO), HttpStatus.OK);
     }
 
 

@@ -43,6 +43,10 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
             if(administrator.getId().equals(dto.getUserId()))
                 userForDelete = administratorRepository.findById(dto.getUserId()).orElseGet(null);
 
+        for(CottageOwner cottageOwner: cottageOwnerRepository.findAll())
+            if(cottageOwner.getId().equals(dto.getUserId()))
+                userForDelete = cottageOwnerRepository.findById(dto.getUserId()).orElseGet(null);
+
         if(userForDelete != null)
             deleteAccountRequestRepository.save(new DeleteAccountRequest(dto.getDeleteReason(), userForDelete, dto.getUserFullName(), dto.getUserType()));
     }

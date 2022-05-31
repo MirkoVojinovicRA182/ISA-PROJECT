@@ -33,4 +33,8 @@ export class UserProfileService {
   updateCottageOwner(cottageOwner: any){
     return this.http.put<any>(this._url + 'users/updateCottageOwner' , cottageOwner);
   }
+
+  updatePassword(data: any){
+    return this.http.put<any>(this._url + 'userProfile/updatePassword' , data);
+  }
 }
