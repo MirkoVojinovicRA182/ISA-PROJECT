@@ -2,6 +2,7 @@ package app.service.impl;
 
 import app.domain.*;
 import app.domain.enums.UserType;
+import app.dto.CottageOwnerDTO;
 import app.dto.UserProfileDTO;
 import app.repository.*;
 import app.service.UserService;
@@ -118,6 +119,30 @@ public class UserServiceImpl implements UserService {
         Client user = clientRepository.findByEmail(username);
         if(user != null)
             return new UserProfileDTO(user);
+        return null;
+    }
+
+    @Override
+    public UserProfileDTO getCottageOwner(String username) {
+        CottageOwner user = cottageOwnerRepository.findByEmail(username);
+        if(user != null)
+            return new UserProfileDTO(user);
+        return null;
+    }
+
+    @Override
+    public UserProfileDTO updateCottageOwner(UserProfileDTO userProfileDTO) {
+        CottageOwner cottageOwner = cottageOwnerRepository.findByEmail(userProfileDTO.getEmail());
+        if(cottageOwner != null){
+            cottageOwner.setName(userProfileDTO.getName());
+            cottageOwner.setLastName(userProfileDTO.getLastName());
+            cottageOwner.setPhoneNumber(userProfileDTO.getPhoneNumber());
+            cottageOwner.setAddress(userProfileDTO.getAddress());
+            cottageOwner.setCity(userProfileDTO.getCity());
+            cottageOwner.setCountry(userProfileDTO.getCountry());
+            cottageOwnerRepository.save(cottageOwner);
+            return new UserProfileDTO(cottageOwner);
+        }
         return null;
     }
 }

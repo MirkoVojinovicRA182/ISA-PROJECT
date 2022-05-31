@@ -3,6 +3,7 @@ package app.controller;
 import app.domain.ApplicationUser;
 import app.domain.RegistrationRequest;
 import app.domain.enums.UserType;
+import app.dto.CottageOwnerDTO;
 import app.dto.UserProfileDTO;
 import app.service.UserService;
 import org.apache.catalina.User;
@@ -31,6 +32,16 @@ public class UserController {
     @GetMapping(value = "/getClient/{username}")
     public ResponseEntity<UserProfileDTO> getClient(@PathVariable String username){
         return new ResponseEntity<UserProfileDTO>(userService.getClient(username), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getCottageOwner/{username}")
+    public ResponseEntity<UserProfileDTO> getCottageOwner(@PathVariable String username){
+        return new ResponseEntity<UserProfileDTO>(userService.getCottageOwner(username), HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/updateCottageOwner")
+    public ResponseEntity<UserProfileDTO> updateCottageOwner(@RequestBody UserProfileDTO userProfileDTO){
+        return new ResponseEntity<UserProfileDTO>(userService.updateCottageOwner(userProfileDTO), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/deleteUser")
