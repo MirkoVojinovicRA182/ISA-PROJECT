@@ -5,10 +5,7 @@ import app.dto.InstructorAdventureDTO;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class Cottage {
@@ -61,7 +58,7 @@ public class Cottage {
         super();
     }
 
-    public Cottage(String name, String address, String promotiveDescription, String conductRules, String pricelist, CottageOwner cottageOwner, Set<Room> rooms) {
+    public Cottage(String name, String address, String promotiveDescription, String conductRules, String pricelist, CottageOwner cottageOwner) {
         super();
         this.name = name;
         this.address = address;
@@ -69,7 +66,6 @@ public class Cottage {
         this.conductRules = conductRules;
         this.pricelist = pricelist;
         this.cottageOwner = cottageOwner;
-        this.rooms = rooms;
     }
 
     public Integer getId() {

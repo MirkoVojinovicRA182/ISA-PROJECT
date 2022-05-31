@@ -18,9 +18,6 @@ public class CottageDTO {
     private String conductRules;
     private String pricelist;
     private Integer cottageOwnerId;
-    private List<CottageImage> images;
-    private List<Room> rooms;
-    private List<Mark> marks;
 
     public CottageDTO(){}
 
@@ -32,9 +29,6 @@ public class CottageDTO {
         this.conductRules = cottage.getConductRules();
         this.pricelist = cottage.getPricelist();
         this.cottageOwnerId = cottage.getCottageOwner().getId();
-        this.images = (cottage.getImages()  != null) ? (List<CottageImage>) cottage.getImages() : new ArrayList<>();
-        this.rooms = (cottage.getRooms()  != null) ? (List<Room>) cottage.getRooms() : new ArrayList<>();
-        this.marks = (cottage.getMarks()  != null) ? (List<Mark>) cottage.getMarks() : new ArrayList<>();
     }
 
     public CottageDTO(Integer cottageId, String name, String address, String promotiveDescription, String conductRules, String pricelist, int cottageOwnerId) {
@@ -46,9 +40,6 @@ public class CottageDTO {
         this.conductRules = conductRules;
         this.pricelist = pricelist;
         this.cottageOwnerId = cottageOwnerId;
-        this.images = new ArrayList<>();
-        this.rooms = new ArrayList<>();
-        this.marks = new ArrayList<>();
     }
 
     public Integer getCottageId() {
@@ -106,30 +97,6 @@ public class CottageDTO {
     public void setCottageOwnerId(int cottageOwnerId) {
         this.cottageOwnerId = cottageOwnerId;
     }
-
-    /*public List<CottageImage> getImages() {
-        return images;
-    }
-
-    public void setImages(List<CottageImage> images) {
-        this.images = images;
-    }
-
-    public List<Room> getRooms() {
-        return rooms;
-    }
-
-    public void setRooms(List<Room> rooms) {
-        this.rooms = rooms;
-    }
-
-    public List<Mark> getMarks() {
-        return marks;
-    }
-
-    public void setMarks(List<Mark> marks) {
-        this.marks = marks;
-    }*/
 
     public void setCottageOwnerId(Integer cottageOwnerId) {
         this.cottageOwnerId = cottageOwnerId;
