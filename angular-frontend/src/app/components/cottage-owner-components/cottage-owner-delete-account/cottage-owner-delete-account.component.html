@@ -1,0 +1,6 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<div>
+    <p tabindex="-1" style="color: black; font-size: 20px;">We are sorry to see you go. Please tell us why are leaving.</p>
+    <textarea tabindex="-1" style="width: 100%; height: 100px; resize: none;" [(ngModel)]="data.reason"></textarea>
+    <button tabindex="-1" [mat-dialog-close]="data" class="btn btn-danger" (click)="send()" mat-raised-button>Send request</button>
+</div>

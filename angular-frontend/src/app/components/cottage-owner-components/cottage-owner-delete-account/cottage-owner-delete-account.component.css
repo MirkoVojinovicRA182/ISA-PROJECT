@@ -1,0 +1,19 @@
+.redButton {
+    background-color: rgb(161, 30, 30) !important;
+    border: rgb(161, 30, 30) !important;
+    color: white !important;
+    margin: 5px !important;
+} 
+
+.redButton:focus {
+    background-color: rgb(161, 30, 30) !important;
+    border: rgb(161, 30, 30) !important;
+    color: white !important;
+}
+
+.redButton:hover{
+    background-color: rgb(233, 31, 31) !important;
+    border-color: rgb(161, 30, 30) !important;
+    color: white !important;
+    transform: scale(1.1);
+}
