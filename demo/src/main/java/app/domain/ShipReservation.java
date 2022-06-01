@@ -1,5 +1,7 @@
 package app.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -17,8 +19,9 @@ public class ShipReservation {
     @Column
     private String price;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
+    @JsonBackReference
     private Client client;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)

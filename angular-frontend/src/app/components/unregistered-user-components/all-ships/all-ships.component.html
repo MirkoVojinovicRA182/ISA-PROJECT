@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" type="module"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="module"></script>
+<div class="main-search-div">
+    <div class="row d-flex justify-content-center full-div">
+        <div class="full-div">
+            <div class="">
+                <div class="card-body px-3 px-md-5 full-div">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row px-4 mt-3">
+                                <div class="col-md-6 pl-0 pr-0 pr-md-2 mb-2">
+                                    <input type="search" style="border-radius: 10px;" placeholder="Name..." required
+                                        [ngModel]="nameFilter" (ngModelChange)="nameInputChange($event)">
+                                </div>
+                                <div class="col-md-6 pl-0 pl-md-2 pr-0">
+                                    <input type="search" style="border-radius: 10px;" placeholder="Address..." required
+                                        [ngModel]="addressFilter" (ngModelChange)="addressInputChange($event)">
+                                </div>
+                            </div>
+                            <div class="row px-4 mt-3">
+                                <div class="col-md-6 pl-0 pr-0 pr-md-2 mb-2 slidecontainer">
+                                    Price number:
+                                    <ngx-slider [(value)]="selectedPriceMin" [(highValue)]="selectedPriceMax"
+                                        [options]="priceOptions"></ngx-slider>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mx-0 mb-2 justify-content-between full-div" style="padding-top: 10px !important;">
+                    <button class="btn btn-secondary px-4" (click)="restartFilters()">Cancel</button>
+                    <button id="defaultGreen" class="btn btn-success ml-auto" (click)="filterCottages()"><span
+                            class="fa fa-filter full"></span> &nbsp;&nbsp;Apply Filter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-2 mb-5" style="padding: 50px;">
+    <div class="products">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row g-3">
+                    <div class="col-md-4 cottageDiv" *ngFor="let ship of filteredShips">
+                        <div class="card"> <img src="https://i.imgur.com/SOMPPzU.jpg" class="card-img-top">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <span class="font-weight-bold">{{ship.name}}</span>
+                                </div>
+                                <p class="card-text mb-1 mt-1">{{ship.promotiveDescription}}</p>
+                                <p class="card-text mb-1 mt-1">Address: {{ship.address}}</p>
+                                <div class="d-flex align-items-center flex-row">
+                                    <img src="https://i.imgur.com/e9VnSng.png" width="20">
+                                    <span class="guarantee">Rating</span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <div class="text-right buttons">
+                                    <button class="btn greenButton">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

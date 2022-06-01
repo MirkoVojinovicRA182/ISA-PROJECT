@@ -1,10 +1,8 @@
 package app.service.impl;
 
 import app.domain.*;
-import app.dto.CottageDTO;
-import app.dto.InstructorAdventureDTO;
-import app.dto.ShipDTO;
-import app.dto.UserProfileDTO;
+import app.domain.enums.UserType;
+import app.dto.*;
 import app.repository.*;
 import app.service.EntityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,18 +46,22 @@ public class EntityServiceImpl implements EntityService {
     }
 
     @Override
-    public UserProfileDTO getInstructorById(Integer id) {
+    public UserRequest getInstructorById(Integer id) {
         Instructor instructor = instructorRepository.findById(id).orElseGet(null);
         if(instructor != null)
-            return new UserProfileDTO(instructor);
+            return new UserRequest(instructor.getId(), instructor.getEmail(), instructor.getName(),
+                    instructor.getLastName(), instructor.getAddress(), instructor.getCity(), instructor.getCountry(),
+                    instructor.getPhoneNumber(), "INSTRUCTOR");
         return null;
     }
 
     @Override
-    public UserProfileDTO getAdministratorById(Integer id) {
+    public UserRequest getAdministratorById(Integer id) {
         Administrator administrator = administratorRepository.findById(id).orElseGet(null);
         if(administrator != null)
-            return new UserProfileDTO(administrator);
+            return new UserRequest(administrator.getId(), administrator.getEmail(), administrator.getName(),
+                    administrator.getLastName(), administrator.getAddress(), administrator.getCity(), administrator.getCountry(),
+                    administrator.getPhoneNumber(), "ADMINISTRATOR");
         return null;
     }
 

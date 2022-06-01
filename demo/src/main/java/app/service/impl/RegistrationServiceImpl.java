@@ -74,6 +74,29 @@ public class RegistrationServiceImpl implements RegistrationService {
         if(registrationRequest.getUserType().equals(UserType.INSTRUCTOR))
             return instructorRepository.save(new Instructor(registrationRequest.getEmail(), passwordEncoder.encode(registrationRequest.getPassword()), registrationRequest.getName(), registrationRequest.getLastName(),
                     registrationRequest.getAddress(), registrationRequest.getCity(), registrationRequest.getCountry(), registrationRequest.getPhoneNumber()));
+        
+        if(registrationRequest.getUserType().equals(UserType.COTTAGE_OWNER)) {
+            CottageOwner cottageOwner = new CottageOwner(registrationRequest.getEmail(), passwordEncoder.encode(registrationRequest.getPassword()),
+                    registrationRequest.getName(), registrationRequest.getLastName(), registrationRequest.getAddress(), registrationRequest.getCity(),
+                    registrationRequest.getCountry(), registrationRequest.getPhoneNumber());
+            cottageOwner.setRoles(roleService.findByName("ROLE_COTTAGE_OWNER"));
+            return cottageOwnerRepository.save(new CottageOwner(registrationRequest.getEmail(), registrationRequest.getPassword(),
+                    registrationRequest.getName(), registrationRequest.getLastName(), registrationRequest.getAddress(), registrationRequest.getCity(),
+                    registrationRequest.getCountry(), registrationRequest.getPhoneNumber()));
+        }
+        if(registrationRequest.getUserType().equals(UserType.SHIP_OWNER)) {
+            ShipOwner shipOwner = new ShipOwner(registrationRequest.getEmail(), registrationRequest.getPassword(), registrationRequest.getName(), registrationRequest.getLastName(),
+                    registrationRequest.getAddress(), registrationRequest.getCity(), registrationRequest.getCountry(), registrationRequest.getPhoneNumber());
+            shipOwner.setRoles(roleService.findByName("ROLE_SHIP_OWNER"));
+            return shipOwnerRepository.save(new ShipOwner(registrationRequest.getEmail(), registrationRequest.getPassword(), registrationRequest.getName(), registrationRequest.getLastName(),
+                    registrationRequest.getAddress(), registrationRequest.getCity(), registrationRequest.getCountry(), registrationRequest.getPhoneNumber()));
+        }
+        if(registrationRequest.getUserType().equals(UserType.INSTRUCTOR)){
+            Instructor instructor = new Instructor(registrationRequest.getEmail(), registrationRequest.getPassword(), registrationRequest.getName(), registrationRequest.getLastName(),
+                    registrationRequest.getAddress(), registrationRequest.getCity(), registrationRequest.getCountry(), registrationRequest.getPhoneNumber());
+            instructor.setRoles(roleService.findByName("ROLE_INSTRUCTOR"));
+            return instructorRepository.save(instructor);
+        }
 
         return null;
     }
@@ -81,11 +104,11 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Override
     public void registerClient(UserRequest dto, String siteURL) throws UnsupportedEncodingException, MessagingException {
         String randomCode = RandomString.make(64);
-        Client client = new Client(dto.getEmail(), passwordEncoder.encode(dto.getPassword()), dto.getFirstName(), dto.getLastName(), dto.getAddress(),
+        Client client = new Client(dto.getEmail(), passwordEncoder.encode(dto.getPassword()), dto.getName(), dto.getLastName(), dto.getAddress(),
                 dto.getCity(), dto.getCountry(), dto.getPhoneNumber());
         client.setVerificationCode(randomCode);
 
-        List<Role> roles = roleService.findByName("ROLE_USER");
+        List<Role> roles = roleService.findByName("ROLE_CLIENT");
         client.setRoles(roles);
 
         clientRepository.save(client);

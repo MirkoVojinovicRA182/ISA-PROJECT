@@ -1,10 +1,12 @@
-export class Instructor {
-    email: string = "";
+export class Client{
     name: string = "";
     lastName: string = "";
+    email: string = "";
+    password: string = "";
     address: string = "";
     city: string = "";
     country: string = "";
     phoneNumber: string = "";
-    role : string = "Instructor";
+
+    constructor() {}
 }

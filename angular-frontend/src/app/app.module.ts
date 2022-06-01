@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 import {MatDialogModule} from '@angular/material/dialog';
@@ -16,7 +20,7 @@ import { UserSettingsComponent } from './components/unregistered-user-components
 import { ChangePasswordDialogComponent } from './components/unregistered-user-components/user-settings/change-password-dialog/change-password-dialog.component';
 import { DeleteAccountDialogComponent } from './components/unregistered-user-components/user-settings/delete-account-dialog/delete-account-dialog.component';
 import { AdministratorCottagesViewComponent } from './components/administrator-components/administrator-cottages-view/administrator-cottages-view.component';
-import { OwnerRegistrationComponent } from './components/owner-registration/owner-registration.component';
+import { OwnerRegistrationComponent } from './components/unregistered-user-components/owner-registration/owner-registration.component';
 import { CottageComponent } from './components/cottage-owner-components/cottage/cottage.component';
 import { AdministratorDeleteAccountRequestsViewComponent } from './components/administrator-components/administrator-delete-account-requests-view/administrator-delete-account-requests-view.component';
 import { AdministratorHomePageComponent } from './components/administrator-components/administrator-home-page/administrator-home-page.component';
@@ -48,11 +52,14 @@ import { InstructorStatisticsComponent } from './components/instructor-component
 import { LandingPageComponent } from './components/unregistered-user-components/landing-page/landing-page.component';
 import { LoginComponent } from './components/unregistered-user-components/login/login.component';
 import { UserProfileComponent } from './components/unregistered-user-components/user-profile/user-profile.component';
-import { UserReservationsStatisticsComponent } from './components/unregistered-user-components/user-reservations-statistics/user-reservations-statistics.component';
+import { UserReservationsStatisticsComponent } from './components/administrator-components/user-reservations-statistics/user-reservations-statistics.component';
 import { UserSallaryComponent } from './components/unregistered-user-components/user-sallary/user-sallary.component';
 import { CottageOwnerDefaultComponent } from './components/cottage-owner-components/cottage-owner-default/cottage-owner-default.component';
 import { CottageOwnerDeleteAccountComponent } from './components/cottage-owner-components/cottage-owner-delete-account/cottage-owner-delete-account.component';
 import { CottageEditComponent } from './components/cottage-owner-components/cottage-edit/cottage-edit.component';
+import { AllCottagesComponent } from './components/unregistered-user-components/all-cottages/all-cottages.component';
+import { AllShipsComponent } from './components/unregistered-user-components/all-ships/all-ships.component';
+import { AllAdventuresComponent } from './components/unregistered-user-components/all-adventures/all-adventures.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +105,9 @@ import { CottageEditComponent } from './components/cottage-owner-components/cott
     CottageOwnerDefaultComponent,
     CottageOwnerDeleteAccountComponent,
     CottageEditComponent,
+    AllCottagesComponent,
+    AllShipsComponent,
+    AllAdventuresComponent
   ],
   imports: [
     BrowserModule,
@@ -105,7 +115,11 @@ import { CottageEditComponent } from './components/cottage-owner-components/cott
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,  
     MatDialogModule,
     MatTableModule,
     MatButtonModule,

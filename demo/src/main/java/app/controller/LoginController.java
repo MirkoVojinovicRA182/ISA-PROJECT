@@ -1,16 +1,16 @@
 package app.controller;
 
 import app.domain.ApplicationUser;
-import app.dto.InstructorAdventureDTO;
-import app.dto.JwtAuthenticationRequest;
-import app.dto.LoginDTO;
-import app.dto.UserTokenState;
+import app.domain.Client;
+import app.dto.*;
 import app.service.LoginService;
+import app.service.UserService;
 import app.utility.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -33,13 +33,10 @@ public class LoginController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @RequestMapping("/getUser")
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ApplicationUser> getUser(String username, String password){
-        return new ResponseEntity<ApplicationUser>(loginService.getUser(new LoginDTO(username, password)), HttpStatus.OK);
-    }
+    @Autowired
+    private UserService userService;
 
-    @PostMapping("/login")
+    @PostMapping("/")
     public ResponseEntity<UserTokenState> createAuthenticationToken(
             @RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response) {
 
@@ -59,5 +56,11 @@ public class LoginController {
 
         // Vrati token kao odgovor na uspesnu autentifikaciju
         return ResponseEntity.ok(new UserTokenState(jwt, expiresIn));
+    }
+
+    @RequestMapping("/whoami/{username}")
+    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ApplicationUser> user(@PathVariable String username) {
+        return new ResponseEntity<>(userService.findByUsername(username), HttpStatus.OK);
     }
 }

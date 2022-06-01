@@ -1,9 +1,6 @@
 package app.controller;
 
-import app.dto.CottageDTO;
-import app.dto.InstructorAdventureDTO;
-import app.dto.ShipDTO;
-import app.dto.UserProfileDTO;
+import app.dto.*;
 import app.service.EntityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,14 +36,14 @@ public class EntityController {
 
     @RequestMapping("/getInstructor/{id}")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserProfileDTO> getInstructor(@PathVariable Integer id){
-        return new ResponseEntity<UserProfileDTO>(entityService.getInstructorById(id), HttpStatus.OK);
+    public ResponseEntity<UserRequest> getInstructor(@PathVariable Integer id){
+        return new ResponseEntity<UserRequest>(entityService.getInstructorById(id), HttpStatus.OK);
     }
 
     @RequestMapping("/getAdministrator/{id}")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserProfileDTO> getAdministrator(@PathVariable Integer id){
-        return new ResponseEntity<UserProfileDTO>(entityService.getAdministratorById(id), HttpStatus.OK);
+    public ResponseEntity<UserRequest> getAdministrator(@PathVariable Integer id){
+        return new ResponseEntity<UserRequest>(entityService.getAdministratorById(id), HttpStatus.OK);
     }
 
     @RequestMapping("/getAllAdventures")

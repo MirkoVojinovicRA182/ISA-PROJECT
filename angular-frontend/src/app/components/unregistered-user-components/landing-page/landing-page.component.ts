@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +23,26 @@ export class LandingPageComponent implements OnInit {
 
   routeToAdmin(){
     this.router.navigate(['/admin']);
+  }
+
+  redirectToLogin(){
+    this.router.navigate(['login'], {relativeTo: this.activeRoute})
+  }
+
+  redirectToRegistration(){
+    this.router.navigate(['registration'], {relativeTo: this.activeRoute})
+  }
+
+  redirectToCottages(){
+    this.router.navigate(['allCottages'], {relativeTo: this.activeRoute})
+  }
+
+  redirectToAdventures(){
+    this.router.navigate(['allAdventures'], {relativeTo: this.activeRoute})
+  }
+
+  redirectToShips(){
+    this.router.navigate(['allShips'], {relativeTo: this.activeRoute})
   }
 
 }

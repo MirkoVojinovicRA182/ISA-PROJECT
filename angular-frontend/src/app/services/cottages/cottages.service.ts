@@ -24,4 +24,8 @@ export class CottagesService {
   updateCottage(cottage: any){
     return this.http.put<any>(this._url + 'cottage/updateCottage' , cottage);
   }
+  
+  getAllCottages(): Observable<Cottage[]>{
+    return this.http.get<Cottage[]>(this._url + 'entity/getAllCottages/');
+  }
 }

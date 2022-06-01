@@ -1,0 +1,110 @@
+<h1 style="text-align: center;"><b style="color: rgb(18, 162, 37)">Registration</b></h1>
+<hr style="margin-bottom: 70px;">
+<div class="content">
+    <table>
+        <tr>
+            <td>
+                Email (username):
+            </td>
+            <td>
+                <input type="email" id="inputText" [(ngModel)]="registrationRequest.email" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password:
+            </td>
+            <td>
+                <input type="password" id="inputText" [(ngModel)]="registrationRequest.password" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password (again):
+            </td>
+            <td>
+                <input type="password" id="inputText" [(ngModel)]="repeatedPassword" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                First name:
+            </td>
+            <td>
+                <input type="text" id="inputText" [(ngModel)]="registrationRequest.name" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Last name:
+            </td>
+            <td>
+                <input type="text" id="inputText" [(ngModel)]="registrationRequest.lastName" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address:
+            </td>
+            <td>
+                <input type="text" id="inputText" [(ngModel)]="registrationRequest.address" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                City:
+            </td>
+            <td>
+                <input type="text" id="inputText" [(ngModel)]="registrationRequest.city" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Country:
+            </td>
+            <td>
+                <input type="text" id="inputText" [(ngModel)]="registrationRequest.country" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Phone number:
+            </td>
+            <td>
+                <input type="text" id="inputText" [(ngModel)]="registrationRequest.phoneNumber" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                User type:
+            </td>
+            <td style="width: 600px;">
+                <input type="radio" checked id="client" value="userType" class="radio" name="userType"
+                    (click)="registrationRequest.userType = 'Client'">
+                <label for="client"><i>Client</i></label>
+
+                <input type="radio" id="instructor" value="userType" class="radio" name="userType"
+                    (click)="registrationRequest.userType = 'Instructor'">
+                <label for="instructor"><i>Fishing instructor</i></label>
+
+                <input type="radio" id="cottageOwner" value="userType" class="radio" name="userType"
+                    (click)="registrationRequest.userType = 'CottageOwner'">
+                <label for="cottageOwner"><i>Cottage owner</i></label>
+
+                <input type="radio" id="shipOwner" value="userType" class="radio" name="userType"
+                    (click)="registrationRequest.userType = 'ShipOwner'">
+                <label for="shipOwner"><i>Ship owner</i></label>
+            </td>
+        </tr>
+        <tr *ngIf="registrationRequest.userType != 'Client'">
+            <td>
+                Registration explanation:
+            </td>
+            <td>
+                <input type="text" id="inputText" [(ngModel)]="registrationRequest.registrationExplanation" required>
+            </td>
+        </tr>
+    </table>
+    <button mat-raised-button tabindex="-1" class="userProfileButton" style="margin-top: 30px; margin-left: 30%; background-color: rgb(18, 162, 37);"
+        (click)="registerUser()">Register</button>
+</div>

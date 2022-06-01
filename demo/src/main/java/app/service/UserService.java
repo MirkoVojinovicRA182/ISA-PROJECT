@@ -1,8 +1,11 @@
 package app.service;
 
+import app.domain.ApplicationUser;
+import app.domain.Client;
 import app.domain.enums.UserType;
 import app.dto.CottageOwnerDTO;
 import app.dto.UserProfileDTO;
+import org.springframework.boot.ApplicationArguments;
 
 import java.util.Collection;
 
@@ -16,4 +19,6 @@ public interface UserService {
     UserProfileDTO getCottageOwner(String username);
 
     UserProfileDTO updateCottageOwner(UserProfileDTO userProfileDTO);
+    
+    ApplicationUser findByUsername(String username);
 }

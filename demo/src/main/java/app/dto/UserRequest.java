@@ -6,28 +6,34 @@ import app.domain.enums.UserType;
 public class UserRequest {
 
     private Integer id;
-
     private String email;
-
     private String password;
-
-    private String firstName;
-
+    private String name;
     private String lastName;
-
     private String address;
-
     private String city;
-
     private String country;
-
     private String phoneNumber;
+    private String userType;
 
-    private UserType role;
+    public UserRequest(){}
 
-    public String getFirstName() { return firstName; }
+    public UserRequest(Integer id, String email, String name, String lastName, String address, String city,
+                       String country, String phoneNumber, String userType) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.phoneNumber = phoneNumber;
+        this.userType = userType;
+    }
 
-    public void setFirstName(String firstName) { this.firstName = firstName; }
+    public String getName() { return name; }
+
+    public void setFirstName(String name) { this.name = name; }
 
     public String getLastName() { return lastName; }
 
@@ -49,9 +55,9 @@ public class UserRequest {
 
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
-    public UserType getRole() { return role; }
+    public String getUserType() { return userType; }
 
-    public void setRole(UserType role) { this.role = role; }
+    public void setUserType(String userType) { this.userType = userType; }
 
     public String getPassword() {
         return password;

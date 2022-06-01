@@ -8,4 +8,6 @@ public interface InstructorRepository extends JpaRepository<Instructor, Integer>
 
     @Query("select i from Instructor i join fetch i.adventures a where i.id = ?1")
     public Instructor findOneWithAdventures(Integer instructorId);
+
+    Instructor findByEmail(String email);
 }

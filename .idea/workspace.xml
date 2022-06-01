@@ -5,27 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/ActionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/ActionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/AdventureReservationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/ComplaintServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/ComplaintServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/CottageOwnerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageOwnerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/CottageReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageReservationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/CottageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/CustomUserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/CustomUserDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/DeleteAccountRequestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/DeleteAccountRequestServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/EntityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/EntityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/InstructorAdventureServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/InstructorAdventureServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/InstructorBusynessServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/InstructorBusynessServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/LoginServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/RegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/RegistrationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/ShipReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/ShipServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/UserProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserProfileServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/cottage-owner-components/cottages-preview/cottages-preview.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/cottage-owner-components/cottages-preview/cottages-preview.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-cottages/all-cottages.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-cottages/all-cottages.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/services/login/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/services/login/login.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,14 +30,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/demo/src/main/java/app/IsaProjectApplication.java" root0="FORCE_HIGHLIGHTING" />
@@ -94,6 +73,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Application.IsaProjectApplication">
     <configuration name="IsaProjectApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -182,11 +162,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/LoginServiceImpl.java</url>
           <line>53</line>
@@ -283,34 +258,39 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="68" />
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/EntityController.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="69" />
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/EntityServiceImpl.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="70" />
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/EntityServiceImpl.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/RegistrationServiceImpl.java</url>
-          <line>88</line>
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserServiceImpl.java</url>
+          <line>166</line>
           <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/LoginController.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/RegistrationController.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserServiceImpl.java</url>
+          <line>163</line>
+          <option name="timeStamp" value="77" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,6 +1,7 @@
 package app.domain;
 
 import app.domain.enums.UserType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -13,22 +14,28 @@ public class Client extends ApplicationUser{
     @Column(name = "verification_code", length = 64)
     private String verificationCode = "";
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<AdventureReservation> adventureReservations = new HashSet<>();
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<ShipReservation> shipReservations = new HashSet<>();
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<CottageReservation> cottageReservations = new HashSet<>();
 
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<CottageComplaint> cottageComplaints = new HashSet<CottageComplaint>();
 
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<InstructorComplaint> instructorComplaints = new HashSet<InstructorComplaint>();
 
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<ShipComplaint> shipComplaints = new HashSet<ShipComplaint>();
 
     public Client() {}
@@ -65,5 +72,29 @@ public class Client extends ApplicationUser{
 
     public void setCottageReservations(Set<CottageReservation> cottageReservations) {
         this.cottageReservations = cottageReservations;
+    }
+
+    public Set<CottageComplaint> getCottageComplaints() {
+        return cottageComplaints;
+    }
+
+    public void setCottageComplaints(Set<CottageComplaint> cottageComplaints) {
+        this.cottageComplaints = cottageComplaints;
+    }
+
+    public Set<InstructorComplaint> getInstructorComplaints() {
+        return instructorComplaints;
+    }
+
+    public void setInstructorComplaints(Set<InstructorComplaint> instructorComplaints) {
+        this.instructorComplaints = instructorComplaints;
+    }
+
+    public Set<ShipComplaint> getShipComplaints() {
+        return shipComplaints;
+    }
+
+    public void setShipComplaints(Set<ShipComplaint> shipComplaints) {
+        this.shipComplaints = shipComplaints;
     }
 }

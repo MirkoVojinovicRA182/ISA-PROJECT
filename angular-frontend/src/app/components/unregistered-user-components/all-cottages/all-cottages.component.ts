@@ -1,18 +1,15 @@
-import { Options } from '@angular-slider/ngx-slider';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import jwtDecode from 'jwt-decode';
-import { Observable } from 'rxjs';
-import { serverPort } from 'src/app/app.consts';
+import { Options } from '@angular-slider/ngx-slider';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Cottage } from 'src/app/model/cottage';
 import { CottagesService } from 'src/app/services/cottages/cottages.service';
-import { CottageEditComponent } from '../cottage-edit/cottage-edit.component';
 
 @Component({
-  selector: 'app-cottages-preview',
-  templateUrl: './cottages-preview.component.html',
-  styleUrls: ['./cottages-preview.component.css']
+  selector: 'allCottages',
+  templateUrl: './all-cottages.component.html',
+  styleUrls: ['./all-cottages.component.css']
 })
-export class CottagesPreviewComponent implements OnInit {
+export class AllCottagesComponent implements OnInit {
 
   cottages: any;
   filteredCottages: any;
@@ -24,7 +21,6 @@ export class CottagesPreviewComponent implements OnInit {
   selectedRoomsMax: number = 0;
   selectedBedsMin: number = 0;
   selectedBedsMax: number = 0;
-  cottageOwnerEmail: string = "";
 
   roomsOptions: Options = {
     floor: 0,
@@ -37,24 +33,18 @@ export class CottagesPreviewComponent implements OnInit {
   };
 
 
-  constructor(private cottageService: CottagesService, private router: Router) { }
+  constructor(private cottageService: CottagesService, private router: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    window.scroll(0,0)
-    var token = localStorage.getItem('jwt');
-    if(token != null){
-      this.cottageOwnerEmail = jwtDecode<any>(token).sub;
-      
-    }
-    this.getUserCottages(this.cottageOwnerEmail);
+    this.getAllCottages();
   }
 
-  getUserCottages(username: string){
-    this.cottageService.getUserCottages(username).subscribe(
+  getAllCottages(){
+    this.cottageService.getAllCottages().subscribe(
       cottages => {
-        this.cottages = cottages
-        this.filteredCottages = cottages
-        this.getMaxRooms()
+        this.cottages = cottages,
+        this.filteredCottages = cottages,
+        this.getMaxRooms(),
         this.getMaxBeds()
       }
     );
@@ -62,6 +52,10 @@ export class CottagesPreviewComponent implements OnInit {
 
   showCottageDetails(cottage: any){
     this.router.navigate(["cottageOwner/cottageDetails"], { state: { data:cottage }});
+
+    /*this.router.navigateByUrl("cottageOwner/cottageDetails", {
+           state: {data:cottage}
+       });*/
   }
 
   getMaxRooms(){
@@ -113,14 +107,6 @@ export class CottagesPreviewComponent implements OnInit {
     this.filteredCottages = this.cottages;
   }
 
-  getAllBedsNumber(cottage : any){
-    var bedsNumber = 0;
-    for(var room of cottage.rooms){
-      bedsNumber += room.bedsNumber
-    }
-    return bedsNumber;
-  }
-
   public nameInputChange(filter: any){
     this.nameFilter = filter;
   }
@@ -129,16 +115,12 @@ export class CottagesPreviewComponent implements OnInit {
     this.addressFilter = filter;
   }
 
-  public cottageDetails(cottage: any){
-    var selectedCottage = JSON.stringify(cottage)
-    localStorage.setItem('selectedCottage', selectedCottage)
-    this.router.navigate(['cottageOwner/cottageDetails'])
-  }
-
-  public editCottage(cottage: any){
-    var selectedCottage = JSON.stringify(cottage)
-    localStorage.setItem('selectedCottage', selectedCottage)
-    this.router.navigate(['cottageOwner/cottageDetails'])
+  getAllBedsNumber(cottage : any){
+    var bedsNumber = 0;
+    for(var room of cottage.rooms){
+      bedsNumber += room.bedsNumber
+    }
+    return bedsNumber;
   }
 
 }

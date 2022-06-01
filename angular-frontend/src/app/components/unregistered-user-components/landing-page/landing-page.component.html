@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <meta charset="UTF-8">
@@ -11,45 +12,46 @@
     <style>
     </style>
 </head>
+
 <body>
     <div class="wrapper">
-       <div class="section">
-    <div class="top_navbar">
-      <div class="hamburger">
-      </div>
-    </div>
-    <div class="container">
-        <router-outlet></router-outlet>
-    </div>
-  </div>
-        <div class="sidebar" >
+        <div class="section">
+            <div class="top_navbar">
+                <div class="hamburger">
+                </div>
+            </div>
+            <div class="container">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <div class="sidebar">
             <ul>
                 <li>
-                    <a href="#">
+                    <a (click)="redirectToAdventures()">
                         <span class="icon"><i class="fas fa-compass"></i></span>
                         <span class="item">Adventures</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a (click)="redirectToShips()">
                         <span class="icon"><i class="fas fa-anchor"></i></span>
                         <span class="item">Ships</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a (click)="redirectToCottages()">
                         <span class="icon"><i class="fas fa-campground"></i></span>
                         <span class="item">Cottages</span>
                     </a>
                 </li>
                 <li>
-                    <a href="" [routerLink] = "['/registration']">
+                    <a (click)="redirectToRegistration()">
                         <span class="icon"><i class="fas fa-user-circle"></i></span>
                         <span class="item">Register</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" [routerLink] = "['/login']">
+                    <a (click)="redirectToLogin()">
                         <span class="icon"><i class="fas fa-sign-in-alt"></i></span>
                         <span class="item">Login</span>
                     </a>
@@ -57,31 +59,6 @@
             </ul>
         </div>
     </div>
- 
-
-    <div class="row">
-        <div 
-        class="column" 
-        style="background-color:rgb(1, 167, 139);" 
-        (click) = "routeToRegistration()"
-        routerLinkActive='active' 
-        routerLink='/registration'>
-
-        <p>Owners registration</p>
-
-        </div>
-
-        <div class="column" style="background-color:rgb(130, 102, 255);" (click) = "routeToInstructor()">
-
-        <p>Instructor home page</p>
-
-        </div>
-
-        <div class="column" style="background-color:rgb(128, 116, 116);" (click) = "routeToAdmin()">
-
-            <p>Administrator home page</p>
-    
-        </div>
-    </div>
 </body>
+
 </html>
