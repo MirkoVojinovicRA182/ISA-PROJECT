@@ -143,10 +143,12 @@ public class UserServiceImpl implements UserService {
             cottageOwnerRepository.save(cottageOwner);
             return new UserProfileDTO(cottageOwner);
         }
+
+        return null;
     }
     
-    public Client findByUsername(String username) {
- /*       if (cottageOwnerRepository.findByEmail(username) != null)
+    public ApplicationUser findByUsername(String username) {
+        if (cottageOwnerRepository.findByEmail(username) != null)
             return cottageOwnerRepository.findByEmail(username);
 
         if (shipOwnerRepository.findByEmail(username) != null)
@@ -157,10 +159,9 @@ public class UserServiceImpl implements UserService {
 
         if (administratorRepository.findByEmail(username) != null)
             return administratorRepository.findByEmail(username);
-*/
+
         if (clientRepository.findByEmail(username) != null) {
-            Client c = clientRepository.findByEmail(username);
-            return c;
+            return clientRepository.findByEmail(username);
 
         }
         return null;

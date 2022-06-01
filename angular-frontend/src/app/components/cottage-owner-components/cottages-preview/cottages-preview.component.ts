@@ -40,9 +40,10 @@ export class CottagesPreviewComponent implements OnInit {
 
   ngOnInit(): void {
     window.scroll(0,0)
-    var token = localStorage.getItem('token');
+    var token = localStorage.getItem('jwt');
     if(token != null){
-      this.cottageOwnerEmail = jwtDecode<any>(JSON.parse(token).accessToken).sub;
+      this.cottageOwnerEmail = jwtDecode<any>(token).sub;
+      
     }
     this.getUserCottages(this.cottageOwnerEmail);
   }
@@ -112,6 +113,7 @@ export class CottagesPreviewComponent implements OnInit {
     this.selectedRoomsMin = 1;
     this.nameFilter = "";
     this.addressFilter = "";
+    this.filteredCottages = this.cottages;
   }
 
   getAllBedsNumber(cottage : any){

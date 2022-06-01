@@ -60,7 +60,7 @@ public class LoginController {
 
     @RequestMapping("/whoami/{username}")
     @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Client> user(@PathVariable String username) {
+    public ResponseEntity<ApplicationUser> user(@PathVariable String username) {
         return new ResponseEntity<>(userService.findByUsername(username), HttpStatus.OK);
     }
 }
