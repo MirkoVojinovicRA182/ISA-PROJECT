@@ -1,5 +1,6 @@
 package app.domain;
 
+import app.dto.MarkDTO;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
@@ -19,7 +20,7 @@ public class Mark {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cottage_id")
-    @JsonBackReference
+    @JsonBackReference(value = "cottage_marks")
     private Cottage cottage;
 
     public Mark() {}
@@ -29,6 +30,11 @@ public class Mark {
         this.mark = mark;
         this.userId = userId;
         this.cottage = cottage;
+    }
+
+    public Mark(MarkDTO markDTO) {
+        this.mark = markDTO.getMark();
+        this.userId = markDTO.getUserId();
     }
 
     public Integer getId() {

@@ -1,11 +1,11 @@
 package app.dto;
 
-import app.domain.*;
+import app.domain.Cottage;
 
 import java.util.HashSet;
-import java.util.Set;
 
-public class CottageDTO {
+public class ChangeCottageDTO {
+
     private Integer cottageId;
     private String name;
     private String address;
@@ -13,16 +13,12 @@ public class CottageDTO {
     private String conductRules;
     private String pricelist;
     private Integer cottageOwnerId;
-    private Set<CottageImage> images;
-    private Set<Room> rooms;
-    private Set<Mark> marks;
-    private Set<CottageAvailability> cottageAvailability;
 
-    public CottageDTO(){
+    public ChangeCottageDTO(){
         super();
     }
 
-    public CottageDTO(Cottage cottage){
+    public ChangeCottageDTO(Cottage cottage){
         this.cottageId = cottage.getId();
         this.name = cottage.getName();
         this.address = cottage.getAddress();
@@ -30,13 +26,9 @@ public class CottageDTO {
         this.conductRules = cottage.getConductRules();
         this.pricelist = cottage.getPricelist();
         this.cottageOwnerId = cottage.getCottageOwner().getId();
-        this.images = (cottage.getImages()  != null) ? cottage.getImages() : new HashSet<>();
-        this.rooms = (cottage.getRooms()  != null) ? cottage.getRooms() : new HashSet<>();
-        this.marks = (cottage.getMarks()  != null) ? cottage.getMarks() : new HashSet<>();
-        this.cottageAvailability = (cottage.getCottageAvailability()  != null) ? cottage.getCottageAvailability() : new HashSet<>();
     }
 
-    public CottageDTO(Integer cottageId, String name, String address, String promotiveDescription, String conductRules, String pricelist, int cottageOwnerId) {
+    public ChangeCottageDTO(Integer cottageId, String name, String address, String promotiveDescription, String conductRules, String pricelist, int cottageOwnerId) {
         super();
         this.cottageId = cottageId;
         this.name = name;
@@ -45,10 +37,6 @@ public class CottageDTO {
         this.conductRules = conductRules;
         this.pricelist = pricelist;
         this.cottageOwnerId = cottageOwnerId;
-        this.images = new HashSet<>();
-        this.rooms = new HashSet<>();
-        this.marks = new HashSet<>();
-        this.cottageAvailability = new HashSet<>();
     }
 
     public Integer getCottageId() {
@@ -105,37 +93,5 @@ public class CottageDTO {
 
     public void setCottageOwnerId(Integer cottageOwnerId) {
         this.cottageOwnerId = cottageOwnerId;
-    }
-
-    public Set<CottageImage> getImages() {
-        return images;
-    }
-
-    public void setImages(Set<CottageImage> images) {
-        this.images = images;
-    }
-
-    public Set<Room> getRooms() {
-        return rooms;
-    }
-
-    public void setRooms(Set<Room> rooms) {
-        this.rooms = rooms;
-    }
-
-    public Set<Mark> getMarks() {
-        return marks;
-    }
-
-    public void setMarks(Set<Mark> marks) {
-        this.marks = marks;
-    }
-
-    public Set<CottageAvailability> getCottageAvailability() {
-        return cottageAvailability;
-    }
-
-    public void setCottageAvailability(Set<CottageAvailability> cottageAvailability) {
-        this.cottageAvailability = cottageAvailability;
     }
 }

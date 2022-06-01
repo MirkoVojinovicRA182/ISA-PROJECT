@@ -1,0 +1,50 @@
+.element {
+    display: inline-block;
+    width: 45% !important;
+    height: 100%;
+    margin-right: 5px;
+  }
+
+  .greenButton {
+    background-color: rgb(1, 167, 139) !important;
+    border: rgb(1, 167, 139) !important;
+    color: white !important;
+    margin: 5px !important;
+} 
+
+.greenButton:focus {
+    background-color: rgb(1, 167, 139) !important;
+    border: rgb(1, 167, 139) !important;
+    color: white !important;
+}
+
+.greenButton:hover{
+    background-color: rgb(12, 218, 183) !important;
+    border-color: rgb(1, 167, 139) !important;
+    color: white !important;
+    transform: scale(1.1);
+}
+
+.whiteButton {
+    background-color: rgb(255, 255, 255) !important;
+    border-color: rgb(1, 167, 139) !important;
+    color: rgb(1, 167, 139) !important;
+    margin: 5px;
+} 
+
+.whiteButton:focus {
+    background-color: rgb(255, 255, 255) !important;
+    border-color: rgb(1, 167, 139) !important;
+    color: rgb(12, 218, 183) !important;
+}
+
+.whiteButton:hover {
+    background-color: rgb(255, 255, 255) !important;
+    border-color: rgb(12, 218, 183) !important;
+    color: rgb(12, 218, 183) !important;
+    transform: scale(1.1);
+}
+
+input[type="file"] {
+    display: none;
+}

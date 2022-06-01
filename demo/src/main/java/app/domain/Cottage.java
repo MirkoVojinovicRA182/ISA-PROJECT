@@ -1,5 +1,6 @@
 package app.domain;
 
+import app.dto.ChangeCottageDTO;
 import app.dto.CottageDTO;
 import app.dto.InstructorAdventureDTO;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -31,28 +32,32 @@ public class Cottage {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cottage_owner_id")
-    @JsonBackReference
+    @JsonBackReference(value = "cottage_owner")
     private CottageOwner cottageOwner;
 
     @OneToMany(mappedBy = "cottage", cascade = CascadeType.ALL)
-    @JsonBackReference
+    @JsonBackReference(value = "cottage_reservations")
     private Set<CottageReservation> cottageReservations = new HashSet<>();
     
     @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    @JsonBackReference
+    @JsonBackReference(value = "cottage_complaints")
     private Set<CottageComplaint> complaints = new HashSet<CottageComplaint>();
 
     @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    @JsonBackReference
+    @JsonBackReference(value = "cottage_images")
     private Set<CottageImage> images = new HashSet<>();
 
     @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    @JsonBackReference
+    @JsonBackReference(value = "cottage_rooms")
     private Set<Room> rooms = new HashSet<>();
 
     @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    @JsonBackReference
+    @JsonBackReference(value = "cottage_marks")
     private Set<Mark> marks = new HashSet<>();
+
+    @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference(value = "cottage_cottage_availability")
+    private Set<CottageAvailability> cottageAvailability = new HashSet<>();
 
     public Cottage() {
         super();
@@ -157,6 +162,10 @@ public class Cottage {
         this.marks = marks;
     }
 
+    public boolean addImage(CottageImage image) {
+        return images.add(image);
+    }
+
     public void rateCottage(Mark mark) {
         marks.add(mark);
     }
@@ -177,11 +186,19 @@ public class Cottage {
         return bedsNumber;
     }
 
-    public void update(CottageDTO cottageDTO) {
+    public void update(ChangeCottageDTO cottageDTO) {
         setName(cottageDTO.getName());
         setAddress(cottageDTO.getAddress());
         setPromotiveDescription(cottageDTO.getPromotiveDescription());
         setConductRules(cottageDTO.getConductRules());
         setPricelist(cottageDTO.getPricelist());
+    }
+
+    public Set<CottageAvailability> getCottageAvailability() {
+        return cottageAvailability;
+    }
+
+    public void setCottageAvailability(Set<CottageAvailability> cottageAvailability) {
+        this.cottageAvailability = cottageAvailability;
     }
 }

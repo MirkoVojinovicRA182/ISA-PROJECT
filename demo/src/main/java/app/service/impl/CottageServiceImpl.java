@@ -1,20 +1,19 @@
 package app.service.impl;
 
-import app.domain.Cottage;
-import app.domain.CottageImage;
-import app.domain.Mark;
-import app.domain.Room;
-import app.dto.CottageDTO;
-import app.repository.CottageImageRepository;
-import app.repository.CottageOwnerRepository;
-import app.repository.CottageRepository;
-import app.repository.CottageRoomRepository;
+import app.domain.*;
+import app.dto.*;
+import app.repository.*;
 import app.service.CottageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,8 +32,14 @@ public class CottageServiceImpl implements CottageService {
     @Autowired
     private CottageRoomRepository cottageRoomRepository;
 
+    @Autowired
+    private MarkRepository markRepository;
+
+    @Autowired
+    private CottageAvailabilityRepository cottageAvailabilityRepository;
+
     @Override
-    public void saveCottage(CottageDTO cottageDTO) {
+    public CottageDTO saveCottage(ChangeCottageDTO cottageDTO) {
         Cottage newCottage = new Cottage(
                 cottageDTO.getName(),
                 cottageDTO.getAddress(),
@@ -43,6 +48,7 @@ public class CottageServiceImpl implements CottageService {
                 cottageDTO.getPricelist(),
                 cottageOwnerRepository.findById(cottageDTO.getCottageOwnerId()).orElseGet(null));
         cottageRepository.save(newCottage);
+        return new CottageDTO(newCottage);
     }
 
     @Override
@@ -51,7 +57,7 @@ public class CottageServiceImpl implements CottageService {
     }
 
     @Override
-    public CottageDTO updateCottage(CottageDTO cottageDTO) {
+    public CottageDTO updateCottage(ChangeCottageDTO cottageDTO) {
         Cottage cottageForUpdate = cottageRepository.findById(cottageDTO.getCottageId()).orElseGet(null);
         cottageForUpdate.update(cottageDTO);
         cottageRepository.save(cottageForUpdate);
@@ -84,23 +90,52 @@ public class CottageServiceImpl implements CottageService {
     }
 
     @Override
-    public CottageDTO addImage(Integer cottageId, Set<String> imgsUrl) {
-        Cottage cottageForUpdate = cottageRepository.findById(cottageId).orElseGet(null);
+    public CottageDTO addImage(Set<CottageImageDTO> imgs) throws IOException {
+        CottageImageDTO firstImage = imgs.stream().findFirst().orElseGet(null);
+        Cottage cottageForUpdate = cottageRepository.findById(firstImage.getCottageId()).orElseGet(null);
         Set<CottageImage> images = new HashSet<>();
-        for(String imgUrl : imgsUrl){
-            CottageImage image = new CottageImage(imgUrl, cottageForUpdate);
+        for(CottageImageDTO img : imgs){
+            CottageImage image = new CottageImage("../angular-frontend/src/assets/cottage/" + img.getUrl() + "-" + cottageForUpdate.getImages().size() + ".png", cottageForUpdate);
             images.add(image);
+            String base64Image = img.getBase64().split(",")[1];
+            byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
+            File outputfile = new File(image.getUrl());
+            try (OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(outputfile))) {
+                outputStream.write(imageBytes);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            cottageForUpdate.getImages().add(image);
         }
         cottageImageRepository.saveAll(images);
-        cottageForUpdate.getImages().addAll(images);
         cottageRepository.save(cottageForUpdate);
         return new CottageDTO(cottageForUpdate);
     }
 
     @Override
-    public CottageDTO addRoom(Integer cottageId, Set<Room> rooms) {
-        Cottage cottageForUpdate = cottageRepository.findById(cottageId).orElseGet(null);
+    public CottageDTO removeImage(CottageImageDTO img) {
+        Cottage cottageForUpdate = cottageRepository.findById(img.getCottageId()).orElseGet(null);
+        Set<CottageImage> images = cottageImageRepository.getByCottage(cottageForUpdate.getId());
+        CottageImage image = cottageImageRepository.findById(img.getCottageImageid()).orElseGet(null);
+        File outputfile = new File(image.getUrl());
+        outputfile.delete();
+        cottageForUpdate.getImages().removeIf(i -> i.getId().equals(image.getId()));
+        images.removeIf(i -> i.getId().equals(image.getId()));
+        cottageRepository.save(cottageForUpdate);
+        cottageImageRepository.deleteById(image.getId());
+        return new CottageDTO(cottageForUpdate);
+    }
+
+    @Override
+    public CottageDTO addRoom(Set<RoomDTO> rooms) {
+        RoomDTO roomD = rooms.stream().findFirst().orElseGet(null);
+        Cottage cottageForUpdate = cottageRepository.findById(roomD.getCottageId()).orElseGet(null);
         Set<Room> newRooms = new HashSet<>();
+        for(RoomDTO roomDTO : rooms){
+            Room room = new Room(roomDTO.getRoomId(), roomDTO.getRoomNumber(), roomDTO.getBedsNumber(), roomDTO.isBathroom(), roomDTO.isClime(),
+                    cottageRepository.findById(roomDTO.getCottageId()).orElseGet(null));
+            newRooms.add(room);
+        }
         cottageRoomRepository.saveAll(newRooms);
         cottageForUpdate.getRooms().addAll(newRooms);
         cottageRepository.save(cottageForUpdate);
@@ -108,12 +143,59 @@ public class CottageServiceImpl implements CottageService {
     }
 
     @Override
-    public Integer rateCottage(Integer cottageId, Mark mark) {
+    public Integer rateCottage(Integer cottageId, MarkDTO mark) {
         Cottage cottageForUpdate = cottageRepository.findById(cottageId).orElseGet(null);
-        cottageForUpdate.rateCottage(mark);
+        Mark newMark = new Mark(mark);
+        newMark.setCottage(cottageForUpdate);
+        cottageForUpdate.rateCottage(newMark);
+        markRepository.save(newMark);
         cottageRepository.save(cottageForUpdate);
         return cottageForUpdate.getRating();
     }
 
+    @Override
+    public CottageDTO addCottageAvailability(Integer cottageId, Set<CottageAvailabilityDTO> availability) {
+        Cottage cottageForUpdate = cottageRepository.findById(cottageId).orElseGet(null);
+        for(CottageAvailabilityDTO cottageAvailabilityDTO : availability){
+            if(cottageAvailabilityDTO.getStartDate().isBefore(cottageAvailabilityDTO.getEndDate()) || cottageAvailabilityDTO.getStartDate().isEqual(cottageAvailabilityDTO.getEndDate())) {
+                CottageAvailability cottageAvailability = new CottageAvailability(cottageAvailabilityDTO);
+                cottageAvailability.setCottage(cottageForUpdate);
+                boolean overlap = false;
+                for (CottageAvailability c : cottageForUpdate.getCottageAvailability()) {
+                    if (cottageAvailability.getStartDate().isBefore(c.getStartDate()) && cottageAvailability.getEndDate().isBefore(c.getStartDate()) ||
+                            cottageAvailability.getStartDate().isAfter(c.getEndDate()) && cottageAvailability.getEndDate().isAfter(c.getEndDate())) {
+                        overlap = overlap;
+                    } else {
+                        overlap = true;
+                    }
+                }
+                if (cottageAvailability.getEndDate().isAfter(cottageAvailability.getStartDate()) && !overlap) {
+                    cottageAvailabilityRepository.save(cottageAvailability);
+                    cottageForUpdate.getCottageAvailability().add(cottageAvailability);
+                    cottageRepository.save(cottageForUpdate);
+                }
+            }
+        }
+        cottageRepository.save(cottageForUpdate);
+        return new CottageDTO(cottageForUpdate);
+    }
 
+    public boolean isCottageAvailable(Integer cottageId, LocalDate startDate, LocalDate endDate){
+        if(startDate.isAfter(endDate))
+            return false;
+        Cottage cottage = cottageRepository.findById(cottageId).orElseGet(null);
+        for(CottageAvailability c : cottage.getCottageAvailability()){
+            if ((startDate.isAfter(c.getStartDate()) || startDate.isEqual(c.getStartDate())) && (startDate.isBefore(c.getEndDate()) || startDate.isEqual(c.getEndDate())) &&
+                (endDate.isAfter(c.getStartDate()) || endDate.isEqual(c.getStartDate())) && (endDate.isBefore(c.getEndDate()) || endDate.isEqual(c.getEndDate()))){
+                for(CottageReservation r : cottage.getCottageReservations()){
+                    if((r.getStartTime().isAfter(ChronoLocalDateTime.from(startDate)) || r.getEndTime().isBefore(ChronoLocalDateTime.from(endDate))) ||
+                        r.getStartTime().isBefore(ChronoLocalDateTime.from(startDate)) && r.getEndTime().isAfter(ChronoLocalDateTime.from(endDate))){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        return false;
+    }
 }

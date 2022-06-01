@@ -1,8 +1,9 @@
 package app.controller;
 
+import app.domain.CottageImage;
 import app.domain.Mark;
 import app.domain.Room;
-import app.dto.CottageDTO;
+import app.dto.*;
 import app.service.CottageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -24,16 +26,15 @@ public class CottageController {
 
     @RequestMapping("/createCottage")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CottageDTO> createCottage(@RequestBody CottageDTO cottageDto) throws Exception {
-        cottageService.saveCottage(cottageDto);
-        return new ResponseEntity<>(cottageDto, HttpStatus.CREATED);
+    public ResponseEntity<CottageDTO> createCottage(@RequestBody ChangeCottageDTO cottageDto) throws Exception {
+        return new ResponseEntity<>(cottageService.saveCottage(cottageDto), HttpStatus.OK);
     }
 
     /*@RequestMapping("/updateCottage")*/
     @PutMapping(value = "/updateCottage", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CottageDTO> changeCottage(@RequestBody CottageDTO cottageDto) throws Exception {
+    public ResponseEntity<CottageDTO> changeCottage(@RequestBody ChangeCottageDTO cottageDto) throws Exception {
         cottageService.updateCottage(cottageDto);
-        return new ResponseEntity<>(cottageDto, HttpStatus.OK);
+        return new ResponseEntity<>(cottageService.getCottageById(cottageDto.getCottageId()), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "deleteCottage/{cottageId}")
@@ -60,21 +61,33 @@ public class CottageController {
         return new ResponseEntity<>(cottageService.getCottageById(cottageId), HttpStatus.OK);
     }
 
-    @RequestMapping("/addImage/{cottageId}/{imgUrl}")
+    @RequestMapping("/addImage")
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CottageDTO> addImage(@PathVariable Integer cottageId, @RequestBody Set<String> imgUrl) throws Exception {
-        return new ResponseEntity<>(cottageService.addImage(cottageId, imgUrl), HttpStatus.OK);
+    public ResponseEntity<CottageDTO> addImage(@RequestBody Set<CottageImageDTO> img) throws Exception {
+        return new ResponseEntity<>(cottageService.addImage(img), HttpStatus.OK);
     }
 
-    @RequestMapping("/addRoom/{cottageId}")
+    @RequestMapping("/removeImage")
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CottageDTO> addRoom(@PathVariable Integer cottageId, @RequestBody Set<Room> rooms) throws Exception {
-        return new ResponseEntity<>(cottageService.addRoom(cottageId, rooms), HttpStatus.OK);
+    public ResponseEntity<CottageDTO> removeImage(@RequestBody CottageImageDTO img) throws Exception {
+        return new ResponseEntity<>(cottageService.removeImage(img), HttpStatus.OK);
+    }
+
+    @RequestMapping("/addRoom")
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CottageDTO> addRoom(@RequestBody Set<RoomDTO> rooms) throws Exception {
+        return new ResponseEntity<>(cottageService.addRoom(rooms), HttpStatus.OK);
+    }
+
+    @RequestMapping("/addCottageAvailability/{cottageId}")
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CottageDTO> addCottageAvailability(@PathVariable Integer cottageId, @RequestBody Set<CottageAvailabilityDTO> availability) throws Exception {
+        return new ResponseEntity<>(cottageService.addCottageAvailability(cottageId, availability), HttpStatus.OK);
     }
 
     @RequestMapping("/rateCottage/{cottageId}")
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Integer> rateCottage(@PathVariable Integer cottageId, @RequestBody Mark mark) throws Exception {
+    public ResponseEntity<Integer> rateCottage(@PathVariable Integer cottageId, @RequestBody MarkDTO mark) throws Exception {
         return new ResponseEntity<>(cottageService.rateCottage(cottageId, mark), HttpStatus.OK);
     }
 

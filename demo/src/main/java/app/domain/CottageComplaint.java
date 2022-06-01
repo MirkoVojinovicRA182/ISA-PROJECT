@@ -16,6 +16,7 @@ public class CottageComplaint {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cottage_id")
+    @JsonBackReference(value = "cottage_complaints")
     private Cottage cottage;
 
     @ManyToOne(fetch = FetchType.EAGER)

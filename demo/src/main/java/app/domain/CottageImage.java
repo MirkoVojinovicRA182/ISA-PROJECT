@@ -17,7 +17,7 @@ public class CottageImage {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cottage_id")
-    @JsonBackReference
+    @JsonBackReference(value = "cottage_images")
     private Cottage cottage;
 
     public CottageImage() {

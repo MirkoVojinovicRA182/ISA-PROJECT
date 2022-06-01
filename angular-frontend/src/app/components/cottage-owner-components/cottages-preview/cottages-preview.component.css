@@ -125,7 +125,7 @@ input:focus {
     background-color: rgb(255, 255, 255) !important;
     border-color: rgb(1, 167, 139) !important;
     color: rgb(1, 167, 139) !important;
-    margin: 5px !important;
+    margin: 5px;
 } 
 
 .whiteButton:focus {

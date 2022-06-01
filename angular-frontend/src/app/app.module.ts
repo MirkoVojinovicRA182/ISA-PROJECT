@@ -60,6 +60,7 @@ import { CottageEditComponent } from './components/cottage-owner-components/cott
 import { AllCottagesComponent } from './components/unregistered-user-components/all-cottages/all-cottages.component';
 import { AllShipsComponent } from './components/unregistered-user-components/all-ships/all-ships.component';
 import { AllAdventuresComponent } from './components/unregistered-user-components/all-adventures/all-adventures.component';
+import { NewCottageComponent } from './components/cottage-owner-components/new-cottage/new-cottage.component';
 
 @NgModule({
   declarations: [
@@ -107,7 +108,8 @@ import { AllAdventuresComponent } from './components/unregistered-user-component
     CottageEditComponent,
     AllCottagesComponent,
     AllShipsComponent,
-    AllAdventuresComponent
+    AllAdventuresComponent,
+    NewCottageComponent
   ],
   imports: [
     BrowserModule,
@@ -124,7 +126,7 @@ import { AllAdventuresComponent } from './components/unregistered-user-component
     MatTableModule,
     MatButtonModule,
     NgxSliderModule,
-    IvyCarouselModule
+    IvyCarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

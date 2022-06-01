@@ -13,12 +13,16 @@ export class CottagesService {
 
   constructor(private http: HttpClient) { }
 
-  getUserCottages(username: string): Observable<Cottage[]>{
-    return this.http.get<Cottage[]>(this._url + 'cottage/cottageOwnerCottages/' + username);
+  getUserCottages(username: string){
+    return this.http.get<any>(this._url + 'cottage/cottageOwnerCottages/' + username);
   }
 
   getCottageById(cottageId: number): Observable<Cottage[]>{
     return this.http.get<Cottage[]>(this._url + 'cottage/getCottage/' + cottageId);
+  }
+
+  addNewCottage(cottage: any){
+    return this.http.post<any>(this._url + 'cottage/createCottage' , cottage);
   }
 
   updateCottage(cottage: any){
@@ -27,5 +31,17 @@ export class CottagesService {
   
   getAllCottages(): Observable<Cottage[]>{
     return this.http.get<Cottage[]>(this._url + 'entity/getAllCottages/');
+  }
+
+  addRoom(data: any){
+    return this.http.put<any>(this._url + 'cottage/addRoom' , data);
+  }
+
+  addImages(data: any){
+    return this.http.put<any>(this._url + 'cottage/addImage' , data);
+  }
+
+  removeImage(data: any){
+    return this.http.put<any>(this._url + 'cottage/removeImage' , data);
   }
 }

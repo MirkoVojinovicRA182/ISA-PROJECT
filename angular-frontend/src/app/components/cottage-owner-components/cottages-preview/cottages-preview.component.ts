@@ -1,11 +1,14 @@
 import { Options } from '@angular-slider/ngx-slider';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
 import { Observable } from 'rxjs';
 import { serverPort } from 'src/app/app.consts';
 import { CottagesService } from 'src/app/services/cottages/cottages.service';
+import { LoginService } from 'src/app/services/login/login.service';
 import { CottageEditComponent } from '../cottage-edit/cottage-edit.component';
+import { NewCottageComponent } from '../new-cottage/new-cottage.component';
 
 @Component({
   selector: 'app-cottages-preview',
@@ -37,7 +40,7 @@ export class CottagesPreviewComponent implements OnInit {
   };
 
 
-  constructor(private cottageService: CottagesService, private router: Router) { }
+  constructor(private cottageService: CottagesService, private router: Router, public detailsDialog: MatDialog, private loginService: LoginService) { }
 
   ngOnInit(): void {
     window.scroll(0,0)
@@ -135,10 +138,22 @@ export class CottagesPreviewComponent implements OnInit {
     this.router.navigate(['cottageOwner/cottageDetails'])
   }
 
-  public editCottage(cottage: any){
-    var selectedCottage = JSON.stringify(cottage)
-    localStorage.setItem('selectedCottage', selectedCottage)
-    this.router.navigate(['cottageOwner/cottageDetails'])
+  addNewCottageDialog(){
+    let storage = localStorage.getItem('currentUser');
+    let currentUser
+    if(storage != null)
+      currentUser = JSON.parse(storage)
+    else
+      currentUser = {id: 0}
+    const dialogRef = this.detailsDialog.open(NewCottageComponent, {
+      data: currentUser.id,
+      panelClass: 'backdropBackground',
+      disableClose: false,
+      width: '40%',
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      console.log("zatvoreno")
+    }
+    );
   }
-
 }

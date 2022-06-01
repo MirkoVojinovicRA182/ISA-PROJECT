@@ -70,6 +70,7 @@ export class LoginService {
     return this._http.get<any>(this._url + 'login/whoami/' + username)
     .pipe(map(user => {
       this.currentUser = user;
+      localStorage.setItem('currentUser', JSON.stringify(user));
       return user;
     }));
   }

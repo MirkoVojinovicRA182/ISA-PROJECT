@@ -28,7 +28,7 @@ public class CottageReservation {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cottage_id")
-    @JsonBackReference
+    @JsonBackReference(value = "cottage_reservations")
     private Cottage cottage;
 
     public CottageReservation(){}

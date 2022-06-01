@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 public class Room {
     @Id
-    @SequenceGenerator(name = "roomSeqGen", sequenceName = "roomSeq", initialValue = 1, allocationSize = 1)
+    @SequenceGenerator(name = "roomSeqGen", sequenceName = "roomSeq", initialValue = 20, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "roomSeqGen")
     private Integer id;
 
@@ -27,7 +27,7 @@ public class Room {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cottage_id")
-    @JsonBackReference
+    @JsonBackReference(value = "cottage_rooms")
     private Cottage cottage;
 
 

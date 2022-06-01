@@ -16,7 +16,7 @@ import java.util.Set;
 public class CottageOwner extends ApplicationUser{
 
     @OneToMany(mappedBy = "cottageOwner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    @JsonBackReference
+    @JsonBackReference(value = "cottage_owner")
     private Set<Cottage> cottages = new HashSet<Cottage>();
 
     @OneToMany(mappedBy = "cottageOwner", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)

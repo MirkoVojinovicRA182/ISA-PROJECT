@@ -25,7 +25,21 @@ export class CottageEditComponent{
       pricelist: this.cottage.pricelist,
       cottageOwnerId: this.cottage.cottageOwnerId,
     }
-    this.cottageService.updateCottage(cottageForUpdate).subscribe()
+    this.cottageService.updateCottage(cottageForUpdate).subscribe( data => {localStorage.setItem('selectedCottage', JSON.stringify(data)); window.location.reload()})
+  }
+
+  getImage(image: any){
+    return image.url.split("/")[3]+"/"+image.url.split("/")[4]+"/"+image.url.split("/")[5]
+  }
+
+  removeImage(image: any){
+    let data = {
+      cottageImageid: image.id,
+      url: image.url,
+      cottageId: this.cottage.cottageId
+    }
+    this.cottageService.removeImage(data).subscribe( returnData => { this.cottage = returnData, data = returnData,
+      localStorage.setItem('selectedCottage', JSON.stringify(returnData)); window.location.reload()})
   }
 
 }

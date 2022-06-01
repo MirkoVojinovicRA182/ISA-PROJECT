@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<body tabindex="-1" style="overflow: auto;">
+    <h1>Edit your cottage info</h1>
+    <hr>
+    <div>
+        <div class="element">
+            <p class="info-font mb-1 mt-2">Name:</p>
+            <input class="info-font input-size" type="text" [(ngModel)] = "cottage.name">
+            <p class="info-font mb-1 mt-2">Address:</p>
+            <input class="info-font input-size" type="text" [(ngModel)] = "cottage.address">
+            <p class="info-font mb-1 mt-2">Promotive description:</p>
+            <textarea class="info-font input-size" type="text" style="resize: none; height: 100px;" [(ngModel)] = "cottage.promotiveDescription"></textarea>
+        </div>
+        <div class="element" style="vertical-align: top;">
+            <p class="info-font mb-1 mt-2">Conduct rules:</p>
+            <textarea class="info-font input-size" type="text" style="resize: none; height: 100px;" [(ngModel)] = "cottage.conductRules"></textarea>
+            <p class="info-font mb-1 mt-2">Pricelist:</p>
+            <textarea class="info-font input-size" type="text" style="resize: none; height: 90px;" [(ngModel)] = "cottage.pricelist"></textarea>
+        </div>
+    </div>
+    <div style="overflow: auto; height: 500px; background-color: rgb(240, 240, 240);">
+        <div *ngIf="showRoom">
+            <p class="info-font mb-1 mt-2">Room number:</p>
+            <input class="info-font input-size" type="text" [(ngModel)] = "room.roomNumber">
+            <p class="info-font mb-1 mt-2">Number of beds:</p>
+            <input class="info-font input-size" type="text" [(ngModel)] = "room.bedsNumber">
+            <p class="info-font mb-1 mt-2">Bathroom:</p>
+            <input class="info-font input-size" type="checkbox" [(ngModel)] = "room.bathroom">
+            <p class="info-font mb-1 mt-2">Clime:</p>
+            <input class="info-font input-size" type="checkbox" [(ngModel)] = "room.clime">
+        </div>
+        <button class="btn whiteButton mt-5 ml-5" (click)="addRoom($event.target)">Add room</button>
+        <label class="btn wishlist whiteButton mt-5 ml-5" style="width: 145px; block-size: fit-content">
+            <input type="file" (change)="selectFile($event)" multiple/>
+            <p style="margin: 0px;">Add image</p>
+        </label>
+    </div>
+    <button class="btn greenButton mt-5 ml-5" (click)="addNewCottage()">Add cottage</button>
+</body>
+

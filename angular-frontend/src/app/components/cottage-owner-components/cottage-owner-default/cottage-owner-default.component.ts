@@ -21,9 +21,9 @@ export class CottageOwnerDefaultComponent implements OnInit {
 
   ngOnInit(): void {
     window.scroll(0,0)
-    var token = localStorage.getItem('token');
+    var token = localStorage.getItem('jwt');
     if(token != null){
-      this.userService.getCottageOwner(jwtDecode<any>(JSON.parse(token).accessToken).sub).subscribe(
+      this.userService.getCottageOwner(jwtDecode<any>(token).sub).subscribe(
         cottageOwner => this.cottageOwner = cottageOwner
       )
     }
