@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 import { AdventureReservation } from 'src/app/model/adventure-reservation';
 import { Report } from 'src/app/model/report';
-import { User } from 'src/app/model/user';
 import { ReservationsService } from 'src/app/services/reservations/reservations.service';
 import { UserProfileService } from 'src/app/services/user-profile/user-profile.service';
 import { InstructorAddAdventureReservationDialogComponent } from './instructor-add-adventure-reservation-dialog/instructor-add-adventure-reservation-dialog.component';

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { ShipsService } from 'src/app/services/ships/ships.service';
 
 @Component({
-  selector: 'allShips',
+  selector: 'app-all-ships',
   templateUrl: './all-ships.component.html',
   styleUrls: ['./all-ships.component.css']
 })

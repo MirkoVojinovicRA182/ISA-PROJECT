@@ -8,7 +8,7 @@ import { InstructorHomePageService } from 'src/app/services/instructor-home-page
 import { InstructorLessonsService } from 'src/app/services/instructor-lessons/instructor-lessons.service';
 
 @Component({
-  selector: 'allAdventures',
+  selector: 'app-all-adventures',
   templateUrl: './all-adventures.component.html',
   styleUrls: ['./all-adventures.component.css']
 })

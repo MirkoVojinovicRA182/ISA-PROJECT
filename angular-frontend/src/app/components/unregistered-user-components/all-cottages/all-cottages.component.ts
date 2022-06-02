@@ -5,7 +5,7 @@ import { Cottage } from 'src/app/model/cottage';
 import { CottagesService } from 'src/app/services/cottages/cottages.service';
 
 @Component({
-  selector: 'allCottages',
+  selector: 'app-all-cottages',
   templateUrl: './all-cottages.component.html',
   styleUrls: ['./all-cottages.component.css']
 })

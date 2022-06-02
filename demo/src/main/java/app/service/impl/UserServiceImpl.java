@@ -48,35 +48,35 @@ public class UserServiceImpl implements UserService {
         for(Administrator admin: admins)
         {
             UserProfileDTO userProfileDTO = new UserProfileDTO(admin);
-            userProfileDTO.setUserType(UserType.ADMINISTRATOR);
+            userProfileDTO.setUserType("ROLE_ADMINISTRATOR");
             users.add(userProfileDTO);
         }
 
         for(Client client: clients)
         {
             UserProfileDTO userProfileDTO = new UserProfileDTO(client);
-            userProfileDTO.setUserType(UserType.CLIENT);
+            userProfileDTO.setUserType("ROLE_CLIENT");
             users.add(userProfileDTO);
         }
 
         for(Instructor instructor: instructors)
         {
             UserProfileDTO userProfileDTO = new UserProfileDTO(instructor);
-            userProfileDTO.setUserType(UserType.INSTRUCTOR);
+            userProfileDTO.setUserType("ROLE_INSTRUCTOR");
             users.add(userProfileDTO);
         }
 
         for(CottageOwner cottageOwner: cottageOwners)
         {
             UserProfileDTO userProfileDTO = new UserProfileDTO(cottageOwner);
-            userProfileDTO.setUserType(UserType.COTTAGE_OWNER);
+            userProfileDTO.setUserType("ROLE_COTTAGE_OWNER");
             users.add(userProfileDTO);
         }
 
         for(ShipOwner shipOwner: shipOwners)
         {
             UserProfileDTO userProfileDTO = new UserProfileDTO(shipOwner);
-            userProfileDTO.setUserType(UserType.SHIP_OWNER);
+            userProfileDTO.setUserType("ROLE_SHIP_OWNER");
             users.add(userProfileDTO);
         }
 

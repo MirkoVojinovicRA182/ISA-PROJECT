@@ -7,13 +7,12 @@ import { LoginService } from 'src/app/services/login/login.service';
 import jwt_decode from 'jwt-decode';
 
 @Component({
-  selector: 'login',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   loginUser: LoginUser = new LoginUser()
-  loggedUser: User = new User()
   username: string = ""
   password: string = ""
   user: any
@@ -34,7 +33,7 @@ export class LoginComponent implements OnInit {
         if (this.user.roles[0].name == "ROLE_ADMIN") {
           this.router.navigate(['admin'])
         } else if (this.user.roles[0].name == "ROLE_CLIENT") {
-          this.router.navigate(['admin'])
+          this.router.navigate(['client'])
         } else if (this.user.roles[0].name == "ROLE_INSTRUCTOR") {
           this.router.navigate(['instructor'])
         } else if (this.user.roles[0].name == "ROLE_SHIP_OWNER") {
@@ -46,7 +45,7 @@ export class LoginComponent implements OnInit {
       })
   }
 
-  getDecodedAccessToken(token: string): any {
+  public getDecodedAccessToken(token: string): any {
     try {
       return jwt_decode(token);
     } catch(Error) {

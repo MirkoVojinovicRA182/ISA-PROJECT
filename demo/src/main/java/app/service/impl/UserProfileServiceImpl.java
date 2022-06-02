@@ -4,10 +4,7 @@ import app.domain.*;
 import app.domain.enums.UserType;
 import app.dto.UserPasswordDTO;
 import app.dto.UserProfileDTO;
-import app.repository.AdministratorRepository;
-import app.repository.CottageOwnerRepository;
-import app.repository.InstructorRepository;
-import app.repository.ShipOwnerRepository;
+import app.repository.*;
 import app.service.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,6 +15,9 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     @Autowired
     private InstructorRepository instructorRepository;
+
+    @Autowired
+    private ClientRepository clientRepository;
 
     @Autowired
     private AdministratorRepository administratorRepository;
@@ -33,16 +33,22 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     @Override
     public UserProfileDTO updatePersonalInfo(UserProfileDTO dto) {
-        if(dto.getUserType().equals(UserType.INSTRUCTOR)){
+        if(dto.getUserType().equals("ROLE_INSTRUCTOR")){
             Instructor instructor = instructorRepository.findById(dto.getUserId()).orElseGet(null);
             instructor.updatePersonalInfo(dto);
             instructorRepository.save(instructor);
         }
 
-        if(dto.getUserType().equals(UserType.ADMINISTRATOR)){
+        if(dto.getUserType().equals("ROLE_ADMINISTRATOR")){
             Administrator administrator = administratorRepository.findById(dto.getUserId()).orElseGet(null);
             administrator.updatePersonalInfo(dto);
             administratorRepository.save(administrator);
+        }
+
+        if(dto.getUserType().equals("ROLE_CLIENT")){
+            Client client = clientRepository.findById(dto.getUserId()).orElseGet(null);
+            client.updatePersonalInfo(dto);
+            clientRepository.save(client);
         }
 
         return dto;

@@ -19,7 +19,7 @@ export class UserProfileService {
   }
 
   public changeProfileInfo(loggedUser: User): Observable<User> {
-    return this.http.post<User>(this._url + 'userProfile/updatePersonalInfo/', loggedUser);
+    return this.http.put<User>(this._url + 'userProfile/updatePersonalInfo/', loggedUser);
   }
 
   getClient(clientUsername: string){

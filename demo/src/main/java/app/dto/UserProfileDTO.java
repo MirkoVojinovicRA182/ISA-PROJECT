@@ -9,12 +9,11 @@ public class UserProfileDTO {
     private String name;
     private String lastName;
     private String email;
-    private String password;
     private String address;
     private String city;
     private String country;
     private String phoneNumber;
-    private UserType userType;
+    private String userType;
 
     public UserProfileDTO() {
     }
@@ -63,14 +62,6 @@ public class UserProfileDTO {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -103,11 +94,11 @@ public class UserProfileDTO {
         this.phoneNumber = phoneNumber;
     }
 
-    public UserType getUserType() {
+    public String getUserType() {
         return userType;
     }
 
-    public void setUserType(UserType userType) {
+    public void setUserType(String userType) {
         this.userType = userType;
     }
 }

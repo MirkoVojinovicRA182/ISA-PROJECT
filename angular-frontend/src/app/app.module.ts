@@ -61,6 +61,8 @@ import { AllCottagesComponent } from './components/unregistered-user-components/
 import { AllShipsComponent } from './components/unregistered-user-components/all-ships/all-ships.component';
 import { AllAdventuresComponent } from './components/unregistered-user-components/all-adventures/all-adventures.component';
 import { NewCottageComponent } from './components/cottage-owner-components/new-cottage/new-cottage.component';
+import { ClientHomePageComponent } from './components/client-components/client-home-page/client-home-page.component';
+import { ClientProfileComponent } from './components/client-components/client-profile/client-profile.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +111,9 @@ import { NewCottageComponent } from './components/cottage-owner-components/new-c
     AllCottagesComponent,
     AllShipsComponent,
     AllAdventuresComponent,
-    NewCottageComponent
+    NewCottageComponent,
+    ClientHomePageComponent,
+    ClientProfileComponent
   ],
   imports: [
     BrowserModule,

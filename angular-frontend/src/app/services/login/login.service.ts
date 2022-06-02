@@ -1,15 +1,16 @@
 import {HttpClient, HttpHeaders, HttpRequest, HttpResponse, HttpParams} from '@angular/common/http';
-import {Injectable} from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {Observable, pipe} from 'rxjs';
 import {catchError, filter, map} from 'rxjs/operators';
 import { serverPort } from 'src/app/app.consts';
 import { LoginUser } from 'src/app/model/login-user';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class LoginService implements OnInit{
 
   currentUser: any;
   private _url = serverPort
@@ -20,6 +21,9 @@ export class LoginService {
   });
 
   constructor(private _http: HttpClient, private router: Router) { }
+  ngOnInit(): void {
+    this.whoami()
+  }
 
   getUser(user: LoginUser): Observable<any>{
     // const body = `username=${user.username}&password=${user.password}`;
@@ -75,6 +79,15 @@ export class LoginService {
     }));
   }
 
+  whoami(){
+    let jwt = localStorage.getItem('jwt')
+    let token = this.getDecodedAccessToken(jwt? jwt : '')
+    this.getMyInfo(token.sub).subscribe(user => {
+      this.currentUser = user
+    })
+    return this.currentUser
+  }
+
   get(path: string, args?: any): Observable<any> {
     const options = {
       headers: this.loginHeaders,
@@ -82,5 +95,13 @@ export class LoginService {
 
     return this._http.get(path, options)
       .pipe(catchError(this.checkError.bind(this)));
+  }
+
+  public getDecodedAccessToken(token: string): any {
+    try {
+      return jwt_decode(token);
+    } catch(Error) {
+      return null;
+    }
   }
 }

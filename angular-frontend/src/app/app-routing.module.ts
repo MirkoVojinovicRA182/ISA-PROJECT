@@ -29,6 +29,8 @@ import { CottageOwnerDefaultComponent } from './components/cottage-owner-compone
 import { AllCottagesComponent } from './components/unregistered-user-components/all-cottages/all-cottages.component';
 import { AllAdventuresComponent } from './components/unregistered-user-components/all-adventures/all-adventures.component';
 import { AllShipsComponent } from './components/unregistered-user-components/all-ships/all-ships.component';
+import { ClientHomePageComponent } from './components/client-components/client-home-page/client-home-page.component';
+import { ClientProfileComponent } from './components/client-components/client-profile/client-profile.component';
 
 const routes: Routes = [
 
@@ -166,6 +168,19 @@ const routes: Routes = [
       {
         path: 'cottageDetails',
         component: CottageComponent
+      },
+    ]
+  },
+
+  // CLIENT ROUTES
+  {
+    path: 'client',
+    component: ClientHomePageComponent,
+
+    children: [
+      {
+        path: 'profile',
+        component: ClientProfileComponent
       }
     ]
   },
