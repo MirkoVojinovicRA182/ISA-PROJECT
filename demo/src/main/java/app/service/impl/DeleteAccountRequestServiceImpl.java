@@ -31,6 +31,9 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
     @Autowired
     private AdministratorRepository administratorRepository;
 
+    @Autowired
+    private ClientRepository clientRepository;
+
     @Override
     public void createRequest(DeleteAccountRequestDTO dto) {
         ApplicationUser userForDelete = null;
@@ -46,6 +49,10 @@ public class DeleteAccountRequestServiceImpl implements DeleteAccountRequestServ
         for(CottageOwner cottageOwner: cottageOwnerRepository.findAll())
             if(cottageOwner.getId().equals(dto.getUserId()))
                 userForDelete = cottageOwnerRepository.findById(dto.getUserId()).orElseGet(null);
+
+        for(Client client: clientRepository.findAll())
+            if(client.getId().equals(dto.getUserId()))
+                userForDelete = clientRepository.findById(dto.getUserId()).orElseGet(null);
 
         if(userForDelete != null)
             deleteAccountRequestRepository.save(new DeleteAccountRequest(dto.getDeleteReason(), userForDelete, dto.getUserFullName(), dto.getUserType()));

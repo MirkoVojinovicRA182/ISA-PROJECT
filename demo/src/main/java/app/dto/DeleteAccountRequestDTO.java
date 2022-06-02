@@ -9,7 +9,7 @@ public class DeleteAccountRequestDTO {
     private String deleteReason;
     private Integer userId;
     private String userFullName;
-    private UserType userType;
+    private String userType;
 
     public DeleteAccountRequestDTO() {
     }
@@ -54,11 +54,11 @@ public class DeleteAccountRequestDTO {
         this.userFullName = userFullName;
     }
 
-    public UserType getUserType() {
+    public String getUserType() {
         return userType;
     }
 
-    public void setUserType(UserType userType) {
+    public void setUserType(String userType) {
         this.userType = userType;
     }
 }

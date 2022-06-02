@@ -23,12 +23,12 @@ public class DeleteAccountRequest {
     private String userFullName;
 
     @Column(name = "userType", unique = false, nullable = false)
-    private UserType userType;
+    private String userType;
 
     public DeleteAccountRequest() {
     }
 
-    public DeleteAccountRequest(String deleteReason, ApplicationUser user, String userFullName, UserType userType) {
+    public DeleteAccountRequest(String deleteReason, ApplicationUser user, String userFullName, String userType) {
         this.deleteReason = deleteReason;
         this.user = user;
         this.userFullName = userFullName;
@@ -67,11 +67,11 @@ public class DeleteAccountRequest {
         this.userFullName = userFullName;
     }
 
-    public UserType getUserType() {
+    public String getUserType() {
         return userType;
     }
 
-    public void setUserType(UserType userType) {
+    public void setUserType(String userType) {
         this.userType = userType;
     }
 }

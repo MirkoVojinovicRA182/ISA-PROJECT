@@ -6,20 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-components/instructor-lesson-reservations-view/instructor-lesson-reservations-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/instructor-components/instructor-lesson-reservations-view/instructor-lesson-reservations-view.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-adventures/all-adventures.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-adventures/all-adventures.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-cottages/all-cottages.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-cottages/all-cottages.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-ships/all-ships.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-ships/all-ships.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/model/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/model/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/services/login/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/services/login/login.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/services/user-profile/user-profile.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/services/user-profile/user-profile.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/UserProfileDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/UserProfileDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserProfileServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-profile/client-profile.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-profile/client-profile.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-profile/client-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-profile/client-profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-profile/client-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-profile/client-profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/DeleteAccountRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/DeleteAccountRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/DeleteAccountRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/DeleteAccountRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/DeleteAccountRequestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/DeleteAccountRequestServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +47,7 @@
       <map>
         <entry key="com.haulmont.jpb.jpaInspector" value="false" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -290,39 +283,29 @@
           <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserProfileServiceImpl.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="79" />
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/DeleteAccountRequestServiceImpl.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserProfileServiceImpl.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="80" />
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/DeleteAccountRequestServiceImpl.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserProfileServiceImpl.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserProfileServiceImpl.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="82" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserProfileServiceImpl.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserProfileServiceImpl.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserProfileServiceImpl.java</url>
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/DeleteAccountRequestServiceImpl.java</url>
           <line>50</line>
-          <option name="timeStamp" value="85" />
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/DeleteAccountRequestServiceImpl.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/DeleteAccountRequestServiceImpl.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="90" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
