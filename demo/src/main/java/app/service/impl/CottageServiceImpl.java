@@ -127,6 +127,11 @@ public class CottageServiceImpl implements CottageService {
     }
 
     @Override
+    public void deleteCottageAvailability(Integer availabilityId) {
+        cottageAvailabilityRepository.deleteById(availabilityId);
+    }
+
+    @Override
     public CottageDTO addRoom(Set<RoomDTO> rooms) {
         RoomDTO roomD = rooms.stream().findFirst().orElseGet(null);
         Cottage cottageForUpdate = cottageRepository.findById(roomD.getCottageId()).orElseGet(null);
@@ -143,8 +148,8 @@ public class CottageServiceImpl implements CottageService {
     }
 
     @Override
-    public Integer rateCottage(Integer cottageId, MarkDTO mark) {
-        Cottage cottageForUpdate = cottageRepository.findById(cottageId).orElseGet(null);
+    public Integer rateCottage(MarkDTO mark) {
+        Cottage cottageForUpdate = cottageRepository.findById(mark.getCottageId()).orElseGet(null);
         Mark newMark = new Mark(mark);
         newMark.setCottage(cottageForUpdate);
         cottageForUpdate.rateCottage(newMark);
@@ -154,9 +159,13 @@ public class CottageServiceImpl implements CottageService {
     }
 
     @Override
-    public CottageDTO addCottageAvailability(Integer cottageId, Set<CottageAvailabilityDTO> availability) {
-        Cottage cottageForUpdate = cottageRepository.findById(cottageId).orElseGet(null);
+    public CottageDTO addCottageAvailability(Set<CottageAvailabilityDTO> availability) {
+        CottageAvailabilityDTO newDto = availability.stream().findFirst().orElseGet(null);
+        Cottage cottageForUpdate = cottageRepository.findById(newDto.getCottageId()).orElseGet(null);
         for(CottageAvailabilityDTO cottageAvailabilityDTO : availability){
+            if(cottageAvailabilityDTO.getEndDate().isBefore(LocalDate.now())){
+                return new CottageDTO(cottageForUpdate);
+            }
             if(cottageAvailabilityDTO.getStartDate().isBefore(cottageAvailabilityDTO.getEndDate()) || cottageAvailabilityDTO.getStartDate().isEqual(cottageAvailabilityDTO.getEndDate())) {
                 CottageAvailability cottageAvailability = new CottageAvailability(cottageAvailabilityDTO);
                 cottageAvailability.setCottage(cottageForUpdate);

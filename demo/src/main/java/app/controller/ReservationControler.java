@@ -26,6 +26,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -101,6 +102,12 @@ public class ReservationControler {
             throws UnsupportedEncodingException, MessagingException {
         cottageReservationService.bookACottage(dto);
         return "cottage_reservation_success";
+    }
+
+    @RequestMapping("/reserveCottage")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CottageReservationDTO> reserveCottage(@RequestBody CottageReservationDTO dto) throws Exception {
+        return new ResponseEntity<>(cottageReservationService.reserveCottage(dto), HttpStatus.OK);
     }
     
     @RequestMapping("/createAdventureReservationReport")

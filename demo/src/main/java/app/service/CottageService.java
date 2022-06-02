@@ -16,8 +16,8 @@ public interface CottageService {
     CottageDTO getCottageById(Integer cottageId);
     CottageDTO addImage(Set<CottageImageDTO> imgUrl) throws IOException;
     CottageDTO addRoom(Set<RoomDTO> imgUrl);
-    Integer rateCottage(Integer cottageId, MarkDTO mark);
-    CottageDTO addCottageAvailability(Integer cottageId, Set<CottageAvailabilityDTO> availability);
-
+    Integer rateCottage(MarkDTO mark);
+    CottageDTO addCottageAvailability(Set<CottageAvailabilityDTO> availability);
     CottageDTO removeImage(CottageImageDTO img);
+    void deleteCottageAvailability(Integer availabilityId);
 }

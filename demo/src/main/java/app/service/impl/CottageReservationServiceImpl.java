@@ -1,9 +1,6 @@
 package app.service.impl;
 
-import app.domain.Cottage;
-import app.domain.CottageReservation;
-import app.domain.Ship;
-import app.domain.ShipReservation;
+import app.domain.*;
 import app.dto.CottageReservationDTO;
 import app.dto.CottageReservationSearchDTO;
 import app.dto.ShipReservationDTO;
@@ -49,7 +46,7 @@ public class CottageReservationServiceImpl implements CottageReservationService 
                         }
                     }
                     if (!reserved) {
-                        freeReservations.add(new CottageReservationDTO(dateTime, cottage.getPricelist(),
+                        freeReservations.add(new CottageReservationDTO(dateTime,100,
                                 dto.getClientId(), cottage.getId()));
                     }
                 }
@@ -62,7 +59,19 @@ public class CottageReservationServiceImpl implements CottageReservationService 
     @Override
     public void bookACottage(CottageReservationDTO dto) {
         Cottage cottage = cottageRepository.getByCottageId(dto.getCottageId());
-        cottageReservationRepository.save(new CottageReservation(dto.getStartTime(), cottage.getPricelist(),
+        cottageReservationRepository.save(new CottageReservation(dto.getStartTime(), dto.getPrice(),
                 clientRepository.getById(dto.getClientId()), cottage));
+    }
+
+    @Override
+    public CottageReservationDTO reserveCottage(CottageReservationDTO dto) {
+        Cottage cottageForUpdate = cottageRepository.getById(dto.getCottageId());
+        Client clientForUpdate = clientRepository.getById(dto.getClientId());
+        CottageReservation reservation = new CottageReservation(dto, cottageForUpdate, clientForUpdate);
+        cottageForUpdate.getCottageReservations().add(reservation);
+        cottageReservationRepository.save(reservation);
+        cottageRepository.save(cottageForUpdate);
+        clientRepository.save(clientForUpdate);
+        return dto;
     }
 }

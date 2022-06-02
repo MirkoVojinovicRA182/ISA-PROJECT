@@ -18,22 +18,33 @@
             <textarea class="info-font input-size" type="text" style="resize: none; height: 90px;" [(ngModel)] = "cottage.pricelist"></textarea>
         </div>
     </div>
-    <div style="overflow: auto; height: 500px; background-color: rgb(240, 240, 240);">
-        <div *ngIf="showRoom">
-            <p class="info-font mb-1 mt-2">Room number:</p>
-            <input class="info-font input-size" type="text" [(ngModel)] = "room.roomNumber">
-            <p class="info-font mb-1 mt-2">Number of beds:</p>
-            <input class="info-font input-size" type="text" [(ngModel)] = "room.bedsNumber">
-            <p class="info-font mb-1 mt-2">Bathroom:</p>
-            <input class="info-font input-size" type="checkbox" [(ngModel)] = "room.bathroom">
-            <p class="info-font mb-1 mt-2">Clime:</p>
-            <input class="info-font input-size" type="checkbox" [(ngModel)] = "room.clime">
-        </div>
-        <button class="btn whiteButton mt-5 ml-5" (click)="addRoom($event.target)">Add room</button>
-        <label class="btn wishlist whiteButton mt-5 ml-5" style="width: 145px; block-size: fit-content">
+    <div style="overflow: auto; height: 400px; background-color: rgb(240, 240, 240);">
+        <div class="element">
+            <div *ngIf="showRoom">
+                <p class="info-font mb-1 mt-2">Room number:</p>
+                <input class="info-font input-size" type="text" [(ngModel)] = "room.roomNumber">
+                <p class="info-font mb-1 mt-2">Number of beds:</p>
+                <input class="info-font input-size" type="text" [(ngModel)] = "room.bedsNumber">
+                <p class="info-font mb-1 mt-2">Bathroom:</p>
+                <input class="info-font input-size" type="checkbox" [(ngModel)] = "room.bathroom">
+                <p class="info-font mb-1 mt-2">Clime:</p>
+                <input class="info-font input-size" type="checkbox" [(ngModel)] = "room.clime">
+            </div>
+            <button class="btn whiteButton mt-5 ml-5" (click)="addRoom($event.target)">Add room</button>
+            <label class="btn wishlist whiteButton mt-5 ml-5" style="width: 145px; block-size: fit-content">
             <input type="file" (change)="selectFile($event)" multiple/>
             <p style="margin: 0px;">Add image</p>
         </label>
+        </div>
+        <div class="element">
+            <div *ngIf="showAvailability">
+                <p class="info-font mb-1 mt-2">Available from:</p>
+                <input class="info-font input-size" type="date" [(ngModel)] = "availability.startDate">
+                <p class="info-font mb-1 mt-2">Available until:</p>
+                <input class="info-font input-size" type="date" [(ngModel)] = "availability.endDate">
+            </div>
+            <button class="btn whiteButton mt-5 ml-5" (click)="addAvailability($event.target)">Add availability</button>
+        </div>
     </div>
     <button class="btn greenButton mt-5 ml-5" (click)="addNewCottage()">Add cottage</button>
 </body>

@@ -63,6 +63,7 @@ import { AllAdventuresComponent } from './components/unregistered-user-component
 import { NewCottageComponent } from './components/cottage-owner-components/new-cottage/new-cottage.component';
 import { ClientHomePageComponent } from './components/client-components/client-home-page/client-home-page.component';
 import { ClientProfileComponent } from './components/client-components/client-profile/client-profile.component';
+import { CottageAvailabilityComponent } from './components/cottage-owner-components/cottage-availability/cottage-availability.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +114,8 @@ import { ClientProfileComponent } from './components/client-components/client-pr
     AllAdventuresComponent,
     NewCottageComponent,
     ClientHomePageComponent,
-    ClientProfileComponent
+    ClientProfileComponent,
+    CottageAvailabilityComponent
   ],
   imports: [
     BrowserModule,

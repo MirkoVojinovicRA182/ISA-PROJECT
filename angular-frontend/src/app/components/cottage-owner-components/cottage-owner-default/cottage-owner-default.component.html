@@ -22,9 +22,9 @@
             <input  [disabled]="editDisabled" class="info-font input-size" type="text" [(ngModel)] = "cottageOwner.email">
 
             <p *ngIf="passwordChangeEnabled" class="info-font mb-1 mt-2">New password:</p>
-            <input *ngIf="passwordChangeEnabled" class="info-font input-size" type="text" [(ngModel)] = "newPassword">
+            <input *ngIf="passwordChangeEnabled" class="info-font input-size" type="password" [(ngModel)] = "newPassword">
             <p *ngIf="passwordChangeEnabled" class="info-font mb-1 mt-2">Confirm new password:</p>
-            <input *ngIf="passwordChangeEnabled" class="info-font input-size" type="text" [(ngModel)] = "newPasswordConfirm">
+            <input *ngIf="passwordChangeEnabled" class="info-font input-size" type="password" [(ngModel)] = "newPasswordConfirm">
         </div>
         <div class="element mt-5">
             <button class="btn greenButton" style="width: 8rem;" (click)="edit($event.target)">Edit</button>

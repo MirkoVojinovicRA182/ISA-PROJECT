@@ -6,13 +6,13 @@ import java.time.LocalDateTime;
 public class CottageReservationDTO {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private String price;
+    private double price;
     private Integer clientId;
     private Integer cottageId;
 
     public CottageReservationDTO(){}
 
-    public CottageReservationDTO(LocalDateTime startTime, LocalDateTime endTime,String price, Integer clientId, Integer cottageId) {
+    public CottageReservationDTO(LocalDateTime startTime, LocalDateTime endTime,double price, Integer clientId, Integer cottageId) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.price = price;
@@ -20,7 +20,7 @@ public class CottageReservationDTO {
         this.cottageId = cottageId;
     }
 
-    public CottageReservationDTO(LocalDateTime startTime, String price, Integer clientId, Integer cottageId) {
+    public CottageReservationDTO(LocalDateTime startTime, double price, Integer clientId, Integer cottageId) {
         this.startTime = startTime;
         this.endTime = startTime.plusDays(1);
         this.price = price;
@@ -32,9 +32,9 @@ public class CottageReservationDTO {
 
     public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
 
-    public String getPrice() { return price; }
+    public double getPrice() { return price; }
 
-    public void setPrice(String price) { this.price = price; }
+    public void setPrice(double price) { this.price = price; }
 
     public Integer getClientId() { return clientId; }
 
@@ -43,4 +43,12 @@ public class CottageReservationDTO {
     public Integer getCottageId() { return cottageId; }
 
     public void setCottageId(Integer cottageId) { this.cottageId = cottageId; }
+
+    public LocalDateTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
+    }
 }

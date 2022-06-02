@@ -79,16 +79,22 @@ public class CottageController {
         return new ResponseEntity<>(cottageService.addRoom(rooms), HttpStatus.OK);
     }
 
-    @RequestMapping("/addCottageAvailability/{cottageId}")
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CottageDTO> addCottageAvailability(@PathVariable Integer cottageId, @RequestBody Set<CottageAvailabilityDTO> availability) throws Exception {
-        return new ResponseEntity<>(cottageService.addCottageAvailability(cottageId, availability), HttpStatus.OK);
+    @RequestMapping("/addCottageAvailability")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CottageDTO> addCottageAvailability(@RequestBody Set<CottageAvailabilityDTO> availability) throws Exception {
+        return new ResponseEntity<>(cottageService.addCottageAvailability(availability), HttpStatus.OK);
     }
 
-    @RequestMapping("/rateCottage/{cottageId}")
+    @DeleteMapping(value = "/deleteCottageAvailability/{availabilityId}")
+    public ResponseEntity<Void> deleteCottageAvailability(@PathVariable Integer availabilityId) throws Exception {
+        cottageService.deleteCottageAvailability(availabilityId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping("/rateCottage")
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Integer> rateCottage(@PathVariable Integer cottageId, @RequestBody MarkDTO mark) throws Exception {
-        return new ResponseEntity<>(cottageService.rateCottage(cottageId, mark), HttpStatus.OK);
+    public ResponseEntity<Integer> rateCottage( @RequestBody MarkDTO mark) throws Exception {
+        return new ResponseEntity<>(cottageService.rateCottage(mark), HttpStatus.OK);
     }
 
 }

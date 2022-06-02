@@ -1,5 +1,6 @@
 package app.domain;
 
+import app.dto.CottageReservationDTO;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
@@ -19,7 +20,7 @@ public class CottageReservation {
     private LocalDateTime endTime;
 
     @Column
-    private String price;
+    private double price;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
@@ -33,7 +34,7 @@ public class CottageReservation {
 
     public CottageReservation(){}
 
-    public CottageReservation(LocalDateTime startTime, LocalDateTime endTime,String price, Client client, Cottage cottage) {
+    public CottageReservation(LocalDateTime startTime, LocalDateTime endTime,double price, Client client, Cottage cottage) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.price = price;
@@ -41,10 +42,18 @@ public class CottageReservation {
         this.cottage = cottage;
     }
 
-    public CottageReservation(LocalDateTime startTime, String price, Client client, Cottage cottage) {
+    public CottageReservation(LocalDateTime startTime, double price, Client client, Cottage cottage) {
         this.startTime = startTime;
         this.endTime = startTime.plusDays(1);
         this.price = price;
+        this.client = client;
+        this.cottage = cottage;
+    }
+
+    public CottageReservation(CottageReservationDTO dto, Cottage cottage, Client client) {
+        this.startTime = dto.getStartTime();
+        this.endTime = dto.getEndTime();
+        this.price = dto.getPrice();
         this.client = client;
         this.cottage = cottage;
     }
@@ -65,9 +74,9 @@ public class CottageReservation {
         this.endTime = endTime;
     }
 
-    public String getPrice() { return price; }
+    public double getPrice() { return price; }
 
-    public void setPrice(String price) { this.price = price; }
+    public void setPrice(double price) { this.price = price; }
 
     public Client getClient() { return client; }
 

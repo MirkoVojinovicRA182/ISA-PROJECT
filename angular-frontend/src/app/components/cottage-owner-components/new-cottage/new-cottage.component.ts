@@ -15,6 +15,8 @@ export class NewCottageComponent{
   images: any;
   rooms: any;
   room: any;
+  availabilities: any;
+  availability: any;
 
   constructor(public dialogRef: MatDialogRef<NewCottageComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private cottageService: CottagesService) { 
     this.cottage = {
@@ -28,7 +30,9 @@ export class NewCottageComponent{
     }
     this.rooms = [];
     this.images = [];
-    this.room = {roomId: 0, roomNumber: 1, bedsNumber: 2, bathroom: true, clime: false, cottageId: data}
+    this.availabilities = [];
+    this.room = {roomId: 0, roomNumber: 1, bedsNumber: 2, bathroom: true, clime: false, cottageId: 0}
+    this.availability = {availabilityId: 0, cottageId: 0, startDate: "", endDate: ""}
   }
 
   addRoom(event:any){
@@ -36,7 +40,8 @@ export class NewCottageComponent{
     if(event.textContent == "Add room"){
       event.textContent = "Save room"
     }else{
-      this.rooms.push(this.room);
+      let roomData = Object.assign({}, this.room);
+      this.rooms.push(roomData);
       event.textContent = "Add room"
     }
   }
@@ -50,10 +55,25 @@ export class NewCottageComponent{
         this.images[i].cottageId = data.cottageId;
         this.images[i].url = data.name + "-" + data.cottageId;
       }
+      for(let i = 0; i < this.availabilities.length; i++){
+        this.availabilities[i].cottageId = data.cottageId;
+      }
       this.cottageService.addRoom(this.rooms).subscribe();
       this.cottageService.addImages(this.images).subscribe();
+      this.cottageService.addAvailability(this.availabilities).subscribe();
       window.location.reload()
     });
+  }
+
+  addAvailability(event:any){
+    this.showAvailability = !this.showAvailability
+    if(event.textContent == "Add availability"){
+      event.textContent = "Save availability"
+    }else{
+      let availabilityData = Object.assign({}, this.availability);
+      this.availabilities.push(availabilityData);
+      event.textContent = "Add availability"
+    }
   }
 
   selectFile(event: any) {

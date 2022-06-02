@@ -28,6 +28,10 @@ export class CottagesService {
   updateCottage(cottage: any){
     return this.http.put<any>(this._url + 'cottage/updateCottage' , cottage);
   }
+
+  deleteCottage(id: any){
+    return this.http.delete(this._url + 'cottage/deleteCottage/' + id);
+  }
   
   getAllCottages(): Observable<Cottage[]>{
     return this.http.get<Cottage[]>(this._url + 'entity/getAllCottages/');
@@ -43,5 +47,13 @@ export class CottagesService {
 
   removeImage(data: any){
     return this.http.put<any>(this._url + 'cottage/removeImage' , data);
+  }
+
+  addAvailability(data: any){
+    return this.http.post<any>(this._url + 'cottage/addCottageAvailability' , data);
+  }
+
+  removeAvailability(data: any){
+    return this.http.delete(this._url + 'cottage/deleteCottageAvailability/' + data);
   }
 }

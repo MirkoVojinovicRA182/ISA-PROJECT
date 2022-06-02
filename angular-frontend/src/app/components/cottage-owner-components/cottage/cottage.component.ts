@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CottageEditComponent } from '../cottage-edit/cottage-edit.component';
 import * as FileSaver from 'file-saver';
 import { CottagesService } from 'src/app/services/cottages/cottages.service';
+import { CottageAvailabilityComponent } from '../cottage-availability/cottage-availability.component';
 
 @Component({
   selector: 'app-cottage',
@@ -45,6 +46,30 @@ export class CottageComponent implements OnInit {
       console.log(cottage)
     }
     );
+  }
+
+  showAvailability(){
+    const dialogRef = this.detailsDialog.open(CottageAvailabilityComponent, {
+      data: this.cottage,
+      panelClass: 'backdropBackground',
+      disableClose: false,
+      width: '40%',
+      maxHeight: '60vh',
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.cottageService.getCottageById(this.cottage.cottageId).subscribe(returnData => {
+        localStorage.setItem('selectedCottage', JSON.stringify(returnData))
+        this.cottage = returnData
+        window.location.reload()
+      })
+    }
+    )
+  }
+
+  deleteCottage(){
+    this.cottageService.deleteCottage(this.cottage.cottageId).subscribe(data => {
+      this.router.navigate(['/cottageOwner/cottagesPreview']);
+    })
   }
 
   selectFile(event: any) {
