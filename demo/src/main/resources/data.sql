@@ -1,19 +1,19 @@
 /*------------------------------------------------------------Instructor---------------------------------------------------------------------------------*/
 insert into instructor (id, address, city, country, email, last_name, name, password, phone_number, is_enabled) values
-    (1, 'Karađorđeva 12', 'Nova Gajdobra', 'Republika Srbija', 'mare@gmail.com', 'Marko', 'Isaković', 'mare123', '065-244-32-21', true);
+    (1, 'Karađorđeva 12', 'Nova Gajdobra', 'Republika Srbija', 'mare@gmail.com', 'Isaković', 'Marko', '$2a$10$syFgCOEoyd8Mz4KxNdKXa.F8R.NNdY7IdR6jPRNJFcFdMyh/2sYwi', '065-244-32-21', true);
 
 insert into instructor (id, address, city, country, email, last_name, name, password, phone_number, is_enabled) values
-    (2, 'Alekse Santica 49', 'Novi Sad', 'Serbia', 'wwwwwww@gmail.com', 'Peric', 'Ilija', 'perica', '064-775-88-76', true);
+    (2, 'Alekse Santica 49', 'Novi Sad', 'Serbia', 'wwwwwww@gmail.com', 'Ilija', 'Perić', '$2a$10$syFgCOEoyd8Mz4KxNdKXa.F8R.NNdY7IdR6jPRNJFcFdMyh/2sYwi', '064-775-88-76', true);
 
 insert into instructor (id, address, city, country, email, last_name, name, password, phone_number, is_enabled) values
-    (13, 'Karađorđeva 12', 'Nova Gajdobra', 'Republika Srbija', 'viktor@gmail.com', 'Viktor', 'Balinović', 'viktorBalinovic123', '060-244-32-21', true);
+    (13, 'Karađorđeva 12', 'Nova Gajdobra', 'Republika Srbija', 'viktor@gmail.com', 'Balinović', 'Viktor', '$2a$10$syFgCOEoyd8Mz4KxNdKXa.F8R.NNdY7IdR6jPRNJFcFdMyh/2sYwi', '060-244-32-21', true);
 /*-------------------------------------------------------------------Administrator----------------------------------------------------------------------------------*/
 insert into administrator (id, address, city, country, email, name, last_name, password, phone_number, is_enabled) values
-    (3, 'Vojvođanska 32', 'Obrovac', 'Republika Srbija', 'nikolaMitro@gmail.com', 'Nikola', 'Mitrović', 'mitar567', '065-231-222-01', true);
+    (3, 'Vojvođanska 32', 'Obrovac', 'Republika Srbija', 'nikolaMitro@gmail.com', 'Nikola', 'Mitrović', '$2a$10$syFgCOEoyd8Mz4KxNdKXa.F8R.NNdY7IdR6jPRNJFcFdMyh/2sYwi', '065-231-222-01', true);
 
 /*-------------------------------------------------------------------------ShipOwner---------------------------------------------------------------------------------------*/
 insert into ship_owner (id, address, city, country, email, name, last_name, password, phone_number, is_enabled) values
-    (4, 'Vojvođanska 32', 'Obrovac', 'Republika Srbija', 'nik@gmail.com', 'Nikola', 'Mitrović', 'mita567', '065-231-666-01', true);
+    (4, 'Vojvođanska 32', 'Obrovac', 'Republika Srbija', 'nik@gmail.com', 'Nikola', 'Mitrović', '$2a$10$syFgCOEoyd8Mz4KxNdKXa.F8R.NNdY7IdR6jPRNJFcFdMyh/2sYwi', '065-231-666-01', true);
 
 /*----------------------------------------------------------------------Registration request-----------------------------------------------------------------------------------------------*/
 insert into registration_request (id, email, password, name, last_name, address, city, country, phone_number, user_type, registration_explanation, request_date) values
@@ -73,7 +73,7 @@ insert into image(id, url, adventure_id) values (3, 'third.jpg', 1);
 
 /*----------------------------------------------------------------------Client-----------------------------------------------------------------------------------------------*/
 insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, is_enabled) values
-    (12, 'Vojvođanska 32', 'Obrovac', 'Republika Srbija', 'klijent@gmail.com', 'Neki', 'Klijent', 'klijent123', '064-231-222-01', 'code', true);
+    (12, 'Vojvođanska 32', 'Obrovac', 'Republika Srbija', 'klijent@gmail.com', 'Neki', 'Klijent', '$2a$10$syFgCOEoyd8Mz4KxNdKXa.F8R.NNdY7IdR6jPRNJFcFdMyh/2sYwi', '064-231-222-01', 'code', true);
 
 insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, is_enabled) values
     (11, 'Bulevar Cara Lazara 5', 'Novi Sad', 'Republika Srbija', 'mita123@gmail.com', 'Mita', 'Mitrović',
@@ -206,13 +206,13 @@ insert into ship_owner (id, address, city, country, email, name, last_name, pass
 
 /*----------------------------------------------------------------------Ship-----------------------------------------------------------------------------------------------*/
 insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id) values
-    (1, 'Vuletov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Vuletov opis', 10, 'Cenovnik', 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 8);
+    (1, 'Vuletov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Vuletov opis', 11, 'Cenovnik', 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 8);
 
 insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id) values
     (2, 'Todorov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Todorov opis', 10, 'Cenovnik', 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 9);
 
 insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id) values
-    (3, 'Ognjenov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Ognjenov opis', 10, 'Cenovnik', 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 10);
+    (3, 'Ognjenov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Ognjenov opis', 12, 'Cenovnik', 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 10);
 
 /*----------------------------------------------------------------------Instructor complaint-----------------------------------------------------------------------------------------------*/
 insert into instructor_complaint(id, text, instructor_id, client_id) values (1, 'Neki tekst zalbe 1', 1, 11);

@@ -31,6 +31,7 @@ import { AllAdventuresComponent } from './components/unregistered-user-component
 import { AllShipsComponent } from './components/unregistered-user-components/all-ships/all-ships.component';
 import { ClientHomePageComponent } from './components/client-components/client-home-page/client-home-page.component';
 import { ClientProfileComponent } from './components/client-components/client-profile/client-profile.component';
+import { ClientReservationsComponent } from './components/client-components/client-reservations/client-reservations.component';
 
 const routes: Routes = [
 
@@ -181,6 +182,12 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ClientProfileComponent
+      },
+      {
+        path: 'reservations',
+        component: ClientReservationsComponent,
+
+        
       }
     ]
   },

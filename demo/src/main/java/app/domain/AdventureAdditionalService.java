@@ -1,5 +1,7 @@
 package app.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +20,7 @@ public class AdventureAdditionalService {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "adventure_id")
+    @JsonBackReference
     private InstructorAdventure adventure;
 
     @ManyToOne(fetch = FetchType.EAGER)

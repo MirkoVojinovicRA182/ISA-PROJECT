@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         if (this.user.roles[0].name == "ROLE_ADMIN") {
           this.router.navigate(['admin'])
         } else if (this.user.roles[0].name == "ROLE_CLIENT") {
-          this.router.navigate(['client'])
+          this.router.navigate(['client/reservations'])
         } else if (this.user.roles[0].name == "ROLE_INSTRUCTOR") {
           this.router.navigate(['instructor'])
         } else if (this.user.roles[0].name == "ROLE_SHIP_OWNER") {

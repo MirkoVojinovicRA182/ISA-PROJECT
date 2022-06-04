@@ -1,6 +1,7 @@
 package app.domain;
 
 import app.domain.enums.UserType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jdk.jfr.Enabled;
 
 import javax.persistence.CascadeType;
@@ -14,12 +15,15 @@ import java.util.Set;
 public class Instructor extends ApplicationUser{
 
     @OneToMany(mappedBy = "instructor", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<InstructorAdventure> adventures = new HashSet<InstructorAdventure>();
 
     @OneToMany(mappedBy = "instructor", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<InstructorBusyness> instructorBusynesses = new HashSet<InstructorBusyness>();
 
     @OneToMany(mappedBy = "instructor", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference
     private Set<InstructorComplaint> instructorComplaints = new HashSet<InstructorComplaint>();
 
     public Instructor() {

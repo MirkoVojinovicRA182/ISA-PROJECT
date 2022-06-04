@@ -1,5 +1,7 @@
 package app.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -18,6 +20,7 @@ public class InstructorBusyness {
 
     @ManyToOne()
     @JoinColumn(name = "instructor_id")
+    @JsonBackReference
     private Instructor instructor;
 
     public InstructorBusyness(LocalDateTime startInterval, LocalDateTime endInterval, Instructor instructor) {

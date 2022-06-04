@@ -17,6 +17,7 @@ public class InstructorComplaint {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "instructor_id")
+    @JsonBackReference
     private Instructor instructor;
 
     @ManyToOne(fetch = FetchType.EAGER)

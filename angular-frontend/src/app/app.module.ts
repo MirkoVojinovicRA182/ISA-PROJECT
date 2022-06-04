@@ -10,7 +10,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import {DataViewModule} from 'primeng/dataview';
+import {TabViewModule} from 'primeng/tabview';
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+import {TableModule} from 'primeng/table';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
@@ -64,6 +68,8 @@ import { NewCottageComponent } from './components/cottage-owner-components/new-c
 import { ClientHomePageComponent } from './components/client-components/client-home-page/client-home-page.component';
 import { ClientProfileComponent } from './components/client-components/client-profile/client-profile.component';
 import { CottageAvailabilityComponent } from './components/cottage-owner-components/cottage-availability/cottage-availability.component';
+import { ClientReservationsComponent } from './components/client-components/client-reservations/client-reservations.component';
+
 
 @NgModule({
   declarations: [
@@ -115,7 +121,8 @@ import { CottageAvailabilityComponent } from './components/cottage-owner-compone
     NewCottageComponent,
     ClientHomePageComponent,
     ClientProfileComponent,
-    CottageAvailabilityComponent
+    CottageAvailabilityComponent,
+    ClientReservationsComponent
   ],
   imports: [
     BrowserModule,
@@ -133,6 +140,11 @@ import { CottageAvailabilityComponent } from './components/cottage-owner-compone
     MatButtonModule,
     NgxSliderModule,
     IvyCarouselModule,
+    TabViewModule,
+    DataViewModule,
+    ButtonModule,
+    InputTextModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

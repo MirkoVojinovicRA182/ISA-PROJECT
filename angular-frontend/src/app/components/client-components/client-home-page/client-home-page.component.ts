@@ -14,7 +14,7 @@ export class ClientHomePageComponent implements OnInit {
   }
 
   navigateToHomePage() {
-    this.router.navigate(['client']);
+    this.router.navigate(['client/reservations']);
   }
 
   navigateToProfilePage() {

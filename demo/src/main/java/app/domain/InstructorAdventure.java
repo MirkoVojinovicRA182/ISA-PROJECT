@@ -1,6 +1,7 @@
 package app.domain;
 
 import app.dto.InstructorAdventureDTO;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -43,6 +44,7 @@ public class InstructorAdventure {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "instructor_id")
+    @JsonBackReference
     private Instructor instructor;
 
     @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
