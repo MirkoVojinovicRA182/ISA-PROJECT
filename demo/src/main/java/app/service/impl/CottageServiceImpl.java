@@ -180,7 +180,7 @@ public class CottageServiceImpl implements CottageService {
                         overlap = true;
                     }
                 }
-                if (cottageAvailability.getEndDate().isAfter(cottageAvailability.getStartDate()) && !overlap) {
+                if ((cottageAvailability.getEndDate().isAfter(cottageAvailability.getStartDate()) || cottageAvailability.getEndDate().isEqual(cottageAvailability.getStartDate())) && !overlap) {
                     cottageAvailabilityRepository.save(cottageAvailability);
                     cottageForUpdate.getCottageAvailability().add(cottageAvailability);
                     cottageRepository.save(cottageForUpdate);

@@ -86,6 +86,20 @@ import { ClientShipComponent } from './components/client-components/client-ship/
 import { ClientAdventureComponent } from './components/client-components/client-adventure/client-adventure.component';
 import { DialogAdventureReservation, DialogCottageReservation, DialogShipReservation, ReservationsComponent } from './components/client-components/reservations/reservations.component';
 import { ClientHistoryComponent, DialogAdventureComplaint, DialogAdventureRating, DialogCottageComplaint, DialogCottageRating, DialogShipComplaint, DialogShipRating } from './components/client-components/client-history/client-history.component';
+import { CottageCalendarComponent } from './components/cottage-owner-components/cottage-calendar/cottage-calendar.component';
+
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+import mounthGridPlugin from '@fullcalendar/timegrid'; // a plugin!
+import yearGridPlugin from '@fullcalendar/timegrid'; // a plugin!
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  mounthGridPlugin,
+  yearGridPlugin,
+  interactionPlugin
+]);
 
 
 @NgModule({
@@ -153,7 +167,8 @@ import { ClientHistoryComponent, DialogAdventureComplaint, DialogAdventureRating
     DialogCottageRating,
     DialogCottageComplaint,
     DialogShipComplaint,
-    DialogAdventureComplaint
+    DialogAdventureComplaint,
+    CottageCalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -186,7 +201,8 @@ import { ClientHistoryComponent, DialogAdventureComplaint, DialogAdventureRating
     MessageModule,
     CheckboxModule,
     RatingModule,
-    InputTextareaModule
+    InputTextareaModule,
+    FullCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

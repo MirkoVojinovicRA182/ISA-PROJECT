@@ -48,22 +48,8 @@ export class CottageComponent implements OnInit {
     );
   }
 
-  showAvailability(){
-    const dialogRef = this.detailsDialog.open(CottageAvailabilityComponent, {
-      data: this.cottage,
-      panelClass: 'backdropBackground',
-      disableClose: false,
-      width: '40%',
-      maxHeight: '60vh',
-    });
-    dialogRef.afterClosed().subscribe(() => {
-      this.cottageService.getCottageById(this.cottage.cottageId).subscribe(returnData => {
-        localStorage.setItem('selectedCottage', JSON.stringify(returnData))
-        this.cottage = returnData
-        window.location.reload()
-      })
-    }
-    )
+  showCalendar(){
+    window.location.href = "/cottageOwner/calendar"
   }
 
   deleteCottage(){

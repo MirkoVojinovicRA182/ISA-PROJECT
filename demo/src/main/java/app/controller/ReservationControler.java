@@ -97,6 +97,12 @@ public class ReservationControler {
         return new ResponseEntity<List<CottageReservationDTO>>(freeCottages, HttpStatus.OK);
     }
 
+    @RequestMapping("/getCottageReservations/{cottageId}")
+    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<CottageReservationDTO>> getCottageReservations(@PathVariable Integer cottageId) {
+        return new ResponseEntity<List<CottageReservationDTO>>(cottageReservationService.getCottageReservations(cottageId), HttpStatus.OK);
+    }
+
     @RequestMapping("/cottageReservation")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public String cottageReservation(@RequestBody CottageReservationDTO dto, HttpServletRequest request)

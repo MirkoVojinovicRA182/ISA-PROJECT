@@ -18,4 +18,5 @@ public interface CottageReservationService {
     List<ReservationHistoryDTO> getCurrentReservations(Integer clientId);
 
     Boolean cancelCottageReservation(Integer id);
+    List<CottageReservationDTO> getCottageReservations(Integer cottageId);
 }

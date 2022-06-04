@@ -38,7 +38,7 @@ public class Cottage {
     @JsonBackReference(value = "cottage_owner")
     private CottageOwner cottageOwner;
 
-    @OneToMany(mappedBy = "cottage", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cottage", cascade = CascadeType.REMOVE)
     @JsonBackReference(value = "cottage_reservations")
     private Set<CottageReservation> cottageReservations = new HashSet<>();
     

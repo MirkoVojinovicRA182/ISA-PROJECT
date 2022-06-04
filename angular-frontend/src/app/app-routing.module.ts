@@ -37,6 +37,7 @@ import { ClientAdventureComponent } from './components/client-components/client-
 import { ClientShipComponent } from './components/client-components/client-ship/client-ship.component';
 import { ReservationsComponent } from './components/client-components/reservations/reservations.component';
 import { ClientHistoryComponent } from './components/client-components/client-history/client-history.component';
+import { CottageCalendarComponent } from './components/cottage-owner-components/cottage-calendar/cottage-calendar.component';
 
 const routes: Routes = [
 
@@ -174,6 +175,10 @@ const routes: Routes = [
       {
         path: 'cottageDetails',
         component: CottageComponent
+      },
+      {
+        path: 'calendar',
+        component: CottageCalendarComponent
       },
     ]
   },
