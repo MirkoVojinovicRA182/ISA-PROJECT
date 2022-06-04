@@ -74,4 +74,15 @@ public class CottageReservationServiceImpl implements CottageReservationService 
         clientRepository.save(clientForUpdate);
         return dto;
     }
+
+    @Override
+    public List<CottageReservationDTO> getCottageReservations(Integer cottageId) {
+        List<CottageReservationDTO> reservations = new ArrayList<>();
+        Cottage cottage = cottageRepository.getById(cottageId);
+        for(CottageReservation reservation : cottage.getCottageReservations()){
+            reservations.add(new CottageReservationDTO(reservation.getStartTime(), reservation.getPrice(),
+                    reservation.getClient().getId(), reservation.getCottage().getId()));
+        }
+        return reservations;
+    }
 }

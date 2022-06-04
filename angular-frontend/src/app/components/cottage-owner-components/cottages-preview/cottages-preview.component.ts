@@ -63,10 +63,6 @@ export class CottagesPreviewComponent implements OnInit {
     );
   }
 
-  showCottageDetails(cottage: any){
-    this.router.navigate(["cottageOwner/cottageDetails"], { state: { data:cottage }});
-  }
-
   getMaxRooms(){
     if(this.cottages.rooms !== null){
       this.maxRooms = this.cottages[0].rooms.length;

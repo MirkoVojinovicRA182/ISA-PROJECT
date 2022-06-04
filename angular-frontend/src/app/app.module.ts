@@ -64,6 +64,21 @@ import { NewCottageComponent } from './components/cottage-owner-components/new-c
 import { ClientHomePageComponent } from './components/client-components/client-home-page/client-home-page.component';
 import { ClientProfileComponent } from './components/client-components/client-profile/client-profile.component';
 import { CottageAvailabilityComponent } from './components/cottage-owner-components/cottage-availability/cottage-availability.component';
+import { CottageCalendarComponent } from './components/cottage-owner-components/cottage-calendar/cottage-calendar.component';
+
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+import mounthGridPlugin from '@fullcalendar/timegrid'; // a plugin!
+import yearGridPlugin from '@fullcalendar/timegrid'; // a plugin!
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  mounthGridPlugin,
+  yearGridPlugin,
+  interactionPlugin
+]);
+
 
 @NgModule({
   declarations: [
@@ -115,7 +130,8 @@ import { CottageAvailabilityComponent } from './components/cottage-owner-compone
     NewCottageComponent,
     ClientHomePageComponent,
     ClientProfileComponent,
-    CottageAvailabilityComponent
+    CottageAvailabilityComponent,
+    CottageCalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -133,6 +149,7 @@ import { CottageAvailabilityComponent } from './components/cottage-owner-compone
     MatButtonModule,
     NgxSliderModule,
     IvyCarouselModule,
+    FullCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

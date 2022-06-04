@@ -96,5 +96,5 @@ public class CottageController {
     public ResponseEntity<Integer> rateCottage( @RequestBody MarkDTO mark) throws Exception {
         return new ResponseEntity<>(cottageService.rateCottage(mark), HttpStatus.OK);
     }
-
+    
 }

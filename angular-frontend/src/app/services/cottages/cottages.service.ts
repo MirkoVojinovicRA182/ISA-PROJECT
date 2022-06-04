@@ -56,4 +56,5 @@ export class CottagesService {
   removeAvailability(data: any){
     return this.http.delete(this._url + 'cottage/deleteCottageAvailability/' + data);
   }
+
 }

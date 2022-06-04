@@ -31,6 +31,7 @@ import { AllAdventuresComponent } from './components/unregistered-user-component
 import { AllShipsComponent } from './components/unregistered-user-components/all-ships/all-ships.component';
 import { ClientHomePageComponent } from './components/client-components/client-home-page/client-home-page.component';
 import { ClientProfileComponent } from './components/client-components/client-profile/client-profile.component';
+import { CottageCalendarComponent } from './components/cottage-owner-components/cottage-calendar/cottage-calendar.component';
 
 const routes: Routes = [
 
@@ -168,6 +169,10 @@ const routes: Routes = [
       {
         path: 'cottageDetails',
         component: CottageComponent
+      },
+      {
+        path: 'calendar',
+        component: CottageCalendarComponent
       },
     ]
   },
