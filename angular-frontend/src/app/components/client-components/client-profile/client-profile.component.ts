@@ -15,7 +15,7 @@ export class ClientProfileComponent implements OnInit {
 
   inputsDisabled: boolean = true;
 
-  loggedUser: User = new User();
+  loggedUser: any;
 
   constructor(private userRegistrationService: UserProfileService,
     private loginService: LoginService,
@@ -27,18 +27,8 @@ export class ClientProfileComponent implements OnInit {
   }
 
   getLoggedUser() {
-    let user = this.loginService.whoami();
-    this.loggedUser = {
-      userId: user.id,
-      name: user.name,
-      lastName: user.lastName,
-      email: user.email,
-      address: user.address,
-      city: user.city,
-      country: user.country,
-      phoneNumber: user.phoneNumber,
-      userType: user.roles[0].name
-    }
+    this.loginService.whoami()
+    this.loggedUser = this.loginService.currentUser
   }
 
   changeProfile() {

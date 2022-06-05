@@ -31,10 +31,11 @@ import { AllAdventuresComponent } from './components/unregistered-user-component
 import { AllShipsComponent } from './components/unregistered-user-components/all-ships/all-ships.component';
 import { ClientHomePageComponent } from './components/client-components/client-home-page/client-home-page.component';
 import { ClientProfileComponent } from './components/client-components/client-profile/client-profile.component';
-import { ClientReservationsComponent } from './components/client-components/client-reservations/client-reservations.component';
+import { ClientReservationsComponent } from './components/client-components/client-entities/client-reservations.component';
 import { ClientCottageComponent } from './components/client-components/client-cottage/client-cottage.component';
 import { ClientAdventureComponent } from './components/client-components/client-adventure/client-adventure.component';
 import { ClientShipComponent } from './components/client-components/client-ship/client-ship.component';
+import { ReservationsComponent } from './components/client-components/reservations/reservations.component';
 
 const routes: Routes = [
 
@@ -187,7 +188,7 @@ const routes: Routes = [
         component: ClientProfileComponent
       },
       {
-        path: 'reservations',
+        path: 'home',
         component: ClientReservationsComponent,
       },
       {
@@ -201,6 +202,10 @@ const routes: Routes = [
       {
         path: 'shipDetails',
         component: ClientShipComponent
+      },
+      {
+        path: 'reservations',
+        component: ReservationsComponent
       }
     ]
   },

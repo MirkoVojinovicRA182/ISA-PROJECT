@@ -69,10 +69,11 @@ import { NewCottageComponent } from './components/cottage-owner-components/new-c
 import { ClientHomePageComponent } from './components/client-components/client-home-page/client-home-page.component';
 import { ClientProfileComponent } from './components/client-components/client-profile/client-profile.component';
 import { CottageAvailabilityComponent } from './components/cottage-owner-components/cottage-availability/cottage-availability.component';
-import { ClientReservationsComponent } from './components/client-components/client-reservations/client-reservations.component';
+import { ClientReservationsComponent } from './components/client-components/client-entities/client-reservations.component';
 import { ClientCottageComponent } from './components/client-components/client-cottage/client-cottage.component';
 import { ClientShipComponent } from './components/client-components/client-ship/client-ship.component';
 import { ClientAdventureComponent } from './components/client-components/client-adventure/client-adventure.component';
+import { ReservationsComponent } from './components/client-components/reservations/reservations.component';
 
 
 @NgModule({
@@ -129,7 +130,8 @@ import { ClientAdventureComponent } from './components/client-components/client-
     ClientReservationsComponent,
     ClientCottageComponent,
     ClientShipComponent,
-    ClientAdventureComponent
+    ClientAdventureComponent,
+    ReservationsComponent
   ],
   imports: [
     BrowserModule,

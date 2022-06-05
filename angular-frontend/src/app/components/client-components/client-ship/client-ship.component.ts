@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'src/app/model/subscription';
-import { AdministratorEntitiesService } from 'src/app/services/administrator-entities/administrator-entities.service';
 import { ClientService } from 'src/app/services/client/client.service';
 import { UserProfileService } from 'src/app/services/user-profile/user-profile.service';
 

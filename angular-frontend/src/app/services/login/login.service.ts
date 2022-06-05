@@ -85,7 +85,6 @@ export class LoginService implements OnInit{
     this.getMyInfo(token.sub).subscribe(user => {
       this.currentUser = user
     })
-    return this.currentUser
   }
 
   get(path: string, args?: any): Observable<any> {

@@ -14,11 +14,15 @@ export class ClientHomePageComponent implements OnInit {
   }
 
   navigateToHomePage() {
-    this.router.navigate(['client/reservations']);
+    this.router.navigate(['client/home']);
   }
 
   navigateToProfilePage() {
     this.router.navigate(['profile'], {relativeTo: this.activeRoute});
+  }
+
+  navigateToReservationsPage() {
+    this.router.navigate(['reservations'], {relativeTo: this.activeRoute});
   }
 
 }
