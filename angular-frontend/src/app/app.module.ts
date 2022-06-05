@@ -15,6 +15,7 @@ import {TabViewModule} from 'primeng/tabview';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
+import {ToggleButtonModule} from 'primeng/togglebutton';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
@@ -69,6 +70,9 @@ import { ClientHomePageComponent } from './components/client-components/client-h
 import { ClientProfileComponent } from './components/client-components/client-profile/client-profile.component';
 import { CottageAvailabilityComponent } from './components/cottage-owner-components/cottage-availability/cottage-availability.component';
 import { ClientReservationsComponent } from './components/client-components/client-reservations/client-reservations.component';
+import { ClientCottageComponent } from './components/client-components/client-cottage/client-cottage.component';
+import { ClientShipComponent } from './components/client-components/client-ship/client-ship.component';
+import { ClientAdventureComponent } from './components/client-components/client-adventure/client-adventure.component';
 
 
 @NgModule({
@@ -122,7 +126,10 @@ import { ClientReservationsComponent } from './components/client-components/clie
     ClientHomePageComponent,
     ClientProfileComponent,
     CottageAvailabilityComponent,
-    ClientReservationsComponent
+    ClientReservationsComponent,
+    ClientCottageComponent,
+    ClientShipComponent,
+    ClientAdventureComponent
   ],
   imports: [
     BrowserModule,
@@ -145,6 +152,7 @@ import { ClientReservationsComponent } from './components/client-components/clie
     ButtonModule,
     InputTextModule,
     TableModule,
+    ToggleButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

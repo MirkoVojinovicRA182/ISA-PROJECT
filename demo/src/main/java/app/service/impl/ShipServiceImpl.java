@@ -39,4 +39,13 @@ public class ShipServiceImpl implements ShipService {
         shipRepository.save(shipForUpdate);
         return new ShipDTO(shipForUpdate);
     }
+
+    @Override
+    public ShipDTO getShipById(Integer shipId) {
+        Ship ship = shipRepository.findById(shipId).orElseGet(null);
+        if (ship == null) {
+            return null;
+        }
+        return new ShipDTO(ship);
+    }
 }

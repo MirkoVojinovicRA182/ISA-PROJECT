@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SortEvent } from 'primeng/api/sortevent';
 import { CottagesService } from 'src/app/services/cottages/cottages.service';
 import { InstructorHomePageService } from 'src/app/services/instructor-home-page/instructor-home-page.service';
@@ -20,7 +21,9 @@ export class ClientReservationsComponent implements OnInit {
   constructor(private cottageService: CottagesService,
     private shipService: ShipsService,
     private adventureService: InstructorLessonsService,
-    private instructorService: InstructorHomePageService) { }
+    private instructorService: InstructorHomePageService,
+    private router: Router,
+    private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getAllCottages();
@@ -66,16 +69,22 @@ export class ClientReservationsComponent implements OnInit {
     });
   }
 
-  goToCottageDetails(id: any){
-    
+  goToCottageDetails(cottage: any){
+    var selectedCottage = JSON.stringify(cottage)
+    localStorage.setItem('selectedCottage', selectedCottage)
+    this.router.navigate(['client/cottageDetails'], )
   }
 
-  goToShipDetails(id: any){
-    
+  goToShipDetails(ship: any){
+    var selectedShip = JSON.stringify(ship)
+    localStorage.setItem('selectedShip', selectedShip)
+    this.router.navigate(['client/shipDetails'], )
   }
 
-  goToAdventureDetails(id: any){
-    
+  goToAdventureDetails(adventure: any){
+    var selectedAdventure = JSON.stringify(adventure)
+    localStorage.setItem('selectedAdventure', selectedAdventure)
+    this.router.navigate(['client/adventureDetails'], )
   }
 }
 

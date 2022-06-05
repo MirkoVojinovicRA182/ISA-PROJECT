@@ -61,6 +61,8 @@ public class LoginController {
     @RequestMapping("/whoami/{username}")
     @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApplicationUser> user(@PathVariable String username) {
-        return new ResponseEntity<>(userService.findByUsername(username), HttpStatus.OK);
+        ApplicationUser user = userService.findByUsername(username);
+        user.setPassword("");
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body style="background-color: white; height: 100%;">
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="col-md-7 container" style="margin-top: 0px !important;">
+                <div class="card">
+                    <div class="buttons">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="about">
+                        <table>
+                            <tr>
+                                <td>
+                                    <span class="font-weight-bold" style="font-size: 30px;">{{adventure?.name}}</span>
+                                </td>
+                                <td style="padding-left: 10pt;">
+                                    <p-toggleButton (click)="subscribeAdventure()" [(ngModel)]="checkedAdventure"
+                                        onLabel="Follow" offLabel="Unfollow" onIcon="pi pi-check" offIcon="pi pi-times"
+                                        [style]="{'width': '9em', 'background-color': 'red', 'height': '2em'}">
+                                    </p-toggleButton>
+                                </td>
+                            </tr>
+                        </table>
+                        <span class="font-weight"
+                            style="font-size: 20px; position: absolute; right: 10px;">Address:{{adventure?.address}}</span>
+                    </div>
+                    <div class="d-flex flex-row align-items-center" style="margin-top: 10px;">
+                        <div class="p-ratings">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <span class="ml-1">5.0</span>
+                    </div>
+                    <br>
+                    <div class="product-description" style="background-color: rgb(245, 245, 245); padding: 5px;">
+                        <div>
+                            <div>
+                                <span class="font-weight-bold" style="font-size: 20px;">Description:</span>
+                                <p>{{adventure?.promotiveDescription}}</p>
+                            </div>
+                            <div>
+                                <span class="font-weight-bold" style="font-size: 20px;">Instructor biography:</span>
+                                <p>{{adventure?.instructorBiography}}</p>
+                            </div>
+                            <hr>
+                            <div>
+                                <h2>Additional services</h2>
+                                <table class="styled-table">
+                                    <tbody *ngFor = "let service of additionalServices; let index = index" [ngClass]="{'evenRow': 0 !== index % 2}">
+                                        <tr>
+                                            <td>{{service.name}}</td>
+                                            <td>{{service.price}} <i class="fas fa-euro-sign"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="element" style="vertical-align: top;">
+                                    <span class="font-weight-bold" style="font-size: 18px;">Max count of participants::</span>
+                                    <p>{{adventure?.maxCountOfParticipants}}</p>
+                                    <span class="font-weight-bold" style="font-size: 18px;">Conduct rules:</span>
+                                    <p>{{adventure?.rulesOfConduct}}</p>
+                                    <span class="font-weight-bold" style="font-size: 18px;">Pricelist:</span>
+                                    <p>{{adventure?.price}}</p>
+                                    <span class="font-weight-bold" style="font-size: 18px;">Default equipment:</span>
+                                    <p>{{adventure?.defaultEquipment}}</p>
+                                    <span class="font-weight-bold" style="font-size: 18px;">Terms of use:</span>
+                                    <p>{{adventure?.termsOfUse}}</p>
+                                    <span class="font-weight-bold" style="font-size: 18px;">Cottage owner:</span>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <p style="padding-top: 5pt; padding-right: 1em; font-size: 15pt;">{{instructor?.name}} {{instructor?.lastName}}</p>
+                                            </td>
+                                            <td>
+                                                <p-toggleButton (click)="subscribeUser()"
+                                                    [(ngModel)]="checkedInstructor" onLabel="Follow"
+                                                    offLabel="Unfollow" onIcon="pi pi-check" offIcon="pi pi-times"
+                                                    styleClass="p-button-sm"
+                                                    [style]="{'width': '9em', 'background-color': 'red', 'height': '2em'}">
+                                                </p-toggleButton>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+</body>
+
+</html>

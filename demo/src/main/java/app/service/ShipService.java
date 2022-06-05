@@ -6,4 +6,5 @@ public interface ShipService {
     void saveShip(ShipDTO shipDTO);
     void deleteShip(Integer shipId);
     ShipDTO updateShip(ShipDTO shipDTO);
+    ShipDTO getShipById(Integer cottageId);
 }

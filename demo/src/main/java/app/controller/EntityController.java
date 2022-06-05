@@ -46,6 +46,18 @@ public class EntityController {
         return new ResponseEntity<UserRequest>(entityService.getAdministratorById(id), HttpStatus.OK);
     }
 
+    @RequestMapping("/getCottageOwner/{id}")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserRequest> getCottageOwner(@PathVariable Integer id){
+        return new ResponseEntity<UserRequest>(entityService.getCottageOwnerById(id), HttpStatus.OK);
+    }
+
+    @RequestMapping("/getShipOwner/{id}")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<UserRequest> getShipOwner(@PathVariable Integer id){
+        return new ResponseEntity<UserRequest>(entityService.getShipOwnerById(id), HttpStatus.OK);
+    }
+
     @RequestMapping("/getAllAdventures")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<InstructorAdventureDTO>> getAllInstructorAdventures(){

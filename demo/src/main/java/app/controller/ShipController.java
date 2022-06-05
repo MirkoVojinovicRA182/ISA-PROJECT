@@ -36,4 +36,10 @@ public class ShipController {
         shipService.deleteShip(shipId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @RequestMapping("/getShip/{shipId}")
+    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ShipDTO> getShip(@PathVariable Integer shipId) throws Exception {
+        return new ResponseEntity<ShipDTO>(shipService.getShipById(shipId), HttpStatus.OK);
+    }
 }

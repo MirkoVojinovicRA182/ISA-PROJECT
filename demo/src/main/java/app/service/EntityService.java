@@ -21,4 +21,8 @@ public interface EntityService {
     List<ShipDTO> getAllShips();
 
     void deleteShip(Integer shipId);
+
+    UserRequest getCottageOwnerById(Integer id);
+
+    UserRequest getShipOwnerById(Integer id);
 }

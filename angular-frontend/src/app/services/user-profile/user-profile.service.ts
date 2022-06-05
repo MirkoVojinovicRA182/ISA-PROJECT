@@ -30,6 +30,10 @@ export class UserProfileService {
     return this.http.get<User>(this._url + 'users/getCottageOwner/' + cottageOwnerUsername);
   }
 
+  getShipOwner(id: string){
+    return this.http.get<User>(this._url + 'entity/getShipOwner/' + id);
+  }
+
   updateCottageOwner(cottageOwner: any){
     return this.http.put<any>(this._url + 'users/updateCottageOwner' , cottageOwner);
   }

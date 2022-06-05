@@ -21,6 +21,12 @@ public class EntityServiceImpl implements EntityService {
     private AdministratorRepository administratorRepository;
 
     @Autowired
+    private CottageOwnerRepository cottageOwnerRepository;
+
+    @Autowired
+    private ShipOwnerRepository shipOwnerRepository;
+
+    @Autowired
     private InstructorAdventureRepository instructorAdventureRepository;
 
     @Autowired
@@ -90,5 +96,25 @@ public class EntityServiceImpl implements EntityService {
     @Override
     public void deleteShip(Integer shipId) {
         this.shipRepository.deleteById(shipId);
+    }
+
+    @Override
+    public UserRequest getCottageOwnerById(Integer id) {
+        CottageOwner cottageOwner = cottageOwnerRepository.findById(id).orElseGet(null);
+        if(cottageOwner != null)
+            return new UserRequest(cottageOwner.getId(), cottageOwner.getEmail(), cottageOwner.getName(),
+                    cottageOwner.getLastName(), cottageOwner.getAddress(), cottageOwner.getCity(), cottageOwner.getCountry(),
+                    cottageOwner.getPhoneNumber(), "COTTAGE_OWNER");
+        return null;
+    }
+
+    @Override
+    public UserRequest getShipOwnerById(Integer id) {
+        ShipOwner shipOwner = shipOwnerRepository.findById(id).orElseGet(null);
+        if(shipOwner != null)
+            return new UserRequest(shipOwner.getId(), shipOwner.getEmail(), shipOwner.getName(),
+                    shipOwner.getLastName(), shipOwner.getAddress(), shipOwner.getCity(), shipOwner.getCountry(),
+                    shipOwner.getPhoneNumber(), "SHIP_OWNER");
+        return null;
     }
 }
