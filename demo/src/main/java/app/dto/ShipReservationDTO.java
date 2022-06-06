@@ -17,13 +17,13 @@ public class ShipReservationDTO {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     private LocalDateTime startTime;
 
-    private String price;
+    private Integer price;
     private Integer clientId;
     private Integer shipId;
 
     public ShipReservationDTO(){}
 
-    public ShipReservationDTO(LocalDateTime startTime, String price, Integer clientId, Integer shipId) {
+    public ShipReservationDTO(LocalDateTime startTime, Integer price, Integer clientId, Integer shipId) {
         this.startTime = startTime;
         this.price = price;
         this.clientId = clientId;
@@ -34,9 +34,9 @@ public class ShipReservationDTO {
 
     public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
 
-    public String getPrice() { return price; }
+    public Integer getPrice() { return price; }
 
-    public void setPrice(String price) { this.price = price; }
+    public void setPrice(Integer price) { this.price = price; }
 
     public Integer getClientId() { return clientId; }
 

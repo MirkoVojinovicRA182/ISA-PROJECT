@@ -234,5 +234,37 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
         return dto;
     }
 
+    @Override
+    public List<ReservationHistoryDTO> getAdventureHistoryReservations(Integer clientId) {
+        List<AdventureReservation> reservations = adventureReservationRepository.findAll();
+        List<ReservationHistoryDTO> historyReservations = new ArrayList<>();
+        for (AdventureReservation res : reservations) {
+            if (res.getClient().getId() == clientId && res.getStartTime().isBefore(LocalDateTime.now())) {
+                historyReservations.add(new ReservationHistoryDTO(res.getAdventure().getName(),
+                        res.getAdventure().getAddress(), res.getPrice(), res.getStartTime()));
+            }
+        }
+
+        return historyReservations;
+    }
+
+    @Override
+    public List<ReservationHistoryDTO> getAdventureCurrentReservations(Integer clientId) {
+        List<AdventureReservation> reservations = adventureReservationRepository.findAll();
+        List<ReservationHistoryDTO> currentReservations = new ArrayList<>();
+        for (AdventureReservation res : reservations) {
+            if (res.getClient().getId() == clientId
+                    && (res.getStartTime().isAfter(LocalDateTime.now())
+                    || (res.getStartTime().getYear() == LocalDateTime.now().getYear()
+                    && res.getStartTime().getDayOfMonth() == LocalDateTime.now().getDayOfMonth()
+                    && res.getStartTime().getMonth() == LocalDateTime.now().getMonth()))) {
+                currentReservations.add(new ReservationHistoryDTO(res.getAdventure().getName(),
+                        res.getAdventure().getAddress(), res.getPrice(), res.getStartTime()));
+            }
+        }
+
+        return currentReservations;
+    }
+
 
 }

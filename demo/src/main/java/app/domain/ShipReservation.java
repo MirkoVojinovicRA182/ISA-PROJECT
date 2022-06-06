@@ -23,7 +23,7 @@ public class ShipReservation {
     private LocalDateTime startTime;
 
     @Column
-    private String price;
+    private Integer price;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
@@ -36,7 +36,7 @@ public class ShipReservation {
 
     public ShipReservation(){}
 
-    public ShipReservation(LocalDateTime startTime, String price, Client client, Ship ship) {
+    public ShipReservation(LocalDateTime startTime, Integer price, Client client, Ship ship) {
         this.startTime = startTime;
         this.price = price;
         this.client = client;
@@ -58,9 +58,9 @@ public class ShipReservation {
 
     public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
 
-    public String getPrice() { return price; }
+    public Integer getPrice() { return price; }
 
-    public void setPrice(String price) { this.price = price; }
+    public void setPrice(Integer price) { this.price = price; }
 
     public Client getClient() { return client; }
 

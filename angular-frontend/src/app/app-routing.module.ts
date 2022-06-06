@@ -36,6 +36,7 @@ import { ClientCottageComponent } from './components/client-components/client-co
 import { ClientAdventureComponent } from './components/client-components/client-adventure/client-adventure.component';
 import { ClientShipComponent } from './components/client-components/client-ship/client-ship.component';
 import { ReservationsComponent } from './components/client-components/reservations/reservations.component';
+import { ClientHistoryComponent } from './components/client-components/client-history/client-history.component';
 
 const routes: Routes = [
 
@@ -206,6 +207,10 @@ const routes: Routes = [
       {
         path: 'reservations',
         component: ReservationsComponent
+      },
+      {
+        path: 'history',
+        component: ClientHistoryComponent
       }
     ]
   },

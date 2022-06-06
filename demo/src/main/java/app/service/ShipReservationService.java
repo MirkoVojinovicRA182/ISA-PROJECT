@@ -1,6 +1,7 @@
 package app.service;
 
 import app.dto.ReservationDTO;
+import app.dto.ReservationHistoryDTO;
 import app.dto.ShipReservationDTO;
 import app.dto.ShipReservationSearchDTO;
 
@@ -13,4 +14,8 @@ public interface ShipReservationService {
     Boolean isShipFree(ReservationDTO dto);
 
     ShipReservationDTO bookShip(ShipReservationDTO dto);
+
+    List<ReservationHistoryDTO> getShipHistoryReservations(Integer clientId);
+
+    List<ReservationHistoryDTO> getShipCurrentReservations(Integer clientId);
 }

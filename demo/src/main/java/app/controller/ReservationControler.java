@@ -175,4 +175,40 @@ public class ReservationControler {
         return new ResponseEntity<ShipReservationDTO>(shipReservationService.bookShip(dto), HttpStatus.CREATED);
     }
 
+    @RequestMapping("/getCottageHistoryReservations/{clientId}")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ReservationHistoryDTO>> getHistoryReservations(@PathVariable Integer clientId){
+        return new ResponseEntity<List<ReservationHistoryDTO>>(cottageReservationService.getHistoryReservations(clientId), HttpStatus.OK);
+    }
+
+    @RequestMapping("/getShipHistoryReservations/{clientId}")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ReservationHistoryDTO>> getShipHistoryReservations(@PathVariable Integer clientId){
+        return new ResponseEntity<List<ReservationHistoryDTO>>(shipReservationService.getShipHistoryReservations(clientId), HttpStatus.OK);
+    }
+
+    @RequestMapping("/getAdventureHistoryReservations/{clientId}")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ReservationHistoryDTO>> getAdventureHistoryReservations(@PathVariable Integer clientId){
+        return new ResponseEntity<List<ReservationHistoryDTO>>(adventureReservationService.getAdventureHistoryReservations(clientId), HttpStatus.OK);
+    }
+
+    @RequestMapping("/getCottageCurrentReservations/{clientId}")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ReservationHistoryDTO>> getCurrentReservations(@PathVariable Integer clientId){
+        return new ResponseEntity<List<ReservationHistoryDTO>>(cottageReservationService.getCurrentReservations(clientId), HttpStatus.OK);
+    }
+
+    @RequestMapping("/getShipCurrentReservations/{clientId}")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ReservationHistoryDTO>> getShipCurrentReservations(@PathVariable Integer clientId){
+        return new ResponseEntity<List<ReservationHistoryDTO>>(shipReservationService.getShipCurrentReservations(clientId), HttpStatus.OK);
+    }
+
+    @RequestMapping("/getAdventureCurrentReservations/{clientId}")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ReservationHistoryDTO>> getAdventureCurrentReservations(@PathVariable Integer clientId){
+        return new ResponseEntity<List<ReservationHistoryDTO>>(adventureReservationService.getAdventureCurrentReservations(clientId), HttpStatus.OK);
+    }
+
 }

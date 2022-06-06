@@ -1,9 +1,6 @@
 package app.service;
 
-import app.dto.CottageReservationDTO;
-import app.dto.CottageReservationSearchDTO;
-import app.dto.ReservationDTO;
-import app.dto.ShipReservationDTO;
+import app.dto.*;
 
 import java.util.List;
 
@@ -15,4 +12,8 @@ public interface CottageReservationService {
     Boolean isCottageFree(ReservationDTO dto);
 
     CottageReservationDTO bookCottage(CottageReservationDTO dto);
+
+    List<ReservationHistoryDTO> getHistoryReservations(Integer clientId);
+
+    List<ReservationHistoryDTO> getCurrentReservations(Integer clientId);
 }

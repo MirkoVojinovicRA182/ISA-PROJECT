@@ -108,4 +108,29 @@ export class ReservationsService {
     return this.http.post<any>(this._url + 'reservation/bookAdventure', params);
   }
 
+  getCottageHistoryReservationByClientId(clientId: number): Observable<any[]>{
+    return this.http.get<ActionAdventure[]>(this._url + 'reservation/getCottageHistoryReservations/' + clientId);
+  }
+
+  getCottageCurrentReservationByClientId(clientId: number): Observable<any[]>{
+    return this.http.get<ActionAdventure[]>(this._url + 'reservation/getCottageCurrentReservations/' + clientId);
+  }
+
+  getShipHistoryReservationByClientId(clientId: number): Observable<any[]>{
+    return this.http.get<ActionAdventure[]>(this._url + 'reservation/getShipHistoryReservations/' + clientId);
+  }
+
+  getShipCurrentReservationByClientId(clientId: number): Observable<any[]>{
+    return this.http.get<ActionAdventure[]>(this._url + 'reservation/getShipCurrentReservations/' + clientId);
+  }
+
+  getAdventureHistoryReservationByClientId(clientId: number): Observable<any[]>{
+    return this.http.get<ActionAdventure[]>(this._url + 'reservation/getAdventureHistoryReservations/' + clientId);
+  }
+
+  getAdventureCurrentReservationByClientId(clientId: number): Observable<any[]>{
+    return this.http.get<ActionAdventure[]>(this._url + 'reservation/getAdventureCurrentReservations/' + clientId);
+  }
+
+  
 }

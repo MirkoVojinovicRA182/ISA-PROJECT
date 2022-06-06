@@ -25,4 +25,8 @@ export class ClientHomePageComponent implements OnInit {
     this.router.navigate(['reservations'], {relativeTo: this.activeRoute});
   }
 
+  navigateToReservationsHistoryPage() {
+    this.router.navigate(['history'], {relativeTo: this.activeRoute});
+  }
+
 }

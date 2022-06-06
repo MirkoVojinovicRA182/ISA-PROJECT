@@ -29,4 +29,8 @@ public interface AdventureReservationService{
     Boolean isAdventureFree(ReservationDTO dto);
 
     AdventureReservationDTO bookAdventure(AdventureReservationDTO dto);
+
+    List<ReservationHistoryDTO> getAdventureHistoryReservations(Integer clientId);
+
+    List<ReservationHistoryDTO> getAdventureCurrentReservations(Integer clientId);
 }

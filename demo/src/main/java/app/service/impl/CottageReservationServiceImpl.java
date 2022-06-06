@@ -1,10 +1,7 @@
 package app.service.impl;
 
 import app.domain.*;
-import app.dto.CottageReservationDTO;
-import app.dto.CottageReservationSearchDTO;
-import app.dto.ReservationDTO;
-import app.dto.ShipReservationDTO;
+import app.dto.*;
 import app.repository.ClientRepository;
 import app.repository.CottageAvailabilityRepository;
 import app.repository.CottageRepository;
@@ -120,5 +117,37 @@ public class CottageReservationServiceImpl implements CottageReservationService 
         cottageReservationRepository.save(new CottageReservation(dto, cottage, client));
 
         return dto;
+    }
+
+    @Override
+    public List<ReservationHistoryDTO> getHistoryReservations(Integer clientId) {
+        List<CottageReservation> reservations = cottageReservationRepository.findAll();
+        List<ReservationHistoryDTO> historyReservations = new ArrayList<>();
+        for (CottageReservation res : reservations) {
+            if (res.getClient().getId() == clientId && res.getStartTime().isBefore(LocalDateTime.now())) {
+                historyReservations.add(new ReservationHistoryDTO(res.getCottage().getName(),
+                        res.getCottage().getAddress(), res.getPrice(), res.getStartTime()));
+            }
+        }
+
+        return historyReservations;
+    }
+
+    @Override
+    public List<ReservationHistoryDTO> getCurrentReservations(Integer clientId) {
+        List<CottageReservation> reservations = cottageReservationRepository.findAll();
+        List<ReservationHistoryDTO> currentReservations = new ArrayList<>();
+        for (CottageReservation res : reservations) {
+            if (res.getClient().getId() == clientId
+                    && (res.getStartTime().isAfter(LocalDateTime.now())
+                    || (res.getStartTime().getYear() == LocalDateTime.now().getYear()
+                    && res.getStartTime().getDayOfMonth() == LocalDateTime.now().getDayOfMonth()
+                    && res.getStartTime().getMonth() == LocalDateTime.now().getMonth()))) {
+                currentReservations.add(new ReservationHistoryDTO(res.getCottage().getName(),
+                        res.getCottage().getAddress(), res.getPrice(), res.getStartTime()));
+            }
+        }
+
+        return currentReservations;
     }
 }
