@@ -42,6 +42,9 @@ public class InstructorAdventure {
     @Column(name = "termsOfUse", unique = false, nullable = false)
     private String termsOfUse;
 
+    @Column(name = "rating", unique = false, nullable = true)
+    private Double rating;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "instructor_id")
     @JsonBackReference
@@ -88,6 +91,14 @@ public class InstructorAdventure {
         this.price = price;
         this.termsOfUse = termsOfUse;
         this.instructor = instructor;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 
     public Integer getId() {

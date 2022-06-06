@@ -63,7 +63,7 @@
                             <td>{{cottage.name}}</td>
                             <td>{{cottage.address}}</td>
                             <td>{{cottage.pricelist}}</td>
-                            <td>rating</td>
+                            <td>{{cottage.rating}</td>
                             <td>
                                 <button (click)="goToCottageDetails(cottage)" pButton pRipple type="button"
                                     label="Details" class="p-button-danger"></button>
@@ -145,7 +145,7 @@
                             <td>{{ship.address}}</td>
                             <td>{{ship.pricelist}}</td>
                             <td>{{ship.capacity}}</td>
-                            <td>rating</td>
+                            <td>{{ship.rating}}</td>
                             <td>
                                 <button (click)="goToShipDetails(ship)" pButton pRipple type="button" label="Details"
                                     class="p-button-danger"></button>
@@ -226,7 +226,7 @@
                             <td>{{adventure.adventure.name}}</td>
                             <td>{{adventure.adventure.address}}</td>
                             <td>{{adventure.adventure.price}}</td>
-                            <td>rating</td>
+                            <td>{{adventure.adventure.rating}}</td>
                             <td>{{adventure.instructor.name}} {{adventure.instructor.lastName}}</td>
                             <td>
                                 <button (click)="goToAdventureDetails(adventure.adventure)" pButton pRipple

@@ -4,6 +4,7 @@ import app.domain.ApplicationUser;
 import app.domain.Client;
 import app.domain.enums.UserType;
 import app.dto.CottageOwnerDTO;
+import app.dto.RatingDTO;
 import app.dto.UserProfileDTO;
 import org.springframework.boot.ApplicationArguments;
 
@@ -21,4 +22,10 @@ public interface UserService {
     UserProfileDTO updateCottageOwner(UserProfileDTO userProfileDTO);
     
     ApplicationUser findByUsername(String username);
+
+    RatingDTO rateAdventure(RatingDTO dto);
+
+    RatingDTO rateShip(RatingDTO dto);
+
+    RatingDTO rateCottage(RatingDTO dto);
 }

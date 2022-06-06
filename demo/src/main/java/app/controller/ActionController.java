@@ -1,9 +1,12 @@
 package app.controller;
 
 import app.dto.ActionAdventureDTO;
+import app.dto.ReservationHistoryDTO;
 import app.service.ActionService;
+import app.service.AdventureReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +19,9 @@ public class ActionController {
 
     @Autowired
     private ActionService actionService;
+
+    @Autowired
+    private AdventureReservationService adventureReservationService;
 
     @PostMapping(value = "/createAdventureAction")
     public ResponseEntity<String> createAdventureAction(@RequestBody ActionAdventureDTO dto) {

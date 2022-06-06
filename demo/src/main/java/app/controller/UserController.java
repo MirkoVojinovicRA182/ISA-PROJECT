@@ -4,6 +4,8 @@ import app.domain.ApplicationUser;
 import app.domain.RegistrationRequest;
 import app.domain.enums.UserType;
 import app.dto.CottageOwnerDTO;
+import app.dto.CottageReservationDTO;
+import app.dto.RatingDTO;
 import app.dto.UserProfileDTO;
 import app.service.UserService;
 import org.apache.catalina.User;
@@ -48,5 +50,23 @@ public class UserController {
     public ResponseEntity<Void> deleteUser(@RequestParam Integer userId, @RequestParam UserType userType){
         userService.deleteUser(userId, userType);
         return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+
+    @RequestMapping("/rateAdventure")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<RatingDTO> rateEntity(@RequestBody RatingDTO dto){
+        return new ResponseEntity<RatingDTO>(userService.rateAdventure(dto), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/rateShip")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<RatingDTO> rateShip(@RequestBody RatingDTO dto){
+        return new ResponseEntity<RatingDTO>(userService.rateShip(dto), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/rateCottage")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<RatingDTO> rateCottage(@RequestBody RatingDTO dto){
+        return new ResponseEntity<RatingDTO>(userService.rateCottage(dto), HttpStatus.CREATED);
     }
 }

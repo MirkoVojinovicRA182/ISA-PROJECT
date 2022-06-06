@@ -18,12 +18,16 @@ public class ShipDTO {
     private String additionalServicesInfo;
     private String cancellationPolicy;
     private Integer shipOwnerId;
+    private Double rating;
 
     public ShipDTO(){
         super();
     }
 
-    public ShipDTO(Integer shipId, String name, String type, double length, Integer engineNumber, double enginePower, double maxSpeed, String address, String promotiveDescription, Integer capacity, String conductRules, Double pricelist, String additionalServicesInfo, String cancellationPolicy, Integer shipOwnerId) {
+    public ShipDTO(Integer shipId, String name, String type, double length, Integer engineNumber,
+                   double enginePower, double maxSpeed, String address, String promotiveDescription,
+                   Integer capacity, String conductRules, Double pricelist, String additionalServicesInfo,
+                   String cancellationPolicy, Integer shipOwnerId) {
         this.shipId = shipId;
         this.name = name;
         this.type = type;
@@ -57,6 +61,15 @@ public class ShipDTO {
         this.additionalServicesInfo = ship.getAdditionalServicesInfo();
         this.cancellationPolicy = ship.getCancellationPolicy();
         this.shipOwnerId = ship.getShipOwner().getId();
+        this.rating = ship.getRating();
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 
     public Integer getShipId() {

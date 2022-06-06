@@ -30,6 +30,9 @@ public class Cottage {
     @Column(name = "pricelist", unique = false, nullable = false)
     private Double pricelist;
 
+    @Column(name = "rating", unique = false, nullable = false)
+    private Double rating;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cottage_owner_id")
     @JsonBackReference(value = "cottage_owner")
@@ -63,6 +66,8 @@ public class Cottage {
         super();
     }
 
+
+
     public Cottage(String name, String address, String promotiveDescription, String conductRules, Double pricelist, CottageOwner cottageOwner) {
         super();
         this.name = name;
@@ -71,6 +76,22 @@ public class Cottage {
         this.conductRules = conductRules;
         this.pricelist = pricelist;
         this.cottageOwner = cottageOwner;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
+    public Set<CottageComplaint> getComplaints() {
+        return complaints;
+    }
+
+    public void setComplaints(Set<CottageComplaint> complaints) {
+        this.complaints = complaints;
     }
 
     public Integer getId() {
@@ -168,14 +189,6 @@ public class Cottage {
 
     public void rateCottage(Mark mark) {
         marks.add(mark);
-    }
-
-    public Integer getRating() {
-        Integer sum = 0;
-        for (Mark mark : marks) {
-            sum += mark.getMark();
-        }
-        return sum / marks.size();
     }
 
     public Integer getBedsNumber(){

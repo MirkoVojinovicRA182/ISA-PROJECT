@@ -132,5 +132,16 @@ export class ReservationsService {
     return this.http.get<ActionAdventure[]>(this._url + 'reservation/getAdventureCurrentReservations/' + clientId);
   }
 
+  rateAdventure(params: any): Observable<any> {
+    return this.http.post<any>(this._url + 'users/rateAdventure', params);
+  }
+
+  rateShip(params: any): Observable<any> {
+    return this.http.post<any>(this._url + 'users/rateShip', params);
+  }
+
+  rateCottage(params: any): Observable<any> {
+    return this.http.post<any>(this._url + 'users/rateCottage', params);
+  }
   
 }

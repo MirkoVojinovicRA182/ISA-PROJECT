@@ -26,8 +26,9 @@
                                         [options]="priceOptions"></ngx-slider>
                                 </div>
                                 <div class="col-md-6 pl-0 pl-md-2 pr-0">
-                                    <input type="search" style="border-radius: 10px;" placeholder="Instructor..." required
-                                        [ngModel]="instructorFilter" (ngModelChange)="instructorInputChange($event)">
+                                    <input type="search" style="border-radius: 10px;" placeholder="Instructor..."
+                                        required [ngModel]="instructorFilter"
+                                        (ngModelChange)="instructorInputChange($event)">
                                 </div>
                             </div>
                         </div>
@@ -51,16 +52,18 @@
                     <div class="col-md-4 cottageDiv" *ngFor="let adventure of reshapedAdventures">
                         <div class="card"> <img src="https://imgur.com/BNvdTD0.jpg" class="card-img-top">
                             <div class="card-body">
-                                <div class="d-flex justify-content-between"> 
+                                <div class="d-flex justify-content-between">
                                     <span class="font-weight-bold">{{adventure.adventure.name}}</span>
                                 </div>
                                 <p class="card-text mb-1 mt-1">{{adventure.adventure.promotionalDescription}}</p>
                                 <p class="card-text mb-1 mt-1">Address: {{adventure.adventure.address}}</p>
                                 <p class="card-text mb-1 mt-1">Price: {{adventure.adventure.price}}</p>
-                                <p class="card-text mb-1 mt-1">Instructor: {{adventure.instructor.name}} {{adventure.instructor.lastName}}</p>
-                                <div class="d-flex align-items-center flex-row"> <img
-                                        src="https://i.imgur.com/e9VnSng.png" width="20"> <span
-                                        class="guarantee">Rating</span> </div>
+                                <p class="card-text mb-1 mt-1">Instructor: {{adventure.instructor.name}}
+                                    {{adventure.instructor.lastName}}</p>
+                                <div class="d-flex align-items-center flex-row">
+                                    <p-rating [ngModel]="adventure.adventure.rating"  [cancel]="false"></p-rating>
+                                    <span class="guarantee">({{adventure.adventure.rating}})</span>
+                                </div>
                             </div>
                             <hr>
                         </div>

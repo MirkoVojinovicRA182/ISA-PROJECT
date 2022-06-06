@@ -7,4 +7,5 @@ export class Cottage{
     conductRules: string = "";
     priceList: string = "";
     cottageOwnerId: number = 0;
+    rating: number = 0;
 }

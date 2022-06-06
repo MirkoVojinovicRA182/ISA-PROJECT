@@ -42,6 +42,9 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
     @Autowired
     private InstructorAdventureRepository instructorAdventureRepository;
 
+    @Autowired
+    private RatingRepository ratingRepository;
+
     @Override
     public List<AdventureReservationDTO> getFreeAdventures(AdventureReservationSearchDTO dto) {
         List<AdventureReservationDTO> freeReservations = new ArrayList<>();
@@ -240,8 +243,9 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
         List<ReservationHistoryDTO> historyReservations = new ArrayList<>();
         for (AdventureReservation res : reservations) {
             if (res.getClient().getId() == clientId && res.getStartTime().isBefore(LocalDateTime.now())) {
-                historyReservations.add(new ReservationHistoryDTO(res.getAdventure().getName(),
-                        res.getAdventure().getAddress(), res.getPrice(), res.getStartTime()));
+                Instructor instructor = instructorRepository.findById(res.getAdventure().getInstructor().getId()).orElseGet(null);
+                historyReservations.add(new ReservationHistoryDTO(res.getId(), res.getAdventure().getId(), instructor.getId(), res.getAdventure().getName(),
+                        res.getAdventure().getAddress(), res.getPrice(), false, res.getStartTime()));
             }
         }
 
@@ -258,8 +262,9 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
                     || (res.getStartTime().getYear() == LocalDateTime.now().getYear()
                     && res.getStartTime().getDayOfMonth() == LocalDateTime.now().getDayOfMonth()
                     && res.getStartTime().getMonth() == LocalDateTime.now().getMonth()))) {
-                currentReservations.add(new ReservationHistoryDTO(res.getAdventure().getName(),
-                        res.getAdventure().getAddress(), res.getPrice(), res.getStartTime()));
+                Instructor instructor = instructorRepository.findById(res.getAdventure().getInstructor().getId()).orElseGet(null);
+                currentReservations.add(new ReservationHistoryDTO(res.getId(), res.getAdventure().getId(), instructor.getId(), res.getAdventure().getName(),
+                        res.getAdventure().getAddress(), res.getPrice(), false, res.getStartTime()));
             }
         }
 

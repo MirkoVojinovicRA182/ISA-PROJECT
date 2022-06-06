@@ -57,8 +57,8 @@
                                 <p class="card-text mb-1 mt-1">{{cottage.promotiveDescription}}</p>
                                 <p class="card-text mb-1 mt-1">Address: {{cottage.address}}</p>
                                 <div class="d-flex align-items-center flex-row"> 
-                                    <img src="https://i.imgur.com/e9VnSng.png" width="20"> 
-                                    <span class="guarantee">Rating</span>
+                                    <p-rating [ngModel]="cottage.rating"  [cancel]="false"></p-rating>
+                                    <span class="guarantee">({{cottage.rating}})</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="text-right buttons">

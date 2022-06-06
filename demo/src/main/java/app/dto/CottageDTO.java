@@ -17,6 +17,7 @@ public class CottageDTO {
     private Set<Room> rooms;
     private Set<Mark> marks;
     private Set<CottageAvailability> cottageAvailability;
+    private Double rating;
 
     public CottageDTO(){
         super();
@@ -33,6 +34,7 @@ public class CottageDTO {
         this.images = (cottage.getImages()  != null) ? cottage.getImages() : new HashSet<>();
         this.rooms = (cottage.getRooms()  != null) ? cottage.getRooms() : new HashSet<>();
         this.marks = (cottage.getMarks()  != null) ? cottage.getMarks() : new HashSet<>();
+        this.rating = cottage.getRating();
         this.cottageAvailability = (cottage.getCottageAvailability()  != null) ? cottage.getCottageAvailability() : new HashSet<>();
     }
 

@@ -52,6 +52,9 @@ public class Ship {
     @Column(name = "cancellationPolicy", unique = false, nullable = false)
     private String cancellationPolicy;
 
+    @Column(name = "rating", unique = false, nullable = false)
+    private Double rating;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ship_owner_id")
     private ShipOwner shipOwner;
@@ -81,6 +84,26 @@ public class Ship {
         this.additionalServicesInfo = additionalServicesInfo;
         this.cancellationPolicy = cancellationPolicy;
         this.shipOwner = shipOwner;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
+    public void setShipReservations(Set<ShipReservation> shipReservations) {
+        this.shipReservations = shipReservations;
+    }
+
+    public Set<ShipComplaint> getComplaints() {
+        return complaints;
+    }
+
+    public void setComplaints(Set<ShipComplaint> complaints) {
+        this.complaints = complaints;
     }
 
     public Integer getId() {

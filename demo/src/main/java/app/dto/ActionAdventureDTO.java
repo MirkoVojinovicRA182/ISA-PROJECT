@@ -1,17 +1,29 @@
 package app.dto;
 
 import app.domain.ActionAdventure;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
 public class ActionAdventureDTO {
     private Integer id;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     private LocalDateTime creationDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     private LocalDateTime startTime;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     private LocalDateTime endTime;
+
     private Integer duration;
     private String additionalServices;
-    private Double price;
+    private Integer price;
 
     private Integer adventureId;
 
@@ -77,11 +89,11 @@ public class ActionAdventureDTO {
         this.additionalServices = additionalServices;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

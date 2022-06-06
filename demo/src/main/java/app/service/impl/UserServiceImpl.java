@@ -3,6 +3,7 @@ package app.service.impl;
 import app.domain.*;
 import app.domain.enums.UserType;
 import app.dto.CottageOwnerDTO;
+import app.dto.RatingDTO;
 import app.dto.UserProfileDTO;
 import app.repository.*;
 import app.service.UserService;
@@ -26,6 +27,15 @@ public class UserServiceImpl implements UserService {
     private InstructorRepository instructorRepository;
 
     @Autowired
+    private InstructorAdventureRepository adventureRepository;
+
+    @Autowired
+    private ShipRepository shipRepository;
+
+    @Autowired
+    private CottageRepository cottageRepository;
+
+    @Autowired
     private CottageOwnerRepository cottageOwnerRepository;
 
     @Autowired
@@ -33,6 +43,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private AdventureReservationRepository adventureReservationRepository;
+
+    @Autowired
+    private RatingRepository ratingRepository;
 
     @Override
     public Collection<UserProfileDTO> getUsers() {
@@ -165,5 +178,62 @@ public class UserServiceImpl implements UserService {
 
         }
         return null;
+    }
+
+    @Override
+    public RatingDTO rateAdventure(RatingDTO dto) {
+        ratingRepository.save(new Rating(dto.getClientId(), dto.getEntityId(), dto.getEntityRate(),
+                dto.getRated(), dto.getOwnerId(), dto.getOwnerRate(), dto.getReservationId(), dto.getText()));
+        InstructorAdventure adventure = adventureRepository.findById(dto.getEntityId()).orElseGet(null);
+        Double rating = 0.0;
+        List<Rating> ratings = ratingRepository.findAll();
+        int count = ratings.size();
+        for(Rating r: ratings){
+            if(r.getEntityId().equals(dto.getEntityId()))
+                rating += r.getEntityRate();
+        }
+
+        adventure.setRating(rating/count);
+
+        adventureRepository.save(adventure);
+        return dto;
+    }
+
+    @Override
+    public RatingDTO rateShip(RatingDTO dto) {
+        ratingRepository.save(new Rating(dto.getClientId(), dto.getEntityId(), dto.getEntityRate(),
+                dto.getRated(), dto.getOwnerId(), dto.getOwnerRate(), dto.getReservationId(), dto.getText()));
+        Ship ship = shipRepository.findById(dto.getEntityId()).orElseGet(null);
+        Double rating = ship.getRating();
+        List<Rating> ratings = ratingRepository.findAll();
+        int count = ratings.size();
+        for(Rating r: ratings){
+            if(r.getEntityId().equals(dto.getEntityId()))
+                rating += r.getEntityRate();
+        }
+
+        ship.setRating(rating/count);
+
+        shipRepository.save(ship);
+        return dto;
+    }
+
+    @Override
+    public RatingDTO rateCottage(RatingDTO dto) {
+        ratingRepository.save(new Rating(dto.getClientId(), dto.getEntityId(), dto.getEntityRate(),
+                dto.getRated(), dto.getOwnerId(), dto.getOwnerRate(), dto.getReservationId(), dto.getText()));
+        Cottage cottage = cottageRepository.findById(dto.getEntityId()).orElseGet(null);
+        Double rating = cottage.getRating();
+        List<Rating> ratings = ratingRepository.findAll();
+        int count = ratings.size();
+        for(Rating r: ratings){
+            if(r.getEntityId().equals(dto.getEntityId()))
+                rating += r.getEntityRate();
+        }
+
+        cottage.setRating(rating/count);
+
+        cottageRepository.save(cottage);
+        return dto;
     }
 }

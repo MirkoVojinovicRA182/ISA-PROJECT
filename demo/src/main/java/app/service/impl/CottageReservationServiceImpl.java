@@ -2,10 +2,7 @@ package app.service.impl;
 
 import app.domain.*;
 import app.dto.*;
-import app.repository.ClientRepository;
-import app.repository.CottageAvailabilityRepository;
-import app.repository.CottageRepository;
-import app.repository.CottageReservationRepository;
+import app.repository.*;
 import app.service.CottageReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +30,9 @@ public class CottageReservationServiceImpl implements CottageReservationService 
 
     @Autowired
     private CottageReservationRepository cottageReservationRepository1;
+
+    @Autowired
+    private CottageOwnerRepository cottageOwnerRepository;
 
     @Override
     public List<CottageReservationDTO> getFreeCottages(CottageReservationSearchDTO dto) {
@@ -125,8 +125,9 @@ public class CottageReservationServiceImpl implements CottageReservationService 
         List<ReservationHistoryDTO> historyReservations = new ArrayList<>();
         for (CottageReservation res : reservations) {
             if (res.getClient().getId() == clientId && res.getStartTime().isBefore(LocalDateTime.now())) {
-                historyReservations.add(new ReservationHistoryDTO(res.getCottage().getName(),
-                        res.getCottage().getAddress(), res.getPrice(), res.getStartTime()));
+                CottageOwner owner = cottageOwnerRepository.findById(res.getCottage().getCottageOwner().getId()).orElseGet(null);
+                historyReservations.add(new ReservationHistoryDTO(res.getId(), res.getCottage().getId(), owner.getId(), res.getCottage().getName(),
+                        res.getCottage().getAddress(), res.getPrice(), false, res.getStartTime()));
             }
         }
 
@@ -143,8 +144,9 @@ public class CottageReservationServiceImpl implements CottageReservationService 
                     || (res.getStartTime().getYear() == LocalDateTime.now().getYear()
                     && res.getStartTime().getDayOfMonth() == LocalDateTime.now().getDayOfMonth()
                     && res.getStartTime().getMonth() == LocalDateTime.now().getMonth()))) {
-                currentReservations.add(new ReservationHistoryDTO(res.getCottage().getName(),
-                        res.getCottage().getAddress(), res.getPrice(), res.getStartTime()));
+                CottageOwner owner = cottageOwnerRepository.findById(res.getCottage().getCottageOwner().getId()).orElseGet(null);
+                currentReservations.add(new ReservationHistoryDTO(res.getId(), res.getCottage().getId(), owner.getId(), res.getCottage().getName(),
+                        res.getCottage().getAddress(), res.getPrice(), false, res.getStartTime()));
             }
         }
 

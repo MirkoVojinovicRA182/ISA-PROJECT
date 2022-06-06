@@ -3,6 +3,7 @@ package app.service.impl;
 import app.domain.*;
 import app.dto.*;
 import app.repository.ClientRepository;
+import app.repository.ShipOwnerRepository;
 import app.repository.ShipRepository;
 import app.repository.ShipReservationRepository;
 import app.service.ShipReservationService;
@@ -24,6 +25,9 @@ public class ShipReservationServiceImpl implements ShipReservationService {
 
     @Autowired
     private ShipReservationRepository shipReservationRepository;
+
+    @Autowired
+    private ShipOwnerRepository shipOwnerRepository;
 
     @Override
     public List<ShipReservationDTO> getFreeShips(ShipReservationSearchDTO dto) {
@@ -74,8 +78,9 @@ public class ShipReservationServiceImpl implements ShipReservationService {
         List<ReservationHistoryDTO> historyReservations = new ArrayList<>();
         for (ShipReservation res : reservations) {
             if (res.getClient().getId() == clientId && res.getStartTime().isBefore(LocalDateTime.now())) {
-                historyReservations.add(new ReservationHistoryDTO(res.getShip().getName(),
-                        res.getShip().getAddress(), res.getPrice(), res.getStartTime()));
+                ShipOwner shipOwner = shipOwnerRepository.findById(res.getShip().getShipOwner().getId()).orElseGet(null);
+                historyReservations.add(new ReservationHistoryDTO(res.getId(), res.getShip().getId(), shipOwner.getId(), res.getShip().getName(),
+                        res.getShip().getAddress(), res.getPrice(), false, res.getStartTime()));
             }
         }
 
@@ -92,8 +97,9 @@ public class ShipReservationServiceImpl implements ShipReservationService {
                     || (res.getStartTime().getYear() == LocalDateTime.now().getYear()
                     && res.getStartTime().getDayOfMonth() == LocalDateTime.now().getDayOfMonth()
                     && res.getStartTime().getMonth() == LocalDateTime.now().getMonth()))) {
-                currentReservations.add(new ReservationHistoryDTO(res.getShip().getName(),
-                        res.getShip().getAddress(), res.getPrice(), res.getStartTime()));
+                ShipOwner shipOwner = shipOwnerRepository.findById(res.getShip().getShipOwner().getId()).orElseGet(null);
+                currentReservations.add(new ReservationHistoryDTO(res.getId(), res.getShip().getId(), shipOwner.getId(), res.getShip().getName(),
+                        res.getShip().getAddress(), res.getPrice(), false, res.getStartTime()));
             }
         }
 

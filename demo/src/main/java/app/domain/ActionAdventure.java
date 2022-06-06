@@ -27,7 +27,7 @@ public class ActionAdventure {
     private String additionalServices;
 
     @Column(name = "price")
-    private Double price;
+    private Integer price;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "adventure_id")
@@ -36,7 +36,7 @@ public class ActionAdventure {
     public ActionAdventure() {
     }
 
-    public ActionAdventure(LocalDateTime creationDate, LocalDateTime startTime, LocalDateTime endTime, Integer duration, String additionalServices, Double price, InstructorAdventure adventure) {
+    public ActionAdventure(LocalDateTime creationDate, LocalDateTime startTime, LocalDateTime endTime, Integer duration, String additionalServices, Integer price, InstructorAdventure adventure) {
         this.creationDate = creationDate;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -94,11 +94,11 @@ public class ActionAdventure {
         this.additionalServices = additionalServices;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

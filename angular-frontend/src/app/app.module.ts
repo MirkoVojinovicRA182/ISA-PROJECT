@@ -24,6 +24,9 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {CheckboxModule} from 'primeng/checkbox';
+import {RatingModule} from 'primeng/rating';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+
 
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
@@ -82,7 +85,7 @@ import { ClientCottageComponent } from './components/client-components/client-co
 import { ClientShipComponent } from './components/client-components/client-ship/client-ship.component';
 import { ClientAdventureComponent } from './components/client-components/client-adventure/client-adventure.component';
 import { DialogAdventureReservation, DialogCottageReservation, DialogShipReservation, ReservationsComponent } from './components/client-components/reservations/reservations.component';
-import { ClientHistoryComponent } from './components/client-components/client-history/client-history.component';
+import { ClientHistoryComponent, DialogRating } from './components/client-components/client-history/client-history.component';
 
 
 @NgModule({
@@ -145,6 +148,7 @@ import { ClientHistoryComponent } from './components/client-components/client-hi
     DialogShipReservation,
     DialogAdventureReservation,
     ClientHistoryComponent,
+    DialogRating,
   ],
   imports: [
     BrowserModule,
@@ -175,7 +179,9 @@ import { ClientHistoryComponent } from './components/client-components/client-hi
     DynamicDialogModule,
     MessagesModule,
     MessageModule,
-    CheckboxModule
+    CheckboxModule,
+    RatingModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

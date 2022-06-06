@@ -15,6 +15,7 @@ public class InstructorAdventureDTO {
     private String termsOfUse;
     private int instructorId;
     private boolean isReserved;
+    private Double rating;
 
     public InstructorAdventureDTO() {
     }
@@ -31,6 +32,15 @@ public class InstructorAdventureDTO {
         price = a.getPrice();
         termsOfUse = a.getTermsOfUse();
         instructorId = a.getInstructor().getId();
+        rating = a.getRating();
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 
     public Integer getId() {

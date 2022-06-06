@@ -47,18 +47,18 @@ insert into registration_request (id, email, password, name, last_name, address,
     (10, 'steva123@gmail.com', 'steva123', 'Stevan', 'Simić', 'Stevana Sremca 89', 'Novi Sad', 'Republika Srbija', '066/1123-23-32', 2, 'Because.', '2021-02-01T08:00:00.00');
 
 /*----------------------------------------------------------------------Adventure-----------------------------------------------------------------------------------------------*/
-insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, price, terms_of_use, instructor_id) values
-    (1, 'Pecanje u Obrovcu', 'Kanal DTD', 'Uživajte na pecanju u Obrovcu', 'Trenutno nedostupna', 10, 'Pravila', 'Pecaljka/Ručak', 90, 'Uslovi otkaza rezervacije', 1);
-insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, price, terms_of_use, instructor_id) values
-    (2, 'Pecanje u Mladenovu', 'Dunavac Mladenovo', 'Uživajte na pecanju u Mladenovu', 'Trenutno nedostupna', 5, 'Pravila', 'Pecaljka/Ručak', 120, 'Uslovi otkaza rezervacije', 1);
-insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, price, terms_of_use, instructor_id) values
-    (3, 'Pecanje u Silbašu', 'Kanal DTD', 'Uživajte na pecanju u Silbašu', 'Trenutno nedostupna', 7, 'Pravila', 'Pecaljka/Ručak', 150, 'Uslovi otkaza rezervacije', 1);
+insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, price, terms_of_use, instructor_id, rating) values
+    (1, 'Pecanje u Obrovcu', 'Kanal DTD', 'Uživajte na pecanju u Obrovcu', 'Trenutno nedostupna', 10, 'Pravila', 'Pecaljka/Ručak', 90, 'Uslovi otkaza rezervacije', 1, 0);
+insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, price, terms_of_use, instructor_id, rating) values
+    (2, 'Pecanje u Mladenovu', 'Dunavac Mladenovo', 'Uživajte na pecanju u Mladenovu', 'Trenutno nedostupna', 5, 'Pravila', 'Pecaljka/Ručak', 120, 'Uslovi otkaza rezervacije', 1, 0);
+insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, price, terms_of_use, instructor_id, rating) values
+    (3, 'Pecanje u Silbašu', 'Kanal DTD', 'Uživajte na pecanju u Silbašu', 'Trenutno nedostupna', 7, 'Pravila', 'Pecaljka/Ručak', 150, 'Uslovi otkaza rezervacije', 1, 0);
 
-insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, price, terms_of_use, instructor_id) values
-    (4, 'Pecanje u Sivcu', 'Jezero', 'Uživajte na pecanju u Sivcu', 'Trenutno nedostupna', 10, 'Pravila', 'Pecaljka/Ručak', 140, 'Uslovi otkaza rezervacije', 13);
+insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, price, terms_of_use, instructor_id, rating) values
+    (4, 'Pecanje u Sivcu', 'Jezero', 'Uživajte na pecanju u Sivcu', 'Trenutno nedostupna', 10, 'Pravila', 'Pecaljka/Ručak', 140, 'Uslovi otkaza rezervacije', 13, 0);
 
-insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, price, terms_of_use, instructor_id) values
-    (5, 'Pecanje u Mošorinu', 'Reka Tisa', 'Uživajte na pecanju na Tisi', 'Trenutno nedostupna', 10, 'Pravila', 'Pecaljka/Ručak', 50, 'Uslovi otkaza rezervacije', 13);
+insert into instructor_adventure(id, name, address, promotional_description, instructor_biography, max_count_of_participants, rules_of_conduct, default_equipment, price, terms_of_use, instructor_id, rating) values
+    (5, 'Pecanje u Mošorinu', 'Reka Tisa', 'Uživajte na pecanju na Tisi', 'Trenutno nedostupna', 10, 'Pravila', 'Pecaljka/Ručak', 50, 'Uslovi otkaza rezervacije', 13, 0);
 
 
 /*----------------------------------------------------------------------Adventure additional service-----------------------------------------------------------------------------------------------*/
@@ -136,26 +136,26 @@ insert into cottage_owner (id, address, city, country, email, name, last_name, p
 
 
 /*----------------------------------------------------------------------Cottage-----------------------------------------------------------------------------------------------*/
-insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id)
-    values(1, 'Stevanova', 'Neka', 'Dodjite u Stevanovu kolibu', 'Pravila', 50, 5);
+insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id, rating)
+    values(1, 'Stevanova', 'Neka', 'Dodjite u Stevanovu kolibu', 'Pravila', 50, 5, 0);
 
-insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
-    (4, 'Koliba na fruskoj', 'Fruska Gora', 'Dodjite u Stevanovu kolibu, najbolji odnos cene i kvaliteta', 'Pravila ponasanja', 40, 5);
+insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id, rating) values
+    (4, 'Koliba na fruskoj', 'Fruska Gora', 'Dodjite u Stevanovu kolibu, najbolji odnos cene i kvaliteta', 'Pravila ponasanja', 40, 5, 0);
 
-insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
-    (5, 'Koliba na fruskoj 2', 'Fruska Gora', 'Dodjite u Stevanovu kolibu na fruskoj gori', 'Pravila ponasanja', 60, 5);
+insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id, rating) values
+    (5, 'Koliba na fruskoj 2', 'Fruska Gora', 'Dodjite u Stevanovu kolibu na fruskoj gori', 'Pravila ponasanja', 60, 5, 0);
 
-insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
-    (6, 'Koliba na fruskoj 3', 'Fruska Gora', 'Dodjite u Stevanovu kolibu 3', 'Pravila ponasanja 3', 70, 5);
+insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id, rating) values
+    (6, 'Koliba na fruskoj 3', 'Fruska Gora', 'Dodjite u Stevanovu kolibu 3', 'Pravila ponasanja 3', 70, 5, 0);
 
-insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
-    (7, 'Koliba na fruskoj 4', 'Fruska Gora', 'Dodjite u Stevanovu kolibu 4', 'Pravila ponasanja 4', 90, 5);
+insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id, rating) values
+    (7, 'Koliba na fruskoj 4', 'Fruska Gora', 'Dodjite u Stevanovu kolibu 4', 'Pravila ponasanja 4', 90, 5, 0);
 
-insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
-    (2, 'Minina', 'Neka', 'Dodjite u Mininu kolibu', 'Pravila', 60, 6);
+insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id, rating) values
+    (2, 'Minina', 'Neka', 'Dodjite u Mininu kolibu', 'Pravila', 60, 6, 0);
 
-insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
-    (3, 'Ninina', 'Neka', 'Dodjite u Nininu kolibu', 'Pravila', 20, 7);
+insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id, rating) values
+    (3, 'Ninina', 'Neka', 'Dodjite u Nininu kolibu', 'Pravila', 20, 7, 0);
 
 /*----------------------------------------------------------------------Rooms-----------------------------------------------------------------------------------------------*/
 insert into room (id, room_number, beds_number, bathroom, clime, cottage_id)
@@ -205,14 +205,14 @@ insert into ship_owner (id, address, city, country, email, name, last_name, pass
 
 
 /*----------------------------------------------------------------------Ship-----------------------------------------------------------------------------------------------*/
-insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id) values
-    (1, 'Vuletov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Vuletov opis', 11, 300, 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 8);
+insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id, rating) values
+    (1, 'Vuletov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Vuletov opis', 11, 300, 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 8, 0);
 
-insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id) values
-    (2, 'Todorov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Todorov opis', 10, 500, 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 9);
+insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id, rating) values
+    (2, 'Todorov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Todorov opis', 10, 500, 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 9, 0);
 
-insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id) values
-    (3, 'Ognjenov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Ognjenov opis', 12, 600, 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 10);
+insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id, rating) values
+    (3, 'Ognjenov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Ognjenov opis', 12, 600, 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 10, 0);
 
 /*----------------------------------------------------------------------Instructor complaint-----------------------------------------------------------------------------------------------*/
 insert into instructor_complaint(id, text, instructor_id, client_id) values (1, 'Neki tekst zalbe 1', 1, 11);

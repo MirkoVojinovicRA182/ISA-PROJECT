@@ -29,4 +29,9 @@ export class ClientHomePageComponent implements OnInit {
     this.router.navigate(['history'], {relativeTo: this.activeRoute});
   }
 
+  logout(){
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/landingPage/login']);
+  }
+
 }

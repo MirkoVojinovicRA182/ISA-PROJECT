@@ -150,13 +150,14 @@ public class CottageServiceImpl implements CottageService {
 
     @Override
     public Integer rateCottage(MarkDTO mark) {
-        Cottage cottageForUpdate = cottageRepository.findById(mark.getCottageId()).orElseGet(null);
+        /*Cottage cottageForUpdate = cottageRepository.findById(mark.getCottageId()).orElseGet(null);
         Mark newMark = new Mark(mark);
         newMark.setCottage(cottageForUpdate);
         cottageForUpdate.rateCottage(newMark);
         markRepository.save(newMark);
         cottageRepository.save(cottageForUpdate);
-        return cottageForUpdate.getRating();
+        return cottageForUpdate.getRating();*/
+        return 0;
     }
 
     @Override

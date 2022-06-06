@@ -11,7 +11,7 @@ import java.util.List;
 import app.dto.AdventureReservationDTO;
 import app.dto.AdventureReservationSearchDTO;
 
-public interface AdventureReservationService{
+public interface AdventureReservationService {
     List<AdventureReservationDTO> getFreeAdventures(AdventureReservationSearchDTO dto);
 
     boolean bookAnInstructorAdventure(AdventureReservationDTO dto) throws MessagingException, UnsupportedEncodingException;

@@ -53,8 +53,8 @@
                                 <p class="card-text mb-1 mt-1">{{ship.promotiveDescription}}</p>
                                 <p class="card-text mb-1 mt-1">Address: {{ship.address}}</p>
                                 <div class="d-flex align-items-center flex-row">
-                                    <img src="https://i.imgur.com/e9VnSng.png" width="20">
-                                    <span class="guarantee">Rating</span>
+                                    <p-rating [ngModel]="ship.rating"  [cancel]="false"></p-rating>
+                                    <span class="guarantee">({{ship.rating}})</span>
                                 </div>
                             </div>
                             <hr>

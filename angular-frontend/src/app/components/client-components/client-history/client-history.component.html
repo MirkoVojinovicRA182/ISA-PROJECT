@@ -227,7 +227,7 @@
                                     <td>{{adventure.date}}</td>
                                     <td>1 day</td>
                                     <td>
-                                        <button (click)="rateAdventure(adventure)" pButton pRipple type="button"
+                                        <button *ngIf="!adventure.rated" (click)="rateAdventure(adventure)" pButton pRipple type="button"
                                             label="Rate" class="p-button-danger"></button>
                                     </td>
                                 </tr>
