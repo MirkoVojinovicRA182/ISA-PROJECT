@@ -137,25 +137,25 @@ insert into cottage_owner (id, address, city, country, email, name, last_name, p
 
 /*----------------------------------------------------------------------Cottage-----------------------------------------------------------------------------------------------*/
 insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id)
-    values(1, 'Stevanova', 'Neka', 'Dodjite u Stevanovu kolibu', 'Pravila', 'Cenovnik: Dan 50$', 5);
+    values(1, 'Stevanova', 'Neka', 'Dodjite u Stevanovu kolibu', 'Pravila', 50, 5);
 
 insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
-    (4, 'Koliba na fruskoj', 'Fruska Gora', 'Dodjite u Stevanovu kolibu, najbolji odnos cene i kvaliteta', 'Pravila ponasanja', 'Dan 40$', 5);
+    (4, 'Koliba na fruskoj', 'Fruska Gora', 'Dodjite u Stevanovu kolibu, najbolji odnos cene i kvaliteta', 'Pravila ponasanja', 40, 5);
 
 insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
-    (5, 'Koliba na fruskoj 2', 'Fruska Gora', 'Dodjite u Stevanovu kolibu na fruskoj gori', 'Pravila ponasanja', 'Dan 60$', 5);
+    (5, 'Koliba na fruskoj 2', 'Fruska Gora', 'Dodjite u Stevanovu kolibu na fruskoj gori', 'Pravila ponasanja', 60, 5);
 
 insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
-    (6, 'Koliba na fruskoj 3', 'Fruska Gora', 'Dodjite u Stevanovu kolibu 3', 'Pravila ponasanja 3', 'Dan 70$', 5);
+    (6, 'Koliba na fruskoj 3', 'Fruska Gora', 'Dodjite u Stevanovu kolibu 3', 'Pravila ponasanja 3', 70, 5);
 
 insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
-    (7, 'Koliba na fruskoj 4', 'Fruska Gora', 'Dodjite u Stevanovu kolibu 4', 'Pravila ponasanja 4', 'Dan 90$', 5);
+    (7, 'Koliba na fruskoj 4', 'Fruska Gora', 'Dodjite u Stevanovu kolibu 4', 'Pravila ponasanja 4', 90, 5);
 
 insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
-    (2, 'Minina', 'Neka', 'Dodjite u Mininu kolibu', 'Pravila', 'Cenovnik', 6);
+    (2, 'Minina', 'Neka', 'Dodjite u Mininu kolibu', 'Pravila', 60, 6);
 
 insert into cottage (id, name, address, promotive_description, conduct_rules, pricelist, cottage_owner_id) values
-    (3, 'Ninina', 'Neka', 'Dodjite u Nininu kolibu', 'Pravila', 'Cenovnik', 7);
+    (3, 'Ninina', 'Neka', 'Dodjite u Nininu kolibu', 'Pravila', 20, 7);
 
 /*----------------------------------------------------------------------Rooms-----------------------------------------------------------------------------------------------*/
 insert into room (id, room_number, beds_number, bathroom, clime, cottage_id)
@@ -206,13 +206,13 @@ insert into ship_owner (id, address, city, country, email, name, last_name, pass
 
 /*----------------------------------------------------------------------Ship-----------------------------------------------------------------------------------------------*/
 insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id) values
-    (1, 'Vuletov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Vuletov opis', 11, 'Cenovnik', 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 8);
+    (1, 'Vuletov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Vuletov opis', 11, 300, 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 8);
 
 insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id) values
-    (2, 'Todorov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Todorov opis', 10, 'Cenovnik', 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 9);
+    (2, 'Todorov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Todorov opis', 10, 500, 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 9);
 
 insert into ship (id, name, type, length, engine_number, engine_power, max_speed, address, promotive_description, capacity, pricelist, conduct_rules, additional_services_info, cancellation_policy, ship_owner_id) values
-    (3, 'Ognjenov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Ognjenov opis', 12, 'Cenovnik', 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 10);
+    (3, 'Ognjenov', 'Tip', 4, 2, 100, 70, 'Adresa', 'Ognjenov opis', 12, 600, 'Pravila', 'Dodatne informacije', 'Uslovi otkazivanja', 10);
 
 /*----------------------------------------------------------------------Instructor complaint-----------------------------------------------------------------------------------------------*/
 insert into instructor_complaint(id, text, instructor_id, client_id) values (1, 'Neki tekst zalbe 1', 1, 11);
@@ -239,6 +239,8 @@ insert into delete_account_request(id, delete_reason, user_full_name, user_type,
 insert into delete_account_request(id, delete_reason, user_full_name, user_type, user_id) values
     (2, 'Ne želim više da koristim sistem.', 'Stevan Martinović', 0, 5);
 
+/*----------------------------------------------------------------------Availability-----------------------------------------------------------------------------------------------*/
+insert into cottage_availability(id, end_date, start_date, cottage_id) values (1, '2022-08-06 21:47', '2022-06-05 21:47', 1);
 /*----------------------------------------------------------------------Roles-----------------------------------------------------------------------------------------------*/
 insert into role (id, name) VALUES (1, 'ROLE_CLIENT');
 insert into role (id, name) VALUES (2, 'ROLE_ADMIN');

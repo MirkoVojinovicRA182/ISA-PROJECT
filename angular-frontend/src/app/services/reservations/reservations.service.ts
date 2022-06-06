@@ -83,4 +83,20 @@ export class ReservationsService {
     return throwError(() => errorMessage);
   }
 
+  isCottageFree(params: any): Observable<any> {
+    return this.http.post<any>(this._url + 'reservation/isCottageFree', params);
+  }
+  
+  isShipFree(params: any): Observable<any> {
+    return this.http.post<any>(this._url + 'reservation/isShipFree', params);
+  }
+
+  bookCottage(params: any): Observable<any> {
+    return this.http.post<any>(this._url + 'reservation/bookCottage', params);
+  }
+
+  bookShip(params: any): Observable<any> {
+    return this.http.post<any>(this._url + 'reservation/bookShip', params);
+  }
+
 }

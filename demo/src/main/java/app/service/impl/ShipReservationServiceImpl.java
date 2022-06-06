@@ -2,6 +2,7 @@ package app.service.impl;
 
 import app.domain.*;
 import app.dto.AdventureReservationDTO;
+import app.dto.ReservationDTO;
 import app.dto.ShipReservationDTO;
 import app.dto.ShipReservationSearchDTO;
 import app.repository.ClientRepository;
@@ -30,34 +31,43 @@ public class ShipReservationServiceImpl implements ShipReservationService {
     @Override
     public List<ShipReservationDTO> getFreeShips(ShipReservationSearchDTO dto) {
         List<ShipReservationDTO> freeReservations = new ArrayList<>();
-        List<ShipReservation> reservations = shipReservationRepository.findAll();
-        List<Ship> ships = shipRepository.findAll();
-        LocalDateTime dateTime = dto.getDate().atTime(0,0,0);
-        boolean reserved = false;
 
-        for(Ship ship : ships){
-            reserved = false;
-            if(ship.getCapacity() >= dto.getCapacity()){
-                for(var reservation : reservations) {
-                    if (reservation.getStartTime().equals(dateTime)) {
-                        reserved = true;
-                        break;
-                    }
-                }
-                if (!reserved) {
-                    freeReservations.add(new ShipReservationDTO(dateTime, ship.getPricelist(),
-                            dto.getClientId(), ship.getId()));
-                }
-            }
-        }
 
         return freeReservations;
     }
 
     @Override
     public void bookAShip(ShipReservationDTO dto) {
-        Ship ship = shipRepository.getByShipId(dto.getShipId());
-        shipReservationRepository.save(new ShipReservation(dto.getStartTime(), ship.getPricelist(),
-                clientRepository.getById(dto.getClientId()), ship));
+
+    }
+
+    @Override
+    public Boolean isShipFree(ReservationDTO dto) {
+        if(dto.getStartTime().isAfter(dto.getEndTime()))
+            return false;
+        List<ShipReservation> reservations = shipReservationRepository.findAll();
+        if (reservations.size() == 0)
+            return true;
+
+        for (ShipReservation res: reservations){
+            if(res.getShip().getId() == dto.getId()){
+                if(res.getStartTime().getYear() == dto.getStartTime().getYear()
+                        && res.getStartTime().getDayOfMonth() == dto.getStartTime().getDayOfMonth()
+                        && res.getStartTime().getMonth() == dto.getStartTime().getMonth()){
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    @Override
+    public ShipReservationDTO bookShip(ShipReservationDTO dto) {
+        Client client = clientRepository.getById(dto.getClientId());
+        Ship ship = shipRepository.findById(dto.getShipId()).orElseGet(null);
+        shipReservationRepository.save(new ShipReservation(dto, ship, client));
+
+        return dto;
     }
 }

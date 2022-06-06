@@ -9,7 +9,7 @@
                     styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
                     [rowsPerPageOptions]="[10,25,50]" [loading]="loading" responsiveLayout="scroll" [paginator]="true"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0"
-                    [globalFilterFields]="['name','address','price','rooms', 'rating']">
+                    [globalFilterFields]="['name','address','pricelist', 'rating']">
                     <ng-template pTemplate="caption">
                         <div class="table-header">
                             <span class="p-input-icon-left">
@@ -38,19 +38,11 @@
                                     </p-columnFilter>
                                 </div>
                             </th>
-                            <th pSortableColumn="price">
+                            <th pSortableColumn="pricelist">
                                 <div class="flex justify-content-between align-items-center">
                                     Price
-                                    <p-sortIcon field="price"></p-sortIcon>
-                                    <p-columnFilter type="text" field="price" display="menu"
-                                        class="ml-auto"></p-columnFilter>
-                                </div>
-                            </th>
-                            <th pSortableColumn="rooms">
-                                <div class="flex justify-content-between align-items-center">
-                                    Rooms
-                                    <p-sortIcon field="text"></p-sortIcon>
-                                    <p-columnFilter type="text" field="rooms" display="menu"
+                                    <p-sortIcon field="pricelist"></p-sortIcon>
+                                    <p-columnFilter type="numeric" field="pricelist" display="menu"
                                         class="ml-auto"></p-columnFilter>
                                 </div>
                             </th>
@@ -70,8 +62,7 @@
                         <tr>
                             <td>{{cottage.name}}</td>
                             <td>{{cottage.address}}</td>
-                            <td>10</td>
-                            <td>5</td>
+                            <td>{{cottage.pricelist}}</td>
                             <td>rating</td>
                             <td>
                                 <button (click)="goToCottageDetails(cottage)" pButton pRipple type="button"
@@ -91,7 +82,7 @@
                     styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
                     [rowsPerPageOptions]="[10,25,50]" [loading]="loading" responsiveLayout="scroll" [paginator]="true"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0"
-                    [globalFilterFields]="['name','address','price','capacity', 'rating']">
+                    [globalFilterFields]="['name','address','pricelist','capacity', 'rating']">
                     <ng-template pTemplate="caption">
                         <div class="table-header">
                             <span class="p-input-icon-left">
@@ -120,11 +111,11 @@
                                     </p-columnFilter>
                                 </div>
                             </th>
-                            <th pSortableColumn="price">
+                            <th pSortableColumn="pricelist">
                                 <div class="flex justify-content-between align-items-center">
                                     Price
-                                    <p-sortIcon field="price"></p-sortIcon>
-                                    <p-columnFilter type="text" field="price" display="menu" currency="USD"
+                                    <p-sortIcon field="pricelist"></p-sortIcon>
+                                    <p-columnFilter type="text" field="pricelist" display="menu" currency="USD"
                                         class="ml-auto"></p-columnFilter>
                                 </div>
                             </th>
@@ -152,7 +143,7 @@
                         <tr>
                             <td>{{ship.name}}</td>
                             <td>{{ship.address}}</td>
-                            <td>10</td>
+                            <td>{{ship.pricelist}}</td>
                             <td>{{ship.capacity}}</td>
                             <td>rating</td>
                             <td>
@@ -173,7 +164,7 @@
                     styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
                     [rowsPerPageOptions]="[10,25,50]" [loading]="loading" responsiveLayout="scroll" [paginator]="true"
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0"
-                    [globalFilterFields]="['adventure.name','adventure.address','price','rating', 'instructor.name', 'instructor.lastName']">
+                    [globalFilterFields]="['adventure.name','adventure.address','adventure.price','rating', 'instructor.name', 'instructor.lastName']">
                     <ng-template pTemplate="caption">
                         <div class="table-header">
                             <span class="p-input-icon-left">
@@ -206,7 +197,7 @@
                                 <div class="flex justify-content-between align-items-center">
                                     Price
                                     <p-sortIcon field="adventure.price"></p-sortIcon>
-                                    <p-columnFilter type="text" field="price" display="menu" currency="USD"
+                                    <p-columnFilter type="numeric" field="adventure.price" display="menu"
                                         class="ml-auto"></p-columnFilter>
                                 </div>
                             </th>

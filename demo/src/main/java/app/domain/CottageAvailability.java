@@ -2,9 +2,12 @@ package app.domain;
 
 import app.dto.CottageAvailabilityDTO;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class CottageAvailability {
@@ -18,15 +21,19 @@ public class CottageAvailability {
     @JsonBackReference(value = "cottage_cottage_availability")
     private Cottage cottage;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     @Column(name = "startDate", unique = false, nullable = false)
-    private LocalDate startDate;
+    private LocalDateTime startDate;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     @Column(name = "endDate", unique = false, nullable = false)
-    private LocalDate endDate;
+    private LocalDateTime endDate;
 
     public CottageAvailability(){}
 
-    public CottageAvailability(Integer id, Cottage cottage, LocalDate startDate, LocalDate endDate) {
+    public CottageAvailability(Integer id, Cottage cottage, LocalDateTime startDate, LocalDateTime endDate) {
         this.id = id;
         this.cottage = cottage;
         this.startDate = startDate;
@@ -54,19 +61,19 @@ public class CottageAvailability {
         this.cottage = cottage;
     }
 
-    public LocalDate getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 }

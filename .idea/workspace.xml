@@ -5,15 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/ReservationDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-home-page/client-home-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-home-page/client-home-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-home-page/client-home-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-home-page/client-home-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-profile/client-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-profile/client-profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-ship/client-ship.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-ship/client-ship.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/services/login/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/services/login/login.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-entities/client-reservations.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-entities/client-reservations.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-reservations/client-reservations.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-reservations/client-reservations.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-reservations/client-reservations.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-reservations/client-reservations.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/reservations/reservations.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/reservations/reservations.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/reservations/reservations.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/reservations/reservations.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/services/reservations/reservations.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/services/reservations/reservations.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/ReservationControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/ReservationControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/Cottage.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Cottage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageAvailability.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageAvailability.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageReservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Ship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/ShipReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/ShipReservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/ChangeCottageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/ChangeCottageDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/CottageAvailabilityDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/CottageAvailabilityDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/CottageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/CottageDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/CottageReservationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/CottageReservationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/ShipDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/ShipDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/ShipReservationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/ShipReservationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/repository/CottageAvailabilityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/repository/CottageAvailabilityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/CottageReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/CottageReservationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/ShipReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/ShipReservationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageReservationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,73 +216,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>30</line>
+          <line>31</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>31</line>
+          <line>32</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>52</line>
+          <line>34</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>57</line>
+          <line>39</line>
           <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/DeleteAccountRequestController.java</url>
@@ -305,6 +278,41 @@
           <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipServiceImpl.java</url>
           <line>46</line>
           <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageReservationServiceImpl.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageReservationServiceImpl.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageReservationServiceImpl.java</url>
+          <line>112</line>
+          <option name="timeStamp" value="125" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageReservationServiceImpl.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="132" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageReservationServiceImpl.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageReservationServiceImpl.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/demo/src/main/java/app/controller/ReservationControler.java</url>
+          <line>156</line>
+          <option name="timeStamp" value="136" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

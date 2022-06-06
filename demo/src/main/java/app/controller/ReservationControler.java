@@ -1,5 +1,6 @@
 package app.controller;
 
+import app.domain.Cottage;
 import app.dto.*;
 import app.service.AdventureReservationService;
 import app.service.CottageReservationService;
@@ -136,6 +137,30 @@ public class ReservationControler {
     @PostMapping("/getReservationStatistics")
     public ResponseEntity<List<ReservationStatisticsDTO>> getReservationStatistics(@RequestBody StatsDateRangeDTO dto){
         return new ResponseEntity<List<ReservationStatisticsDTO>>(adventureReservationService.getReservationStatistics(dto.getFromDate(), dto.getToDate(), dto.getUserId()), HttpStatus.OK);
+    }
+
+    @RequestMapping("/isCottageFree")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Boolean> isCottageFree(@RequestBody ReservationDTO dto){
+        return new ResponseEntity<Boolean>(cottageReservationService.isCottageFree(dto), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/isShipFree")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Boolean> isShipFree(@RequestBody ReservationDTO dto){
+        return new ResponseEntity<Boolean>(shipReservationService.isShipFree(dto), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/bookCottage")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CottageReservationDTO> bookCottage(@RequestBody CottageReservationDTO dto){
+        return new ResponseEntity<CottageReservationDTO>(cottageReservationService.bookCottage(dto), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/bookShip")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ShipReservationDTO> bookShip(@RequestBody ShipReservationDTO dto){
+        return new ResponseEntity<ShipReservationDTO>(shipReservationService.bookShip(dto), HttpStatus.CREATED);
     }
 
 }

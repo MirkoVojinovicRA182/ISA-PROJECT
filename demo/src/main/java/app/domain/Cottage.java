@@ -28,7 +28,7 @@ public class Cottage {
     private String conductRules;
 
     @Column(name = "pricelist", unique = false, nullable = false)
-    private String pricelist;
+    private Double pricelist;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cottage_owner_id")
@@ -63,7 +63,7 @@ public class Cottage {
         super();
     }
 
-    public Cottage(String name, String address, String promotiveDescription, String conductRules, String pricelist, CottageOwner cottageOwner) {
+    public Cottage(String name, String address, String promotiveDescription, String conductRules, Double pricelist, CottageOwner cottageOwner) {
         super();
         this.name = name;
         this.address = address;
@@ -122,11 +122,11 @@ public class Cottage {
         this.conductRules = conductRules;
     }
 
-    public String getPricelist() {
+    public Double getPricelist() {
         return pricelist;
     }
 
-    public void setPricelist(String pricelist) {
+    public void setPricelist(Double pricelist) {
         this.pricelist = pricelist;
     }
 

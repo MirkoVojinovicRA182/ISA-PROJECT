@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.chrono.ChronoLocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -163,7 +164,7 @@ public class CottageServiceImpl implements CottageService {
         CottageAvailabilityDTO newDto = availability.stream().findFirst().orElseGet(null);
         Cottage cottageForUpdate = cottageRepository.findById(newDto.getCottageId()).orElseGet(null);
         for(CottageAvailabilityDTO cottageAvailabilityDTO : availability){
-            if(cottageAvailabilityDTO.getEndDate().isBefore(LocalDate.now())){
+            if(cottageAvailabilityDTO.getEndDate().isBefore(LocalDateTime.now())){
                 return new CottageDTO(cottageForUpdate);
             }
             if(cottageAvailabilityDTO.getStartDate().isBefore(cottageAvailabilityDTO.getEndDate()) || cottageAvailabilityDTO.getStartDate().isEqual(cottageAvailabilityDTO.getEndDate())) {
@@ -189,7 +190,7 @@ public class CottageServiceImpl implements CottageService {
         return new CottageDTO(cottageForUpdate);
     }
 
-    public boolean isCottageAvailable(Integer cottageId, LocalDate startDate, LocalDate endDate){
+    public boolean isCottageAvailable(Integer cottageId, LocalDateTime startDate, LocalDateTime endDate){
         if(startDate.isAfter(endDate))
             return false;
         Cottage cottage = cottageRepository.findById(cottageId).orElseGet(null);

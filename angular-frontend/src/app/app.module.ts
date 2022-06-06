@@ -16,6 +16,13 @@ import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
 import {ToggleButtonModule} from 'primeng/togglebutton';
+import {TreeModule} from 'primeng/tree';
+import {DialogModule} from 'primeng/dialog';
+import {CalendarModule} from 'primeng/calendar';
+import {CardModule} from 'primeng/card';
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
@@ -73,7 +80,7 @@ import { ClientReservationsComponent } from './components/client-components/clie
 import { ClientCottageComponent } from './components/client-components/client-cottage/client-cottage.component';
 import { ClientShipComponent } from './components/client-components/client-ship/client-ship.component';
 import { ClientAdventureComponent } from './components/client-components/client-adventure/client-adventure.component';
-import { ReservationsComponent } from './components/client-components/reservations/reservations.component';
+import { DialogCottageReservation, DialogShipReservation, ReservationsComponent } from './components/client-components/reservations/reservations.component';
 
 
 @NgModule({
@@ -131,7 +138,9 @@ import { ReservationsComponent } from './components/client-components/reservatio
     ClientCottageComponent,
     ClientShipComponent,
     ClientAdventureComponent,
-    ReservationsComponent
+    ReservationsComponent,
+    DialogCottageReservation,
+    DialogShipReservation
   ],
   imports: [
     BrowserModule,
@@ -155,6 +164,13 @@ import { ReservationsComponent } from './components/client-components/reservatio
     InputTextModule,
     TableModule,
     ToggleButtonModule,
+    TreeModule,
+    DialogModule,
+    CalendarModule,
+    CardModule,
+    DynamicDialogModule,
+    MessagesModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

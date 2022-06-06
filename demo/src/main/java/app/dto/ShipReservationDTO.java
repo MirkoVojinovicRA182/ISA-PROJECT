@@ -2,6 +2,8 @@ package app.dto;
 
 import app.domain.Client;
 import app.domain.Ship;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.FetchType;
@@ -11,7 +13,10 @@ import java.time.LocalDateTime;
 
 public class ShipReservationDTO {
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     private LocalDateTime startTime;
+
     private String price;
     private Integer clientId;
     private Integer shipId;

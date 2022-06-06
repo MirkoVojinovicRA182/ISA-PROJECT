@@ -1,6 +1,10 @@
 package app.domain;
 
+import app.dto.CottageReservationDTO;
+import app.dto.ShipReservationDTO;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,6 +17,8 @@ public class ShipReservation {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "shipReservationIdSeqGen")
     private Integer id;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     @Column
     private LocalDateTime startTime;
 
@@ -33,6 +39,13 @@ public class ShipReservation {
     public ShipReservation(LocalDateTime startTime, String price, Client client, Ship ship) {
         this.startTime = startTime;
         this.price = price;
+        this.client = client;
+        this.ship = ship;
+    }
+
+    public ShipReservation(ShipReservationDTO dto, Ship ship, Client client) {
+        this.startTime = dto.getStartTime();
+        this.price = dto.getPrice();
         this.client = client;
         this.ship = ship;
     }

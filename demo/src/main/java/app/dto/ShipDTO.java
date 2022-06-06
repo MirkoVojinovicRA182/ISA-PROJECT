@@ -14,7 +14,7 @@ public class ShipDTO {
     private String promotiveDescription;
     private Integer capacity;
     private String conductRules;
-    private String pricelist;
+    private Double pricelist;
     private String additionalServicesInfo;
     private String cancellationPolicy;
     private Integer shipOwnerId;
@@ -23,7 +23,7 @@ public class ShipDTO {
         super();
     }
 
-    public ShipDTO(Integer shipId, String name, String type, double length, Integer engineNumber, double enginePower, double maxSpeed, String address, String promotiveDescription, Integer capacity, String conductRules, String pricelist, String additionalServicesInfo, String cancellationPolicy, Integer shipOwnerId) {
+    public ShipDTO(Integer shipId, String name, String type, double length, Integer engineNumber, double enginePower, double maxSpeed, String address, String promotiveDescription, Integer capacity, String conductRules, Double pricelist, String additionalServicesInfo, String cancellationPolicy, Integer shipOwnerId) {
         this.shipId = shipId;
         this.name = name;
         this.type = type;
@@ -147,11 +147,11 @@ public class ShipDTO {
         this.conductRules = conductRules;
     }
 
-    public String getPricelist() {
+    public Double getPricelist() {
         return pricelist;
     }
 
-    public void setPricelist(String pricelist) {
+    public void setPricelist(Double pricelist) {
         this.pricelist = pricelist;
     }
 

@@ -44,7 +44,7 @@ public class Ship {
     private String conductRules;
 
     @Column(name = "pricelist", unique = false, nullable = false)
-    private String pricelist;
+    private Double pricelist;
 
     @Column(name = "additionalServicesInfo", unique = false, nullable = false)
     private String additionalServicesInfo;
@@ -66,7 +66,7 @@ public class Ship {
         super();
     }
 
-    public Ship(String name, String type, double length, Integer engineNumber, double enginePower, double maxSpeed, String address, String promotiveDescription, Integer capacity, String conductRules, String pricelist, String additionalServicesInfo, String cancellationPolicy, ShipOwner shipOwner) {
+    public Ship(String name, String type, double length, Integer engineNumber, double enginePower, double maxSpeed, String address, String promotiveDescription, Integer capacity, String conductRules, Double pricelist, String additionalServicesInfo, String cancellationPolicy, ShipOwner shipOwner) {
         this.name = name;
         this.type = type;
         this.length = length;
@@ -171,11 +171,11 @@ public class Ship {
         this.conductRules = conductRules;
     }
 
-    public String getPricelist() {
+    public Double getPricelist() {
         return pricelist;
     }
 
-    public void setPricelist(String pricelist) {
+    public void setPricelist(Double pricelist) {
         this.pricelist = pricelist;
     }
 
