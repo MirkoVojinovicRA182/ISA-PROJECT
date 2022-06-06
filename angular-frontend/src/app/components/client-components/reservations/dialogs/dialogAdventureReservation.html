@@ -1,0 +1,32 @@
+<p-card header="Reservation" [style]="{width: 'auto'}" styleClass="p-card-shadow">
+    <table>
+        <tr>
+            <td style="padding-right: 5em;">
+                <h2>Name: {{reservation?.name}}</h2>
+            </td>
+            <td>
+                <h2>Address: {{reservation?.address}}</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h2>Rating: {{reservation?.rating}}</h2>
+            </td>
+            <td>
+                <h2>Price: {{reservation?.price}}</h2>
+            </td>
+            <td>
+                <div *ngFor="let service of services" class="field-checkbox" style="padding-left: 5em;">
+                    <p-checkbox [style]="{'font-size':'12pt'}" name="group2" (click)="addToPrice(service)" value="service" [value]="service" [(ngModel)]="selectedServices"
+                        [inputId]="service.key" [disabled]="service.key === 'R'"></p-checkbox>
+                    <label [for]="service.key">{{service.name}} {{service.price}}</label>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <ng-template pTemplate="footer">
+        <p-button (click)="save()" label="Save" icon="pi pi-check" [style]="{'background-color':'red'}"></p-button>
+        <p-button (click)="close()" label="Cancel" icon="pi pi-times" styleClass="p-button-secondary"
+            [style]="{'margin-left': '.5em'}"></p-button>
+    </ng-template>
+</p-card>

@@ -72,6 +72,42 @@
                 </p-table>
             </div>
         </p-tabPanel>
+        <p-tabPanel>
+            <ng-template pTemplate="header">
+                <span [ngStyle]="{color:'var(--red-500)'}"> Adventures </span>
+            </ng-template>
+            <div class="card">
+                <div class="field col-12 md:col-4">
+                    <label for="min-max">Date: </label>
+                    <p-calendar [(ngModel)]="dateAdventure" [minDate]="minDate" [readonlyInput]="true" inputId="min-max"></p-calendar>
+                </div>
+                <p-table #dt [columns]="colsAdventure" [value]="adventures" [paginator]="true" [rows]="10">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns">
+                                {{col.header}}
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th *ngFor="let col of columns">
+                                <p-columnFilter type="text" [field]="col.field" [matchModeOptions]="matchModeOptions" [matchMode]="'contains'"></p-columnFilter>
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="columns">
+                        <tr [pSelectableRow]="rowData">
+                            <td *ngFor="let col of columns">
+                                {{rowData[col.field]}}
+                            </td>
+                            <td>
+                                <button (click)="showAdventure(rowData)" [style]="{'color':'red'}" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </p-tabPanel>
     </p-tabView>
 </div>
 <p-dialog header="Sorry :(" [(visible)]="displayCottage">
@@ -79,4 +115,7 @@
 </p-dialog>
 <p-dialog header="Sorry :(" [(visible)]="displayShip">
     <p>Ship is not avalaible in that time.</p>
+</p-dialog>
+<p-dialog header="Sorry :(" [(visible)]="displayAdventure">
+    <p>Adventure is not avalaible in that time.</p>
 </p-dialog>

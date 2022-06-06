@@ -151,6 +151,18 @@ public class ReservationControler {
         return new ResponseEntity<Boolean>(shipReservationService.isShipFree(dto), HttpStatus.CREATED);
     }
 
+    @RequestMapping("/isAdventureFree")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Boolean> isAdventureFree(@RequestBody ReservationDTO dto){
+        return new ResponseEntity<Boolean>(adventureReservationService.isAdventureFree(dto), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/bookAdventure")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AdventureReservationDTO> bookAdventure(@RequestBody AdventureReservationDTO dto){
+        return new ResponseEntity<AdventureReservationDTO>(adventureReservationService.bookAdventure(dto), HttpStatus.CREATED);
+    }
+
     @RequestMapping("/bookCottage")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CottageReservationDTO> bookCottage(@RequestBody CottageReservationDTO dto){

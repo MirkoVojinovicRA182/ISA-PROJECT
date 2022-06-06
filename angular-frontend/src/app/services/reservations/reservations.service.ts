@@ -11,6 +11,7 @@ import { Report } from 'src/app/model/report';
 })
 export class ReservationsService {
 
+
   private _url = serverPort;
 
   constructor(private http: HttpClient) { }
@@ -91,12 +92,20 @@ export class ReservationsService {
     return this.http.post<any>(this._url + 'reservation/isShipFree', params);
   }
 
+  isAdventureFree(params: any): Observable<any> {
+    return this.http.post<any>(this._url + 'reservation/isAdventureFree', params);
+  }
+
   bookCottage(params: any): Observable<any> {
     return this.http.post<any>(this._url + 'reservation/bookCottage', params);
   }
 
   bookShip(params: any): Observable<any> {
     return this.http.post<any>(this._url + 'reservation/bookShip', params);
+  }
+
+  bookAdventure(params: any): Observable<any> {
+    return this.http.post<any>(this._url + 'reservation/bookAdventure', params);
   }
 
 }

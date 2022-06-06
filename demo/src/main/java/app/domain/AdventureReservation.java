@@ -1,6 +1,10 @@
 package app.domain;
 
+import app.dto.AdventureReservationDTO;
+import app.dto.CottageReservationDTO;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,14 +18,18 @@ public class AdventureReservation {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "adventureReservationIdSeqGen")
     private Integer id;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     @Column
     private LocalDateTime startTime;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     @Column
     private LocalDateTime endTime;
 
     @Column
-    private String price;
+    private Integer price;
 
     @OneToMany(mappedBy = "adventureReservation", cascade = CascadeType.ALL)
     private Set<AdventureAdditionalService> adventureAdditionalServices = new HashSet<>();
@@ -31,19 +39,23 @@ public class AdventureReservation {
     @JsonBackReference
     private Client client;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "instructorAdventure_id")
-    private InstructorAdventure instructorAdventure;
-
     public AdventureReservation(){}
 
     public AdventureReservation(LocalDateTime startTime, LocalDateTime endTime, Client client,
-                                InstructorAdventure instructorAdventure, String price) {
+                                InstructorAdventure instructorAdventure, Integer price) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.client = client;
-        this.instructorAdventure = instructorAdventure;
+        this.adventure = instructorAdventure;
         this.price = price;
+    }
+
+    public AdventureReservation(AdventureReservationDTO dto, InstructorAdventure adventure, Client client) {
+        this.startTime = dto.getStartTime();
+        this.endTime = dto.getEndTime();
+        this.price = dto.getPrice();
+        this.client = client;
+        this.adventure = adventure;
     }
 
     public Client getClient() {
@@ -52,14 +64,6 @@ public class AdventureReservation {
 
     public void setClient(Client client) {
         this.client = client;
-    }
-
-    public InstructorAdventure getInstructorAdventure() {
-        return instructorAdventure;
-    }
-
-    public void setInstructorAdventure(InstructorAdventure instructorAdventure) {
-        this.instructorAdventure = instructorAdventure;
     }
 
     @Column
@@ -103,9 +107,9 @@ public class AdventureReservation {
         this.endTime = endTime;
     }
 
-    public String getPrice() { return price; }
+    public Integer getPrice() { return price; }
 
-    public void setPrice(String price) { this.price = price; }
+    public void setPrice(Integer price) { this.price = price; }
 
     public Set<AdventureAdditionalService> getAdventureAdditionalServices() {
         return adventureAdditionalServices;

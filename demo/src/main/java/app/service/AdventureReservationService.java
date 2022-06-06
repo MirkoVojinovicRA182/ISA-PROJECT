@@ -25,4 +25,8 @@ public interface AdventureReservationService{
     List<SallaryByDayDTO> sumSystemSallary(LocalDate fromDate, LocalDate toDate);
 
     List<ReservationStatisticsDTO> getReservationStatistics(LocalDateTime fromDate, LocalDateTime toDate, Integer instructorId);
+
+    Boolean isAdventureFree(ReservationDTO dto);
+
+    AdventureReservationDTO bookAdventure(AdventureReservationDTO dto);
 }

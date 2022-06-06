@@ -19,8 +19,8 @@ export class InstructorLessonsService {
     return this._http.get<any>(this._url + 'instructorAdventure/getAdventures/' + instructorId);
   }
 
-  getAdditionalServices(adventureId: number): Observable<AdventureAdditionalService[]> {
-    return this._http.get<AdventureAdditionalService[]>(this._url + 'instructorAdventure/getAdditionalServices/' + adventureId);
+  getAdditionalServices(adventureId: number): Observable<any[]> {
+    return this._http.get<any[]>(this._url + 'instructorAdventure/getAdditionalServices/' + adventureId);
   }
 
   getImages(adventureId: number): Observable<Image[]> {

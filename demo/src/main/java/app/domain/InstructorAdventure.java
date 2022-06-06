@@ -50,7 +50,7 @@ public class InstructorAdventure {
     @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<AdventureAdditionalService> additionalServices;
 
-    @OneToMany(mappedBy = "instructorAdventure", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "adventure", cascade = CascadeType.ALL)
     private Set<AdventureReservation> adventureReservations = new HashSet<>();
 
     @OneToMany(mappedBy = "adventure", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)

@@ -89,25 +89,6 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
 
     @Override
     public boolean bookAnInstructorAdventure(AdventureReservationDTO dto) throws MessagingException, UnsupportedEncodingException {
-
-        boolean invalidTerm = !Utility.reservationTermValid(new ReservationCheckDTO(dto.getStartTime(), dto.getEndTime(), adventureReservationRepository.findAll(),
-                actionAdventureRepository.findAll()));
-
-        if(invalidTerm)
-            return false;
-
-        Client client = clientRepository.findByEmail(dto.getClientUsername());
-        InstructorAdventure adventure = instructorAdventureRepository.findByName(dto.getAdventureName());
-
-        adventureReservationRepository.save(new AdventureReservation(dto.getStartTime(),
-                dto.getEndTime(),
-                client,
-                adventure,
-                dto.getBill(),
-                Utility.getSystemSallary()));
-
-        Utility.sendMail(dto.getClientUsername(), "New adventure reservation", "You have new adventure reservation.");
-
         return true;
     }
 
@@ -198,6 +179,59 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
 
 
         return statisticsDTOS;
+    }
+
+    @Override
+    public Boolean isAdventureFree(ReservationDTO dto) {
+        if(dto.getStartTime().isAfter(dto.getEndTime()))
+            return false;
+
+        List<AdventureReservation> reservations = adventureReservationRepository.findAll();
+        if (reservations.size() == 0)
+            return true;
+        for (AdventureReservation res: reservations){
+            if(res.getAdventure().getId() == dto.getId()){
+                if((res.getStartTime().getYear() == dto.getStartTime().getYear()
+                        && res.getStartTime().getDayOfMonth() == dto.getStartTime().getDayOfMonth()
+                        && res.getStartTime().getMonth() == dto.getStartTime().getMonth())
+                        || instructorIsNotFree(dto)){
+                    return false;
+                }
+            }
+        }
+
+
+        return true;
+    }
+
+    private boolean instructorIsNotFree(ReservationDTO dto) {
+        InstructorAdventure instructorAdventure = instructorAdventureRepository.findById(dto.getId()).orElseGet(null);
+        if(instructorAdventure == null)
+            return true;
+        Instructor instructor = instructorAdventure.getInstructor();
+        List<AdventureReservation> reservations = adventureReservationRepository.findAll();
+        Set<InstructorAdventure> adventures =  instructor.getAdventures();
+        for (InstructorAdventure adv: adventures){
+            for(AdventureReservation res: reservations){
+                if(adv.getId() == res.getAdventure().getId()){
+                    if(res.getStartTime().getYear() == dto.getStartTime().getYear()
+                            && res.getStartTime().getDayOfMonth() == dto.getStartTime().getDayOfMonth()
+                            && res.getStartTime().getMonth() == dto.getStartTime().getMonth()){
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    @Override
+    public AdventureReservationDTO bookAdventure(AdventureReservationDTO dto) {
+        Client client = clientRepository.findById(dto.getClientId()).orElseGet(null);
+        InstructorAdventure adventure = instructorAdventureRepository.findById(dto.getAdventureId()).orElseGet(null);
+        adventureReservationRepository.save(new AdventureReservation(dto, adventure, client));
+        return dto;
     }
 
 

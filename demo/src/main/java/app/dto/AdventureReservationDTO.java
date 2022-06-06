@@ -4,6 +4,8 @@ import app.domain.AdventureReservation;
 import app.domain.Client;
 import app.domain.InstructorAdventure;
 import app.service.AdventureReservationService;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.FetchType;
@@ -14,29 +16,29 @@ import java.util.Date;
 
 public class AdventureReservationDTO {
     private Integer id;
-    private String clientUsername;
-    private String adventureName;
+    private Integer clientId;
+    private Integer adventureId;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     private LocalDateTime startTime;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     private LocalDateTime endTime;
-    private String price;
 
     public AdventureReservationDTO(){}
     
-    private Double bill;
-    private boolean finished;
+    private Integer price;
 
 
     public AdventureReservationDTO(AdventureReservation adventureReservation){
         id = adventureReservation.getId();
-        if(adventureReservation.getClient() != null)
-            clientUsername = adventureReservation.getClient().getEmail();
-        else
-            clientUsername = "Obrisan";
-        adventureName = adventureReservation.getAdventure().getName();
+        clientId = adventureReservation.getClient().getId();
+        adventureId = adventureReservation.getAdventure().getId();
         startTime = adventureReservation.getStartTime();
         endTime = adventureReservation.getEndTime();
-        finished = adventureReservation.getEndTime().isBefore(LocalDateTime.now());
-        bill = adventureReservation.getBill();
+        price = adventureReservation.getPrice();
     }
 
     public Integer getId() {
@@ -47,20 +49,20 @@ public class AdventureReservationDTO {
         this.id = id;
     }
 
-    public String getClientUsername() {
-        return clientUsername;
+    public Integer getClientId() {
+        return clientId;
     }
 
-    public void setClientUsername(String clientUsername) {
-        this.clientUsername = clientUsername;
+    public void setClientId(Integer clientId) {
+        this.clientId = clientId;
     }
 
-    public String getAdventureName() {
-        return adventureName;
+    public Integer getAdventureId() {
+        return adventureId;
     }
 
-    public void setAdventureName(String adventureName) {
-        this.adventureName = adventureName;
+    public void setAdventureId(Integer adventureId) {
+        this.adventureId = adventureId;
     }
 
     public LocalDateTime getStartTime() {
@@ -79,23 +81,7 @@ public class AdventureReservationDTO {
         this.endTime = endTime;
     }
 
-    public String getPrice() { return price; }
+    public Integer getPrice() { return price; }
 
-    public void setPrice(String price) { this.price = price; }
-    
-    public boolean isFinished() {
-        return finished;
-    }
-
-    public void setFinished(boolean finished) {
-        this.finished = finished;
-    }
-
-    public Double getBill() {
-        return bill;
-    }
-
-    public void setBill(Double bill) {
-        this.bill = bill;
-    }
+    public void setPrice(Integer price) { this.price = price; }
 }

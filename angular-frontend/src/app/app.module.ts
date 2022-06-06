@@ -23,6 +23,7 @@ import {CardModule} from 'primeng/card';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {CheckboxModule} from 'primeng/checkbox';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
@@ -80,7 +81,7 @@ import { ClientReservationsComponent } from './components/client-components/clie
 import { ClientCottageComponent } from './components/client-components/client-cottage/client-cottage.component';
 import { ClientShipComponent } from './components/client-components/client-ship/client-ship.component';
 import { ClientAdventureComponent } from './components/client-components/client-adventure/client-adventure.component';
-import { DialogCottageReservation, DialogShipReservation, ReservationsComponent } from './components/client-components/reservations/reservations.component';
+import { DialogAdventureReservation, DialogCottageReservation, DialogShipReservation, ReservationsComponent } from './components/client-components/reservations/reservations.component';
 
 
 @NgModule({
@@ -140,7 +141,8 @@ import { DialogCottageReservation, DialogShipReservation, ReservationsComponent 
     ClientAdventureComponent,
     ReservationsComponent,
     DialogCottageReservation,
-    DialogShipReservation
+    DialogShipReservation,
+    DialogAdventureReservation,
   ],
   imports: [
     BrowserModule,
@@ -170,7 +172,8 @@ import { DialogCottageReservation, DialogShipReservation, ReservationsComponent 
     CardModule,
     DynamicDialogModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

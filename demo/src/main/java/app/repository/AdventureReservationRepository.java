@@ -5,8 +5,8 @@ import app.domain.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 import org.apache.tomcat.jni.Local;
 
 import java.time.LocalDateTime;

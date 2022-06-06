@@ -80,41 +80,41 @@ insert into client (id, address, city, country, email, name, last_name, password
     '$2a$10$8k/e1uzWqrh5rl4OpKmhYem0z9SwEd8Kl5eYXXP7F8ilYxj8WBHaa', '065-222-222-01', 'code', true);
 
 /*----------------------------------------------------------------------Adventure reservation-----------------------------------------------------------------------------------------------*/
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (1, '2022-01-04T08:00:00.00', '2022-01-04T09:00:00.00', 11, 1, 1, 90, 0.1);
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (2, '2022-01-04T10:00:00.00', '2022-01-04T11:00:00.00', 12, 1, 1, 90, 0.1);
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (3, '2022-01-04T12:00:00.00', '2022-01-04T13:00:00.00', 12, 1, 1, 90, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (1, '2022-01-04T08:00:00.00', '2022-01-04T09:00:00.00', 11, 1, 90, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (2, '2022-01-04T10:00:00.00', '2022-01-04T11:00:00.00', 12, 1, 90, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (3, '2022-01-04T12:00:00.00', '2022-01-04T13:00:00.00', 12, 1, 90, 0.1);
 
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (4, '2022-01-05T08:00:00.00', '2022-01-05T09:00:00.00', 11, 1, 1, 90, 0.1);
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (5, '2022-01-05T10:00:00.00', '2022-01-05T11:00:00.00', 12, 2, 1, 120, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (4, '2022-01-05T08:00:00.00', '2022-01-05T09:00:00.00', 11, 1, 90, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (5, '2022-01-05T10:00:00.00', '2022-01-05T11:00:00.00', 12, 2, 120, 0.1);
 
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (6, '2022-01-06T08:00:00.00', '2022-01-06T09:00:00.00', 11, 1, 1, 90, 0.2);
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (7, '2022-01-06T11:00:00.00', '2022-01-06T12:00:00.00', 12, 1, 1, 90, 0.2);
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (8, '2022-01-06T15:00:00.00', '2022-01-06T16:00:00.00', 12, 1, 1, 90, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (6, '2022-01-06T08:00:00.00', '2022-01-06T09:00:00.00', 11, 1, 90, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (7, '2022-01-06T11:00:00.00', '2022-01-06T12:00:00.00', 12, 1, 90, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (8, '2022-01-06T15:00:00.00', '2022-01-06T16:00:00.00', 12, 1, 90, 0.2);
 
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (9, '2022-01-07T08:00:00.00', '2022-01-07T09:00:00.00', 11, 3, 1, 150, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (9, '2022-01-07T08:00:00.00', '2022-01-07T09:00:00.00', 11, 3, 150, 0.2);
 
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (10, '2022-01-08T08:00:00.00', '2022-01-08T09:00:00.00', 11, 2, 1, 120, 0.2);
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (11, '2022-01-08T10:00:00.00', '2022-01-08T11:00:00.00', 12, 2, 1, 120, 0.2);
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (12, '2022-01-08T13:00:00.00', '2022-01-08T14:00:00.00', 11, 2, 1, 120, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (10, '2022-01-08T08:00:00.00', '2022-01-08T09:00:00.00', 11, 2, 120, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (11, '2022-01-08T10:00:00.00', '2022-01-08T11:00:00.00', 12, 2, 120, 0.2);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (12, '2022-01-08T13:00:00.00', '2022-01-08T14:00:00.00', 11, 2, 120, 0.2);
 
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (13, '2022-01-15T13:00:00.00', '2022-01-15T14:00:00.00', 12, 4, 1, 140, 0.1);
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (14, '2022-01-18T13:00:00.00', '2022-01-18T14:00:00.00', 11, 5, 1, 50, 0.1);
-insert into adventure_reservation (id, start_time, end_time, client_id, instructor_adventure_id, adventure_id, bill, system_sallary) values
-    (15, '2022-01-11T13:00:00.00', '2022-01-11T14:00:00.00', 12, 4, 1, 140, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (13, '2022-01-15T13:00:00.00', '2022-01-15T14:00:00.00', 12, 4, 140, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (14, '2022-01-18T13:00:00.00', '2022-01-18T14:00:00.00', 11, 5, 50, 0.1);
+insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values
+    (15, '2022-01-11T13:00:00.00', '2022-01-11T14:00:00.00', 12, 4, 140, 0.1);
 
 /*----------------------------------------------------------------------Action adventure-----------------------------------------------------------------------------------------------*/
 insert into action_adventure (id, additional_services, creation_date, duration, end_time, start_time, price, adventure_id) values
