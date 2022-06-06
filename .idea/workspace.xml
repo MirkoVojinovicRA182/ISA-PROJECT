@@ -5,52 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3e08b1e-47fe-4980-9989-779ba655dfc3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/AdventureRating.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageOwnerRating.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/CottageRating.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorRating.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/OwnerRating.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/OwnerRatingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Rating.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/ShipOwnerRating.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/ShipRating.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/RatingDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/repository/AdventureRatingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/repository/CottageOwnerRatingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/repository/CottageRatingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/repository/InstructorRatingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/repository/RatingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/repository/ShipOwnerRatingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/app/repository/ShipRatingRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-entities/client-reservations.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-entities/client-reservations.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-history/client-history.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-history/client-history.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-history/client-history.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-history/client-history.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-home-page/client-home-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-home-page/client-home-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-home-page/client-home-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/client-components/client-home-page/client-home-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-adventures/all-adventures.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-adventures/all-adventures.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-cottages/all-cottages.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-cottages/all-cottages.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-ships/all-ships.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/components/unregistered-user-components/all-ships/all-ships.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/src/app/services/reservations/reservations.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/src/app/services/reservations/reservations.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/ActionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/ActionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/ActionAdventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/ActionAdventure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/Cottage.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Cottage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorAdventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/InstructorAdventure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/domain/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/domain/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/ActionAdventureDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/ActionAdventureDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/CottageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/CottageDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/InstructorAdventureDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/InstructorAdventureDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/ReservationHistoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/ReservationHistoryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/dto/ShipDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/dto/ShipDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/AdventureReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/AdventureReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/AdventureReservationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageReservationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/CottageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/ShipReservationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/app/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

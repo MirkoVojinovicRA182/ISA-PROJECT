@@ -1,3 +1,6 @@
+/*SVE LOZINKE SU 123123, SEM mita123@gmail.com, tu je mita123*/
+
+
 /*------------------------------------------------------------Instructor---------------------------------------------------------------------------------*/
 insert into instructor (id, address, city, country, email, last_name, name, password, phone_number, is_enabled) values
     (1, 'Karađorđeva 12', 'Nova Gajdobra', 'Republika Srbija', 'mare@gmail.com', 'Isaković', 'Marko', '$2a$10$syFgCOEoyd8Mz4KxNdKXa.F8R.NNdY7IdR6jPRNJFcFdMyh/2sYwi', '065-244-32-21', true);
