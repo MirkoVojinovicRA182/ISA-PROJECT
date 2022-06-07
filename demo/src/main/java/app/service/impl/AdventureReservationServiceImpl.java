@@ -271,5 +271,11 @@ public class AdventureReservationServiceImpl implements AdventureReservationServ
         return currentReservations;
     }
 
+    @Override
+    public boolean cancelAdventureReservation(Integer id) {
+        adventureReservationRepository.deleteById(id);
+        return true;
+    }
+
 
 }

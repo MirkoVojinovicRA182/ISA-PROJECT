@@ -143,5 +143,17 @@ export class ReservationsService {
   rateCottage(params: any): Observable<any> {
     return this.http.post<any>(this._url + 'users/rateCottage', params);
   }
+
+  cancelCottageReservation(id: any){
+    return this.http.delete(this._url + 'reservation/cancelCottageReservation/' + id);
+  }
+
+  cancelShipReservation(id: any): Observable<any> {
+    return this.http.post<any>(this._url + 'reservation/cancelShipReservation', id);
+  }
+
+  cancelAdventureReservation(id: any): Observable<any> {
+    return this.http.post<any>(this._url + 'reservation/cancelAdventureReservation', id);
+  }
   
 }

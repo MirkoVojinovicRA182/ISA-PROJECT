@@ -33,4 +33,6 @@ public interface AdventureReservationService {
     List<ReservationHistoryDTO> getAdventureHistoryReservations(Integer clientId);
 
     List<ReservationHistoryDTO> getAdventureCurrentReservations(Integer clientId);
+
+    boolean cancelAdventureReservation(Integer id);
 }

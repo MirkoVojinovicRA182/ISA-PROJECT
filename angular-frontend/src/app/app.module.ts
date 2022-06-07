@@ -85,7 +85,7 @@ import { ClientCottageComponent } from './components/client-components/client-co
 import { ClientShipComponent } from './components/client-components/client-ship/client-ship.component';
 import { ClientAdventureComponent } from './components/client-components/client-adventure/client-adventure.component';
 import { DialogAdventureReservation, DialogCottageReservation, DialogShipReservation, ReservationsComponent } from './components/client-components/reservations/reservations.component';
-import { ClientHistoryComponent, DialogRating } from './components/client-components/client-history/client-history.component';
+import { ClientHistoryComponent, DialogAdventureRating, DialogCottageRating, DialogShipRating } from './components/client-components/client-history/client-history.component';
 
 
 @NgModule({
@@ -148,7 +148,9 @@ import { ClientHistoryComponent, DialogRating } from './components/client-compon
     DialogShipReservation,
     DialogAdventureReservation,
     ClientHistoryComponent,
-    DialogRating,
+    DialogAdventureRating,
+    DialogShipRating,
+    DialogCottageRating
   ],
   imports: [
     BrowserModule,

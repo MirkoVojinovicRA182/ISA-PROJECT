@@ -29,7 +29,7 @@
                                 {{rowData[col.field]}}
                             </td>
                             <td>
-                                <button (click)="showCottage(rowData)" [style]="{'color':'red'}" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
+                                <button *ngIf="penal" (click)="showCottage(rowData)" [style]="{'color':'red'}" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
                             </td>
                         </tr>
                     </ng-template>
@@ -65,7 +65,7 @@
                                 {{rowData[col.field]}}
                             </td>
                             <td>
-                                <button (click)="showShip(rowData)" [style]="{'color':'red'}" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
+                                <button *ngIf="penal" (click)="showShip(rowData)" [style]="{'color':'red'}" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
                             </td>
                         </tr>
                     </ng-template>
@@ -101,7 +101,7 @@
                                 {{rowData[col.field]}}
                             </td>
                             <td>
-                                <button (click)="showAdventure(rowData)" [style]="{'color':'red'}" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
+                                <button *ngIf="penal" (click)="showAdventure(rowData)" [style]="{'color':'red'}" pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
                             </td>
                         </tr>
                     </ng-template>

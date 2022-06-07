@@ -18,4 +18,6 @@ public interface ShipReservationService {
     List<ReservationHistoryDTO> getShipHistoryReservations(Integer clientId);
 
     List<ReservationHistoryDTO> getShipCurrentReservations(Integer clientId);
+
+    boolean cancelShipReservation(Integer id);
 }

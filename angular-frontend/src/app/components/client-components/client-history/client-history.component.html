@@ -33,9 +33,9 @@
                                     <td>{{cottage.price}}</td>
                                     <td>{{cottage.date}}</td>
                                     <td>1 day</td>
-                                    <td>
-                                        <button (click)="cancelCottage(cottage)" pButton pRipple type="button"
-                                            label="Cancel" class="p-button-danger"></button>
+                                    <td *ngIf="canCancel(cottage.date)">
+                                            <button (click)="cancelCottage(cottage)" pButton pRipple type="button"
+                                                label="Cancel" class="p-button-danger"></button>
                                     </td>
                                 </tr>
                             </ng-template>
@@ -112,9 +112,9 @@
                                     <td>{{ship.price}}</td>
                                     <td>{{ship.date}}</td>
                                     <td>1 day</td>
-                                    <td>
-                                        <button (click)="cancelShip(ship)" pButton pRipple type="button"
-                                            label="Cancel" class="p-button-danger"></button>
+                                    <td *ngIf="canCancel(ship.date)">
+                                        <button (click)="cancelShip(ship)" pButton pRipple type="button" label="Cancel"
+                                            class="p-button-danger"></button>
                                     </td>
                                 </tr>
                             </ng-template>
@@ -148,8 +148,8 @@
                                     <td>{{ship.date}}</td>
                                     <td>1 day</td>
                                     <td>
-                                        <button (click)="rateShip(ship)" pButton pRipple type="button"
-                                            label="Rate" class="p-button-danger"></button>
+                                        <button (click)="rateShip(ship)" pButton pRipple type="button" label="Rate"
+                                            class="p-button-danger"></button>
                                     </td>
                                 </tr>
                             </ng-template>
@@ -191,7 +191,7 @@
                                     <td>{{adventure.price}}</td>
                                     <td>{{adventure.date}}</td>
                                     <td>1 day</td>
-                                    <td>
+                                    <td *ngIf="canCancel(adventure.date)">
                                         <button (click)="cancelAdventure(adventure)" pButton pRipple type="button"
                                             label="Cancel" class="p-button-danger"></button>
                                     </td>
@@ -227,8 +227,8 @@
                                     <td>{{adventure.date}}</td>
                                     <td>1 day</td>
                                     <td>
-                                        <button *ngIf="!adventure.rated" (click)="rateAdventure(adventure)" pButton pRipple type="button"
-                                            label="Rate" class="p-button-danger"></button>
+                                        <button *ngIf="!adventure.rated" (click)="rateAdventure(adventure)" pButton
+                                            pRipple type="button" label="Rate" class="p-button-danger"></button>
                                     </td>
                                 </tr>
                             </ng-template>

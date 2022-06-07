@@ -211,4 +211,25 @@ public class ReservationControler {
         return new ResponseEntity<List<ReservationHistoryDTO>>(adventureReservationService.getAdventureCurrentReservations(clientId), HttpStatus.OK);
     }
 
+    @DeleteMapping(value = "cancelCottageReservation/{cottageId}")
+    public ResponseEntity<Void> cancelCottageReservation(@PathVariable Integer id) throws Exception {
+        cottageReservationService.cancelCottageReservation(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping("/cancelShipReservation")
+    public ResponseEntity<Void> cancelShipReservation(@PathVariable Integer id) throws Exception {
+        shipReservationService.cancelShipReservation(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping("/cancelAdventureReservation")
+    public ResponseEntity<Void> cancelAdventureReservation(@PathVariable Integer id) throws Exception {
+        adventureReservationService.cancelAdventureReservation(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+
+
 }

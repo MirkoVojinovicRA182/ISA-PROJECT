@@ -105,4 +105,10 @@ public class ShipReservationServiceImpl implements ShipReservationService {
 
         return currentReservations;
     }
+
+    @Override
+    public boolean cancelShipReservation(Integer id) {
+        shipReservationRepository.deleteById(id);
+        return true;
+    }
 }

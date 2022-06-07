@@ -37,6 +37,8 @@ export class ReservationsComponent implements OnInit {
 
   matchModeOptions: SelectItem[] = [];
 
+  penal: boolean = true;
+
   services: any;
 
   constructor(private filterService: FilterService,
@@ -54,6 +56,13 @@ export class ReservationsComponent implements OnInit {
     this.dateShip.setDate(this.dateShip.getDate() + 1);
     this.dateAdventure.setDate(this.dateAdventure.getDate() + 1);
     this.minDate = this.dateCottage;
+    let user = localStorage.getItem('currentUser')
+        if (user != null) {
+          this.currentUser = JSON.parse(user)
+        }
+    if(this.currentUser.penals > 2){
+      this.penal =  false
+    }
     
     this.filterService.register(customFilterName, (value: { toString: () => any; } | null | undefined, filter: string | null | undefined): boolean => {
       if (filter === undefined || filter === null || filter.trim() === '') {
@@ -148,10 +157,6 @@ export class ReservationsComponent implements OnInit {
 
     ref.onClose.subscribe((data) => {
       if (data.yes) {
-        let user = localStorage.getItem('currentUser')
-        if (user != null) {
-          this.currentUser = JSON.parse(user)
-        }
         let param = {
           id: 0,
           clientId: this.currentUser.id,

@@ -75,12 +75,12 @@ insert into image(id, url, adventure_id) values (2, 'second.jpg', 1);
 insert into image(id, url, adventure_id) values (3, 'third.jpg', 1);
 
 /*----------------------------------------------------------------------Client-----------------------------------------------------------------------------------------------*/
-insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, is_enabled) values
-    (12, 'Vojvođanska 32', 'Obrovac', 'Republika Srbija', 'klijent@gmail.com', 'Neki', 'Klijent', '$2a$10$syFgCOEoyd8Mz4KxNdKXa.F8R.NNdY7IdR6jPRNJFcFdMyh/2sYwi', '064-231-222-01', 'code', true);
+insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, is_enabled, penals) values
+    (12, 'Vojvođanska 32', 'Obrovac', 'Republika Srbija', 'klijent@gmail.com', 'Neki', 'Klijent', '$2a$10$syFgCOEoyd8Mz4KxNdKXa.F8R.NNdY7IdR6jPRNJFcFdMyh/2sYwi', '064-231-222-01', 'code', true, 0);
 
-insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, is_enabled) values
+insert into client (id, address, city, country, email, name, last_name, password, phone_number, verification_code, is_enabled, penals) values
     (11, 'Bulevar Cara Lazara 5', 'Novi Sad', 'Republika Srbija', 'mita123@gmail.com', 'Mita', 'Mitrović',
-    '$2a$10$8k/e1uzWqrh5rl4OpKmhYem0z9SwEd8Kl5eYXXP7F8ilYxj8WBHaa', '065-222-222-01', 'code', true);
+    '$2a$10$8k/e1uzWqrh5rl4OpKmhYem0z9SwEd8Kl5eYXXP7F8ilYxj8WBHaa', '065-222-222-01', 'code', true, 0);
 
 /*----------------------------------------------------------------------Adventure reservation-----------------------------------------------------------------------------------------------*/
 insert into adventure_reservation (id, start_time, end_time, client_id, adventure_id, bill, system_sallary) values

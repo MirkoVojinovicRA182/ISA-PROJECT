@@ -152,4 +152,10 @@ public class CottageReservationServiceImpl implements CottageReservationService 
 
         return currentReservations;
     }
+
+    @Override
+    public Boolean cancelCottageReservation(Integer id) {
+        cottageReservationRepository.deleteById(id);
+        return true;
+    }
 }

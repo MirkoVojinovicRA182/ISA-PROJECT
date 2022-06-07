@@ -14,6 +14,9 @@ public class Client extends ApplicationUser{
     @Column(name = "verification_code", length = 64)
     private String verificationCode = "";
 
+    @Column(name = "penals", unique = false, nullable = false)
+    private Integer penals;
+
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @JsonBackReference
     private Set<AdventureReservation> adventureReservations = new HashSet<>();
@@ -43,6 +46,14 @@ public class Client extends ApplicationUser{
     public Client(String email, String password, String name, String lastName, String address,
                   String city, String country, String phoneNumber) {
         super(email, password, name, lastName, address, city, country, phoneNumber);
+    }
+
+    public Integer getPenals() {
+        return penals;
+    }
+
+    public void setPenals(Integer penals) {
+        this.penals = penals;
     }
 
     public String getVerificationCode() {
