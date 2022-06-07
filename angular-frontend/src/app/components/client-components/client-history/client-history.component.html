@@ -59,6 +59,7 @@
                                     <th pSortableColumn="quantity">Duration <p-sortIcon field="duration"></p-sortIcon>
                                     </th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </ng-template>
                             <ng-template pTemplate="body" let-cottage>
@@ -71,6 +72,10 @@
                                     <td>
                                         <button (click)="rateCottage(cottage)" pButton pRipple type="button"
                                             label="Rate" class="p-button-danger"></button>
+                                    </td>
+                                    <td>
+                                        <button (click)="complaintCottage(cottage)" pButton
+                                            pRipple type="button" label="Complaint" class="p-button-danger"></button>
                                     </td>
                                 </tr>
                             </ng-template>
@@ -138,6 +143,7 @@
                                     <th pSortableColumn="duration">Duration <p-sortIcon field="duration"></p-sortIcon>
                                     </th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </ng-template>
                             <ng-template pTemplate="body" let-ship>
@@ -150,6 +156,10 @@
                                     <td>
                                         <button (click)="rateShip(ship)" pButton pRipple type="button" label="Rate"
                                             class="p-button-danger"></button>
+                                    </td>
+                                    <td>
+                                        <button (click)="complaintShip(ship)" pButton
+                                            pRipple type="button" label="Complaint" class="p-button-danger"></button>
                                     </td>
                                 </tr>
                             </ng-template>
@@ -217,6 +227,7 @@
                                     <th pSortableColumn="duration">Duration <p-sortIcon field="duration"></p-sortIcon>
                                     </th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </ng-template>
                             <ng-template pTemplate="body" let-adventure>
@@ -229,6 +240,10 @@
                                     <td>
                                         <button *ngIf="!adventure.rated" (click)="rateAdventure(adventure)" pButton
                                             pRipple type="button" label="Rate" class="p-button-danger"></button>
+                                    </td>
+                                    <td>
+                                        <button (click)="complaintAdventure(adventure)" pButton
+                                            pRipple type="button" label="Complaint" class="p-button-danger"></button>
                                     </td>
                                 </tr>
                             </ng-template>

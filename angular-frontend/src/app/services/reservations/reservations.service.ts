@@ -155,5 +155,17 @@ export class ReservationsService {
   cancelAdventureReservation(id: any): Observable<any> {
     return this.http.post<any>(this._url + 'reservation/cancelAdventureReservation', id);
   }
+
+  complaintCottage(params: any): Observable<any> {
+    return this.http.post<any>(this._url + 'users/complaintCottage', params);
+  }
+
+  complaintShip(params: any): Observable<any> {
+    return this.http.post<any>(this._url + 'users/complaintShip', params);
+  }
+
+  complaintAdventure(params: any): Observable<any> {
+    return this.http.post<any>(this._url + 'users/complaintAdventure', params);
+  }
   
 }

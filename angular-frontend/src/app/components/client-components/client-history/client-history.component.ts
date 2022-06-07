@@ -183,6 +183,76 @@ export class ClientHistoryComponent implements OnInit {
     });
   }
 
+  complaintCottage(reservation: any) {
+    const ref = this.dialogService.open(DialogCottageComplaint, {
+      data: {
+        reservation: reservation,
+        clientId: this.currentUser.id,
+      },
+      width: 'auto',
+      height: 'auto'
+    });
+
+
+    ref.onClose.subscribe((data) => {
+      let params = {
+        clientId: data.userId,
+        ownerId: data.ownerId,
+        entityId: data.entityId,
+        text: data.text,
+      }
+      this.resService.complaintCottage(data).subscribe(data => {
+        console.log(data)
+      })
+    });
+  }
+  complaintShip(reservation: any) {
+    const ref = this.dialogService.open(DialogShipComplaint, {
+      data: {
+        reservation: reservation,
+        clientId: this.currentUser.id,
+      },
+      width: 'auto',
+      height: 'auto'
+    });
+
+
+    ref.onClose.subscribe((data) => {
+      let params = {
+        clientId: data.userId,
+        ownerId: data.ownerId,
+        entityId: data.entityId,
+        text: data.text,
+      }
+      this.resService.complaintShip(data).subscribe(data => {
+        console.log(data)
+      })
+    });
+  }
+  complaintAdventure(reservation: any) {
+    const ref = this.dialogService.open(DialogAdventureComplaint, {
+      data: {
+        reservation: reservation,
+        clientId: this.currentUser.id,
+      },
+      width: 'auto',
+      height: 'auto'
+    });
+
+
+    ref.onClose.subscribe((data) => {
+      let params = {
+        clientId: data.userId,
+        ownerId: data.ownerId,
+        entityId: data.entityId,
+        text: data.text,
+      }
+      this.resService.complaintAdventure(data).subscribe(data => {
+        console.log(data)
+      })
+    });
+  }
+
 }
 
 @Component({
@@ -310,3 +380,104 @@ export class DialogShipRating {
     this.ref.close(params);
   }
 }
+
+
+//COMPLAINT
+@Component({
+  templateUrl: 'dialogCottageComplaint.html'
+})
+export class DialogCottageComplaint {
+
+  reservation: any;
+  userId: any;
+  text: string = "";
+
+  constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig,
+    private shipOwnerService: UserProfileService) { }
+
+  ngOnInit() {
+    this.reservation = this.config.data.reservation
+    this.userId = this.config.data.clientId
+  }
+
+  close() {
+    this.ref.close();
+  }
+
+  save() {
+    let params = {
+      clientId: this.userId,
+      ownerId: this.reservation.ownerId,
+      entityId: this.reservation.entityId,
+      text: this.text,
+    }
+    this.ref.close(params);
+  }
+}
+
+@Component({
+  templateUrl: 'dialogShipComplaint.html'
+})
+export class DialogShipComplaint {
+
+  reservation: any;
+  userId: any;
+  text: string = "";
+
+  constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig,
+    private shipOwnerService: UserProfileService) { }
+
+  ngOnInit() {
+    this.reservation = this.config.data.reservation
+    this.userId = this.config.data.clientId
+  }
+
+  close() {
+    this.ref.close();
+  }
+
+  save() {
+    let params = {
+      clientId: this.userId,
+      ownerId: this.reservation.ownerId,
+      entityId: this.reservation.entityId,
+      text: this.text,
+    }
+    this.ref.close(params);
+  }
+}
+
+@Component({
+  templateUrl: 'dialogAdventureComplaint.html'
+})
+export class DialogAdventureComplaint {
+
+  reservation: any;
+  userId: any;
+  text: string = "";
+
+  constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig,
+    private shipOwnerService: UserProfileService) { }
+
+  ngOnInit() {
+    this.reservation = this.config.data.reservation
+    this.userId = this.config.data.clientId
+  }
+
+  close() {
+    this.ref.close();
+  }
+
+  save() {
+    let params = {
+      clientId: this.userId,
+      ownerId: this.reservation.ownerId,
+      entityId: this.reservation.entityId,
+      text: this.text,
+    }
+    this.ref.close(params);
+  }
+}
+
+
+

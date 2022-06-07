@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 public class CottageComplaint {
     @Id
-    @SequenceGenerator(name = "cComplIdSeqGen", sequenceName = "cComplIdSeq", initialValue = 1, allocationSize = 1)
+    @SequenceGenerator(name = "cComplIdSeqGen", sequenceName = "cComplIdSeq", initialValue = 10, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cComplIdSeqGen")
     private Integer id;
 

@@ -2,6 +2,7 @@ package app.service.impl;
 
 import app.domain.*;
 import app.domain.enums.UserType;
+import app.dto.ComplaintDTO;
 import app.dto.CottageOwnerDTO;
 import app.dto.RatingDTO;
 import app.dto.UserProfileDTO;
@@ -46,6 +47,15 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private RatingRepository ratingRepository;
+
+    @Autowired
+    private CottageComplaintRepository cottageComplaintRepository;
+
+    @Autowired
+    private InstructorComplaintRepository instructorComplaintRepository;
+
+    @Autowired
+    private ShipComplaintRepository shipComplaintRepository;
 
     @Override
     public Collection<UserProfileDTO> getUsers() {
@@ -234,6 +244,35 @@ public class UserServiceImpl implements UserService {
         cottage.setRating(rating/count);
 
         cottageRepository.save(cottage);
+        return dto;
+    }
+
+    @Override
+    public ComplaintDTO complaintCottage(ComplaintDTO dto) {
+        Cottage cottage = cottageRepository.findById(dto.getEntityId()).orElseGet(null);
+        Client client = clientRepository.findById(dto.getClientId()).orElseGet(null);
+        CottageOwner cottageOwner = cottageOwnerRepository.findById(dto.getOwnerId()).orElseGet(null);
+        cottageComplaintRepository.save(new CottageComplaint(dto.getText(), cottage, cottageOwner, client));
+
+        return dto;
+    }
+
+    @Override
+    public ComplaintDTO complaintShip(ComplaintDTO dto) {
+        Ship ship = shipRepository.findById(dto.getEntityId()).orElseGet(null);
+        Client client = clientRepository.findById(dto.getClientId()).orElseGet(null);
+        ShipOwner shipOwner = shipOwnerRepository.findById(dto.getOwnerId()).orElseGet(null);
+        shipComplaintRepository.save(new ShipComplaint(dto.getText(), ship, shipOwner, client));
+
+        return dto;
+    }
+
+    @Override
+    public ComplaintDTO complaintAdventure(ComplaintDTO dto) {
+        Client client = clientRepository.findById(dto.getClientId()).orElseGet(null);
+        Instructor instructor = instructorRepository.findById(dto.getOwnerId()).orElseGet(null);
+        instructorComplaintRepository.save(new InstructorComplaint(dto.getText(), instructor, client));
+
         return dto;
     }
 }

@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class InstructorComplaint {
 
     @Id
-    @SequenceGenerator(name = "iComplIdSeqGen", sequenceName = "iComplIdSeq", initialValue = 1, allocationSize = 1)
+    @SequenceGenerator(name = "iComplIdSeqGen", sequenceName = "iComplIdSeq", initialValue = 10, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "iComplIdSeqGen")
     private Integer id;
 

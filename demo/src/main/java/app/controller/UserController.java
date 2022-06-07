@@ -3,10 +3,7 @@ package app.controller;
 import app.domain.ApplicationUser;
 import app.domain.RegistrationRequest;
 import app.domain.enums.UserType;
-import app.dto.CottageOwnerDTO;
-import app.dto.CottageReservationDTO;
-import app.dto.RatingDTO;
-import app.dto.UserProfileDTO;
+import app.dto.*;
 import app.service.UserService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,5 +65,23 @@ public class UserController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<RatingDTO> rateCottage(@RequestBody RatingDTO dto){
         return new ResponseEntity<RatingDTO>(userService.rateCottage(dto), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/complaintCottage")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ComplaintDTO> complaintCottage(@RequestBody ComplaintDTO dto){
+        return new ResponseEntity<ComplaintDTO>(userService.complaintCottage(dto), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/complaintShip")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ComplaintDTO> complaintShip(@RequestBody ComplaintDTO dto){
+        return new ResponseEntity<ComplaintDTO>(userService.complaintShip(dto), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/complaintAdventure")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ComplaintDTO> complaintAdventure(@RequestBody ComplaintDTO dto){
+        return new ResponseEntity<ComplaintDTO>(userService.complaintAdventure(dto), HttpStatus.CREATED);
     }
 }
