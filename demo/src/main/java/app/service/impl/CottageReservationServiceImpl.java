@@ -157,6 +157,8 @@ public class CottageReservationServiceImpl implements CottageReservationService 
     public Boolean cancelCottageReservation(Integer id) {
         cottageReservationRepository.deleteById(id);
         return true;
+    }
+
     public List<CottageReservationDTO> getCottageReservations(Integer cottageId) {
         List<CottageReservationDTO> reservations = new ArrayList<>();
         Cottage cottage = cottageRepository.getById(cottageId);

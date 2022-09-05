@@ -31,8 +31,8 @@ export class CottageCalendarComponent implements OnInit {
     for(let i = 0; i < this.cottage.cottageAvailability.length; i++){
       let myEndDate = new Date(this.cottage.cottageAvailability[i].endDate);
       myEndDate.setDate(myEndDate.getDate() + 1);
-      this.events.push({title: "Dostupno", start: formatDate( this.cottage.cottageAvailability[i]?.startDate, 'yyy-MM-dd', 'en-US'),
-      end: formatDate( myEndDate, 'yyyy-MM-dd', 'en-US')})
+      this.events.push({title: "Dostupno", start: formatDate( this.cottage.cottageAvailability[i]?.startDate, 'yyy-MM-dd HH:mm', 'en-US'),
+      end: formatDate( myEndDate, 'yyyy-MM-dd HH:mm', 'en-US')})
     }
 
     this.calendarOptions = {
@@ -51,12 +51,13 @@ export class CottageCalendarComponent implements OnInit {
   }
 
   handleSelect(arg: any) {
+    let myStartDate=new Date(arg.startStr);
     let myEndDate=new Date(arg.endStr);
     myEndDate.setDate(myEndDate.getDate() - 1);
     let newAvailability = [{
       availabilityId: 0,
-      startDate: arg.startStr,
-      endDate: formatDate(myEndDate, 'yyyy-MM-dd', 'en-US'),
+      startDate: formatDate(myStartDate, 'yyyy-MM-dd HH:mm', 'en-US'),
+      endDate: formatDate(myEndDate, 'yyyy-MM-dd HH:mm', 'en-US'),
       cottageId: this.cottage.cottageId,
     }]
     this.cottageService.addAvailability(newAvailability).subscribe(
