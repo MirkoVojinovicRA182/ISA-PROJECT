@@ -41,6 +41,7 @@ import { CottageCalendarComponent } from './components/cottage-owner-components/
 import { ShipsPreviewComponent } from './components/ship-owner-components/ships-preview/ships-preview.component';
 import { ShipsOwnerHomePageComponent } from './components/ship-owner-components/ships-owner-home-page/ships-owner-home-page.component';
 import { ShipsOwnerDefaultComponent } from './components/ship-owner-components/ships-owner-default/ships-owner-default.component';
+import { ShipComponent } from './components/ship-owner-components/ship/ship.component';
 
 const routes: Routes = [
 
@@ -199,6 +200,10 @@ const routes: Routes = [
       {
         path: 'shipsPreview',
         component: ShipsPreviewComponent
+      },
+      {
+        path: 'shipDetails',
+        component: ShipComponent
       },
     ]
   },

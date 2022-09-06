@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body style="background-color: white; height: 100%;">
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="container" style="text-align: center; width: 80%; max-height: 600px !important; margin-top: 15px; margin-bottom: 10px !important;width: 70%;">
+                <div _ngcontent-rys-c26="" class="browser-content" style="padding-bottom: 10px;">
+                    <div _ngcontent-rys-c26="" class="text-align: center;">
+                        <div _ngcontent-rys-c26="" style="margin-bottom: 20px; width: 100% !important; margin-left: auto; margin-right: auto;">
+                            <carousel style="margin: auto; z-index: 0;"
+                                [height]="500"
+                                [cellWidth]="'100%'"
+                                [arrowsOutside]="true"
+                                [dots]="true"
+                                [autoplay]="true"
+                                [autoplayInterval]="3500"
+                                [transitionDuration]="1000"
+                                [transitionTimingFunction]="'ease'"
+                                [borderRadius]="15"
+                                [loop]="true">
+                                <div class="carousel-cell" *ngFor="let image of ship.images">
+                                    <img [src]="getImage(image)">
+                                </div>
+                            </carousel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 container" style="margin-top: 0px !important;">
+                <div class="card">
+                    <div class="buttons">
+                        <button class="btn btn-light wishlist whiteButton" style="width: 145px; block-size: fit-content" (click)="showEditDialog()">
+                                <i class="fa fa-pen" aria-hidden="true"></i>
+                                <p style="margin: 0px;">Edit</p>
+                        </button>
+                        <label class="btn btn-light wishlist whiteButton" style="width: 145px; block-size: fit-content">
+                            <input type="file" (change)="selectFile($event)"/>
+                            <i class="fa fa-image" aria-hidden="true"></i>
+                            <p style="margin: 0px;">Image</p>
+                        </label>
+                        <button class="btn btn-light wishlist whiteButton" style="width: 145px; block-size: fit-content" (click)="showCalendar()">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <p style="margin: 0px;">Calendar</p>
+                        </button>
+                        <button class="btn btn-danger float-right mr-3 mt-1" style="width: 145px; block-size: fit-content" (click)="deleteShip()">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                            <p style="margin: 0px;">Delete</p>
+                        </button>
+                    </div>
+                    <div class="d-flex flex-row align-items-center" style="margin-top: 10px;">
+                        <div class="p-ratings">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <span class="ml-1">5.0</span>
+                    </div>
+                    <div class="about">
+                        <span class="font-weight-bold" style="font-size: 30px;">{{ship?.name}}</span><br>
+                        <span class="font-weight" style="font-size: 20px; position: absolute; right: 10px;">Address:{{ship?.address}}</span>
+                    </div><br>
+                    <hr>
+                    <div class="product-description" style="background-color: rgb(245, 245, 245); padding: 5px;">
+                        <div>
+                            <div>
+                                <span class="font-weight-bold" style="font-size: 20px;">Description:</span>
+                                <p>{{ship?.promotiveDescription}}</p>
+                            </div>
+                            <hr>
+                            <div>
+                                <div class="element" style="vertical-align: top;">
+                                    <span class="font-weight-bold" style="font-size: 18px;">Conduct rules:</span>
+                                    <p>{{ship?.conductRules}}</p>
+                                    <span class="font-weight-bold" style="font-size: 18px;">Pricelist:</span>
+                                    <p>{{ship?.pricelist}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+</body>
+</html>

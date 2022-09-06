@@ -96,7 +96,9 @@ import yearGridPlugin from '@fullcalendar/timegrid';
 import { ShipsPreviewComponent } from './components/ship-owner-components/ships-preview/ships-preview.component';
 import { ShipsOwnerHomePageComponent } from './components/ship-owner-components/ships-owner-home-page/ships-owner-home-page.component';
 import { ShipsOwnerDefaultComponent } from './components/ship-owner-components/ships-owner-default/ships-owner-default.component';
-import { NewShipComponent } from './components/ship-owner-components/new-ship/new-ship.component'; // a plugin!
+import { NewShipComponent } from './components/ship-owner-components/new-ship/new-ship.component';
+import { ShipComponent } from './components/ship-owner-components/ship/ship.component';
+import { ShipEditComponent } from './components/ship-owner-components/ship-edit/ship-edit.component'; // a plugin!
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -177,6 +179,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ShipsOwnerHomePageComponent,
     ShipsOwnerDefaultComponent,
     NewShipComponent,
+    ShipComponent,
+    ShipEditComponent,
   ],
   imports: [
     BrowserModule,

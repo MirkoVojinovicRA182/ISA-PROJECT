@@ -51,10 +51,10 @@ export class ShipsPreviewComponent implements OnInit {
     this.addressFilter = filter;
   }
 
-  public shipDetails(cottage: any){
-    var selectedCottage = JSON.stringify(cottage)
-    localStorage.setItem('selectedCottage', selectedCottage)
-    this.router.navigate(['cottageOwner/cottageDetails'])
+  public shipDetails(ship: any){
+    var selectedShip = JSON.stringify(ship)
+    localStorage.setItem('selectedShip', selectedShip)
+    this.router.navigate(['/shipOwner/shipDetails'])
   }
 
   addNewShipDialog(){

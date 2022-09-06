@@ -23,4 +23,20 @@ export class ShipsService {
   createShip(ship: any){
     return this.http.post<any>(this._url + 'ship/createShip', ship)
   }
+
+  deleteShip(shipId: number){
+    return this.http.delete<any>(this._url + 'ship/deleteShip/' + shipId)
+  }
+
+  updateShip(ship: any){
+    return this.http.put<any>(this._url + 'ship/updateShip', ship)
+  }
+
+  addImages(image: any){
+    return this.http.post<any>(this._url + 'ship/addImage/', image)
+  }
+
+  removeImage(image: any){
+    return this.http.put<any>(this._url + 'ship/deleteImage/', image)
+  }
 }
