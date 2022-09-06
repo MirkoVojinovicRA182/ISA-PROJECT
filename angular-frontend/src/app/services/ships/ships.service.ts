@@ -15,4 +15,12 @@ export class ShipsService {
   getAllShips(): Observable<any>{
     return this.http.get<any>(this._url + 'entity/getAllShips/');
   }
+
+  getUsersShips(userId: number){
+    return this.http.get<any>(this._url + 'ship/getUserShips/' + userId);
+  }
+
+  createShip(ship: any){
+    return this.http.post<any>(this._url + 'ship/createShip', ship)
+  }
 }

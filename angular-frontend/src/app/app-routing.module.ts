@@ -38,6 +38,9 @@ import { ClientShipComponent } from './components/client-components/client-ship/
 import { ReservationsComponent } from './components/client-components/reservations/reservations.component';
 import { ClientHistoryComponent } from './components/client-components/client-history/client-history.component';
 import { CottageCalendarComponent } from './components/cottage-owner-components/cottage-calendar/cottage-calendar.component';
+import { ShipsPreviewComponent } from './components/ship-owner-components/ships-preview/ships-preview.component';
+import { ShipsOwnerHomePageComponent } from './components/ship-owner-components/ships-owner-home-page/ships-owner-home-page.component';
+import { ShipsOwnerDefaultComponent } from './components/ship-owner-components/ships-owner-default/ships-owner-default.component';
 
 const routes: Routes = [
 
@@ -179,6 +182,23 @@ const routes: Routes = [
       {
         path: 'calendar',
         component: CottageCalendarComponent
+      },
+    ]
+  },
+
+  // SHIP OWNER ROUTES
+
+  {
+    path: 'shipOwner',
+    component: ShipsOwnerHomePageComponent,
+    children: [
+      {
+        path: '',
+        component: ShipsOwnerDefaultComponent
+      },
+      {
+        path: 'shipsPreview',
+        component: ShipsPreviewComponent
       },
     ]
   },

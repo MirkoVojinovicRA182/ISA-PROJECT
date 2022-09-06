@@ -1,5 +1,7 @@
 package app.service;
 
+import java.util.List;
+
 import app.dto.ShipDTO;
 
 public interface ShipService {
@@ -7,4 +9,5 @@ public interface ShipService {
     void deleteShip(Integer shipId);
     ShipDTO updateShip(ShipDTO shipDTO);
     ShipDTO getShipById(Integer cottageId);
+    List<ShipDTO> getUserShips(Integer userId);
 }

@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<body tabindex="-1" style="overflow: auto;">
+    <h1>Edit your ship info</h1>
+    <hr>
+    <div>
+        <div class="element">
+            <p class="info-font mb-1 mt-2">Name:</p>
+            <input class="info-font input-size" type="text" [(ngModel)] = "ship.name">
+            <p class="info-font mb-1 mt-2">Type:</p>
+            <input class="info-font input-size" type="text" [(ngModel)] = "ship.type">
+            <p class="info-font mb-1 mt-2">Lenght:</p>
+            <input class="info-font input-size" type="number" [(ngModel)] = "ship.lenght">
+            <p class="info-font mb-1 mt-2">Engine number:</p>
+            <input class="info-font input-size" type="number" [(ngModel)] = "ship.engineNumber">
+            <p class="info-font mb-1 mt-2">Engine power:</p>
+            <input class="info-font input-size" type="number" [(ngModel)] = "ship.enginePower">
+            <p class="info-font mb-1 mt-2">Address:</p>
+            <input class="info-font input-size" type="text" [(ngModel)] = "ship.address">
+        </div>
+        <div class="element" style="vertical-align: top;">
+            <p class="info-font mb-1 mt-2">Promotive description:</p>
+            <textarea class="info-font input-size" type="text" style="resize: none; height: 100px;" [(ngModel)] = "ship.promotiveDescription"></textarea>
+            <p class="info-font mb-1 mt-2">Conduct rules:</p>
+            <textarea class="info-font input-size" type="text" style="resize: none; height: 100px;" [(ngModel)] = "ship.conductRules"></textarea>
+            <p class="info-font mb-1 mt-2">Pricelist:</p>
+            <input class="info-font input-size" type="number" [(ngModel)] = "ship.pricelist">
+            <p class="info-font mb-1 mt-2">Max speed:</p>
+            <input class="info-font input-size" type="number" [(ngModel)] = "ship.maxSpeed">
+            <p class="info-font mb-1 mt-2">Cancellation policy :</p>
+            <input class="info-font input-size" type="text" [(ngModel)] = "ship.cancellationPolicy">
+            <p class="info-font mb-1 mt-2">Additional services info:</p>
+            <input class="info-font input-size" type="text" [(ngModel)] = "ship.additionalServicesInfo">
+        </div>
+    </div>
+    <button class="btn greenButton mt-5 ml-5" (click)="addNewShip()">Add ship</button>
+</body>
+

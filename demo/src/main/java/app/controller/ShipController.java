@@ -42,4 +42,10 @@ public class ShipController {
     public ResponseEntity<ShipDTO> getShip(@PathVariable Integer shipId) throws Exception {
         return new ResponseEntity<ShipDTO>(shipService.getShipById(shipId), HttpStatus.OK);
     }
+    
+    @RequestMapping("/getUserShips/{userId}")
+    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getUserShips(@PathVariable Integer userId) throws Exception {
+        return new ResponseEntity<>(shipService.getUserShips(userId), HttpStatus.OK);
+    }
 }

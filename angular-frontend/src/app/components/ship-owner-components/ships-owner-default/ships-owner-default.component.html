@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<body>
+    <div class="container">
+        <h1 style="font-size: 30px;">Information</h1>
+        <hr>
+        <div class="element mt-3">
+            <p class="info-font mb-1 mt-2">First name:</p>
+            <input [disabled]="editDisabled" class="info-font input-size" type="text" [(ngModel)] = "shipOwner.name">
+            <p class="info-font mb-1 mt-2">Last name:</p>
+            <input [disabled]="editDisabled" class="info-font input-size" type="text" [(ngModel)] = "shipOwner.lastName">
+            <p class="info-font mb-1 mt-2">Country:</p>
+            <input [disabled]="editDisabled" class="info-font input-size" type="text" [(ngModel)] = "shipOwner.country">
+            <p class="info-font mb-1 mt-2">City:</p>
+            <input [disabled]="editDisabled" class="info-font input-size" type="text" [(ngModel)] = "shipOwner.city">
+            <p class="info-font mb-1 mt-2">Address:</p>
+            <input [disabled]="editDisabled" class="info-font input-size" type="text" [(ngModel)] = "shipOwner.address">
+        </div>
+        <div class="element mt-3" style="vertical-align:top;">
+            <p class="info-font mb-1 mt-2">Phone:</p>
+            <input [disabled]="editDisabled" class="info-font input-size" type="text" [(ngModel)] = "shipOwner.phoneNumber">
+            <p class="info-font mb-1 mt-2">Email:</p>
+            <input  [disabled]="editDisabled" class="info-font input-size" type="text" [(ngModel)] = "shipOwner.email">
+
+            <p *ngIf="passwordChangeEnabled" class="info-font mb-1 mt-2">New password:</p>
+            <input *ngIf="passwordChangeEnabled" class="info-font input-size" type="password" [(ngModel)] = "newPassword">
+            <p *ngIf="passwordChangeEnabled" class="info-font mb-1 mt-2">Confirm new password:</p>
+            <input *ngIf="passwordChangeEnabled" class="info-font input-size" type="password" [(ngModel)] = "newPasswordConfirm">
+        </div>
+        <div class="element mt-5">
+            <button class="btn greenButton" style="width: 8rem;" (click)="edit($event.target)">Edit</button>
+            <button class="btn whiteButton" (click)="changePassword($event.target)">Change password</button>
+        </div>
+        <div class="element mt-5" style="text-align: right;">
+            <button mat-raised-button class="btn btn-danger" (click)="showDeleteAccountDialog()">Delete account</button>
+        </div>
+    </div>
+</body>

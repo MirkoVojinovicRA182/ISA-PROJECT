@@ -8,6 +8,10 @@ import app.dto.ShipDTO;
 import app.repository.ShipOwnerRepository;
 import app.repository.ShipRepository;
 import app.service.ShipService;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +28,7 @@ public class ShipServiceImpl implements ShipService {
         Ship newShip = new Ship(shipDTO.getName(), shipDTO.getType(), shipDTO.getLength(), shipDTO.getEngineNumber(), shipDTO.getEnginePower(),
                 shipDTO.getMaxSpeed(), shipDTO.getAddress(), shipDTO.getPromotiveDescription(), shipDTO.getCapacity(), shipDTO.getConductRules(),
                 shipDTO.getPricelist(), shipDTO.getAdditionalServicesInfo(), shipDTO.getCancellationPolicy(), shipOwnerRepository.getById(shipDTO.getShipOwnerId()));
+        newShip.setRating(5.0);
         shipRepository.save(newShip);
     }
 
@@ -47,5 +52,16 @@ public class ShipServiceImpl implements ShipService {
             return null;
         }
         return new ShipDTO(ship);
+    }
+    
+    @Override
+    public List<ShipDTO> getUserShips(Integer userId){
+    	List<Ship> ships = shipRepository.getUserShips(userId);
+    	List<ShipDTO> dtos = new ArrayList<>();
+    	for(Ship ship : ships) {
+    		ShipDTO dto = new ShipDTO(ship);
+    		dtos.add(dto);
+    	}
+    	return dtos;
     }
 }
