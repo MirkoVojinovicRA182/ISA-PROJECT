@@ -64,8 +64,7 @@ public class CottageController {
         return new ResponseEntity<>(cottageService.getCottageById(cottageId), HttpStatus.OK);
     }
 
-    @RequestMapping("/addImage")
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/addImage", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CottageDTO> addImage(@RequestBody Set<CottageImageDTO> img) throws Exception {
         return new ResponseEntity<>(cottageService.addImage(img), HttpStatus.OK);
     }
