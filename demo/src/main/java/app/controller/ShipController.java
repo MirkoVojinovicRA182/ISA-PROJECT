@@ -4,6 +4,7 @@ import app.domain.Ship;
 import app.dto.CottageDTO;
 import app.dto.CottageImageDTO;
 import app.dto.ShipDTO;
+import app.dto.ShipWithImagesDTO;
 import app.service.ShipService;
 
 import java.util.Set;
@@ -23,16 +24,16 @@ public class ShipController {
 
     @RequestMapping("/createShip")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ShipDTO> createCottage(@RequestBody ShipDTO shipDto) throws Exception {
+    public ResponseEntity<?> createCottage(@RequestBody ShipDTO shipDto) throws Exception {
         shipService.saveShip(shipDto);
-        return new ResponseEntity<>(shipDto, HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     //@RequestMapping("/updateShip")
     @PutMapping(value = "/updateShip",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> changeCottage(@RequestBody ShipDTO shipDto) throws Exception {
-        shipService.updateShip(shipDto);
-        return new ResponseEntity<>(shipDto, HttpStatus.OK);
+        //shipService.updateShip(shipDto);
+        return new ResponseEntity<>(shipService.updateShip(shipDto), HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/deleteShip/{shipId}")
@@ -58,8 +59,7 @@ public class ShipController {
         return new ResponseEntity<>(shipService.addImage(img), HttpStatus.OK);
     }
 
-    @RequestMapping("/removeImage")
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/removeImage", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> removeImage(@RequestBody CottageImageDTO img) throws Exception {
         return new ResponseEntity<>(shipService.removeImage(img), HttpStatus.OK);
     }

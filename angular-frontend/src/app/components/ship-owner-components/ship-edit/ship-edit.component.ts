@@ -42,12 +42,12 @@ export class ShipEditComponent {
 
   removeImage(image: any){
     let data = {
-      shipImageid: image.id,
+      cottageImageid: image.id,
       url: image.url,
-      shipId: this.ship.cottageId
+      cottageId: this.ship.shipId
     }
     this.shipsService.removeImage(data).subscribe( returnData => { this.ship = returnData, data = returnData,
-      localStorage.setItem('selectedCottage', JSON.stringify(returnData)); window.location.reload()})
+      localStorage.setItem('selectedShip', JSON.stringify(returnData)); window.location.reload()})
   }
 
 }

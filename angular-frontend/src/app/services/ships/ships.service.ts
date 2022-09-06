@@ -33,10 +33,10 @@ export class ShipsService {
   }
 
   addImages(image: any){
-    return this.http.post<any>(this._url + 'ship/addImage/', image)
+    return this.http.put<any>(this._url + 'ship/addImage', image)
   }
 
   removeImage(image: any){
-    return this.http.put<any>(this._url + 'ship/deleteImage/', image)
+    return this.http.put<any>(this._url + 'ship/removeImage', image)
   }
 }

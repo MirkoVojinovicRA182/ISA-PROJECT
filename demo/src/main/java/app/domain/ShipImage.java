@@ -1,16 +1,10 @@
 package app.domain;
 
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+@Entity
 public class ShipImage {
 
 	@Id
@@ -23,7 +17,7 @@ public class ShipImage {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ship_id")
-    @JsonBackReference(value = "ship_images")
+	@JsonBackReference(value = "cottage_images")
     private Ship ship;
     
     public ShipImage() {}

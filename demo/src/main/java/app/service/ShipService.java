@@ -5,13 +5,14 @@ import java.util.Set;
 
 import app.dto.CottageImageDTO;
 import app.dto.ShipDTO;
+import app.dto.ShipWithImagesDTO;
 
 public interface ShipService {
     void saveShip(ShipDTO shipDTO);
     void deleteShip(Integer shipId);
-    ShipDTO updateShip(ShipDTO shipDTO);
+    ShipWithImagesDTO updateShip(ShipDTO shipDTO);
     ShipDTO getShipById(Integer cottageId);
-    List<ShipDTO> getUserShips(Integer userId);
-    ShipDTO addImage(Set<CottageImageDTO> img);
-    ShipDTO removeImage(CottageImageDTO img);
+    List<ShipWithImagesDTO> getUserShips(Integer userId);
+    ShipWithImagesDTO addImage(Set<CottageImageDTO> img);
+    ShipWithImagesDTO removeImage(CottageImageDTO img);
 }

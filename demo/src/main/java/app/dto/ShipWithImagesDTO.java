@@ -1,13 +1,13 @@
 package app.dto;
 
-import app.domain.CottageImage;
 import app.domain.Ship;
 import app.domain.ShipImage;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class ShipDTO {
+public class ShipWithImagesDTO {
+
     private Integer shipId;
     private String name;
     private String type;
@@ -25,11 +25,13 @@ public class ShipDTO {
     private Integer shipOwnerId;
     private Double rating;
 
-    public ShipDTO(){
+    private Set<ShipImage> images;
+
+    public ShipWithImagesDTO(){
         super();
     }
 
-    public ShipDTO(Integer shipId, String name, String type, double length, Integer engineNumber,
+    public ShipWithImagesDTO(Integer shipId, String name, String type, double length, Integer engineNumber,
                    double enginePower, double maxSpeed, String address, String promotiveDescription,
                    Integer capacity, String conductRules, Double pricelist, String additionalServicesInfo,
                    String cancellationPolicy, Integer shipOwnerId) {
@@ -48,9 +50,10 @@ public class ShipDTO {
         this.additionalServicesInfo = additionalServicesInfo;
         this.cancellationPolicy = cancellationPolicy;
         this.shipOwnerId = shipOwnerId;
+        this.images = new HashSet<>();
     }
 
-    public ShipDTO(Ship ship) {
+    public ShipWithImagesDTO(Ship ship) {
         this.shipId = ship.getId();
         this.name = ship.getName();
         this.type = ship.getType();
@@ -67,6 +70,7 @@ public class ShipDTO {
         this.cancellationPolicy = ship.getCancellationPolicy();
         this.shipOwnerId = ship.getShipOwner().getId();
         this.rating = ship.getRating();
+        this.images = (ship.getImages()  != null) ? ship.getImages() : new HashSet<>();
     }
 
     public Double getRating() {
@@ -195,5 +199,13 @@ public class ShipDTO {
 
     public void setShipOwnerId(Integer shipOwnerId) {
         this.shipOwnerId = shipOwnerId;
+    }
+
+    public Set<ShipImage> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<ShipImage> images) {
+        this.images = images;
     }
 }

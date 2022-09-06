@@ -8,6 +8,7 @@ import app.domain.ShipOwner;
 import app.dto.CottageDTO;
 import app.dto.CottageImageDTO;
 import app.dto.ShipDTO;
+import app.dto.ShipWithImagesDTO;
 import app.repository.ShipImageRepository;
 import app.repository.ShipOwnerRepository;
 import app.repository.ShipRepository;
@@ -52,11 +53,11 @@ public class ShipServiceImpl implements ShipService {
     }
 
     @Override
-    public ShipDTO updateShip(ShipDTO shipDTO) {
+    public ShipWithImagesDTO updateShip(ShipDTO shipDTO) {
         Ship shipForUpdate = shipRepository.findById(shipDTO.getShipId()).orElseGet(null);
         shipForUpdate.update(shipDTO);
         shipRepository.save(shipForUpdate);
-        return new ShipDTO(shipForUpdate);
+        return new ShipWithImagesDTO(shipForUpdate);
     }
 
     @Override
@@ -69,18 +70,18 @@ public class ShipServiceImpl implements ShipService {
     }
     
     @Override
-    public List<ShipDTO> getUserShips(Integer userId){
+    public List<ShipWithImagesDTO> getUserShips(Integer userId){
     	List<Ship> ships = shipRepository.getUserShips(userId);
-    	List<ShipDTO> dtos = new ArrayList<>();
+    	List<ShipWithImagesDTO> dtos = new ArrayList<>();
     	for(Ship ship : ships) {
-    		ShipDTO dto = new ShipDTO(ship);
+            ShipWithImagesDTO dto = new ShipWithImagesDTO(ship);
     		dtos.add(dto);
     	}
     	return dtos;
     }
     
     @Override
-    public ShipDTO addImage(Set<CottageImageDTO> imgs) {
+    public ShipWithImagesDTO addImage(Set<CottageImageDTO> imgs) {
         CottageImageDTO firstImage = imgs.stream().findFirst().orElseGet(null);
         Ship shipForUpdate = shipRepository.findById(firstImage.getCottageId()).orElseGet(null);
         Set<ShipImage> images = new HashSet<>();
@@ -99,11 +100,11 @@ public class ShipServiceImpl implements ShipService {
         }
         shipImageRepository.saveAll(images);
         shipRepository.save(shipForUpdate);
-        return new ShipDTO(shipForUpdate);
+        return new ShipWithImagesDTO(shipForUpdate);
     }
 
     @Override
-    public ShipDTO removeImage(CottageImageDTO img) {
+    public ShipWithImagesDTO removeImage(CottageImageDTO img) {
         Ship shipForUpdate = shipRepository.findById(img.getCottageId()).orElseGet(null);
         Set<ShipImage> images = shipImageRepository.getByShip(shipForUpdate.getId());
         ShipImage image = shipImageRepository.findById(img.getCottageImageid()).orElseGet(null);
@@ -113,6 +114,6 @@ public class ShipServiceImpl implements ShipService {
         images.removeIf(i -> i.getId().equals(image.getId()));
         shipRepository.save(shipForUpdate);
         shipImageRepository.deleteById(image.getId());
-        return new ShipDTO(shipForUpdate);
+        return new ShipWithImagesDTO(shipForUpdate);
     }
 }

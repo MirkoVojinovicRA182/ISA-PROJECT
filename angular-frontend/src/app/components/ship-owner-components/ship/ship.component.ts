@@ -75,10 +75,10 @@ export class ShipComponent implements OnInit {
         this.msg = "";
         this.addImages.push(_event.target.result)
         let data2 = {
-          shipImageId: this.ship.images.length,
+          cottageImageId: this.ship.images.length,
           url: this.ship.name + "-" + this.ship.shipId,
           base64: _event.target.result,
-          shipId: this.ship.shipId
+          cottageId: this.ship.shipId
         }
         data.push(data2);
         this.shipsService.addImages(data).subscribe( data => {this.ship = data
