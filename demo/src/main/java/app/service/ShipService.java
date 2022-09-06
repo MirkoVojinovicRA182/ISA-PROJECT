@@ -15,4 +15,5 @@ public interface ShipService {
     ShipWithImagesDTO removeImage(CottageImageDTO img);
 
     ShipWithImagesDTO addShipAvailability(Set<ShipAvailabilityDTO> availability);
+    ShipReservationReportDTO createReport(ShipReservationReportDTO dto);
 }

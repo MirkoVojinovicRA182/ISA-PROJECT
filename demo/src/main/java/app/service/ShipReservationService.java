@@ -21,4 +21,5 @@ public interface ShipReservationService {
     List<UserProfileDTO> getAllUserEverReservated(Integer shipOwnerId);
 
     List<ShipReservationDTO> getForShip(Integer shipId);
+    ActionShipDTO createActionShip(ActionShipDTO action);
 }

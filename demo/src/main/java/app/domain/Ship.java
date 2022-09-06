@@ -76,6 +76,9 @@ public class Ship {
     @JsonBackReference(value = "ship_ship_availability")
     private Set<ShipAvailability> shipAvailability = new HashSet<>();
 
+    @OneToMany(mappedBy = "ship", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<ActionShip> actionShips;
+
     public Ship() {
         super();
     }
@@ -95,6 +98,14 @@ public class Ship {
         this.additionalServicesInfo = additionalServicesInfo;
         this.cancellationPolicy = cancellationPolicy;
         this.shipOwner = shipOwner;
+    }
+
+    public Set<ActionShip> getActionShips() {
+        return actionShips;
+    }
+
+    public void setActionShips(Set<ActionShip> actionShips) {
+        this.actionShips = actionShips;
     }
 
     public Set<ShipAvailability> getShipAvailability() {

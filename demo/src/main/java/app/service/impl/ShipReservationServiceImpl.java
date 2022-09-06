@@ -2,10 +2,7 @@ package app.service.impl;
 
 import app.domain.*;
 import app.dto.*;
-import app.repository.ClientRepository;
-import app.repository.ShipOwnerRepository;
-import app.repository.ShipRepository;
-import app.repository.ShipReservationRepository;
+import app.repository.*;
 import app.service.ShipReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +25,8 @@ public class ShipReservationServiceImpl implements ShipReservationService {
 
     @Autowired
     private ShipOwnerRepository shipOwnerRepository;
+    @Autowired
+    private ActionShipRepository actionShipRepository;
 
     @Override
     public List<ShipReservationDTO> getFreeShips(ShipReservationSearchDTO dto) {
@@ -132,5 +131,15 @@ public class ShipReservationServiceImpl implements ShipReservationService {
             dtos.add(dto);
         }
         return dtos;
+    }
+
+    @Override
+    public ActionShipDTO createActionShip(ActionShipDTO action){
+        Ship ship = shipRepository.findById(action.getShipId()).orElse(null);
+        if(ship == null){
+            return null;
+        }
+        return new ActionShipDTO(actionShipRepository.save(new ActionShip(action.getCreationDate(), action.getStartTime(),  action.getEndTime(),
+                action.getDuration(),  action.getPrice(), ship)));
     }
 }

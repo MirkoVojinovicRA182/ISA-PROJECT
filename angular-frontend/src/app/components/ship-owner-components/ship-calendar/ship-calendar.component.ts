@@ -58,7 +58,7 @@ export class ShipCalendarComponent implements OnInit {
     for(let i = 0; i < this.reservations.length; i++){
       //this.events.push({title: "Rezervisano", start: formatDate( data[i].startTime, 'yyy-MM-dd HH:mm', 'en-US'),
       //end: formatDate( data[i].endTime, 'yyyy-MM-dd HH:mm', 'en-US')})
-      this.pushEvent(this.reservations[i].startTime, this.reservations[i].endTime, this.reservations[i].id)
+      this.pushEvent(this.reservations[i].startTime, this.reservations[i].startTime, this.reservations[i].id)
     }
 
     this.calendarOptions = {

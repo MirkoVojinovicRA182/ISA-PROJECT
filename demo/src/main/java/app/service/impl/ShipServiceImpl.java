@@ -2,10 +2,7 @@ package app.service.impl;
 
 import app.domain.*;
 import app.dto.*;
-import app.repository.ShipAvailabilityRepository;
-import app.repository.ShipImageRepository;
-import app.repository.ShipOwnerRepository;
-import app.repository.ShipRepository;
+import app.repository.*;
 import app.service.ShipService;
 
 import java.io.BufferedOutputStream;
@@ -34,6 +31,10 @@ public class ShipServiceImpl implements ShipService {
     private ShipImageRepository shipImageRepository;
     @Autowired
     private ShipAvailabilityRepository shipAvailabilityRepository;
+    @Autowired
+    private ShipReservationRepository shipReservationRepository;
+    @Autowired
+    private ShipReservationReportRepository shipReservationReportRepository;
 
     @Override
     public void saveShip(ShipDTO shipDTO) {
@@ -143,5 +144,14 @@ public class ShipServiceImpl implements ShipService {
         }
         shipRepository.save(shipForUpdate);
         return new ShipWithImagesDTO(shipForUpdate);
+    }
+
+    public ShipReservationReportDTO createReport(ShipReservationReportDTO dto){
+        ShipReservation reservation = shipReservationRepository.findById(dto.getReservationId()).orElse(null);
+        if (reservation == null){
+            return null;
+        }
+        ShipReservationReport report = shipReservationReportRepository.save(new ShipReservationReport(dto.getReportText(), reservation));
+        return new ShipReservationReportDTO(report.getReportText(), report.getReservation().getId());
     }
 }

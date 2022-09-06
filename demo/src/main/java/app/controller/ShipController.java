@@ -81,4 +81,16 @@ public class ShipController {
     public ResponseEntity<?> addShipAvailability(@RequestBody Set<ShipAvailabilityDTO> availability) throws Exception {
         return new ResponseEntity<>(shipService.addShipAvailability(availability), HttpStatus.OK);
     }
+
+    @RequestMapping("/createAction")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createAction(@RequestBody ActionShipDTO action) throws Exception {
+        return new ResponseEntity<>(shipReservationService.createActionShip(action), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/createReport")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createReport(@RequestBody ShipReservationReportDTO dto) throws Exception {
+        return new ResponseEntity<>(shipService.createReport(dto), HttpStatus.CREATED);
+    }
 }
