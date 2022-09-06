@@ -42,6 +42,7 @@ import { ShipsPreviewComponent } from './components/ship-owner-components/ships-
 import { ShipsOwnerHomePageComponent } from './components/ship-owner-components/ships-owner-home-page/ships-owner-home-page.component';
 import { ShipsOwnerDefaultComponent } from './components/ship-owner-components/ships-owner-default/ships-owner-default.component';
 import { ShipComponent } from './components/ship-owner-components/ship/ship.component';
+import { ShipCalendarComponent } from './components/ship-owner-components/ship-calendar/ship-calendar.component';
 
 const routes: Routes = [
 
@@ -204,6 +205,10 @@ const routes: Routes = [
       {
         path: 'shipDetails',
         component: ShipComponent
+      },
+      {
+        path: 'calendar',
+        component: ShipCalendarComponent
       },
     ]
   },

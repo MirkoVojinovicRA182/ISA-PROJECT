@@ -1,14 +1,8 @@
 package app.service.impl;
 
-import app.domain.Cottage;
-import app.domain.CottageImage;
-import app.domain.Ship;
-import app.domain.ShipImage;
-import app.domain.ShipOwner;
-import app.dto.CottageDTO;
-import app.dto.CottageImageDTO;
-import app.dto.ShipDTO;
-import app.dto.ShipWithImagesDTO;
+import app.domain.*;
+import app.dto.*;
+import app.repository.ShipAvailabilityRepository;
 import app.repository.ShipImageRepository;
 import app.repository.ShipOwnerRepository;
 import app.repository.ShipRepository;
@@ -19,6 +13,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -37,6 +32,8 @@ public class ShipServiceImpl implements ShipService {
     
     @Autowired
     private ShipImageRepository shipImageRepository;
+    @Autowired
+    private ShipAvailabilityRepository shipAvailabilityRepository;
 
     @Override
     public void saveShip(ShipDTO shipDTO) {
@@ -114,6 +111,37 @@ public class ShipServiceImpl implements ShipService {
         images.removeIf(i -> i.getId().equals(image.getId()));
         shipRepository.save(shipForUpdate);
         shipImageRepository.deleteById(image.getId());
+        return new ShipWithImagesDTO(shipForUpdate);
+    }
+
+    @Override
+    public ShipWithImagesDTO addShipAvailability(Set<ShipAvailabilityDTO> availability) {
+        ShipAvailabilityDTO newDto = availability.stream().findFirst().orElseGet(null);
+        Ship shipForUpdate = shipRepository.findById(newDto.getShipId()).orElseGet(null);
+        for(ShipAvailabilityDTO shipAvailabilityDTO : availability){
+            if(shipAvailabilityDTO.getEndDate().isBefore(LocalDateTime.now())){
+                return new ShipWithImagesDTO(shipForUpdate);
+            }
+            if(shipAvailabilityDTO.getStartDate().isBefore(shipAvailabilityDTO.getEndDate()) || shipAvailabilityDTO.getStartDate().isEqual(shipAvailabilityDTO.getEndDate())) {
+                ShipAvailability shipAvailability = new ShipAvailability(shipAvailabilityDTO);
+                shipAvailability.setShip(shipForUpdate);
+                boolean overlap = false;
+                for (ShipAvailability c : shipForUpdate.getShipAvailability()) {
+                    if (shipAvailability.getStartDate().isBefore(c.getStartDate()) && shipAvailability.getEndDate().isBefore(c.getStartDate()) ||
+                            shipAvailability.getStartDate().isAfter(c.getEndDate()) && shipAvailability.getEndDate().isAfter(c.getEndDate())) {
+                        overlap = overlap;
+                    } else {
+                        overlap = true;
+                    }
+                }
+                if ((shipAvailability.getEndDate().isAfter(shipAvailability.getStartDate()) || shipAvailability.getEndDate().isEqual(shipAvailability.getStartDate())) && !overlap) {
+                    shipAvailabilityRepository.save(shipAvailability);
+                    shipForUpdate.getShipAvailability().add(shipAvailability);
+                    shipRepository.save(shipForUpdate);
+                }
+            }
+        }
+        shipRepository.save(shipForUpdate);
         return new ShipWithImagesDTO(shipForUpdate);
     }
 }

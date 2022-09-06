@@ -111,4 +111,26 @@ public class ShipReservationServiceImpl implements ShipReservationService {
         shipReservationRepository.deleteById(id);
         return true;
     }
+    @Override
+    public List<UserProfileDTO> getAllUserEverReservated(Integer cottageOwnerId){
+        List<UserProfileDTO> users = new ArrayList<>();
+        List<Client> clients = shipReservationRepository.getAllUserEverReservated(cottageOwnerId);
+        for (Client client : clients){
+            users.add(new UserProfileDTO(client));
+        }
+        return users;
+    }
+
+    @Override
+    public List<ShipReservationDTO> getForShip(Integer shipId){
+        List<ShipReservation> reservations =  shipReservationRepository.getForShip(shipId);
+        List<ShipReservationDTO> dtos = new ArrayList<>();
+        for (ShipReservation res : reservations){
+            ShipReservationDTO dto = new ShipReservationDTO(res.getStartTime(), res.getPrice(),
+                    res.getClient().getId(),  res.getShip().getId());
+            dto.setId(res.getId());
+            dtos.add(dto);
+        }
+        return dtos;
+    }
 }

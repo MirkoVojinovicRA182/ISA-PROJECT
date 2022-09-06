@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 
 public class ShipReservationDTO {
 
+    private Integer id;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     private LocalDateTime startTime;
@@ -28,6 +30,14 @@ public class ShipReservationDTO {
         this.price = price;
         this.clientId = clientId;
         this.shipId = shipId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public LocalDateTime getStartTime() { return startTime; }

@@ -3,9 +3,7 @@ package app.service;
 import java.util.List;
 import java.util.Set;
 
-import app.dto.CottageImageDTO;
-import app.dto.ShipDTO;
-import app.dto.ShipWithImagesDTO;
+import app.dto.*;
 
 public interface ShipService {
     void saveShip(ShipDTO shipDTO);
@@ -15,4 +13,6 @@ public interface ShipService {
     List<ShipWithImagesDTO> getUserShips(Integer userId);
     ShipWithImagesDTO addImage(Set<CottageImageDTO> img);
     ShipWithImagesDTO removeImage(CottageImageDTO img);
+
+    ShipWithImagesDTO addShipAvailability(Set<ShipAvailabilityDTO> availability);
 }

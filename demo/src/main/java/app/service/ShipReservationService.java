@@ -1,9 +1,6 @@
 package app.service;
 
-import app.dto.ReservationDTO;
-import app.dto.ReservationHistoryDTO;
-import app.dto.ShipReservationDTO;
-import app.dto.ShipReservationSearchDTO;
+import app.dto.*;
 
 import java.util.List;
 
@@ -20,4 +17,8 @@ public interface ShipReservationService {
     List<ReservationHistoryDTO> getShipCurrentReservations(Integer clientId);
 
     boolean cancelShipReservation(Integer id);
+
+    List<UserProfileDTO> getAllUserEverReservated(Integer shipOwnerId);
+
+    List<ShipReservationDTO> getForShip(Integer shipId);
 }

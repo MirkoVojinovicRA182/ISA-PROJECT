@@ -98,7 +98,8 @@ import { ShipsOwnerHomePageComponent } from './components/ship-owner-components/
 import { ShipsOwnerDefaultComponent } from './components/ship-owner-components/ships-owner-default/ships-owner-default.component';
 import { NewShipComponent } from './components/ship-owner-components/new-ship/new-ship.component';
 import { ShipComponent } from './components/ship-owner-components/ship/ship.component';
-import { ShipEditComponent } from './components/ship-owner-components/ship-edit/ship-edit.component'; // a plugin!
+import { ShipEditComponent } from './components/ship-owner-components/ship-edit/ship-edit.component';
+import { ShipCalendarComponent } from './components/ship-owner-components/ship-calendar/ship-calendar.component'; // a plugin!
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -181,6 +182,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NewShipComponent,
     ShipComponent,
     ShipEditComponent,
+    ShipCalendarComponent,
   ],
   imports: [
     BrowserModule,

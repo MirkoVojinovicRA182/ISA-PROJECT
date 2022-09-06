@@ -1,10 +1,8 @@
 package app.controller;
 
 import app.domain.Ship;
-import app.dto.CottageDTO;
-import app.dto.CottageImageDTO;
-import app.dto.ShipDTO;
-import app.dto.ShipWithImagesDTO;
+import app.dto.*;
+import app.service.ShipReservationService;
 import app.service.ShipService;
 
 import java.util.Set;
@@ -21,6 +19,8 @@ import org.springframework.web.bind.annotation.*;
 public class ShipController {
     @Autowired
     private ShipService shipService;
+    @Autowired
+    private ShipReservationService shipReservationService;
 
     @RequestMapping("/createShip")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -62,5 +62,23 @@ public class ShipController {
     @PutMapping(value = "/removeImage", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> removeImage(@RequestBody CottageImageDTO img) throws Exception {
         return new ResponseEntity<>(shipService.removeImage(img), HttpStatus.OK);
+    }
+
+    @RequestMapping("/addUsersReservated/{shipOwnerId}")
+    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> allUserReservated(@PathVariable Integer shipOwnerId) throws Exception {
+        return new ResponseEntity<>(shipReservationService.getAllUserEverReservated(shipOwnerId), HttpStatus.OK);
+    }
+
+    @RequestMapping("/reservations/{shipId}")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getForShip(@PathVariable Integer shipId) throws Exception {
+        return new ResponseEntity<>(shipReservationService.getForShip(shipId), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/addShipAvailability")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> addShipAvailability(@RequestBody Set<ShipAvailabilityDTO> availability) throws Exception {
+        return new ResponseEntity<>(shipService.addShipAvailability(availability), HttpStatus.OK);
     }
 }

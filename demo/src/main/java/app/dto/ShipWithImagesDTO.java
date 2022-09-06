@@ -1,6 +1,8 @@
 package app.dto;
 
+import app.domain.CottageAvailability;
 import app.domain.Ship;
+import app.domain.ShipAvailability;
 import app.domain.ShipImage;
 
 import java.util.HashSet;
@@ -26,6 +28,7 @@ public class ShipWithImagesDTO {
     private Double rating;
 
     private Set<ShipImage> images;
+    private Set<ShipAvailability> shipAvailability;
 
     public ShipWithImagesDTO(){
         super();
@@ -51,6 +54,7 @@ public class ShipWithImagesDTO {
         this.cancellationPolicy = cancellationPolicy;
         this.shipOwnerId = shipOwnerId;
         this.images = new HashSet<>();
+        this.shipAvailability = new HashSet<>();
     }
 
     public ShipWithImagesDTO(Ship ship) {
@@ -71,6 +75,15 @@ public class ShipWithImagesDTO {
         this.shipOwnerId = ship.getShipOwner().getId();
         this.rating = ship.getRating();
         this.images = (ship.getImages()  != null) ? ship.getImages() : new HashSet<>();
+        this.shipAvailability = (ship.getShipAvailability()  != null) ? ship.getShipAvailability() : new HashSet<>();
+    }
+
+    public Set<ShipAvailability> getShipAvailability() {
+        return shipAvailability;
+    }
+
+    public void setShipAvailability(Set<ShipAvailability> shipAvailability) {
+        this.shipAvailability = shipAvailability;
     }
 
     public Double getRating() {
