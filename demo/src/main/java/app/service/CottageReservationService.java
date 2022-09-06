@@ -1,7 +1,10 @@
 package app.service;
 
+import app.domain.Client;
+import app.domain.CottageReservation;
 import app.dto.*;
 
+import java.util.Date;
 import java.util.List;
 
 public interface CottageReservationService {
@@ -19,4 +22,11 @@ public interface CottageReservationService {
 
     Boolean cancelCottageReservation(Integer id);
     List<CottageReservationDTO> getCottageReservations(Integer cottageId);
+    List<UserProfileDTO> getAllUserEverReservated(Integer cottageOwnerId);
+
+    ActionCottageDTO createActionCottage(ActionCottageDTO action);
+
+    List<CottageReservationDTO> getFinished(Integer cottageId);
+
+    List<CottageReservationDTO> getForCottage(Integer cottageId);
 }

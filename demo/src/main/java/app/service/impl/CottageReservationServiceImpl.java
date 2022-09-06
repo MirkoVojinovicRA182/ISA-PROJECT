@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.chrono.ChronoLocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -33,6 +34,8 @@ public class CottageReservationServiceImpl implements CottageReservationService 
 
     @Autowired
     private CottageOwnerRepository cottageOwnerRepository;
+    @Autowired
+    private ActionCottageRepository actionCottageRepository;
 
     @Override
     public List<CottageReservationDTO> getFreeCottages(CottageReservationSearchDTO dto) {
@@ -64,7 +67,7 @@ public class CottageReservationServiceImpl implements CottageReservationService 
     }
 
     @Override
-    public void bookACottage(CottageReservationDTO dto) {
+    public void  bookACottage(CottageReservationDTO dto) {
         Cottage cottage = cottageRepository.getByCottageId(dto.getCottageId());
         cottageReservationRepository.save(new CottageReservation(dto.getStartTime(), dto.getPrice(),
                 clientRepository.getById(dto.getClientId()), cottage));
@@ -87,13 +90,13 @@ public class CottageReservationServiceImpl implements CottageReservationService 
         if(dto.getStartTime().isAfter(dto.getEndTime()))
             return false;
         List<CottageReservation> reservations = cottageReservationRepository.findAll();
-        CottageAvailability availability = cottageAvailabilityRepository.findByCottageId(dto.getId());
+        List<CottageAvailability> availability = cottageAvailabilityRepository.findByCottageId(dto.getId());
         if(availability == null)
             return false;
-        if (availability.getStartDate().isAfter(dto.getStartTime())
+        /*if (availability.getStartDate().isAfter(dto.getStartTime())
                 || availability.getEndDate().isBefore(dto.getStartTime())){
             return false;
-        }
+        }*/
         if (reservations.size() == 0)
             return true;
 
@@ -167,5 +170,47 @@ public class CottageReservationServiceImpl implements CottageReservationService 
                     reservation.getClient().getId(), reservation.getCottage().getId()));
         }
         return reservations;
+    }
+
+    public List<UserProfileDTO> getAllUserEverReservated(Integer cottageOwnerId){
+        List<UserProfileDTO> users = new ArrayList<>();
+        List<Client> clients = cottageReservationRepository.getAllUserEverReservated(cottageOwnerId);
+        for (Client client : clients){
+            users.add(new UserProfileDTO(client));
+        }
+        return users;
+    }
+
+    public ActionCottageDTO createActionCottage(ActionCottageDTO action){
+        Cottage cottage = cottageRepository.findById(action.getCottageId()).orElse(null);
+        if(cottage == null){
+            return null;
+        }
+        return new ActionCottageDTO(actionCottageRepository.save(new ActionCottage(action.getCreationDate(), action.getStartTime(),  action.getEndTime(),
+                action.getDuration(),  action.getPrice(), cottage)));
+    }
+
+    public List<CottageReservationDTO> getFinished(Integer cottageId){
+        List<CottageReservation> reservations =  cottageReservationRepository.getFinished(cottageId ,new Date());
+        List<CottageReservationDTO> dtos = new ArrayList<>();
+        for (CottageReservation res : reservations){
+            CottageReservationDTO dto = new CottageReservationDTO(res.getStartTime(),  res.getEndTime(), res.getPrice(),
+                    res.getClient().getId(),  res.getCottage().getId());
+            dto.setId(res.getId());
+            dtos.add(dto);
+        }
+        return dtos;
+    }
+
+    public List<CottageReservationDTO> getForCottage(Integer cottageId){
+        List<CottageReservation> reservations =  cottageReservationRepository.getForCottage(cottageId);
+        List<CottageReservationDTO> dtos = new ArrayList<>();
+        for (CottageReservation res : reservations){
+            CottageReservationDTO dto = new CottageReservationDTO(res.getStartTime(),  res.getEndTime(), res.getPrice(),
+                    res.getClient().getId(),  res.getCottage().getId());
+            dto.setId(res.getId());
+            dtos.add(dto);
+        }
+        return dtos;
     }
 }

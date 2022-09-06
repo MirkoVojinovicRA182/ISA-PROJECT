@@ -38,6 +38,10 @@ public class CottageServiceImpl implements CottageService {
 
     @Autowired
     private CottageAvailabilityRepository cottageAvailabilityRepository;
+    @Autowired
+    CottageReservationReportRepository cottageReservationReportRepository;
+    @Autowired
+    CottageReservationRepository cottageReservationRepository;
 
     @Override
     public CottageDTO saveCottage(ChangeCottageDTO cottageDTO) {
@@ -208,5 +212,14 @@ public class CottageServiceImpl implements CottageService {
             }
         }
         return false;
+    }
+
+    public CottageReservationReportDTO createReport(CottageReservationReportDTO dto){
+        CottageReservation reservation = cottageReservationRepository.findById(dto.getReservationId()).orElse(null);
+        if (reservation == null){
+            return null;
+        }
+        CottageReservationReport report = cottageReservationReportRepository.save(new CottageReservationReport(dto.getReportText(), reservation));
+        return new CottageReservationReportDTO(report.getReportText(), report.getReservation().getId());
     }
 }

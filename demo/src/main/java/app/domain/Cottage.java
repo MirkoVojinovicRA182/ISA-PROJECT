@@ -62,6 +62,9 @@ public class Cottage {
     @JsonBackReference(value = "cottage_cottage_availability")
     private Set<CottageAvailability> cottageAvailability = new HashSet<>();
 
+    @OneToMany(mappedBy = "cottage", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Set<ActionCottage> actionCottages;
+
     public Cottage() {
         super();
     }
@@ -76,6 +79,14 @@ public class Cottage {
         this.conductRules = conductRules;
         this.pricelist = pricelist;
         this.cottageOwner = cottageOwner;
+    }
+
+    public Set<ActionCottage> getActionCottages() {
+        return actionCottages;
+    }
+
+    public void setActionCottages(Set<ActionCottage> actionCottages) {
+        this.actionCottages = actionCottages;
     }
 
     public Double getRating() {

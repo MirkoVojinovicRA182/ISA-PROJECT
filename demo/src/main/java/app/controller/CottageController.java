@@ -4,6 +4,7 @@ import app.domain.CottageImage;
 import app.domain.Mark;
 import app.domain.Room;
 import app.dto.*;
+import app.service.CottageReservationService;
 import app.service.CottageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,12 +18,14 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT})
+@CrossOrigin(origins = "http://localhost:4200"/*, methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT}*/)
 @RequestMapping("/api/cottage")
 public class CottageController {
 
     @Autowired
     private CottageService cottageService;
+    @Autowired
+    CottageReservationService cottageReservationService;
 
     @RequestMapping("/createCottage")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -95,6 +98,36 @@ public class CottageController {
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Integer> rateCottage( @RequestBody MarkDTO mark) throws Exception {
         return new ResponseEntity<>(cottageService.rateCottage(mark), HttpStatus.OK);
+    }
+
+    @RequestMapping("/addUsersReservated/{cottageOwnerId}")
+    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> allUserReservated(@PathVariable Integer cottageOwnerId) throws Exception {
+        return new ResponseEntity<>(cottageReservationService.getAllUserEverReservated(cottageOwnerId), HttpStatus.OK);
+    }
+
+    @RequestMapping("/createAction")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createAction(@RequestBody ActionCottageDTO action) throws Exception {
+        return new ResponseEntity<>(cottageReservationService.createActionCottage(action), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/createReport")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createReport(@RequestBody CottageReservationReportDTO dto) throws Exception {
+        return new ResponseEntity<>(cottageService.createReport(dto), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/finished/{cottageId}")
+    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getFinished(@PathVariable Integer cottageId) throws Exception {
+        return new ResponseEntity<>(cottageReservationService.getFinished(cottageId), HttpStatus.CREATED);
+    }
+
+    @RequestMapping("/reservations/{cottageId}")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getForCottage(@PathVariable Integer cottageId) throws Exception {
+        return new ResponseEntity<>(cottageReservationService.getForCottage(cottageId), HttpStatus.CREATED);
     }
     
 }

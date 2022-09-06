@@ -57,4 +57,24 @@ export class CottagesService {
     return this.http.delete(this._url + 'cottage/deleteCottageAvailability/' + data);
   }
 
+  getAllUsersReservated(cottageOwnerId: number){
+    return this.http.get(this._url + 'cottage/addUsersReservated/' + cottageOwnerId);
+  }
+
+  reservateCottage(reservation: any){
+    return this.http.post(this._url + "reservation/cottageReservation", reservation);
+  }
+
+  createAction(action: any){
+    return this.http.post(this._url + "cottage/createAction", action);
+  }
+
+  getReservations(cottageId: number){
+    return this.http.get<any>(this._url + "cottage/reservations/" + cottageId);
+  }
+
+  createReport(report: any){
+    return this.http.post(this._url + "cottage/createReport", report);
+  }
+
 }

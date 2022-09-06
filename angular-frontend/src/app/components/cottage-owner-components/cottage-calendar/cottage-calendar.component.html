@@ -2,3 +2,27 @@
 <div>
     <full-calendar class="mt-3" style="width: 95%; margin-left: auto; margin-right: auto;" [options]="calendarOptions"></full-calendar>
 </div>
+<div style="margin-top: 2rem; margin-left: 3rem;">
+    <label style="margin-right: 0.5rem;">Action</label>
+    <input type="checkbox" [(ngModel)] = "action">
+    <div style="display: flex;">
+        <div class="form-group" style="margin-top: 1rem; margin-bottom: 1rem;">
+            <label>Action duration</label>
+            <input [(ngModel)] = "duration" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter duration">
+            <label>Price</label>
+            <input [(ngModel)] = "actionPrice" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter price">
+        </div>
+        <div style="margin-left: 5rem;">
+            <textarea [(ngModel)] = "reportText"  cols="30" rows="6" placeholder="Insert report text..."></textarea>
+        </div>
+    </div>
+    
+    <h2>Select user to reservate:</h2>
+    <select [(ngModel)] = "selectedUser" >
+        <option *ngFor="let c of allUsersReservated" [value]="c.userId">{{c.name}} {{c.lastName}}</option>
+    </select><br>
+    <div class="form-group" style="margin-top: 1rem;">
+        <label>Price</label>
+        <input [(ngModel)] = "price" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter price">
+    </div>
+</div>

@@ -20,4 +20,6 @@ public interface CottageService {
     CottageDTO addCottageAvailability(Set<CottageAvailabilityDTO> availability);
     CottageDTO removeImage(CottageImageDTO img);
     void deleteCottageAvailability(Integer availabilityId);
+
+    CottageReservationReportDTO createReport(CottageReservationReportDTO dto);
 }

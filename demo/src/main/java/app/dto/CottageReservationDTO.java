@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 
 public class CottageReservationDTO {
 
+    private Integer id;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     private LocalDateTime startTime;
@@ -36,6 +38,14 @@ public class CottageReservationDTO {
         this.price = price;
         this.clientId = clientId;
         this.cottageId = cottageId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public LocalDateTime getStartTime() { return startTime; }
