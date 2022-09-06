@@ -1,7 +1,9 @@
 package app.service;
 
 import java.util.List;
+import java.util.Set;
 
+import app.dto.CottageImageDTO;
 import app.dto.ShipDTO;
 
 public interface ShipService {
@@ -10,4 +12,6 @@ public interface ShipService {
     ShipDTO updateShip(ShipDTO shipDTO);
     ShipDTO getShipById(Integer cottageId);
     List<ShipDTO> getUserShips(Integer userId);
+    ShipDTO addImage(Set<CottageImageDTO> img);
+    ShipDTO removeImage(CottageImageDTO img);
 }

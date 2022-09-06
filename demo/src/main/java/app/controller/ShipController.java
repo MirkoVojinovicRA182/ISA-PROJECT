@@ -2,8 +2,12 @@ package app.controller;
 
 import app.domain.Ship;
 import app.dto.CottageDTO;
+import app.dto.CottageImageDTO;
 import app.dto.ShipDTO;
 import app.service.ShipService;
+
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -47,5 +51,16 @@ public class ShipController {
     @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getUserShips(@PathVariable Integer userId) throws Exception {
         return new ResponseEntity<>(shipService.getUserShips(userId), HttpStatus.OK);
+    }
+    
+    @PutMapping(value = "/addImage", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> addImage(@RequestBody Set<CottageImageDTO> img) throws Exception {
+        return new ResponseEntity<>(shipService.addImage(img), HttpStatus.OK);
+    }
+
+    @RequestMapping("/removeImage")
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> removeImage(@RequestBody CottageImageDTO img) throws Exception {
+        return new ResponseEntity<>(shipService.removeImage(img), HttpStatus.OK);
     }
 }

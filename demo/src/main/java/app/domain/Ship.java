@@ -3,6 +3,9 @@ package app.domain;
 import app.dto.ShipDTO;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -64,6 +67,10 @@ public class Ship {
     
     @OneToMany(mappedBy = "ship", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Set<ShipComplaint> complaints = new HashSet<ShipComplaint>();
+    
+    @OneToMany(mappedBy = "ship", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonBackReference(value = "ship_images")
+    private Set<ShipImage> images = new HashSet<>();
 
     public Ship() {
         super();
@@ -86,7 +93,15 @@ public class Ship {
         this.shipOwner = shipOwner;
     }
 
-    public Double getRating() {
+    public Set<ShipImage> getImages() {
+		return images;
+	}
+
+	public void setImages(Set<ShipImage> images) {
+		this.images = images;
+	}
+
+	public Double getRating() {
         return rating;
     }
 
